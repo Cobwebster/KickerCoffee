@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'KickerCoffee',
   domain: 'kickercoffee.com',
-  url: 'https://kickercoffee.com',
+  url: 'https://www.kickercoffee.com',
   description:
     'KickerCoffee is your complete coffee resource: step-by-step brewing guides, honest gear reviews, curated home setups, roast education, and free brewing calculators for beginners and experts alike.',
   tagline: 'Everything coffee, from first pour to pro setup.',
@@ -853,35 +853,141 @@ export const BEAN_ARTICLES: BeanArticle[] = [
     topic: 'Origins',
     title: 'Coffee Bean Origins: How Region Shapes Flavor',
     metaDescription:
-      'A guide to coffee bean origins and how growing region shapes flavor. Compare African, Latin American, and Asian coffees and what to expect in the cup.',
+      'A guide to coffee bean origins and how growing region shapes flavor. Compare African, Latin American, and Asian coffees — with country profiles, processing, and buying tips.',
     excerpt: 'Why Ethiopian coffee tastes like blueberries and Sumatran tastes earthy — origin decoded.',
-    readTime: '7 min',
-    updated: '2026-05-25',
+    readTime: '12 min',
+    updated: '2026-07-08',
     image: '/images/origins-hero.png',
     intro:
-      'Where coffee grows — the soil, altitude, climate, and processing — shapes its flavor as much as the roast. Learning regional flavor profiles helps you shop for beans you will love.',
+      'Where coffee grows — the soil, altitude, climate, varietal, and processing method — shapes its flavor as much as the roast. Coffee only thrives in the "Bean Belt" between the Tropics of Cancer and Capricorn, where warm days, cool nights, and seasonal rainfall let cherries ripen slowly and develop complex sugars. Learning regional flavor profiles helps you shop for beans you will love and understand why the same roast tastes completely different from one country to the next.',
     body: [
-      { type: 'heading', text: 'Africa' },
+      { type: 'heading', text: 'The Coffee Belt and why geography matters' },
       {
         type: 'paragraph',
-        text: 'African coffees, especially from Ethiopia and Kenya, are famous for bright acidity and vivid fruit and floral notes — blueberry, jasmine, citrus, and stone fruit. They shine as light-roast pour overs.',
+        text: 'Nearly all commercial coffee is grown within roughly 1,000 km of the equator, across more than 70 countries. Two species dominate: Arabica (about 60% of global production) thrives at higher altitudes and delivers sweeter, more aromatic cups; Robusta (about 40%) grows at lower elevations, tolerates heat and disease better, and produces a heavier, more bitter cup with nearly twice the caffeine. Altitude is one of the biggest flavor levers — beans grown above 1,500 m mature more slowly, developing higher acidity and more nuanced fruit notes, while lower-grown coffees tend toward chocolate, nuts, and body.',
       },
-      { type: 'heading', text: 'Latin America' },
       {
-        type: 'paragraph',
-        text: 'Coffees from Colombia, Brazil, Guatemala, and Costa Rica tend to be balanced and approachable, with chocolate, caramel, nut, and mild fruit notes. They make excellent everyday and espresso coffees.',
+        type: 'list',
+        items: [
+          'Brazil produces roughly 40% of the world\'s coffee — mostly low-altitude Arabica and Robusta used in espresso blends.',
+          'Vietnam is the second-largest producer (~15% of global output), growing primarily Robusta for instant coffee and Vietnamese phin-filter brews.',
+          'Colombia, Ethiopia, and Honduras are among the top specialty Arabica exporters prized by third-wave roasters.',
+          'Ethiopia is widely considered the birthplace of coffee; wild Arabica still grows in the forests of Kaffa.',
+        ],
       },
-      { type: 'heading', text: 'Asia & Pacific' },
+      { type: 'heading', text: 'East Africa' },
       {
         type: 'paragraph',
-        text: 'Indonesian coffees like Sumatra are known for heavy body and earthy, herbal, and spicy notes with low acidity — a bold, savory profile that suits dark roasts.',
+        text: 'East African coffees are the benchmark for bright, expressive cups. High altitude, volcanic soil, and distinctive heirloom or research-bred varietals (like Kenya\'s SL28 and SL34) produce intense acidity and vivid fruit character that specialty roasters often showcase at light roast levels.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Ethiopia (1,500–2,200 m): The origin of coffee. Yirgacheffe, Sidama, and Harrar are the famous regions. Washed Ethiopians taste like jasmine, bergamot, and lemon; natural-processed lots can taste strikingly like blueberry and peach. Heirloom Arabica varietals and Gesha make Ethiopia the most diverse origin on earth.',
+          'Kenya (1,400–2,100 m): Known for blackcurrant, grapefruit, and wine-like complexity. Kenya\'s 72-hour double-washed process and SL28/SL34 varietals create one of the world\'s most distinctive cups — intensely fruity with high acidity. Main harvest runs October through December.',
+          'Rwanda & Burundi: Smaller producers gaining specialty recognition for red apple, black tea, and floral notes with clean, sweet acidity — often excellent value compared to Kenya.',
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'If you love fruity, tea-like pour overs, start with a washed Ethiopian Yirgacheffe or a Kenyan AA. Try them at light roast before moving to naturals, which can taste almost like fruit juice.',
+      },
+      { type: 'heading', text: 'Central America' },
+      {
+        type: 'paragraph',
+        text: 'Central American coffees sit in the sweet spot between African brightness and South American body. Volcanic soil, high altitude, and meticulous washed processing produce clean, balanced cups that work beautifully as pour overs, drip, and single-origin espresso.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Guatemala (1,300–2,000 m): Eight distinct growing regions shaped by volcanoes and lakes. Antigua — nestled between three volcanoes — produces full-bodied cups with dark chocolate, brown spice, and toffee. Huehuetenango offers brighter stone fruit at even higher altitude.',
+          'Costa Rica (1,200–1,900 m): A specialty pioneer and the only Central American country to legally ban Robusta. Tarrazu is the flagship region. Costa Rica popularized honey processing — a middle path between washed clarity and natural fruitiness — yielding honey, peach, and brown sugar notes.',
+          'Honduras (1,000–1,700 m): Now Central America\'s largest producer by volume. Copán, Marcala, and Comayagua deliver sweet, fruit-forward cups (peach, mango, caramel) that offer excellent quality for the price.',
+          'Mexico (900–1,500 m): Chiapas, Veracruz, and Oaxaca produce mild, approachable coffees with chocolate, almond, and subtle spice — great everyday drinkers. Oaxaca is home to the rare Maragogipe "elephant bean," three times the size of a normal coffee seed.',
+        ],
+      },
+      { type: 'heading', text: 'South America' },
+      {
+        type: 'paragraph',
+        text: 'South America is the backbone of global coffee supply. Profiles range from Brazil\'s low-acid, nutty heaviness to Colombia\'s clean sweetness and Peru\'s bright, organic-friendly high-altitude lots.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Colombia (1,200–1,800 m): One of the only countries with two harvest seasons per year (main crop October–February, "mitaca" April–June) thanks to its equatorial geography. Huila and Nariño are the most prized specialty regions. Expect caramel, red apple, hazelnut, and milk chocolate in a reliably clean, sweet cup.',
+          'Brazil (800–1,200 m): Lower altitudes and natural or pulped-natural processing yield low-acid, heavy-bodied coffees with dark chocolate, peanut, and brown sugar. Brazil\'s beans form the foundation of most commercial espresso blends worldwide.',
+          'Peru (1,500–2,100 m): High-altitude farms in Cajamarca and Cusco produce bright, clean cups with citrus and floral notes. Peru is a major source of certified organic and Fair Trade coffee.',
+        ],
+      },
+      { type: 'heading', text: 'Asia & the Pacific' },
+      {
+        type: 'paragraph',
+        text: 'Asian and Pacific coffees often break the "bright and fruity" mold. Heavy rainfall, lower acidity targets, and unique processing methods — especially Indonesia\'s wet-hulling (Giling Basah) — produce bold, savory cups with enormous body.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Indonesia — Sumatra, Java, Sulawesi (1,000–1,700 m): Wet-hulled processing creates the famous low-acid, earthy, syrupy profile with cedar, dark chocolate, and herbal notes. Java tends cleaner and more refined than Sumatra\'s bold, mushroom-and-tobacco character.',
+          'Vietnam (500–1,500 m): Built by French colonists in the 19th century, Vietnam went from negligible production in 1975 to the world\'s #2 producer by 2000. Nearly all output is Robusta — dark chocolate, grain, and molasses notes with very high caffeine. Vietnamese iced coffee (cà phê sữa đá) brewed through a phin filter over condensed milk is the iconic preparation.',
+          'India — Malabar Coast: Monsooned Malabar is a unique process where beans are exposed to monsoon winds, swelling and mellowing into a low-acid, spicy, woody cup unlike anything else.',
+          'Papua New Guinea: Grown on small highland farms (1,400–1,900 m), PNG coffee offers bright acidity with tropical fruit and a clean, sweet finish — a hidden gem in specialty markets.',
+        ],
+      },
+      { type: 'heading', text: 'How processing changes what you taste' },
+      {
+        type: 'paragraph',
+        text: 'Origin sets the potential; processing unlocks it. The same Ethiopian bean can taste completely different depending on how the cherry is handled after harvest.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Washed (wet): Cherry skin and mucilage are removed before drying. Produces the cleanest, brightest cups — the standard for Kenya, Colombia, and most Central American specialty coffee.',
+          'Natural (dry): Whole cherries dry in the sun before de-pulping. Fermentation inside the fruit adds intense berry, wine, and tropical fruit flavors. Common in Ethiopia and Brazil.',
+          'Honey: Some mucilage is left on the bean during drying. Sits between washed and natural — more sweetness and body with moderate clarity. Costa Rica is the classic example.',
+          'Wet-hulled (Giling Basah): Unique to Indonesia. Beans are hulled while still partially wet, creating the heavy body and earthy character Sumatra is known for.',
+        ],
+      },
+      { type: 'heading', text: 'How to choose beans by origin' },
+      {
+        type: 'list',
+        items: [
+          'Want bright, fruity, tea-like? → Ethiopia (natural or washed), Kenya, Rwanda.',
+          'Want balanced, sweet, everyday? → Colombia, Guatemala, Honduras, Costa Rica.',
+          'Want chocolate, nuts, low acidity? → Brazil, Mexico, Sumatra.',
+          'Want bold body for milk drinks? → Brazil, Sumatra, Vietnam (Robusta blends).',
+          'New to specialty? → Start with a medium-roast Colombian or Guatemalan before exploring African naturals.',
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Look for a roast date (not just a "best by" date) and buy whole beans from a roaster who lists the country, region, and processing method. "Single origin" on the bag means one place — but "Ethiopia" alone is broad; "Ethiopia Yirgacheffe, washed, 1,900 m" tells you much more about what is in the cup.',
       },
     ],
     faqs: [
       {
         question: 'What does "single origin" mean?',
         answer:
-          'Single origin means the coffee comes from one place — a single country, region, or even farm — rather than a blend. It highlights the distinctive flavors of that origin.',
+          'Single origin means the coffee comes from one place — a single country, region, or even farm — rather than a blend of multiple sources. It highlights the distinctive flavors of that origin. A bag labeled "Ethiopia" is single origin at the country level; "Ethiopia Yirgacheffe, Kochere Washing Station" narrows it further to a specific micro-region.',
+      },
+      {
+        question: 'Why does Ethiopian coffee taste like blueberries?',
+        answer:
+          'The blueberry note is most common in natural-processed Ethiopian coffees, especially from Sidama and Harrar. During dry processing, sugars and fruit compounds ferment inside the cherry skin, infusing the bean with intense berry flavors. Washed Ethiopians from Yirgacheffe tend toward jasmine and citrus instead.',
+      },
+      {
+        question: 'What is the difference between Arabica and Robusta?',
+        answer:
+          'Arabica (Coffea arabica) grows at 900–2,200 m, has about 1.2% caffeine, and tastes sweeter and more complex — it makes up most specialty coffee. Robusta (Coffea canephora) grows at lower altitudes, has roughly 2.2% caffeine, and tastes earthier, grainier, and more bitter. Vietnam, Uganda, and parts of Brazil grow significant Robusta; most Central American and East African specialty coffee is 100% Arabica.',
+      },
+      {
+        question: 'Does altitude really affect coffee flavor?',
+        answer:
+          'Yes. Higher altitude means cooler temperatures and slower cherry ripening, which allows more complex sugars and acids to develop. Coffees above 1,500 m typically show brighter acidity and more nuanced fruit and floral notes. Below 1,000 m, cherries ripen faster and cups tend toward chocolate, nuts, and heavier body — which is why Brazilian and Vietnamese coffees taste fundamentally different from Kenyan or Ethiopian lots.',
+      },
+      {
+        question: 'Which origin is best for espresso?',
+        answer:
+          'There is no single best origin — it depends on the style. Brazilian beans are classic for crema and chocolate sweetness in blends. Colombians and Guatemalans work beautifully as single-origin espresso with caramel and nut notes. Africans at light roast can make stunning, fruity "modern" espresso but may be too bright for traditional dark-roast milk drinks. Most café espresso blends combine Brazilian body with a brighter Central American or African component.',
       },
     ],
   },
