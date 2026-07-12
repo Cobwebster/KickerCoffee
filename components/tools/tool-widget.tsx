@@ -1,6 +1,7 @@
 'use client'
 
 import { RatioCalculator } from './ratio-calculator'
+import { DripCoffeeCalculator } from './drip-coffee-calculator'
 import { BrewTimer } from './brew-timer'
 import { ColdBrewCalculator } from './cold-brew-calculator'
 import { EspressoCalculator } from './espresso-calculator'
@@ -12,6 +13,7 @@ import { CoffeeLabSimulator } from './coffee-lab'
 
 const WIDGETS: Record<string, () => React.JSX.Element> = {
   'coffee-ratio-calculator': RatioCalculator,
+  'drip-coffee-calculator': DripCoffeeCalculator,
   'brew-timer': BrewTimer,
   'cold-brew-calculator': ColdBrewCalculator,
   'espresso-ratio-calculator': EspressoCalculator,

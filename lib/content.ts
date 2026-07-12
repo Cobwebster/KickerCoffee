@@ -118,6 +118,26 @@ export const BREW_GUIDES: BrewGuide[] = [
         type: 'paragraph',
         text: 'The three levers that matter most are grind size, ratio, and water temperature. Start with a 1:16 ratio (like 20 g coffee to 320 g water), then adjust grind to control brew time. Lighter roasts like hotter water and finer grinds; darker roasts prefer slightly cooler water and coarser grinds.',
       },
+      { type: 'heading', text: 'How pour over should taste when it is dialed in' },
+      {
+        type: 'paragraph',
+        text: 'A well-brewed pour over tastes layered and transparent. You should be able to notice sweetness first, then the acidity and aroma that make the coffee distinct. African coffees often show citrus, berries, or florals, while washed Central American coffees tend to lean toward caramel, stone fruit, and cocoa. If every cup tastes generically sharp or drying, the extraction is usually too aggressive or the water quality is muting the coffee.',
+      },
+      { type: 'heading', text: 'Best beans and water for V60 brewing' },
+      {
+        type: 'paragraph',
+        text: 'Pour over rewards coffees with clarity, so freshly roasted single-origin beans are often the best fit. Aim to brew coffee between 7 and 30 days off roast, and use filtered water rather than distilled or very hard tap water. Water that is too soft makes the cup taste hollow; water with heavy mineral content flattens acidity and can turn bright coffees chalky. If your kettle leaves a lot of scale behind, your brew water is probably holding the cup back.',
+      },
+      { type: 'heading', text: 'Common pour over mistakes' },
+      {
+        type: 'list',
+        items: [
+          'Pouring too aggressively and collapsing the coffee bed, which causes channeling and uneven extraction.',
+          'Ignoring brew weight and using volume instead of a scale, which makes consistency nearly impossible.',
+          'Letting the slurry get too low between pours, which cools the brewer and creates astringency.',
+          'Using stale coffee that no amount of technique can rescue.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -200,6 +220,25 @@ export const BREW_GUIDES: BrewGuide[] = [
       {
         type: 'quote',
         text: '"The French press is the most honest brewer. It shows you exactly what the coffee is. There is nowhere to hide a bad grind or a stale bean."',
+      },
+      { type: 'heading', text: 'What coffees shine in a French press' },
+      {
+        type: 'paragraph',
+        text: 'French press emphasizes body, texture, and roast character, so coffees with chocolate, nut, spice, and ripe fruit notes perform especially well. Natural-process coffees can taste plush and jammy, while medium roasts often land in the sweet spot between richness and clarity. Very dark roasts can work, but they need slightly cooler water and shorter steeping to avoid an ashy finish.',
+      },
+      { type: 'heading', text: 'How to make French press cleaner without losing body' },
+      {
+        type: 'paragraph',
+        text: 'If you like the richness of French press but dislike sediment, wait 5 to 8 minutes after breaking the crust before plunging. During that rest, many fine particles settle to the bottom. Press only the top half of the brew or pour gently through a small mesh strainer into your mug. You still get the oils and weight of immersion coffee, but with less grit in the final cup.',
+      },
+      { type: 'heading', text: 'French press workflow for busy mornings' },
+      {
+        type: 'list',
+        items: [
+          'Measure and pre-grind beans the night before only if you must; whole-bean freshness is still better.',
+          'Heat water while the press pre-warms so you are not waiting for the glass to catch up.',
+          'Decant into an insulated carafe immediately after pressing if you want to sip over 20 to 30 minutes.',
+        ],
       },
     ],
     faqs: [
@@ -293,6 +332,25 @@ export const BREW_GUIDES: BrewGuide[] = [
           'Bitter cup: grind coarser, lower water temperature, or reduce steep time.',
         ],
       },
+      { type: 'heading', text: 'Why the AeroPress is so forgiving' },
+      {
+        type: 'paragraph',
+        text: 'The AeroPress combines a short immersion phase with light pressure, which means it can produce balanced coffee across a surprisingly wide range of grind sizes and recipes. You are less likely to get the harsh over-extraction of a neglected French press or the channeling issues of pour over. That makes it ideal for beginners, travel, office brewing, and anyone working with a grinder that is good but not perfect.',
+      },
+      { type: 'heading', text: 'Choosing beans for AeroPress' },
+      {
+        type: 'paragraph',
+        text: 'Because the AeroPress can be brewed hot and fast or cooler and longer, it handles almost any roast level well. Light roasts come through especially sweet with a higher temperature and a slightly longer steep. Medium roasts are the safest all-round pick if you want a smooth cup with low bitterness. For dark roasts, drop the water temperature and keep the press gentle to avoid a smoky finish.',
+      },
+      { type: 'heading', text: 'AeroPress habits that improve consistency' },
+      {
+        type: 'list',
+        items: [
+          'Use the same mug and setup each time so the chamber sits level and stable during the brew.',
+          'Press with steady, moderate force rather than trying to squeeze every last drop quickly.',
+          'Rinse the rubber plunger seal regularly; old oils can add stale flavors over time.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -372,6 +430,25 @@ export const BREW_GUIDES: BrewGuide[] = [
           'Sour, hollow, thin body: under-extracted — grind finer or increase yield slightly.',
           'Channeling (pale streaks in crema): uneven distribution or tamp. Slow down puck prep.',
           'Watery, weak shot: dose is too low or grind is too coarse for the machine.',
+        ],
+      },
+      { type: 'heading', text: 'What changes most when you switch beans' },
+      {
+        type: 'paragraph',
+        text: 'New coffees often require more adjustment than home baristas expect. Dense light roasts usually want a finer grind and sometimes a slightly longer ratio to open up sweetness. Medium-dark blends built for espresso often run faster and can become bitter if you chase the same shot time too aggressively. Humidity and bean age also matter: espresso that ran perfectly three days ago may need a finer setting today as the beans degas and dry out.',
+      },
+      { type: 'heading', text: 'Milk drink espresso vs straight-shot espresso' },
+      {
+        type: 'paragraph',
+        text: 'If you mostly make cappuccinos or lattes, you can aim for a slightly more concentrated, higher-body shot so the coffee still cuts through milk. Straight espresso usually benefits from a more open extraction with cleaner acidity and a longer finish. Knowing which drink you care about changes how you judge the shot. A shot that feels slightly intense on its own can be perfect once milk is involved.',
+      },
+      { type: 'heading', text: 'Daily espresso maintenance that improves flavor' },
+      {
+        type: 'list',
+        items: [
+          'Brush old grounds from the group head and wipe the basket dry before each shot.',
+          'Backflush on schedule and descale according to your machine manufacturer, especially with hard water.',
+          'Purge the steam wand immediately after milk drinks so stale milk residue never reaches the next cup.',
         ],
       },
     ],
@@ -458,6 +535,25 @@ export const BREW_GUIDES: BrewGuide[] = [
           'Frozen concentrate cubes: freeze concentrate in an ice tray and add to hot coffee or milk for an instant iced drink that never dilutes.',
         ],
       },
+      { type: 'heading', text: 'Which coffees make the best cold brew' },
+      {
+        type: 'paragraph',
+        text: 'Cold brew tends to mute acidity and highlight sweetness, cocoa, and low-toned fruit, so chocolatey medium roasts and fuller-bodied naturals usually perform best. Very bright, floral coffees can taste muted after a long cold extraction. If you want more liveliness in the final glass, choose a medium roast with red-fruit notes rather than the darkest bag on the shelf.',
+      },
+      { type: 'heading', text: 'How steep time changes the flavor' },
+      {
+        type: 'paragraph',
+        text: 'The first 8 to 10 hours build sweetness and body. The hours after that mostly deepen the concentration and pull more woody or dark-chocolate notes. That is why many batches taste best around 14 to 16 hours rather than at the full 18. If your coffee is already naturally heavy, a shorter steep can taste cleaner and more refreshing over ice.',
+      },
+      { type: 'heading', text: 'Cold brew storage mistakes to avoid' },
+      {
+        type: 'list',
+        items: [
+          'Storing concentrate in an unsealed pitcher, which lets it oxidize and pick up fridge odors.',
+          'Keeping the grounds in the liquid after the steep is finished, which continues extraction and adds bitterness.',
+          'Diluting the whole batch at once when you only need a glass at a time, which shortens freshness.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -541,6 +637,25 @@ export const BREW_GUIDES: BrewGuide[] = [
           'Metallic taste: rinse the pot with hot water before each use, and run a few dummy batches with cheap coffee when the pot is new.',
         ],
       },
+      { type: 'heading', text: 'Best coffee styles for Moka pot' },
+      {
+        type: 'paragraph',
+        text: 'Moka pots suit coffees with lower acidity and more developed sugars because the brew is intense and concentrated. Brazilian coffees, classic Italian-style blends, and chocolate-forward medium-dark roasts tend to taste full and comforting. If you use very light beans, expect a sharper and more aggressive cup unless you manage heat extremely carefully.',
+      },
+      { type: 'heading', text: 'How to use Moka pot coffee in drinks' },
+      {
+        type: 'paragraph',
+        text: 'A good Moka pot brew is excellent as a base for cappuccino-style drinks, iced milk drinks, or even an improvised Americano. Because it is stronger than drip but lighter than espresso, it balances well with 120 to 180 ml of hot water or a modest amount of steamed milk. This is one reason it remains a favorite in homes that want espresso-like drinks without the cost or maintenance of a machine.',
+      },
+      { type: 'heading', text: 'Cleaning and care for better flavor' },
+      {
+        type: 'list',
+        items: [
+          'Disassemble the pot after it cools and rinse every part so old coffee oils do not build up and turn rancid.',
+          'Replace the rubber gasket when it hardens or cracks; worn seals reduce pressure and hurt extraction.',
+          'Never store the pot sealed shut while damp, because trapped moisture can create off smells inside the chambers.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -585,6 +700,7 @@ export type GearItem = {
   pros: string[]
   cons: string[]
   body: ContentBlock[]
+  faqs: FaqItem[]
 }
 
 export const GEAR: GearItem[] = [
@@ -628,6 +744,28 @@ export const GEAR: GearItem[] = [
       {
         type: 'tip',
         text: 'Buy the best grinder you can afford before spending big on a brewer. A great grinder with a cheap dripper beats a cheap grinder with an expensive machine.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do burr grinders really make better coffee than blade grinders?',
+        answer:
+          'Yes. Burr grinders produce much more uniform particles, which extract evenly and taste cleaner, sweeter, and less muddy. Blade grinders create a mix of powder and large chunks, so the same cup can taste bitter and sour at once.',
+      },
+      {
+        question: 'How much should I spend on a coffee grinder?',
+        answer:
+          'For filter coffee, a good hand grinder or entry-level electric grinder in the roughly $40 to $150 range is enough to make a real difference. Espresso demands tighter grind control, so serious espresso grinders usually start higher. If you only upgrade one piece of coffee gear, make it the grinder.',
+      },
+      {
+        question: 'What grinder should I buy for both espresso and pour over?',
+        answer:
+          'Look for a grinder with a wide grind range and precise adjustment steps or stepless control. Many grinders handle filter coffee well but become frustrating for espresso because the adjustment jumps are too large. If espresso is important, buy for espresso first and let the grinder\'s filter range be a bonus.',
+      },
+      {
+        question: 'Is a hand grinder good enough for everyday coffee?',
+        answer:
+          'For one or two cups a day, yes. A quality hand grinder can outperform a cheap electric grinder at the same price. The tradeoff is convenience: grinding for large batches or espresso every morning gets tiring fast.',
       },
     ],
   },
@@ -678,6 +816,28 @@ export const GEAR: GearItem[] = [
       {
         type: 'tip',
         text: 'If you brew pour over more than a few times per week, a variable-temperature electric gooseneck is one of the highest-value gear upgrades you can make for under $100.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I really need a gooseneck kettle for pour over coffee?',
+        answer:
+          'If you want repeatable pour over results, it helps a lot. A gooseneck kettle gives you much better control over flow rate and where the water lands, which improves saturation and reduces channeling. You can make coffee with a regular kettle, but it is harder to be precise.',
+      },
+      {
+        question: 'Is variable temperature worth paying for in a coffee kettle?',
+        answer:
+          'Usually yes, especially if you brew different roast levels. Light roasts benefit from hotter water, while darker roasts often taste smoother a few degrees cooler. Variable temperature also saves time if you brew coffee and tea from the same kettle.',
+      },
+      {
+        question: 'What size gooseneck kettle is best for home brewing?',
+        answer:
+          'Around 600 ml to 1 liter is the sweet spot for most home brewers. Smaller kettles are nimble for single cups, while 1-liter models are more practical if you brew larger V60s, Chemex batches, or multiple drinks back to back.',
+      },
+      {
+        question: 'Can I use a stovetop gooseneck kettle instead of an electric one?',
+        answer:
+          'Absolutely. A stovetop gooseneck still gives you the pouring control that matters most. Electric kettles mainly add speed, convenience, and precise temperature control.',
       },
     ],
   },
@@ -731,6 +891,28 @@ export const GEAR: GearItem[] = [
         text: 'For espresso, use a scale that fits under your portafilter. Most portafilters sit about 3–4 cm off the drip tray — thin-profile scales like the Acaia Lunar or Timemore Black Mirror Nano are designed for this.',
       },
     ],
+    faqs: [
+      {
+        question: 'Do I need a coffee scale or will a normal kitchen scale work?',
+        answer:
+          'A normal kitchen scale works for basic brewing, especially French press or batch brew. Dedicated coffee scales become worthwhile when you need faster response, a built-in timer, or a small footprint for espresso. The key is weighing your coffee and water somehow, not guessing by volume.',
+      },
+      {
+        question: 'What resolution should a coffee scale have?',
+        answer:
+          'For pour over, drip, and French press, 1-gram resolution is acceptable, though 0.1 gram is nicer. For espresso, 0.1-gram resolution is strongly preferred because small dose and yield changes have a big effect on the shot.',
+      },
+      {
+        question: 'Why do coffee scales need fast response time?',
+        answer:
+          'If the display lags behind your pour by a second or two, you will overshoot your target weight constantly. That is annoying in pour over and especially costly in espresso, where a couple extra grams can change the balance of the shot.',
+      },
+      {
+        question: 'Is a timer on a coffee scale actually useful?',
+        answer:
+          'Yes. Brew time and brew weight work together, so having both in one place makes it easier to repeat recipes and troubleshoot bad cups. It is not mandatory, but once you use one, it is hard to go back.',
+      },
+    ],
   },
 ]
 
@@ -744,6 +926,7 @@ export type Setup = {
   image: string
   intro: string
   items: { name: string; why: string }[]
+  faqs: FaqItem[]
 }
 
 export const SETUPS: Setup[] = [
@@ -764,6 +947,28 @@ export const SETUPS: Setup[] = [
       { name: 'Basic gooseneck kettle', why: 'Precise pouring without breaking the bank.' },
       { name: '0.1 g coffee scale with timer', why: 'Makes your ratios repeatable from day one.' },
     ],
+    faqs: [
+      {
+        question: 'What is the best beginner home coffee setup?',
+        answer:
+          'The best beginner setup puts most of the budget into a burr grinder, then pairs it with a simple brewer, a kettle, and a scale. That combination improves grind quality, consistency, and brew control without forcing you into expensive espresso gear too early.',
+      },
+      {
+        question: 'Can I make great coffee at home without an expensive machine?',
+        answer:
+          'Yes. For most people, a good grinder plus a simple brewer like a V60, AeroPress, or French press produces better coffee than a flashy machine paired with a poor grinder. Technique and fresh beans matter more than status gear.',
+      },
+      {
+        question: 'Should beginners start with espresso or filter coffee?',
+        answer:
+          'Filter coffee is usually the better place to start. It is cheaper, easier to learn, and more forgiving when your grinder or technique is not perfect. Espresso is rewarding, but it is the most demanding and expensive branch of home coffee.',
+      },
+      {
+        question: 'What is the first upgrade after a beginner coffee setup?',
+        answer:
+          'Usually the grinder. If you already have a decent grinder, the next step is often a more temperature-stable kettle or a better scale. Upgrades should remove a real bottleneck, not just add cost.',
+      },
+    ],
   },
   {
     slug: 'pro-espresso-setup',
@@ -781,6 +986,28 @@ export const SETUPS: Setup[] = [
       { name: 'Dedicated espresso grinder', why: 'Fine, stepless adjustment is essential for dialing in.' },
       { name: 'Precision tamper and distribution tool', why: 'Even puck prep prevents channeling.' },
       { name: 'Bottomless portafilter and shot scale', why: 'Diagnose extraction and hit ratios precisely.' },
+    ],
+    faqs: [
+      {
+        question: 'What is the best home espresso setup for serious enthusiasts?',
+        answer:
+          'A strong enthusiast setup usually combines a temperature-stable machine, a dedicated espresso grinder, and a few puck-prep tools that make extraction more consistent. The grinder is just as important as the machine because espresso depends on tiny grind adjustments.',
+      },
+      {
+        question: 'Should I spend more on the espresso machine or the grinder?',
+        answer:
+          'If you have to prioritize, spend more on the grinder once the machine is competent and temperature-stable. A premium machine cannot rescue an inconsistent espresso grind, but a great grinder can make a modest machine perform far better.',
+      },
+      {
+        question: 'Do I need a dual-boiler machine at home?',
+        answer:
+          'Not everyone does. Dual-boiler machines are most useful if you make milk drinks often, want tighter temperature control, or pull several drinks back to back. For occasional straight espresso, a simpler machine may be enough.',
+      },
+      {
+        question: 'What accessories actually matter for espresso consistency?',
+        answer:
+          'A good scale, a tamper that fits your basket well, and a way to distribute grounds evenly matter far more than novelty gadgets. A bottomless portafilter is also useful because it shows channeling immediately and helps you diagnose puck-prep problems.',
+      },
     ],
   },
 ]
@@ -833,6 +1060,25 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       {
         type: 'tip',
         text: 'Contrary to popular belief, dark roast does not have more caffeine. By weight the difference is negligible; by scoop, light roast is denser and can have slightly more.',
+      },
+      { type: 'heading', text: 'How roast level changes brewing' },
+      {
+        type: 'paragraph',
+        text: 'Roast level does not just change taste; it changes how the bean behaves in the grinder and brewer. Light roasts are denser and less porous, so they usually need a finer grind, hotter water, and sometimes slightly longer contact time to extract fully. Dark roasts are more brittle and soluble, so they often taste better with a coarser grind and a slightly lower water temperature. If you brew every roast with the same recipe, you are not making a fair comparison.',
+      },
+      { type: 'heading', text: 'How to choose the right roast for your taste' },
+      {
+        type: 'list',
+        items: [
+          'Choose light roast if you enjoy floral, fruity, tea-like coffees and mostly brew pour over or filter coffee.',
+          'Choose medium roast if you want the widest brewing flexibility and a balance of sweetness, body, and acidity.',
+          'Choose dark roast if you prefer low-acid, bold coffee or mainly make milk drinks, moka pot coffee, or traditional espresso.',
+        ],
+      },
+      { type: 'heading', text: 'Roast labels can be inconsistent' },
+      {
+        type: 'paragraph',
+        text: 'One roaster\'s medium roast can be another roaster\'s light-medium. Large grocery brands also tend to roast darker overall than specialty roasters using the same labels. That is why tasting notes and brew behavior are often more useful than the roast word printed on the bag. If a so-called medium roast tastes smoky and oily, treat it like a dark roast when you brew it.',
       },
     ],
     faqs: [
@@ -962,6 +1208,25 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         type: 'tip',
         text: 'Look for a roast date (not just a "best by" date) and buy whole beans from a roaster who lists the country, region, and processing method. "Single origin" on the bag means one place — but "Ethiopia" alone is broad; "Ethiopia Yirgacheffe, washed, 1,900 m" tells you much more about what is in the cup.',
       },
+      { type: 'heading', text: 'How to read an origin label on a coffee bag' },
+      {
+        type: 'paragraph',
+        text: 'A useful coffee label tells you more than the country name. The strongest labels include country, region, farm or washing station, altitude, processing method, and sometimes varietal. Country tells you the broad flavor family. Region narrows climate and soil. Process hints at whether the cup will lean clean and bright or fruity and heavy. Altitude suggests density and acidity. Once you learn to read those pieces together, buying coffee becomes much less random.',
+      },
+      { type: 'heading', text: 'Origin is not destiny' },
+      {
+        type: 'paragraph',
+        text: 'Origin creates a flavor tendency, not a guarantee. A natural-processed Brazilian coffee can taste fruitier than a washed Guatemalan. A dark roast can hide the floral character that made an Ethiopian bean special in the first place. Roasting skill, processing quality, storage, and brew method all shape the final cup. Use origin as a map, not as a rigid rulebook.',
+      },
+      { type: 'heading', text: 'Smart buying tips for exploring origins' },
+      {
+        type: 'list',
+        items: [
+          'Buy smaller bags when trying a new region so you can compare more coffees without being stuck with one profile.',
+          'Keep your brew method consistent when tasting origins side by side; otherwise the brewer changes as much as the bean.',
+          'Start with washed coffees if you want to learn regional differences clearly. Natural coffees can be delicious, but the fruit-driven process can dominate the origin signal.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -1017,6 +1282,26 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       {
         type: 'tip',
         text: 'You can freeze beans for long-term storage in airtight, single-dose portions. Freeze once, and grind straight from frozen — do not repeatedly thaw and refreeze.',
+      },
+      { type: 'heading', text: 'What actually makes coffee go stale' },
+      {
+        type: 'paragraph',
+        text: 'Staling is mostly oxidation. Once roasted, coffee contains volatile aromatics and oils that react with oxygen and gradually disappear or turn flat. Heat speeds this up. Light damages those same compounds. Moisture is dangerous because it encourages flavor loss and lets beans absorb odors from the environment. Ground coffee stales fastest of all because grinding massively increases the surface area exposed to air.',
+      },
+      { type: 'heading', text: 'When freezing coffee is worth it' },
+      {
+        type: 'paragraph',
+        text: 'Freezing makes sense when you buy more coffee than you can drink in three or four weeks or when you want to preserve a rare bag at peak quality. Split the bag into airtight portions before freezing so each portion only gets opened once. For everyday coffee you will finish soon, room-temperature storage in a good container is simpler and usually just as effective.',
+      },
+      { type: 'heading', text: 'Storage mistakes that quietly ruin good beans' },
+      {
+        type: 'list',
+        items: [
+          'Keeping beans in a clear jar on the counter where light and heat hit them every day.',
+          'Buying large warehouse-size bags to save money, then drinking stale coffee for two months.',
+          'Scooping from the bag over a steaming brewer or kettle, which adds moisture to the beans over time.',
+          'Grinding a full week\'s worth of coffee in advance for convenience.',
+        ],
       },
     ],
     faqs: [
@@ -1088,6 +1373,48 @@ export const TOOLS: ToolMeta[] = [
         question: 'What ratio should I use for French press vs pour over?',
         answer:
           'Pour over and drip do well at 1:16–1:17. French press is often brewed a touch stronger at 1:15. Espresso is a different scale entirely, usually 1:2.',
+      },
+    ],
+  },
+  {
+    slug: 'drip-coffee-calculator',
+    name: 'Drip Coffee Calculator',
+    title: 'Drip Coffee Calculator (How Much Coffee for 4, 8, 10, or 12 Cups)',
+    metaDescription:
+      'Use our drip coffee calculator to find how much coffee you need for 4, 8, 10, or 12 cups. Convert coffee maker cups to grams, tablespoons, scoops, and water instantly.',
+    excerpt:
+      'How much coffee for your machine? Enter cups and get grams, tablespoons, scoops, and water for drip coffee instantly.',
+    icon: 'Scale',
+    category: 'Calculator',
+    keywords: [
+      'drip coffee calculator',
+      'how much coffee for 12 cups',
+      'how much coffee for 8 cups',
+      'coffee maker ratio',
+      'how many tablespoons of coffee per cup',
+      'drip coffee ratio',
+      'mr coffee ratio',
+    ],
+    faqs: [
+      {
+        question: 'How much coffee do I use for 12 cups of drip coffee?',
+        answer:
+          'For a standard 12-cup coffee maker using 5 oz machine cups, start with about 106 to 113 grams of coffee and roughly 1.8 liters of water, depending on strength. That is around 10 to 11 standard coffee scoops or about 20 to 21 tablespoons.',
+      },
+      {
+        question: 'How much coffee for 8 cups in a coffee maker?',
+        answer:
+          'For 8 machine cups of drip coffee, a solid starting point is about 71 to 75 grams of coffee with roughly 1.2 liters of water. If you prefer a stronger pot, go slightly higher. If you want a lighter brew, back off by a few grams.',
+      },
+      {
+        question: 'What is the best drip coffee ratio?',
+        answer:
+          'A 1:16 to 1:17 coffee-to-water ratio is the best place to start for most drip coffee makers. That gives you enough strength and sweetness without making the pot taste heavy or bitter. Stronger drinkers often prefer 1:15.5 to 1:16.',
+      },
+      {
+        question: 'Why does a coffee maker cup not equal a normal mug?',
+        answer:
+          'Most coffee makers define one cup as 5 ounces, not the 8-ounce cups people expect in recipes and kitchens. That is why 12-cup coffee makers do not actually produce 12 full mugs. This calculator accounts for that difference so the numbers make sense in the real world.',
       },
     ],
   },
@@ -1368,6 +1695,42 @@ export const TOOL_CONTENT: Record<
     whyItMatters:
       'Repeatability is what separates a good home brewer from a great one. Writing down your ratio means you can reproduce a great cup tomorrow, next week, or after switching beans. It also makes troubleshooting simple: if one variable is locked, you only ever have to diagnose one thing at a time.',
     relatedSlugs: ['brew-timer', 'coffee-measurement-converter', 'espresso-ratio-calculator'],
+  },
+
+  'drip-coffee-calculator': {
+    intro:
+      'Automatic drip coffee is still the way most people brew at home, but it comes with a persistent problem: coffee makers label everything in tiny 5 oz "cups" while most people drink from 8 to 12 oz mugs. That is why searches like "how much coffee for 12 cups" and "how many tablespoons of coffee for 8 cups" never go away. This drip coffee calculator solves that confusion by converting coffee maker cups into real water volume, then showing exactly how much coffee you need in grams, tablespoons, and scoops for the strength you want.',
+    howToUse: [
+      {
+        step: 'Choose your serving style',
+        detail:
+          'Select whether you are thinking in coffee maker cups or full mugs. Coffee maker cups are 5 oz each; mugs are larger and closer to what people actually drink at breakfast.',
+      },
+      {
+        step: 'Set the batch size',
+        detail:
+          'Use the preset buttons for common brews like 4, 8, 10, or 12 cups, or type your own amount. The calculator immediately updates the required water and coffee.',
+      },
+      {
+        step: 'Pick a strength',
+        detail:
+          'Choose light, standard, or strong. Standard is the safest starting point for most home drip machines. Strong works well for darker roasts or bigger mugs that will be diluted with milk.',
+      },
+      {
+        step: 'Use the grams first, spoons second',
+        detail:
+          'The gram value is the accurate target. The tablespoon and scoop estimates are there for convenience if you do not own a scale yet, but a scale will make your drip coffee much more repeatable.',
+      },
+    ],
+    proTips: [
+      'If your coffee maker has a showerhead that saturates grounds unevenly, use a slightly coarser grind and avoid overfilling the basket.',
+      'Most grocery-store pre-ground coffee is a decent grind size for drip machines, but freshly ground beans still taste noticeably sweeter and more aromatic.',
+      'If your pot tastes flat no matter what ratio you use, your machine may need cleaning. Mineral buildup hurts brew temperature and extraction fast.',
+      'For iced coffee made in a drip machine, brew slightly stronger than usual so the ice does not wash the flavor out.',
+    ],
+    whyItMatters:
+      'Drip coffee looks simple, but bad measurements are why so many home pots taste weak, bitter, or generic. A dedicated drip calculator meets people where they actually are: brewing for multiple cups, often without a scale, on mainstream machines with confusing markings. That makes it one of the best search-intent fits on the whole site.',
+    relatedSlugs: ['coffee-ratio-calculator', 'coffee-measurement-converter', 'caffeine-calculator'],
   },
 
   'brew-timer': {

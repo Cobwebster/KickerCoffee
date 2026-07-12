@@ -3,8 +3,32 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Star, ArrowRight } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
+import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { GEAR, SETUPS, SITE } from '@/lib/content'
+
+const faqs = [
+  {
+    question: 'What coffee gear should I buy first?',
+    answer:
+      'For most people, the first upgrade should be a burr grinder. Better grind consistency improves every brew method you already own, while an expensive brewer paired with a weak grinder still produces uneven coffee.',
+  },
+  {
+    question: 'Is expensive coffee gear worth it?',
+    answer:
+      'Sometimes, but only after you solve the fundamentals. Fresh beans, a decent grinder, and a scale matter more than premium accessories. High-end gear becomes worth it when it gives you better consistency, tighter control, or a workflow improvement you will actually use every day.',
+  },
+  {
+    question: 'Do I need separate gear for pour over and espresso?',
+    answer:
+      'Usually yes if you care about dialing both in well. Espresso demands a much more precise grinder and a different workflow than pour over. Some gear overlaps, like scales and kettles, but grinders especially are often optimized for one side or the other.',
+  },
+  {
+    question: 'What makes a good home coffee setup?',
+    answer:
+      'A good setup matches your habits, budget, and preferred drinks. The best home coffee setup is not the most expensive one; it is the one you can use consistently with fresh beans, accurate measurements, and a brew method you actually enjoy repeating.',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Coffee Gear Reviews & Recommended Home Setups',
@@ -24,10 +48,19 @@ export default function GearPage() {
       url: `${SITE.url}/gear/${g.slug}`,
     })),
   }
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  }
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
-      <JsonLd data={itemList} />
+      <JsonLd data={[itemList, faqSchema]} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -133,6 +166,8 @@ export default function GearPage() {
         this site. This never affects our recommendations — we only suggest gear we would use
         ourselves.
       </p>
+
+      <FaqSection faqs={faqs} />
     </main>
   )
 }

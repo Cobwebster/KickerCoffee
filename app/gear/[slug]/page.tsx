@@ -5,8 +5,9 @@ import { notFound } from 'next/navigation'
 import { Star, Check, X, ArrowRight } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { ContentBlocks } from '@/components/content-blocks'
+import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { GEAR, getGearItem } from '@/lib/content'
+import { GEAR, SITE, getGearItem } from '@/lib/content'
 
 export function generateStaticParams() {
   return GEAR.map((g) => ({ slug: g.slug }))
@@ -28,7 +29,15 @@ export async function generateMetadata({
       title: item.title,
       description: item.metaDescription,
       type: 'article',
+      url: `${SITE.url}/gear/${item.slug}`,
       images: [{ url: item.image }],
+      modifiedTime: item.updated,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: item.title,
+      description: item.metaDescription,
+      images: [item.image],
     },
   }
 }
@@ -50,10 +59,19 @@ export default async function GearDetailPage({
     image: item.image,
     dateModified: item.updated,
   }
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: item.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  }
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
-      <JsonLd data={reviewSchema} />
+      <JsonLd data={[reviewSchema, faqSchema]} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -122,6 +140,8 @@ export default async function GearDetailPage({
         <div className="mt-10">
           <ContentBlocks blocks={item.body} />
         </div>
+
+        <FaqSection faqs={item.faqs} />
 
         {/* Affiliate CTA placeholder */}
         <div className="mt-10 flex flex-col items-start gap-3 rounded-xl border border-accent/30 bg-accent/10 p-6">

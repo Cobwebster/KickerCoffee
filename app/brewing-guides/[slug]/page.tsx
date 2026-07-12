@@ -29,7 +29,15 @@ export async function generateMetadata({
       title: guide.title,
       description: guide.metaDescription,
       type: 'article',
+      url: `${SITE.url}/brewing-guides/${guide.slug}`,
       images: [{ url: guide.image }],
+      modifiedTime: guide.updated,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: guide.title,
+      description: guide.metaDescription,
+      images: [guide.image],
     },
   }
 }

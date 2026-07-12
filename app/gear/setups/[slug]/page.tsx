@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, Check } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
+import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { SETUPS, getSetup } from '@/lib/content'
+import { SETUPS, SITE, getSetup } from '@/lib/content'
 
 export function generateStaticParams() {
   return SETUPS.map((s) => ({ slug: s.slug }))
@@ -27,7 +28,14 @@ export async function generateMetadata({
       title: setup.title,
       description: setup.metaDescription,
       type: 'article',
+      url: `${SITE.url}/gear/setups/${setup.slug}`,
       images: [{ url: setup.image }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: setup.title,
+      description: setup.metaDescription,
+      images: [setup.image],
     },
   }
 }
@@ -48,10 +56,19 @@ export default async function SetupPage({
     description: setup.metaDescription,
     image: setup.image,
   }
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: setup.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  }
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
-      <JsonLd data={schema} />
+      <JsonLd data={[schema, faqSchema]} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -108,6 +125,8 @@ export default async function SetupPage({
             </li>
           ))}
         </ol>
+
+        <FaqSection faqs={setup.faqs} />
 
         <div className="mt-10 flex flex-col items-start gap-3 rounded-xl border border-accent/30 bg-accent/10 p-6">
           <h2 className="font-serif text-xl font-semibold text-foreground">Shop this setup</h2>

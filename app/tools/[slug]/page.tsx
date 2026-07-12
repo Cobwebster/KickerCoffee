@@ -31,6 +31,12 @@ export async function generateMetadata({
       url: `${SITE.url}/tools/${tool.slug}`,
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool.title,
+      description: tool.metaDescription,
+      images: ['/images/home-hero.png'],
+    },
   }
 }
 

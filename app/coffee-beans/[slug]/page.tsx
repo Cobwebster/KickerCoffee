@@ -7,7 +7,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { BEAN_ARTICLES, getBeanArticle } from '@/lib/content'
+import { BEAN_ARTICLES, SITE, getBeanArticle } from '@/lib/content'
 
 export function generateStaticParams() {
   return BEAN_ARTICLES.map((a) => ({ slug: a.slug }))
@@ -29,7 +29,15 @@ export async function generateMetadata({
       title: article.title,
       description: article.metaDescription,
       type: 'article',
+      url: `${SITE.url}/coffee-beans/${article.slug}`,
       images: [{ url: article.image }],
+      modifiedTime: article.updated,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.metaDescription,
+      images: [article.image],
     },
   }
 }

@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Geist, Geist_Mono, Fraunces } from 'next/font/google'
+import { JsonLd } from '@/components/json-ld'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { SITE } from '@/lib/content'
@@ -44,7 +45,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: SITE.name }],
   creator: SITE.name,
-  generator: 'v0.app',
   alternates: {
     canonical: '/',
   },
@@ -55,11 +55,13 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} — Everything Coffee`,
     description: SITE.description,
+    images: [{ url: '/images/home-hero.png' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE.name} — Everything Coffee`,
     description: SITE.description,
+    images: ['/images/home-hero.png'],
   },
   robots: {
     index: true,
@@ -90,12 +92,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+    logo: `${SITE.url}/images/favicon.ico`,
+    description: SITE.description,
+  }
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} bg-background`}
     >
       <body className="antialiased font-sans">
+        <JsonLd data={organizationSchema} />
         <SiteHeader />
         {children}
         <SiteFooter />

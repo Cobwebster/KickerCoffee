@@ -38,7 +38,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold text-foreground">Popular Guides</h2>
+          <h2 className="text-sm font-semibold text-foreground">Popular Pages</h2>
           <ul className="mt-4 flex flex-col gap-2">
             <li>
               <Link
@@ -54,6 +54,14 @@ export function SiteFooter() {
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 Espresso at Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/tools/drip-coffee-calculator"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Drip Coffee Calculator
               </Link>
             </li>
             <li>

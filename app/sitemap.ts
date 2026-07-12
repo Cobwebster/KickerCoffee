@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const gearRoutes: MetadataRoute.Sitemap = GEAR.map((g) => ({
     url: `${BASE}/gear/${g.slug}`,
-    lastModified: now,
+    lastModified: g.updated ?? now,
     changeFrequency: 'monthly',
     priority: 0.7,
   }))

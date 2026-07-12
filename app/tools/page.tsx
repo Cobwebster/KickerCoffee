@@ -2,8 +2,32 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Scale, Timer, Snowflake, Coffee, Zap, Ruler, Beaker } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
+import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { TOOLS, SITE, type ToolMeta } from '@/lib/content'
+
+const faqs = [
+  {
+    question: 'What coffee calculator should I use first?',
+    answer:
+      'Start with the coffee-to-water ratio calculator. Ratio is the foundation of most brew methods, so getting the coffee dose and water amount right solves more problems than any other single tool.',
+  },
+  {
+    question: 'Are coffee brewing calculators actually accurate?',
+    answer:
+      'They are accurate for the math they solve, like brew ratio, dilution, or target yield. What they cannot do is choose your preferred taste for you. Use them as a reliable starting point, then adjust based on the cup in front of you.',
+  },
+  {
+    question: 'Do I need a coffee scale to use these tools?',
+    answer:
+      'A scale makes the tools much more useful because the calculations are weight-based, but not every tool requires one. The measurement converter is there specifically to help when you are still working with tablespoons or scoops.',
+  },
+  {
+    question: 'Can coffee tools fix bad coffee beans or a bad grinder?',
+    answer:
+      'No. Tools help you measure and troubleshoot, but they cannot rescue stale beans or extremely inconsistent grounds. They work best when paired with fresh coffee and at least a decent burr grinder.',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Free Coffee Calculators & Brewing Tools',
@@ -45,10 +69,19 @@ export default function ToolsPage() {
       url: `${SITE.url}/tools/${t.slug}`,
     })),
   }
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  }
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
-      <JsonLd data={itemList} />
+      <JsonLd data={[itemList, faqSchema]} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -139,6 +172,14 @@ export default function ToolsPage() {
             you want, and write that number down.
           </p>
           <p>
+            <strong className="font-semibold text-foreground">Brewing on a standard coffee maker?</strong>{' '}
+            Use the{' '}
+            <a href="/tools/drip-coffee-calculator" className="font-medium text-accent underline-offset-2 hover:underline">
+              drip coffee calculator
+            </a>{' '}
+            when you need quick answers for 4, 8, 10, or 12 cups. It handles the annoying part most people search for: the difference between coffee maker cups and full mugs.
+          </p>
+          <p>
             <strong className="font-semibold text-foreground">Brewing pour over on a scale?</strong>{' '}
             Add the{' '}
             <a href="/tools/brew-timer" className="font-medium text-accent underline-offset-2 hover:underline">
@@ -183,6 +224,8 @@ export default function ToolsPage() {
           </p>
         </div>
       </section>
+
+      <FaqSection faqs={faqs} />
     </main>
   )
 }
