@@ -146,6 +146,23 @@ export default async function BrewGuidePage({
 
         <p className="mt-8 text-pretty text-lg leading-relaxed text-foreground">{guide.intro}</p>
 
+        {guide.slug === 'french-press-coffee-ratio-and-method' && (
+          <Link
+            href="/tools/french-press-calculator"
+            className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Free tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                French Press Coffee Ratio Calculator — get exact grams for your press size
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        )}
+
         <div className="mt-8">
           <ContentBlocks blocks={guide.body} />
         </div>

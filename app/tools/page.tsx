@@ -13,6 +13,11 @@ const faqs = [
       'Start with the coffee-to-water ratio calculator. Ratio is the foundation of most brew methods, so getting the coffee dose and water amount right solves more problems than any other single tool.',
   },
   {
+    question: 'What is the best coffee-to-water ratio?',
+    answer:
+      'Most home brewers do well at 1:15 to 1:17. Use 1:16 as an all-purpose start, 1:15 for French press or stronger drip, and the espresso calculator for 1:2 shots. Our method-specific calculators lock in the right defaults.',
+  },
+  {
     question: 'Are coffee brewing calculators actually accurate?',
     answer:
       'They are accurate for the math they solve, like brew ratio, dilution, or target yield. What they cannot do is choose your preferred taste for you. Use them as a reliable starting point, then adjust based on the cup in front of you.',
@@ -21,6 +26,11 @@ const faqs = [
     question: 'Do I need a coffee scale to use these tools?',
     answer:
       'A scale makes the tools much more useful because the calculations are weight-based, but not every tool requires one. The measurement converter is there specifically to help when you are still working with tablespoons or scoops.',
+  },
+  {
+    question: 'What grind size should I use for my brew method?',
+    answer:
+      'Use the grind size chart: fine for espresso, medium-fine for pour over, medium for drip, coarse for French press, and extra coarse for cold brew. If the cup tastes bitter, grind coarser; if it tastes sour, grind finer.',
   },
   {
     question: 'Can coffee tools fix bad coffee beans or a bad grinder?',
@@ -37,6 +47,7 @@ export const metadata: Metadata = {
   keywords: [
     'coffee calculator',
     'coffee to water ratio calculator',
+    'french press coffee ratio calculator',
     'pour over brew timer',
     'cold brew ratio calculator',
     'espresso dose calculator',

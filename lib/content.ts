@@ -155,22 +155,37 @@ export const BREW_GUIDES: BrewGuide[] = [
         answer:
           'Blooming lets trapped CO₂ escape so water can evenly saturate the grounds. Skipping the bloom leads to uneven extraction and a thinner, less sweet cup.',
       },
+      {
+        question: 'What water temperature for pour over coffee?',
+        answer:
+          'Aim for 93–96°C (200–205°F). Light roasts like the hotter end; dark roasts often taste cleaner a few degrees cooler. If you only have a boiling kettle, wait about 30 seconds off the boil.',
+      },
+      {
+        question: 'How long should a V60 pour over take?',
+        answer:
+          'About 2:30–3:30 total including the bloom. Faster and sour usually means grind finer; slower and bitter means grind coarser. Keep pours gentle so you do not dig channels in the bed.',
+      },
+      {
+        question: 'Why does my pour over taste sour?',
+        answer:
+          'Sourness usually means under-extraction: grind too coarse, water too cool, or brew time too short. Grind a little finer and make sure you bloom for a full 30–45 seconds.',
+      },
     ],
   },
   {
     slug: 'french-press-coffee-ratio-and-method',
     method: 'French Press',
-    title: 'French Press Coffee: The Perfect Ratio and Method',
+    title: 'French Press Coffee Ratio & Method (Step-by-Step Technique)',
     metaDescription:
-      'How to make French press coffee with the perfect ratio, grind size, and steep time. A full-bodied, foolproof method that works every morning.',
+      'French press coffee ratio, method, and technique: the ideal 1:15 coffee-to-water ratio, grind size, and 4-minute steep for a full-bodied cup every morning.',
     excerpt:
-      'Rich, full-bodied, and nearly foolproof. Get the French press ratio, grind, and 4-minute steep dialed in.',
+      'Rich, full-bodied, and nearly foolproof. Get the French press coffee ratio, grind, and 4-minute steep dialed in.',
     difficulty: 'Beginner',
     brewTime: '4–5 min',
     ratio: '1:15 (67 g/L)',
     grind: 'Coarse',
     yield: '3–4 cups',
-    updated: '2026-06-10',
+    updated: '2026-07-12',
     image: '/images/french-press-hero.png',
     intro:
       'The French press (or cafetière) is immersion brewing at its simplest. Because the metal mesh filter lets natural oils through, it produces a heavier, richer body than paper-filtered methods. There is no pour technique to master and no specialized equipment beyond a press and a scale — making it one of the most forgiving ways to brew genuinely great coffee at home.',
@@ -231,6 +246,10 @@ export const BREW_GUIDES: BrewGuide[] = [
         type: 'paragraph',
         text: 'If you like the richness of French press but dislike sediment, wait 5 to 8 minutes after breaking the crust before plunging. During that rest, many fine particles settle to the bottom. Press only the top half of the brew or pour gently through a small mesh strainer into your mug. You still get the oils and weight of immersion coffee, but with less grit in the final cup.',
       },
+      {
+        type: 'tip',
+        text: 'Want the math done for you? Open the French Press Coffee Ratio Calculator under Tools — pick a 3-, 4-, 8-, or 12-cup press and get exact grams for mild, classic, or strong. Then come back here for the full technique.',
+      },
       { type: 'heading', text: 'French press workflow for busy mornings' },
       {
         type: 'list',
@@ -246,6 +265,11 @@ export const BREW_GUIDES: BrewGuide[] = [
         question: 'What is the best French press coffee-to-water ratio?',
         answer:
           'A 1:15 ratio is the ideal starting point — about 55 g of coffee per 830 g of water in a 1-liter press. Use 1:14 for a bolder, stronger cup or 1:16 for something lighter. The SCA recommends 55–60 g per liter for most immersion methods.',
+      },
+      {
+        question: 'What is the French press coffee technique?',
+        answer:
+          'Use a coarse grind, bloom briefly with hot water just off the boil, fill to your target weight, steep about 4 minutes, break the crust, skim foam, then press slowly and decant immediately. The technique is immersion — no pour-over spiral required — so grind size and steep time matter most.',
       },
       {
         question: 'How long should French press steep?',
@@ -364,6 +388,11 @@ export const BREW_GUIDES: BrewGuide[] = [
           'Medium-fine is the best all-purpose starting point — similar to table salt. Finer grinds with shorter steeps make a punchier, more intense cup. Coarser grinds with longer steeps produce a smoother, more rounded result. The AeroPress is unusually forgiving across a wide range.',
       },
       {
+        question: 'What is the best AeroPress ratio?',
+        answer:
+          'Start around 1:14 to 1:16 — for example 15–17 g coffee to 220–250 g water for a mug-sized cup. For a concentrate you will dilute or add milk, use less water (closer to 1:10–1:12).',
+      },
+      {
         question: 'Standard or inverted AeroPress — which is better?',
         answer:
           'Standard is easier and less risky — nothing to spill. Inverted gives you slightly more control over steep time because there is no drip-through. Start with standard and try inverted once you are comfortable.',
@@ -469,9 +498,19 @@ export const BREW_GUIDES: BrewGuide[] = [
           'Most home espresso baskets are designed for 14–18 g for a double shot. Weigh your basket capacity and fill to within a gram. The dose is set by your basket; the ratio is set by how long you run the shot.',
       },
       {
+        question: 'What is the best espresso ratio?',
+        answer:
+          'Start at 1:2 (dose:yield) — for example 18 g in, 36 g out. Go shorter (~1:1.5) for a denser ristretto or longer (~1:2.5–1:3) for lighter single origins. Use a scale under the cup so you stop by weight, not volume.',
+      },
+      {
         question: 'Why does my espresso taste sour?',
         answer:
           'Sourness in espresso means under-extraction — water passed through the puck too quickly or the grounds were too coarse to extract properly. Grind finer by one or two clicks and pull the shot again.',
+      },
+      {
+        question: 'Why does my espresso taste bitter?',
+        answer:
+          'Bitterness usually means over-extraction: grind too fine, shot too long, or temperature too high. Grind coarser slightly, or stop the shot earlier (lower yield) while keeping the same dose.',
       },
     ],
   },
@@ -567,6 +606,11 @@ export const BREW_GUIDES: BrewGuide[] = [
           'The undiluted concentrate is much stronger. Once diluted to a 1:1 ratio, the caffeine per cup is similar to hot drip coffee — though cold brew often tastes smoother and sweeter, which can make it easy to drink more than you intend.',
       },
       {
+        question: 'How long to steep cold brew?',
+        answer:
+          '12–18 hours in the fridge is the usual window. Under 10 hours often tastes weak; past 24 hours can turn woody or bitter, especially with a grind that is too fine.',
+      },
+      {
         question: 'Why is my cold brew bitter?',
         answer:
           'Bitterness in cold brew usually means the steep was too long or the grind was too fine. Try a coarser grind first, and limit steep time to 18 hours maximum. Very fine grounds can over-extract even at cold temperatures over long periods.',
@@ -575,6 +619,11 @@ export const BREW_GUIDES: BrewGuide[] = [
         question: 'How long does cold brew last in the fridge?',
         answer:
           'Properly stored cold brew concentrate keeps for up to 2 weeks. Ready-to-drink (diluted) cold brew is best within 7 days. Always store sealed in the fridge — cold brew exposed to air stales quickly.',
+      },
+      {
+        question: 'What is the cold brew coffee ratio for ready to drink?',
+        answer:
+          'About 1:15 coffee to water by weight — similar to a strong iced coffee you can pour straight over ice without diluting. Use the cold brew calculator to scale any jar size.',
       },
     ],
   },
@@ -710,7 +759,7 @@ export const GEAR: GearItem[] = [
     name: 'Burr Coffee Grinders',
     title: 'Best Burr Coffee Grinders for Every Budget (2026)',
     metaDescription:
-      'Our picks for the best burr coffee grinders in 2026, from budget hand grinders to premium electric models. Why a burr grinder matters more than your brewer.',
+      'Best coffee burr grinders for every budget — plus why a burr grinder beats a blade grinder. Hand and electric picks for pour over, drip, and espresso.',
     excerpt:
       'The single most important upgrade for better coffee. Our budget-to-premium burr grinder picks.',
     priceRange: '$40–$700',
@@ -753,6 +802,11 @@ export const GEAR: GearItem[] = [
           'Yes. Burr grinders produce much more uniform particles, which extract evenly and taste cleaner, sweeter, and less muddy. Blade grinders create a mix of powder and large chunks, so the same cup can taste bitter and sour at once.',
       },
       {
+        question: 'What is a burr grinder?',
+        answer:
+          'A burr grinder crushes beans between two abrasive surfaces (flat or conical burrs) set a fixed distance apart, producing an even grind size. That consistency is why specialty coffee recipes assume a burr grinder, not a spinning blade.',
+      },
+      {
         question: 'How much should I spend on a coffee grinder?',
         answer:
           'For filter coffee, a good hand grinder or entry-level electric grinder in the roughly $40 to $150 range is enough to make a real difference. Espresso demands tighter grind control, so serious espresso grinders usually start higher. If you only upgrade one piece of coffee gear, make it the grinder.',
@@ -766,6 +820,11 @@ export const GEAR: GearItem[] = [
         question: 'Is a hand grinder good enough for everyday coffee?',
         answer:
           'For one or two cups a day, yes. A quality hand grinder can outperform a cheap electric grinder at the same price. The tradeoff is convenience: grinding for large batches or espresso every morning gets tiring fast.',
+      },
+      {
+        question: 'Ceramic vs steel burrs — which is better?',
+        answer:
+          'Steel burrs are sharper and more common in higher-end grinders; they cut cleanly and stay precise. Ceramic burrs stay sharp a long time and run cooler, but can chip if a stone hits them. For most home buyers, burr quality and alignment matter more than the material label alone.',
       },
     ],
   },
@@ -1034,10 +1093,10 @@ export const BEAN_ARTICLES: BeanArticle[] = [
     topic: 'Roasting',
     title: 'Coffee Roast Levels Explained: Light vs Medium vs Dark',
     metaDescription:
-      'Light, medium, and dark coffee roasts explained. Learn how roast level changes flavor, acidity, body, and caffeine — and which roast to choose.',
+      'Types of coffee roasts explained: light, medium, and dark. Learn how the roast of coffee changes flavor, acidity, body, and caffeine — and which to choose.',
     excerpt: 'How roast level changes flavor, acidity, and body — and which one is right for you.',
     readTime: '6 min',
-    updated: '2026-06-08',
+    updated: '2026-07-12',
     image: '/images/roast-levels-hero.png',
     intro:
       'Roast level is one of the biggest factors in how your coffee tastes. As beans roast longer, origin flavors give way to roast flavors. Understanding the spectrum helps you buy beans you will actually enjoy.',
@@ -1083,6 +1142,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
     ],
     faqs: [
       {
+        question: 'What are the types of coffee roasts?',
+        answer:
+          'The three main types of coffee roasts are light, medium, and dark. Light roasts taste bright and fruity, medium roasts balance sweetness and acidity, and dark roasts are bold, low-acid, and roast-forward. Some bags also use labels like “medium-dark” or “French roast,” which sit toward the darker end of the spectrum.',
+      },
+      {
+        question: 'What is the roast of coffee?',
+        answer:
+          'Roast of coffee means how long and how dark the green beans were roasted. Light stops soon after first crack; medium balances origin and roast sweetness; dark goes toward or past second crack, trading origin nuance for bold, roasty flavors.',
+      },
+      {
         question: 'Which roast has the most caffeine?',
         answer:
           'They are nearly identical. Roast level has a minimal effect on caffeine. Any difference comes down to whether you measure by weight (dark slightly higher) or by scoop (light slightly higher).',
@@ -1091,6 +1160,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         question: 'Is dark roast stronger than light roast?',
         answer:
           '"Strong" usually refers to flavor intensity, not caffeine. Dark roasts taste bolder and more bitter, but light roasts can be just as caffeinated and often more acidic and complex.',
+      },
+      {
+        question: 'What does French roast mean?',
+        answer:
+          'French roast is a very dark roast — oily beans, low acidity, and dominant roast flavors like dark chocolate, smoke, and char. Origin character is mostly gone. Brew a bit cooler and coarser if it tastes ashy.',
+      },
+      {
+        question: 'Is medium roast the best for beginners?',
+        answer:
+          'Usually yes. Medium roast is the most forgiving across drip, pour over, French press, and espresso, with balanced sweetness and acidity. Start there, then explore lighter or darker once you know what you like.',
       },
     ],
   },
@@ -1315,6 +1394,26 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         answer:
           'Whole beans are best from about 4 days to 4 weeks after roasting. Once ground, coffee stales within minutes to hours, which is why grinding fresh matters so much.',
       },
+      {
+        question: 'Can you freeze coffee beans?',
+        answer:
+          'Yes for longer storage. Portion into airtight bags or jars, freeze once, and grind straight from frozen. Do not thaw and refreeze — condensation ruins freshness.',
+      },
+      {
+        question: 'Should coffee be stored in the freezer or pantry?',
+        answer:
+          'Pantry (cool, dark, airtight) is best for beans you will finish in 2–4 weeks. Freeze only what you will not use soon, in single-dose airtight portions.',
+      },
+      {
+        question: 'Do coffee beans go bad?',
+        answer:
+          'They rarely become unsafe, but they go stale. Oils can smell rancid after months, and flavor fades within weeks of roasting. Always check the roast date, not just a “best by” stamp.',
+      },
+      {
+        question: 'Is an airtight container enough for coffee storage?',
+        answer:
+          'Airtight helps, but also keep beans away from light, heat, and moisture. Opaque canisters beat clear jars on the counter next to the stove. Buy amounts you will drink while they are still fresh.',
+      },
     ],
   },
 ]
@@ -1370,9 +1469,24 @@ export const TOOLS: ToolMeta[] = [
           'A standard mug is about 250 ml (250 g) of water. At a 1:16 ratio that is roughly 15–16 g of coffee, or about 2 slightly rounded tablespoons of whole beans.',
       },
       {
+        question: 'How much coffee for 2 cups?',
+        answer:
+          'For two 250 ml mugs (500 g water) at 1:16, use about 31 g of coffee. At 1:15 (stronger), use about 33 g. Weigh both coffee and water when you can — “cups” on machines are often only 5 oz.',
+      },
+      {
         question: 'What ratio should I use for French press vs pour over?',
         answer:
           'Pour over and drip do well at 1:16–1:17. French press is often brewed a touch stronger at 1:15. Espresso is a different scale entirely, usually 1:2.',
+      },
+      {
+        question: 'Is coffee ratio by weight or volume?',
+        answer:
+          'By weight. “1:16” means 1 gram of coffee to 16 grams of water (1 ml of water ≈ 1 g). Tablespoons are only an approximation because roast level and grind change how densely coffee packs.',
+      },
+      {
+        question: 'Why does my coffee taste weak even at 1:16?',
+        answer:
+          'Weak flavor is often under-extraction, not only ratio — grind too coarse, water too cool, or brew time too short. Try grinding a bit finer before dropping to 1:15. Also confirm you are measuring water by weight, not eyeballing the mug.',
       },
     ],
   },
@@ -1407,6 +1521,11 @@ export const TOOLS: ToolMeta[] = [
           'For 8 machine cups of drip coffee, a solid starting point is about 71 to 75 grams of coffee with roughly 1.2 liters of water. If you prefer a stronger pot, go slightly higher. If you want a lighter brew, back off by a few grams.',
       },
       {
+        question: 'How much coffee for 10 cups?',
+        answer:
+          'For 10 coffee-maker cups (5 oz each), use about 88–94 g of coffee and roughly 1.5 liters of water at a standard drip ratio. That is roughly 9 scoops or 17–18 tablespoons if you do not have a scale.',
+      },
+      {
         question: 'What is the best drip coffee ratio?',
         answer:
           'A 1:16 to 1:17 coffee-to-water ratio is the best place to start for most drip coffee makers. That gives you enough strength and sweetness without making the pot taste heavy or bitter. Stronger drinkers often prefer 1:15.5 to 1:16.',
@@ -1415,6 +1534,62 @@ export const TOOLS: ToolMeta[] = [
         question: 'Why does a coffee maker cup not equal a normal mug?',
         answer:
           'Most coffee makers define one cup as 5 ounces, not the 8-ounce cups people expect in recipes and kitchens. That is why 12-cup coffee makers do not actually produce 12 full mugs. This calculator accounts for that difference so the numbers make sense in the real world.',
+      },
+      {
+        question: 'How many tablespoons of coffee for 12 cups?',
+        answer:
+          'About 20–21 tablespoons (roughly 106–113 g) for a 12-cup machine pot at standard strength. Tablespoons vary with grind and roast, so grams are more reliable when you can weigh.',
+      },
+    ],
+  },
+  {
+    slug: 'french-press-calculator',
+    name: 'French Press Calculator',
+    title: 'French Press Coffee Ratio Calculator (Grams, Cups & Strength)',
+    metaDescription:
+      'Free French press coffee ratio calculator. Pick your press size and strength to get exact coffee and water amounts — classic 1:15 ratio, grind, and 4-minute steep.',
+    excerpt:
+      'Dial in French press coffee ratio by press size and strength. Get grams, tablespoons, grind, and steep time instantly.',
+    icon: 'Coffee',
+    category: 'Calculator',
+    keywords: [
+      'french press coffee ratio',
+      'french press ratio',
+      'french press calculator',
+      'french press method',
+      'french press coffee technique',
+      'how much coffee for french press',
+    ],
+    faqs: [
+      {
+        question: 'What is the best French press coffee ratio?',
+        answer:
+          'A 1:15 coffee-to-water ratio is the classic French press starting point — about 67 grams of coffee per liter of water. Use 1:14 for a stronger cup or 1:16 for something lighter and more tea-like.',
+      },
+      {
+        question: 'How much coffee do I use for an 8-cup French press?',
+        answer:
+          'An 8-cup French press holds about 1 liter (1000 g) of water. At the classic 1:15 ratio that is roughly 67 g of coarse-ground coffee, or about 12–13 tablespoons. Always leave a little headroom under the lid for the bloom.',
+      },
+      {
+        question: 'How much coffee for a 4-cup French press?',
+        answer:
+          'A 4-cup press is about 500 g of water. At 1:15 that is roughly 33 g of coarse coffee (~6 tablespoons). At mild 1:16 use about 31 g; at strong 1:14 use about 36 g.',
+      },
+      {
+        question: 'What grind size and steep time for French press?',
+        answer:
+          'Use a coarse grind (like sea salt) and steep for about 4 minutes. Too fine and the cup turns bitter and muddy; too long and bitterness creeps in. Press slowly and decant immediately so the coffee does not keep extracting.',
+      },
+      {
+        question: 'Is French press coffee stronger than drip?',
+        answer:
+          'It often tastes stronger because the metal filter lets oils through and many people brew French press at a slightly stronger ratio (1:15 vs 1:16–1:17 for drip). Caffeine per ounce is similar if the dose is similar — body and mouthfeel are what feel “stronger.”',
+      },
+      {
+        question: 'Why is my French press muddy?',
+        answer:
+          'Muddy cups usually mean the grind is too fine or you plunged too hard and forced fines through the mesh. Grind coarser, press gently, and pour soon after plunging. A quick secondary strain through a fine mesh helps if you hate sediment.',
       },
     ],
   },
@@ -1440,6 +1615,21 @@ export const TOOLS: ToolMeta[] = [
         answer:
           'The bloom is the first small pour that wets all the grounds and lets trapped CO₂ escape for 30–45 seconds. It leads to a more even extraction and a sweeter cup.',
       },
+      {
+        question: 'How long should I bloom coffee?',
+        answer:
+          'Bloom for 30–45 seconds with about 2–3× the coffee dose in water (for 20 g coffee, pour 40–60 g). Fresh light roasts often bloom vigorously and benefit from the full 45 seconds.',
+      },
+      {
+        question: 'What water temperature for pour over?',
+        answer:
+          'Use about 93–96°C (200–205°F) for most light and medium roasts. Darker roasts can taste cleaner a bit cooler, around 88–92°C. If you do not have a variable kettle, boil and wait ~30 seconds before pouring.',
+      },
+      {
+        question: 'Why is my pour over bitter?',
+        answer:
+          'Bitterness usually means over-extraction: grind too fine, pours too slow, or water too hot. Grind coarser by a click or two, keep total brew time under ~3:30, and avoid drowning the bed with aggressive pours.',
+      },
     ],
   },
   {
@@ -1452,7 +1642,13 @@ export const TOOLS: ToolMeta[] = [
       'Scale cold brew to any jar or batch. Pick concentrate or ready-to-drink and get exact amounts.',
     icon: 'Snowflake',
     category: 'Calculator',
-    keywords: ['cold brew ratio', 'cold brew calculator', 'cold brew concentrate ratio'],
+    keywords: [
+      'cold brew ratio',
+      'cold brew calculator',
+      'cold brew concentrate ratio',
+      'cold brew coffee ratio',
+      'how long to steep cold brew',
+    ],
     faqs: [
       {
         question: 'What is the best cold brew ratio?',
@@ -1463,6 +1659,21 @@ export const TOOLS: ToolMeta[] = [
         question: 'How long should cold brew steep?',
         answer:
           'Steep coarse grounds in the fridge for 12–18 hours. Longer extracts more strength but can turn bitter past about 24 hours.',
+      },
+      {
+        question: 'Is cold brew stronger than regular coffee?',
+        answer:
+          'Concentrate is much stronger until you dilute it. Ready-to-drink cold brew is often similar in caffeine per mug to hot drip, but concentrate packs more caffeine per ounce — dilute to taste.',
+      },
+      {
+        question: 'What grind size for cold brew coffee?',
+        answer:
+          'Extra coarse — like cracked peppercorns. A medium grind over a 12-hour steep turns bitter, cloudy, and hard to filter.',
+      },
+      {
+        question: 'Do you use hot or cold water for cold brew?',
+        answer:
+          'Cold or room-temperature water. Hot water makes Japanese iced coffee (flash brew), which is a different method. True cold brew extracts slowly without heat for a smoother, lower-acidity cup.',
       },
     ],
   },
@@ -1476,7 +1687,13 @@ export const TOOLS: ToolMeta[] = [
       'Enter your dose and target ratio to get the exact yield for ristretto, normale, or lungo shots.',
     icon: 'Coffee',
     category: 'Calculator',
-    keywords: ['espresso ratio', 'espresso brew ratio calculator', 'dose to yield espresso'],
+    keywords: [
+      'espresso ratio',
+      'espresso brew ratio calculator',
+      'dose to yield espresso',
+      'ristretto vs lungo',
+      '18g in 36g out',
+    ],
     faqs: [
       {
         question: 'What is a normal espresso ratio?',
@@ -1484,9 +1701,24 @@ export const TOOLS: ToolMeta[] = [
           'A "normale" shot is 1:2 — for example 18 g of coffee in, 36 g of espresso out, in about 25–30 seconds. Ristretto is 1:1–1:1.5 and lungo is 1:3 or more.',
       },
       {
+        question: 'What does 18 in 36 out mean?',
+        answer:
+          'It means you dose 18 grams of dry coffee into the portafilter and stop the shot when 36 grams of liquid espresso are in the cup — a classic 1:2 brew ratio. Weigh both with a scale; volume in the demitasse is less accurate.',
+      },
+      {
         question: 'How do I fix a sour or bitter shot?',
         answer:
           'Sour and fast usually means grind finer; bitter and slow means grind coarser. Change one variable at a time and keep the ratio consistent.',
+      },
+      {
+        question: 'What is the difference between ristretto and lungo?',
+        answer:
+          'Ristretto is a short ratio (about 1:1–1:1.5) — thicker, sweeter, more intense. Lungo is a long ratio (about 1:3+) — lighter body, more bitterness risk, bigger drink. Same dose, different yield.',
+      },
+      {
+        question: 'How long should an espresso shot take?',
+        answer:
+          'Most 1:2 double shots land around 25–30 seconds, not counting pre-infusion. Use time as a guide, not a rule — taste and yield matter more than hitting exactly 28 seconds.',
       },
     ],
   },
@@ -1495,7 +1727,7 @@ export const TOOLS: ToolMeta[] = [
     name: 'Caffeine Calculator',
     title: 'Caffeine Calculator: How Much Caffeine Is in Your Coffee?',
     metaDescription:
-      'Estimate the caffeine in your coffee by drink type and number of servings, and see how it compares to the recommended daily safe limit.',
+      'Estimate caffeine in your coffee by drink type — or convert mg to cups. How many cups of coffee is 155 mg of caffeine? Use the calculator to find out.',
     excerpt:
       'Estimate caffeine by drink and servings, and see how close you are to the daily safe limit.',
     icon: 'Zap',
@@ -1503,19 +1735,40 @@ export const TOOLS: ToolMeta[] = [
     keywords: [
       'caffeine calculator',
       'how much caffeine in coffee',
+      'how many cups of coffee is 155 mg of caffeine',
       'caffeine in espresso',
       'daily caffeine limit',
     ],
     faqs: [
+      {
+        question: 'How many cups of coffee is 155 mg of caffeine?',
+        answer:
+          'About one 8 oz cold brew (typically ~155 mg) or roughly 1.5–1.6 cups of regular brewed coffee (~95 mg each). A single espresso shot has about 63 mg, so 155 mg is a little under 2.5 shots. Use the calculator above to convert any mg amount into cups by drink type.',
+      },
       {
         question: 'How much caffeine is in a cup of coffee?',
         answer:
           'A typical 8 oz brewed coffee has about 95 mg of caffeine. A single espresso shot has roughly 63 mg, and cold brew is often higher per ounce.',
       },
       {
+        question: 'How much caffeine is in espresso vs coffee?',
+        answer:
+          'Per ounce, espresso is stronger (~63 mg in a 1 oz shot). Per serving, an 8 oz drip coffee (~95 mg) often has more total caffeine than one shot. A double shot (~126 mg) is closer to a full mug.',
+      },
+      {
         question: 'What is the safe daily caffeine limit?',
         answer:
           'Most healthy adults can have up to about 400 mg of caffeine per day — roughly four 8 oz cups of coffee. Pregnant people and those sensitive to caffeine should have less.',
+      },
+      {
+        question: 'Does dark roast have less caffeine?',
+        answer:
+          'Barely. Roast level has a tiny effect. By weight, dark and light are nearly the same; by scoop, light roast can have slightly more because the beans are denser. Brew method and dose matter far more.',
+      },
+      {
+        question: 'How much caffeine is in decaf coffee?',
+        answer:
+          'Decaf is not caffeine-free. An 8 oz cup of decaf usually has about 2–15 mg of caffeine — enough that sensitive people can still notice it if they drink several cups.',
       },
     ],
   },
@@ -1533,6 +1786,7 @@ export const TOOLS: ToolMeta[] = [
       'coffee grams to tablespoons',
       'coffee scoop to grams',
       'how many grams in a tablespoon of coffee',
+      'how many tablespoons of coffee per cup',
     ],
     faqs: [
       {
@@ -1541,9 +1795,24 @@ export const TOOLS: ToolMeta[] = [
           'One level tablespoon of whole beans is roughly 5 grams; ground coffee is a bit denser at about 5–6 grams. A standard coffee scoop is about 2 tablespoons, or 10 grams.',
       },
       {
+        question: 'How many tablespoons of coffee per cup?',
+        answer:
+          'For an 8 oz (240–250 ml) mug at a 1:16 ratio, use about 2 tablespoons of coffee (~15–16 g). For a coffee-maker “cup” (often only 5 oz), closer to 1–1.5 tablespoons is enough.',
+      },
+      {
+        question: 'How many scoops of coffee per cup?',
+        answer:
+          'One standard coffee scoop is about 2 tablespoons (~10 g). For a full 8 oz mug you usually want closer to 1.5 scoops (~15 g). The old “one scoop per cup” advice assumes tiny 5–6 oz cups.',
+      },
+      {
         question: 'Why measure by weight instead of scoops?',
         answer:
           'Bean size, roast level, and grind all change volume, so scoops are inconsistent. Weighing in grams is the most repeatable way to dose coffee.',
+      },
+      {
+        question: 'How many grams of coffee for 8 cups?',
+        answer:
+          'It depends whether you mean 8 machine cups or 8 mugs. Eight 5 oz machine cups need about 70–75 g at a standard drip ratio; eight 8 oz mugs need about 120–125 g. Use the drip coffee calculator for exact numbers.',
       },
     ],
   },
@@ -1557,17 +1826,66 @@ export const TOOLS: ToolMeta[] = [
       'Find the right grind for every brew method, from espresso-fine to cold-brew-coarse.',
     icon: 'Beaker',
     category: 'Reference',
-    keywords: ['coffee grind size chart', 'grind size for pour over', 'espresso grind size'],
+    keywords: [
+      'coffee grind size chart',
+      'grind size for pour over',
+      'espresso grind size',
+      'french press grind size',
+      'cold brew grind size',
+      'what grind for drip coffee',
+      'coffee grind too fine',
+      'coffee grind too coarse',
+    ],
     faqs: [
       {
         question: 'What grind size should I use?',
         answer:
-          'Match grind to brew time: espresso is fine, pour over and drip are medium to medium-fine, French press and cold brew are coarse. Finer grinds extract faster.',
+          'Match grind to brew time: espresso is fine, pour over and drip are medium to medium-fine, French press and cold brew are coarse. Finer grinds extract faster because more surface area touches the water.',
+      },
+      {
+        question: 'What grind size for pour over coffee?',
+        answer:
+          'Use medium-fine — about the texture of table salt. If the brew finishes under ~2:30 and tastes sour, grind finer. If it stalls past ~4:00 and tastes bitter or astringent, grind coarser. One or two clicks on a burr grinder is usually enough.',
+      },
+      {
+        question: 'What grind size for French press?',
+        answer:
+          'Use a coarse grind, like sea salt or raw sugar. French press steeps for about 4 minutes; a fine grind over-extracts, clogs the mesh, and leaves a muddy cup. If your press tastes silty, go coarser before changing the ratio.',
+      },
+      {
+        question: 'What grind size for espresso?',
+        answer:
+          'Espresso needs a fine grind — closer to powdered sugar or very fine salt — so a ~25–30 second shot at a 1:2 ratio can extract properly. If the shot gushes and tastes sour, grind finer. If it drips slowly and tastes bitter, grind coarser. Espresso is the most sensitive grind setting on any chart.',
+      },
+      {
+        question: 'What grind size for cold brew?',
+        answer:
+          'Use extra-coarse grounds, similar to cracked peppercorns or very chunky sea salt. Cold brew steeps 12–18 hours; anything medium or finer tends to turn bitter, cloudy, and over-extracted. Coarse grind also strains cleaner.',
+      },
+      {
+        question: 'What grind size for drip coffee makers?',
+        answer:
+          'Most automatic drip machines want a medium grind — like regular sand. Basket machines with flat-bottom filters can go slightly coarser; cone filters often prefer slightly finer. If the pot tastes weak, try a notch finer before adding more coffee.',
       },
       {
         question: 'What happens if my grind is wrong?',
         answer:
-          'Too fine for the method over-extracts and tastes bitter; too coarse under-extracts and tastes sour and weak. Adjust grind first when a cup tastes off.',
+          'Too fine for the method over-extracts and tastes bitter, harsh, or drying. Too coarse under-extracts and tastes sour, thin, and hollow. When a cup tastes off, change grind first — before ratio, temperature, or brew time.',
+      },
+      {
+        question: 'Why does my coffee taste bitter or sour?',
+        answer:
+          'Bitter and harsh often means the grind is too fine (over-extraction). Sour and watery often means the grind is too coarse (under-extraction). Confirm you are in the right ballpark for your brew method on the chart, then adjust one click at a time.',
+      },
+      {
+        question: 'Do I need a burr grinder for accurate grind size?',
+        answer:
+          'Yes if you care about consistency. Blade grinders chop beans into a mix of dust and chunks, so the same cup can taste bitter and sour at once. A burr grinder produces uniform particles, which is why grind-size charts assume burr grinding.',
+      },
+      {
+        question: 'How fine is espresso grind vs drip?',
+        answer:
+          'Espresso is much finer. Drip is medium; espresso is fine enough that water needs pressure to push through the puck in ~25–30 seconds. If you try to brew drip coffee at espresso fineness, the basket will clog and taste bitter. If you pull espresso at drip coarseness, the shot will gush and taste sour.',
       },
     ],
   },
@@ -1605,6 +1923,21 @@ export const TOOLS: ToolMeta[] = [
         answer:
           'Altitude, soil, rainfall, temperature, and processing method all shape flavor. Ethiopian naturals taste fruity and floral; Colombian washed beans are clean and balanced; Sumatran wet-hulled beans are earthy and full-bodied.',
       },
+      {
+        question: 'Where does the best coffee come from?',
+        answer:
+          'There is no single “best” origin — it depends on taste. Ethiopia and Kenya lead for bright, fruity filter coffee; Colombia and Guatemala for balanced everyday cups; Brazil for chocolatey espresso blends; Sumatra for heavy, earthy body.',
+      },
+      {
+        question: 'What does Ethiopian coffee taste like?',
+        answer:
+          'Often floral and fruity — jasmine, bergamot, blueberry, peach — especially from Yirgacheffe and Sidama. Natural-processed lots taste jammy; washed lots taste cleaner and tea-like. They shine as light-roast pour overs.',
+      },
+      {
+        question: 'Arabica vs Robusta — which countries grow which?',
+        answer:
+          'Most specialty origins (Ethiopia, Colombia, Kenya, Costa Rica) grow Arabica. Vietnam grows mostly Robusta. Brazil grows both. Arabica tastes sweeter and more complex; Robusta has more caffeine and a heavier, earthier profile.',
+      },
     ],
   },
   {
@@ -1639,6 +1972,21 @@ export const TOOLS: ToolMeta[] = [
         question: 'What is the difference between light and dark roast flavor?',
         answer:
           'Light roasts retain more origin character: floral, fruity, acidic, and complex. Dark roasts develop roast-driven flavors: chocolate, caramel, smoke, and low acidity. Medium roasts balance both.',
+      },
+      {
+        question: 'What is over-extracted coffee?',
+        answer:
+          'Over-extracted coffee tastes bitter, hollow, and drying — like sucking on a tea bag too long. Common causes: grind too fine, brew time too long, or water too hot for the roast.',
+      },
+      {
+        question: 'What is under-extracted coffee?',
+        answer:
+          'Under-extracted coffee tastes sour, salty, and thin, without sweetness. Common causes: grind too coarse, brew time too short, dose too low, or water too cool.',
+      },
+      {
+        question: 'Which variable should I change first when coffee tastes bad?',
+        answer:
+          'Change grind size first. It is the fastest fix for bitter vs sour cups. Keep ratio and temperature steady until the grind is in the right ballpark, then fine-tune the rest.',
       },
     ],
   },
@@ -1730,7 +2078,48 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       'Drip coffee looks simple, but bad measurements are why so many home pots taste weak, bitter, or generic. A dedicated drip calculator meets people where they actually are: brewing for multiple cups, often without a scale, on mainstream machines with confusing markings. That makes it one of the best search-intent fits on the whole site.',
-    relatedSlugs: ['coffee-ratio-calculator', 'coffee-measurement-converter', 'caffeine-calculator'],
+    relatedSlugs: ['coffee-ratio-calculator', 'coffee-measurement-converter', 'french-press-calculator'],
+  },
+
+  'french-press-calculator': {
+    intro:
+      'French press coffee ratio searches are some of the most common brewing questions online — and for good reason. Immersion brewing is forgiving on technique, but the dose still has to be right. Too little coffee and the cup tastes thin and sour; too much and it turns heavy and bitter. This calculator gives you the classic 1:15 French press coffee ratio (plus milder and stronger options), sized for the press you actually own: 3-cup, 4-cup, 8-cup, or 12-cup.',
+    howToUse: [
+      {
+        step: 'Choose your press size',
+        detail:
+          'Tap 3-cup, 4-cup, 8-cup, or 12-cup. These match common Bodum-style usable volumes (about 350 ml, 500 ml, 1 L, and 1.5 L), not the confusing “cup” markings on some lids.',
+      },
+      {
+        step: 'Adjust water if needed',
+        detail:
+          'Override the water field if your press is a non-standard size or you only want to fill it partway. Leave roughly 2 cm of space under the lid so the grounds can bloom.',
+      },
+      {
+        step: 'Pick a strength',
+        detail:
+          'Classic (1:15) is the best French press coffee ratio for most people. Mild (1:16) is brighter and lighter; Strong (1:14) is bold and rich — great for milk drinks or dark roasts.',
+      },
+      {
+        step: 'Grind coarse and steep 4 minutes',
+        detail:
+          'Use a coarse grind, add hot water (~93–96°C / 200–205°F), steep about 4 minutes, break the crust, skim foam, press slowly, and pour everything out so it does not keep steeping.',
+      },
+    ],
+    proTips: [
+      'French press “cups” on packaging are usually ~4 oz, not full mugs. Trust water weight (grams/ml) over the printed cup count when you can.',
+      'If the cup tastes muddy or bitter, go coarser before you change the ratio. Grind size causes most French press failures.',
+      'Decant immediately after pressing. Leaving coffee on the grounds is the fastest way to turn a good brew bitter.',
+      'Pair this calculator with our full French press method guide for bloom, plunge technique, and sediment tips.',
+    ],
+    whyItMatters:
+      'A dedicated French press calculator matches how people actually search: “french press coffee ratio,” “how much coffee for french press,” and “french press method.” Getting the ratio right once — then repeating it — is the shortest path from “okay immersion coffee” to a cup you look forward to every morning.',
+    relatedSlugs: [
+      'coffee-ratio-calculator',
+      'grind-size-chart',
+      'coffee-measurement-converter',
+      'caffeine-calculator',
+    ],
   },
 
   'brew-timer': {
