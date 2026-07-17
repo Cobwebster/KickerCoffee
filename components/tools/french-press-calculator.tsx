@@ -3,12 +3,16 @@
 import { useState } from 'react'
 
 const GRAMS_PER_TBSP = 5.3
+const GRAMS_PER_SCOOP = 10
 
-/** Common French press sizes (usable brew volume, not max fill). */
+/** Common French press / cafetière sizes (usable brew volume). */
 const PRESS_SIZES = [
+  { id: '1-cup', label: '1 cup', water: 250, note: '1 mug' },
+  { id: '2-cup', label: '2 cups', water: 500, note: '2 mugs' },
+  { id: '16-oz', label: '16 oz', water: 473, note: 'small press' },
   { id: '3-cup', label: '3-cup', water: 350, note: '~12 oz' },
   { id: '4-cup', label: '4-cup', water: 500, note: '~17 oz' },
-  { id: '8-cup', label: '8-cup', water: 1000, note: '~34 oz' },
+  { id: '8-cup', label: '8-cup / 1 L', water: 1000, note: '~34 oz' },
   { id: '12-cup', label: '12-cup', water: 1500, note: '~51 oz' },
 ] as const
 
@@ -17,6 +21,13 @@ const STRENGTHS = [
   { id: 'classic', label: 'Classic', ratio: 15, note: 'Best starting point' },
   { id: 'strong', label: 'Strong', ratio: 14, note: 'Bold & rich' },
 ] as const
+
+const QUICK_WATER = [
+  { label: '250 ml', water: 250 },
+  { label: '500 ml', water: 500 },
+  { label: '1 L', water: 1000 },
+  { label: '16 oz', water: 473 },
+]
 
 function round(n: number, d = 0) {
   const f = 10 ** d
@@ -28,11 +39,12 @@ export function FrenchPressCalculator() {
   const [strengthId, setStrengthId] = useState<(typeof STRENGTHS)[number]['id']>('classic')
   const [customWater, setCustomWater] = useState<number | null>(null)
 
-  const size = PRESS_SIZES.find((s) => s.id === sizeId) ?? PRESS_SIZES[2]
+  const size = PRESS_SIZES.find((s) => s.id === sizeId) ?? PRESS_SIZES[5]
   const strength = STRENGTHS.find((s) => s.id === strengthId) ?? STRENGTHS[1]
   const water = customWater ?? size.water
   const coffee = water / strength.ratio
   const tbsp = coffee / GRAMS_PER_TBSP
+  const scoops = coffee / GRAMS_PER_SCOOP
   const mugs = water / 250
 
   return (
@@ -41,7 +53,7 @@ export function FrenchPressCalculator() {
         <div className="space-y-6">
           <div>
             <label className="mb-2 block text-sm font-medium text-foreground">
-              French press size
+              French press / cafetière size
             </label>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {PRESS_SIZES.map((item) => (
@@ -79,8 +91,21 @@ export function FrenchPressCalculator() {
               onChange={(e) => setCustomWater(Math.max(100, Number(e.target.value)))}
               className="w-full bg-transparent text-2xl font-semibold text-foreground outline-none"
             />
+            <div className="mt-3 flex flex-wrap gap-2">
+              {QUICK_WATER.map((q) => (
+                <button
+                  key={q.label}
+                  type="button"
+                  onClick={() => setCustomWater(q.water)}
+                  className="rounded-lg border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-accent/50"
+                >
+                  {q.label}
+                </button>
+              ))}
+            </div>
             <p className="mt-2 text-xs text-muted-foreground">
-              Leave ~2 cm of headroom under the lid so grounds can bloom.
+              Leave ~2 cm of headroom under the lid so grounds can bloom. Classic French press
+              coffee ratio is 1:15 by weight.
             </p>
           </div>
 
@@ -112,13 +137,15 @@ export function FrenchPressCalculator() {
 
         <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5">
           <h2 className="font-serif text-xl font-semibold text-foreground">
-            Your French press recipe
+            Your French press coffee ratio
           </h2>
           <div className="mt-4 grid grid-cols-2 gap-3">
             <Stat label="Coffee (coarse)" value={`${round(coffee)} g`} big />
             <Stat label="Water" value={`${round(water)} g`} />
             <Stat label="Tablespoons" value={`≈ ${round(tbsp, 1)}`} />
+            <Stat label="Scoops" value={`≈ ${round(scoops, 1)}`} />
             <Stat label="Approx mugs" value={`≈ ${round(mugs, 1)}`} />
+            <Stat label="Ratio" value={`1:${strength.ratio}`} />
           </div>
 
           <div className="mt-5 space-y-2 border-t border-border/60 pt-4 text-sm text-muted-foreground">
@@ -126,7 +153,7 @@ export function FrenchPressCalculator() {
               <span className="font-medium text-foreground">Grind:</span> coarse (like sea salt)
             </p>
             <p>
-              <span className="font-medium text-foreground">Steep:</span> 4 minutes
+              <span className="font-medium text-foreground">Steep / brew time:</span> 4 minutes
             </p>
             <p>
               <span className="font-medium text-foreground">Water temp:</span> ~93–96°C (200–205°F)

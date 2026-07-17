@@ -63,6 +63,28 @@ export function MeasurementConverter() {
         </div>
       </div>
 
+      <div className="mt-3 flex flex-wrap gap-2">
+        {[
+          { amount: 20, unit: 'grams' as const, label: '20 g' },
+          { amount: 1, unit: 'tbsp' as const, label: '1 tbsp' },
+          { amount: 1, unit: 'scoop' as const, label: '1 scoop' },
+          { amount: 55, unit: 'grams' as const, label: '55 g' },
+          { amount: 70, unit: 'grams' as const, label: '70 g' },
+        ].map((preset) => (
+          <button
+            key={preset.label}
+            type="button"
+            onClick={() => {
+              setAmount(preset.amount)
+              setUnitId(preset.unit)
+            }}
+            className="rounded-lg border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-accent/50"
+          >
+            {preset.label}
+          </button>
+        ))}
+      </div>
+
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {UNITS.map((u) => {
           const converted = grams * u.perGram

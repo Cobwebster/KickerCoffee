@@ -68,9 +68,9 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-make-pour-over-coffee',
     method: 'Pour Over',
-    title: 'How to Make Pour Over Coffee (V60 Step-by-Step Guide)',
+    title: 'How to Make Pour Over Coffee — V60 Recipe & Technique',
     metaDescription:
-      'Learn how to make pour over coffee at home with our step-by-step V60 guide. Get the ideal coffee-to-water ratio, grind size, and pouring technique for a clean, sweet cup.',
+      'Pour over coffee recipe for V60: coffee-to-water ratio, grind, bloom, and pour technique. Best pour over method with a clear step-by-step schedule.',
     excerpt:
       'A clean, bright, and endlessly repeatable cup. Master the V60 pour over with the exact ratio, grind, and pour schedule the pros use.',
     difficulty: 'Beginner',
@@ -175,9 +175,9 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'french-press-coffee-ratio-and-method',
     method: 'French Press',
-    title: 'French Press Coffee Ratio & Method (Step-by-Step Technique)',
+    title: 'French Press Coffee Ratio (1:15) — Cafetière Method & Technique',
     metaDescription:
-      'French press coffee ratio, method, and technique: the ideal 1:15 coffee-to-water ratio, grind size, and 4-minute steep for a full-bodied cup every morning.',
+      'French press coffee ratio: use 1:15 (about 67 g per liter). Free chart for 1 cup, 2 cups, 16 oz, and 1 L — plus grind, 4-minute steep, and cafetière technique.',
     excerpt:
       'Rich, full-bodied, and nearly foolproof. Get the French press coffee ratio, grind, and 4-minute steep dialed in.',
     difficulty: 'Beginner',
@@ -185,7 +185,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     ratio: '1:15 (67 g/L)',
     grind: 'Coarse',
     yield: '3–4 cups',
-    updated: '2026-07-12',
+    updated: '2026-07-17',
     image: '/images/french-press-hero.png',
     intro:
       'The French press (or cafetière) is immersion brewing at its simplest. Because the metal mesh filter lets natural oils through, it produces a heavier, richer body than paper-filtered methods. There is no pour technique to master and no specialized equipment beyond a press and a scale — making it one of the most forgiving ways to brew genuinely great coffee at home.',
@@ -291,9 +291,9 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-use-aeropress',
     method: 'AeroPress',
-    title: 'How to Use an AeroPress: Recipes for a Smooth Cup',
+    title: 'How to Use an AeroPress: Methods, Ratio & Technique',
     metaDescription:
-      'A complete AeroPress guide with the standard and inverted methods, ratios, grind size, and steep times for a smooth, low-acidity cup of coffee.',
+      'How to use an AeroPress — standard and inverted methods, best AeroPress technique, ratio, grind, and a 2-cup recipe for a smooth, low-acidity cup.',
     excerpt:
       'Compact, travel-friendly, and incredibly versatile. Learn the standard and inverted AeroPress methods.',
     difficulty: 'Beginner',
@@ -401,6 +401,11 @@ export const BREW_GUIDES: BrewGuide[] = [
         question: 'Can you use the AeroPress for iced coffee?',
         answer:
           'Absolutely. Brew a concentrate (short steep, less water) directly over a glass full of ice. The rapid chilling preserves bright, sweet flavor without diluting the coffee too much.',
+      },
+      {
+        question: 'How do you make AeroPress for 2 cups?',
+        answer:
+          'Use about 30–34 g coffee and 450–500 g water (still ~1:14–1:16), or brew two back-to-back single cups for better extraction. Overfilling one chamber often under-extracts — two quick brews taste cleaner.',
       },
     ],
   },
@@ -517,9 +522,9 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'cold-brew-coffee-recipe',
     method: 'Cold Brew',
-    title: 'Cold Brew Coffee: Easy Overnight Recipe and Ratio',
+    title: 'Cold Brew Coffee Ratio & Overnight Recipe (Concentrate 1:8)',
     metaDescription:
-      'Make smooth, low-acidity cold brew coffee at home. Get the cold brew ratio, grind size, steep time, and how to store and dilute the concentrate.',
+      'Cold brew coffee ratio made simple: 1:8 for concentrate or 1:15 ready-to-drink. Overnight steep time, grind size, 64 oz batch math, and dilution tips.',
     excerpt:
       'Smooth, sweet, and low in acidity. Steep coarse grounds overnight for a concentrate you can keep all week.',
     difficulty: 'Beginner',
@@ -527,7 +532,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     ratio: '1:8 concentrate',
     grind: 'Coarse',
     yield: '4–6 cups',
-    updated: '2026-05-20',
+    updated: '2026-07-17',
     image: '/images/cold-brew-hero.png',
     intro:
       'Cold brew steeps coarse coffee in cool water for 12–18 hours. Because no heat is involved, it extracts fewer acids and bitter compounds than any hot-brew method — producing a naturally sweet, mellow concentrate with about 60–70% less acidity than drip coffee. One batch kept in the fridge gives you café-quality iced coffee for a full week.',
@@ -757,15 +762,15 @@ export const GEAR: GearItem[] = [
     slug: 'best-burr-coffee-grinders',
     category: 'Grinder',
     name: 'Burr Coffee Grinders',
-    title: 'Best Burr Coffee Grinders for Every Budget (2026)',
+    title: 'Best Burr Grinder 2026 — Affordable to Premium Coffee Burr Grinders',
     metaDescription:
-      'Best coffee burr grinders for every budget — plus why a burr grinder beats a blade grinder. Hand and electric picks for pour over, drip, and espresso.',
+      'Best burr grinder picks for every budget: best affordable burr coffee grinder, best cheap hand grinders, and espresso-ready models. Why a burr grinder beats a blade.',
     excerpt:
       'The single most important upgrade for better coffee. Our budget-to-premium burr grinder picks.',
     priceRange: '$40–$700',
     bestFor: 'Everyone — upgrade this first',
     rating: 4.8,
-    updated: '2026-06-12',
+    updated: '2026-07-17',
     image: '/images/grinder-hero.png',
     intro:
       'If you only upgrade one thing, make it your grinder. A quality burr grinder produces uniform particles for even extraction — something a blade grinder simply cannot do. Uniform grounds are the foundation of every great cup.',
@@ -1091,39 +1096,135 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'coffee-roast-levels-explained',
     topic: 'Roasting',
-    title: 'Coffee Roast Levels Explained: Light vs Medium vs Dark',
+    title: 'Coffee Roast Levels Explained: Light vs Medium vs Dark Roast',
     metaDescription:
-      'Types of coffee roasts explained: light, medium, and dark. Learn how the roast of coffee changes flavor, acidity, body, and caffeine — and which to choose.',
+      'Coffee roast levels explained in depth — types of coffee roasts from light to dark, first and second crack, light vs medium vs dark flavor, caffeine myths, and how to brew each roast.',
     excerpt: 'How roast level changes flavor, acidity, and body — and which one is right for you.',
-    readTime: '6 min',
-    updated: '2026-07-12',
+    readTime: '14 min',
+    updated: '2026-07-17',
     image: '/images/roast-levels-hero.png',
     intro:
-      'Roast level is one of the biggest factors in how your coffee tastes. As beans roast longer, origin flavors give way to roast flavors. Understanding the spectrum helps you buy beans you will actually enjoy.',
+      'Roast level is one of the biggest factors in how your coffee tastes — often more than people expect. Green coffee starts grassy and vegetal; roasting develops sweetness, aroma, and body while gradually trading origin character for roast flavor. Understanding light vs medium vs dark roast helps you buy bags you will actually enjoy and brew them in a way that matches how the beans were roasted.',
     body: [
-      { type: 'heading', text: 'Light roast' },
+      { type: 'heading', text: 'What “roast of coffee” actually means' },
       {
         type: 'paragraph',
-        text: 'Light roasts are pulled shortly after "first crack." They preserve the most origin character — think bright acidity, floral and fruity notes, and a lighter body. They are the specialty coffee favorite for showcasing single origins.',
+        text: 'Coffee roast level describes how far green beans were taken through the roasting process. Heat drives off moisture, triggers Maillard reactions (browning and nutty-caramel flavors), caramelizes sugars, and eventually cracks the bean as internal pressure builds. Stop early and you keep bright acids and floral or fruity notes from the origin. Roast longer and those notes fade while chocolate, toast, smoke, and bittersweet roast flavors take over. The same Ethiopian or Colombian lot can taste like two different coffees depending on whether it was pulled as a light roast or pushed toward dark.',
       },
-      { type: 'heading', text: 'Medium roast' },
       {
-        type: 'paragraph',
-        text: 'Medium roasts balance origin flavors with roast sweetness. Expect notes of caramel, chocolate, and nuts with moderate acidity and body. This is the most crowd-pleasing, versatile roast.',
+        type: 'list',
+        items: [
+          'Light roast: stopped soon after first crack — highest origin character, brightest acidity, lightest body.',
+          'Medium roast: between first and second crack — balance of sweetness, body, and origin flavor.',
+          'Dark roast: at or past second crack — bold roast flavor, low acidity, heavier body, less origin nuance.',
+        ],
       },
-      { type: 'heading', text: 'Dark roast' },
+      { type: 'heading', text: 'First crack, second crack, and what happens in the roaster' },
       {
         type: 'paragraph',
-        text: 'Dark roasts go past "second crack," developing bold, roasty, bittersweet flavors like dark chocolate and toast. Acidity drops, body increases, and origin character fades. Great for espresso and milk drinks.',
+        text: 'As beans heat, water turns to steam and the structure expands until the bean audibly “pops” — first crack. That is the earliest point most drinkable coffee is finished. Continue roasting and oils migrate toward the surface; later, a quieter second crack begins as the cell structure fractures further. Specialty light and medium roasts usually live between first crack and the start of second crack. Traditional dark and French roasts push into or past second crack, which is why those beans often look oily and taste more roasted than fruity.',
       },
       {
         type: 'tip',
-        text: 'Contrary to popular belief, dark roast does not have more caffeine. By weight the difference is negligible; by scoop, light roast is denser and can have slightly more.',
+        text: 'Bag color alone is a rough guide. Oil on the surface usually means a darker roast, but lighting and packaging photos can mislead. Taste notes (“blueberry,” “caramel,” “smoke”) and brew behavior are more trustworthy than a single word on the label.',
+      },
+      { type: 'heading', text: 'Light roast coffee' },
+      {
+        type: 'paragraph',
+        text: 'Light roasts are pulled shortly after first crack. The bean stays denser, the surface is usually dry (not oily), and the cup keeps more of what the farm grew: florals, citrus, berry, tea-like acidity, and a lighter body. Specialty roasters love light roasts for single-origin pour overs because the roast does not bury the origin. That brightness is a feature, not a flaw — but if you expect grocery-store “breakfast blend” comfort, a light Ethiopian can taste sharp or sour until you adjust grind and water temperature.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Flavor: jasmine, bergamot, berry, stone fruit, honey, citrus — depending on origin and process.',
+          'Acidity: high and lively; body: light to medium-light.',
+          'Best brew methods: pour over, drip, AeroPress; also excellent as modern light-roast espresso if you dial carefully.',
+          'Brew tips: hotter water (~93–96°C / 200–205°F), slightly finer grind, sometimes a touch more dose or longer contact time.',
+        ],
+      },
+      { type: 'heading', text: 'Medium roast coffee' },
+      {
+        type: 'paragraph',
+        text: 'Medium roast is the crowd-pleaser and the best starting point for most home brewers. Enough development softens sharp acids and builds caramelized sweetness, while enough origin character remains that a Colombian still tastes different from a Brazilian. Expect milk chocolate, caramel, hazelnut, red apple, and brown sugar more often than extreme florals or heavy smoke. Medium roasts forgive small grind mistakes and work across drip machines, French press, pour over, and many espresso setups.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Flavor: caramel, chocolate, nuts, mild fruit, balanced sweetness.',
+          'Acidity: moderate; body: medium.',
+          'Best brew methods: almost everything — drip, French press, pour over, AeroPress, moka pot, espresso.',
+          'Brew tips: start with a standard 1:16 filter ratio (or 1:15 for French press) and adjust grind before changing everything else.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Light roast vs medium roast is the comparison people search most. If light tastes too bright or “tea-like,” step to medium before jumping to dark. You will keep sweetness and complexity without the smoky finish of a French roast.',
+      },
+      { type: 'heading', text: 'Medium-dark and dark roast coffee' },
+      {
+        type: 'paragraph',
+        text: 'Dark roasts continue toward or past second crack. Sugars carbonize further, acidity drops, body increases, and origin notes fade behind dark chocolate, toast, spice, and sometimes smoke or char. Beans may look oily. Traditional espresso blends, diner coffee, and many grocery dark roasts live here because the flavor is bold, low-acid, and cuts through milk. Medium vs dark roast is mostly about how much roast flavor you want versus how much origin character you want to keep.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Flavor: dark chocolate, molasses, toast, spice, smoke; less fruit and floral detail.',
+          'Acidity: low; body: medium-full to full.',
+          'Best brew methods: espresso, moka pot, French press, milk drinks; also fine as drip if you like bold cups.',
+          'Brew tips: slightly cooler water (~88–92°C), coarser grind than you would use for a light roast, avoid over-extracting into ashiness.',
+        ],
+      },
+      { type: 'heading', text: 'Common roast names on the bag' },
+      {
+        type: 'paragraph',
+        text: 'Roasters use marketing names that sit on the same light–medium–dark spectrum. They are not standardized, but these are the usual meanings:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Cinnamon / Light City / New England: very light — often just into first crack.',
+          'City / City+: light to light-medium specialty territory.',
+          'Full City / Full City+: medium to medium-dark; common for espresso-leaning roasts.',
+          'Vienna: medium-dark, starting to show oil and roast sweetness.',
+          'French roast: very dark, oily, low acidity, dominant roast flavor.',
+          'Italian roast: typically as dark or darker than French — heavy roast character.',
+          'Blond roast (popularized by some chains): a light-leaning roast marketed as milder; treat it like a light or light-medium when you brew.',
+        ],
+      },
+      { type: 'heading', text: 'Does dark roast have more caffeine?' },
+      {
+        type: 'paragraph',
+        text: 'No — not in any meaningful everyday sense. Roast level has only a tiny effect on caffeine. By weight, dark and light are nearly identical (dark can be microscopically higher because more mass is lost as moisture and chaff). By scoop or tablespoon, light roast is denser, so a scooped light roast can deliver slightly more caffeine. Brew method and dose matter far more: a big cold brew or a large drip mug will out-caffeinate a small dark espresso shot every time.',
+      },
+      {
+        type: 'tip',
+        text: 'When people say dark roast is “stronger,” they usually mean flavor intensity or bitterness — not milligrams of caffeine. Use a caffeine calculator if you are tracking intake by drink size.',
       },
       { type: 'heading', text: 'How roast level changes brewing' },
       {
         type: 'paragraph',
-        text: 'Roast level does not just change taste; it changes how the bean behaves in the grinder and brewer. Light roasts are denser and less porous, so they usually need a finer grind, hotter water, and sometimes slightly longer contact time to extract fully. Dark roasts are more brittle and soluble, so they often taste better with a coarser grind and a slightly lower water temperature. If you brew every roast with the same recipe, you are not making a fair comparison.',
+        text: 'Roast level changes density and solubility. Light roasts are harder and less porous, so they need more extraction help: hotter water, finer grind, or longer contact. Dark roasts are more brittle and extract easily, so the same recipe can turn bitter or ashy — back off temperature, grind a bit coarser, or shorten brew time. If you brew every roast with one frozen recipe, you are not tasting the roast fairly.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Light: hotter water, finer grind, watch for sour under-extraction — grind finer before adding a ton more coffee.',
+          'Medium: standard recipes work; adjust grind first when taste is off.',
+          'Dark: cooler water, coarser grind, do not over-steep French press or over-fine espresso.',
+          'Espresso: light roasts often like longer ratios (e.g. 1:2.5); classic dark blends often sit near 1:2.',
+        ],
+      },
+      { type: 'heading', text: 'Best roast for each brew method' },
+      {
+        type: 'list',
+        items: [
+          'Pour over / V60: light to medium — clarity shows origin; light shines if you like brightness.',
+          'Drip coffee maker: medium — most forgiving for automatic machines.',
+          'French press / cafetière: medium to medium-dark — body and oils suit immersion; light works if you like tea-like cups.',
+          'Cold brew: medium-dark to dark — long steeps can make light roasts taste grassy; chocolatey darks go smooth.',
+          'Espresso: any level can work; traditional milk drinks often use medium-dark; modern specialty shops push light-medium single origins.',
+          'Moka pot: medium-dark to dark — heat and pressure amplify bitterness in very light roasts.',
+        ],
       },
       { type: 'heading', text: 'How to choose the right roast for your taste' },
       {
@@ -1132,29 +1233,49 @@ export const BEAN_ARTICLES: BeanArticle[] = [
           'Choose light roast if you enjoy floral, fruity, tea-like coffees and mostly brew pour over or filter coffee.',
           'Choose medium roast if you want the widest brewing flexibility and a balance of sweetness, body, and acidity.',
           'Choose dark roast if you prefer low-acid, bold coffee or mainly make milk drinks, moka pot coffee, or traditional espresso.',
+          'Not sure? Buy a medium single origin and a light roast from the same shop, brew both with the same method, and taste side by side.',
         ],
       },
       { type: 'heading', text: 'Roast labels can be inconsistent' },
       {
         type: 'paragraph',
-        text: 'One roaster\'s medium roast can be another roaster\'s light-medium. Large grocery brands also tend to roast darker overall than specialty roasters using the same labels. That is why tasting notes and brew behavior are often more useful than the roast word printed on the bag. If a so-called medium roast tastes smoky and oily, treat it like a dark roast when you brew it.',
+        text: 'One roaster’s medium can be another’s light-medium. Grocery brands often roast darker overall than specialty cafés using the same words. European “medium” and U.S. chain “blonde” do not map cleanly either. Read tasting notes, look at the roast date (not only best-by), and judge by the cup: if a labeled medium tastes smoky and oily, brew it like a dark roast. If a “dark” specialty bag still tastes fruity and dry on the surface, treat it closer to medium.',
+      },
+      { type: 'heading', text: 'Buying tips that beat the label' },
+      {
+        type: 'list',
+        items: [
+          'Prefer a roast date within the last few weeks for filter coffee; espresso blends are often best after a short rest.',
+          'Match roast to method: do not force a very light Nordic-style roast through a coarse French press recipe without adjusting grind and temperature.',
+          'For milk drinks, medium-dark often cuts through better than delicate light roasts.',
+          'If acidity bothers your stomach, medium-dark or dark and cold brew are usually gentler than light filter coffee — though individual tolerance varies.',
+        ],
+      },
+      {
+        type: 'quote',
+        text: 'Roast level is a dial, not a moral ranking. Light is not “better” and dark is not “worse” — they are different tools for different cups.',
       },
     ],
     faqs: [
       {
         question: 'What are the types of coffee roasts?',
         answer:
-          'The three main types of coffee roasts are light, medium, and dark. Light roasts taste bright and fruity, medium roasts balance sweetness and acidity, and dark roasts are bold, low-acid, and roast-forward. Some bags also use labels like “medium-dark” or “French roast,” which sit toward the darker end of the spectrum.',
+          'The three main types of coffee roasts are light, medium, and dark. Light roasts taste bright and fruity, medium roasts balance sweetness and acidity, and dark roasts are bold, low-acid, and roast-forward. Labels like medium-dark, Full City, Vienna, French roast, and blond roast sit along that same spectrum.',
       },
       {
         question: 'What is the roast of coffee?',
         answer:
-          'Roast of coffee means how long and how dark the green beans were roasted. Light stops soon after first crack; medium balances origin and roast sweetness; dark goes toward or past second crack, trading origin nuance for bold, roasty flavors.',
+          'Roast of coffee means how long and how dark the green beans were roasted. Light stops soon after first crack; medium balances origin and roast sweetness between cracks; dark goes toward or past second crack, trading origin nuance for bold, roasty flavors.',
+      },
+      {
+        question: 'What is first crack and second crack?',
+        answer:
+          'First crack is an audible popping when the bean expands early in roasting — the start of most drinkable light roasts. Second crack happens later as the structure breaks down further; dark and French roasts are finished around or after this stage and often look oilier.',
       },
       {
         question: 'Which roast has the most caffeine?',
         answer:
-          'They are nearly identical. Roast level has a minimal effect on caffeine. Any difference comes down to whether you measure by weight (dark slightly higher) or by scoop (light slightly higher).',
+          'They are nearly identical. Roast level has a minimal effect on caffeine. Any difference comes down to whether you measure by weight (dark slightly higher) or by scoop (light slightly higher because the beans are denser).',
       },
       {
         question: 'Is dark roast stronger than light roast?',
@@ -1167,9 +1288,44 @@ export const BEAN_ARTICLES: BeanArticle[] = [
           'French roast is a very dark roast — oily beans, low acidity, and dominant roast flavors like dark chocolate, smoke, and char. Origin character is mostly gone. Brew a bit cooler and coarser if it tastes ashy.',
       },
       {
+        question: 'What is a blond roast?',
+        answer:
+          'Blond roast is a light or light-medium style popularized by some coffee chains. Expect a milder, less roasty cup than a traditional dark breakfast blend. Brew it like a light roast: hotter water and a bit finer grind if it tastes sour.',
+      },
+      {
         question: 'Is medium roast the best for beginners?',
         answer:
           'Usually yes. Medium roast is the most forgiving across drip, pour over, French press, and espresso, with balanced sweetness and acidity. Start there, then explore lighter or darker once you know what you like.',
+      },
+      {
+        question: 'Light roast vs medium roast — what is the difference?',
+        answer:
+          'Light roast tastes brighter and more origin-driven (floral, fruity, higher acidity). Medium roast adds caramel and chocolate sweetness with milder acidity and more body. If light tastes too sharp, step to medium before jumping to dark.',
+      },
+      {
+        question: 'Medium vs dark roast coffee — which should I buy?',
+        answer:
+          'Choose medium for everyday balance and versatility. Choose dark if you want low acidity, bold roast flavors, and milk drinks. Dark roast is not “stronger” in caffeine — it just tastes more roasted.',
+      },
+      {
+        question: 'What roast is best for French press?',
+        answer:
+          'Medium to medium-dark suits French press body and oils especially well. Light roast works if you like a cleaner, tea-like immersion cup — just grind coarse and do not under-extract. Dark roast gives a bold, low-acid press if that is your preference.',
+      },
+      {
+        question: 'What roast is best for cold brew?',
+        answer:
+          'Medium-dark to dark usually produces the smoothest overnight cold brew. Very light roasts can taste grassy or thin after a 12–18 hour steep. Chocolatey, nutty lots shine as concentrate.',
+      },
+      {
+        question: 'Why does my light roast taste sour?',
+        answer:
+          'Often under-extraction, not “bad” acidity. Grind a little finer, use hotter water (93–96°C), and make sure brew time is long enough for the method. True light-roast fruit acidity is pleasant; sour saltiness means you need more extraction.',
+      },
+      {
+        question: 'Why does my dark roast taste burnt?',
+        answer:
+          'It may be roasted very dark, stale, or over-extracted. Try cooler water, a coarser grind, and a shorter contact time. If every dark bag from that brand tastes ashy, look for a medium-dark instead of French or Italian roast.',
       },
     ],
   },
@@ -1340,10 +1496,10 @@ export const BEAN_ARTICLES: BeanArticle[] = [
     topic: 'Freshness',
     title: 'How to Store Coffee Beans to Keep Them Fresh',
     metaDescription:
-      'How to store coffee beans to keep them fresh: the right container, whether to freeze coffee, and how long beans last after roasting.',
+      'How to store coffee beans: airtight container, pantry vs freezer, and how long beans stay fresh. Skip the fridge — keep coffee beans fresh longer.',
     excerpt: 'Air, light, heat, and moisture are the enemies. Store beans right and taste the difference.',
     readTime: '5 min',
-    updated: '2026-05-05',
+    updated: '2026-07-17',
     image: '/images/storage-hero.png',
     intro:
       'Freshly roasted coffee is at its best within a few weeks. The four enemies of freshness are oxygen, light, heat, and moisture. Store beans correctly and every cup tastes noticeably better.',
@@ -1444,9 +1600,9 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'coffee-ratio-calculator',
     name: 'Coffee Ratio Calculator',
-    title: 'Coffee-to-Water Ratio Calculator (Grams & Cups)',
+    title: 'Coffee-to-Water Ratio Calculator (Free — Grams & Cups)',
     metaDescription:
-      'Free coffee-to-water ratio calculator. Enter your cups, water, or coffee dose and instantly get the perfect measurements for pour over, drip, and French press.',
+      'Free coffee to water ratio calculator. Instantly convert coffee ratios for pour over, drip, and French press — how much coffee per cup in grams or tablespoons.',
     excerpt:
       'Enter any one value — coffee, water, or cups — and get the perfect brew measurements for any ratio.',
     icon: 'Scale',
@@ -1454,8 +1610,11 @@ export const TOOLS: ToolMeta[] = [
     keywords: [
       'coffee to water ratio',
       'coffee ratio calculator',
+      'coffee to water ratio calculator',
       'how much coffee per cup',
       'golden ratio coffee',
+      'coffee ratios',
+      'water coffee ratio',
     ],
     faqs: [
       {
@@ -1545,9 +1704,9 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'french-press-calculator',
     name: 'French Press Calculator',
-    title: 'French Press Coffee Ratio Calculator (Grams, Cups & Strength)',
+    title: 'French Press Coffee Ratio Calculator — Free Cafetière Chart',
     metaDescription:
-      'Free French press coffee ratio calculator. Pick your press size and strength to get exact coffee and water amounts — classic 1:15 ratio, grind, and 4-minute steep.',
+      'French press coffee ratio calculator: 1:15 classic. How much coffee for 1 cup, 2 cups, 16 oz, 1 litre / 8-cup press — grams, tablespoons, scoops, and steep time.',
     excerpt:
       'Dial in French press coffee ratio by press size and strength. Get grams, tablespoons, grind, and steep time instantly.',
     icon: 'Coffee',
@@ -1556,9 +1715,13 @@ export const TOOLS: ToolMeta[] = [
       'french press coffee ratio',
       'french press ratio',
       'french press calculator',
-      'french press method',
-      'french press coffee technique',
+      'cafetiere coffee ratio',
+      'cafetiere ratio',
+      'coffee ratio for french press',
       'how much coffee for french press',
+      'french press coffee amount',
+      'french press ratio per cup',
+      '1 litre french press',
     ],
     faqs: [
       {
@@ -1567,14 +1730,24 @@ export const TOOLS: ToolMeta[] = [
           'A 1:15 coffee-to-water ratio is the classic French press starting point — about 67 grams of coffee per liter of water. Use 1:14 for a stronger cup or 1:16 for something lighter and more tea-like.',
       },
       {
-        question: 'How much coffee do I use for an 8-cup French press?',
+        question: 'How much coffee for 1 cup French press?',
         answer:
-          'An 8-cup French press holds about 1 liter (1000 g) of water. At the classic 1:15 ratio that is roughly 67 g of coarse-ground coffee, or about 12–13 tablespoons. Always leave a little headroom under the lid for the bloom.',
+          'For one 250 ml mug at 1:15, use about 17 g of coarse coffee (~3 tablespoons). That is the simplest “french press coffee ratio per cup” starting point.',
       },
       {
-        question: 'How much coffee for a 4-cup French press?',
+        question: 'How much coffee for 2 cups French press?',
         answer:
-          'A 4-cup press is about 500 g of water. At 1:15 that is roughly 33 g of coarse coffee (~6 tablespoons). At mild 1:16 use about 31 g; at strong 1:14 use about 36 g.',
+          'For two mugs (500 g water) at 1:15, use about 33 g of coffee (~6 tablespoons or 3 scoops). At mild 1:16 use ~31 g; at strong 1:14 use ~36 g.',
+      },
+      {
+        question: 'How much coffee do I use for an 8-cup / 1 litre French press?',
+        answer:
+          'An 8-cup / 1 L French press holds about 1000 g of water. At the classic 1:15 ratio that is roughly 67 g of coarse-ground coffee, or about 12–13 tablespoons / 6–7 scoops.',
+      },
+      {
+        question: 'What is the cafetière coffee ratio?',
+        answer:
+          'Cafetière is another name for French press. Use the same 1:15 coffee-to-water ratio (67 g per litre), coarse grind, and about a 4-minute steep.',
       },
       {
         question: 'What grind size and steep time for French press?',
@@ -1635,19 +1808,23 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'cold-brew-calculator',
     name: 'Cold Brew Calculator',
-    title: 'Cold Brew Coffee Ratio Calculator (Concentrate & Ready-to-Drink)',
+    title: 'Cold Brew Coffee Ratio Calculator — Concentrate, 64 oz & Overnight',
     metaDescription:
-      'Calculate exactly how much coffee and water you need for cold brew. Choose concentrate or ready-to-drink strength and scale to any batch size.',
+      'Cold brew coffee ratio calculator in grams: 1:8 concentrate or 1:15 ready-to-drink. Scale any batch including 64 oz, see steep time, and get tablespoon amounts.',
     excerpt:
       'Scale cold brew to any jar or batch. Pick concentrate or ready-to-drink and get exact amounts.',
     icon: 'Snowflake',
     category: 'Calculator',
     keywords: [
       'cold brew ratio',
+      'cold brew coffee ratio',
       'cold brew calculator',
       'cold brew concentrate ratio',
-      'cold brew coffee ratio',
+      'cold brew recipe ratio',
+      'cold brew ratio grams',
+      'cold brew 64 oz',
       'how long to steep cold brew',
+      'cold brew water ratio',
     ],
     faqs: [
       {
@@ -1656,14 +1833,24 @@ export const TOOLS: ToolMeta[] = [
           'Use about 1:8 coffee to water for a concentrate you dilute later, or 1:15 for a ready-to-drink batch. This calculator handles both.',
       },
       {
-        question: 'How long should cold brew steep?',
+        question: 'What is the cold brew concentrate ratio?',
         answer:
-          'Steep coarse grounds in the fridge for 12–18 hours. Longer extracts more strength but can turn bitter past about 24 hours.',
+          '1:8 by weight — one part coffee to eight parts water. Dilute about 1:1 with water or milk when you drink it. That concentrate keeps up to two weeks in the fridge.',
       },
       {
-        question: 'Is cold brew stronger than regular coffee?',
+        question: 'How much coffee for a 64 oz cold brew batch?',
         answer:
-          'Concentrate is much stronger until you dilute it. Ready-to-drink cold brew is often similar in caffeine per mug to hot drip, but concentrate packs more caffeine per ounce — dilute to taste.',
+          '64 oz of water is about 1893 g. At a 1:8 concentrate ratio that is roughly 237 g of extra-coarse coffee. At ready-to-drink 1:15, use about 126 g. Tap the 64 oz preset in the calculator above.',
+      },
+      {
+        question: 'How long should cold brew steep?',
+        answer:
+          'Steep coarse grounds in the fridge for 12–18 hours. Overnight (about 12–14 hours) works for most kitchens. Longer extracts more strength but can turn bitter past about 24 hours.',
+      },
+      {
+        question: 'Is cold brew the same as iced drip coffee ratio?',
+        answer:
+          'No. Cold brew is a long cold steep (usually 1:8 concentrate). Iced drip / Japanese iced coffee is hot brew over ice — often a stronger hot ratio so melting ice lands near 1:16. Use this calculator for true cold brew; use the drip or ratio calculator for iced drip.',
       },
       {
         question: 'What grind size for cold brew coffee?',
@@ -1725,17 +1912,20 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'caffeine-calculator',
     name: 'Caffeine Calculator',
-    title: 'Caffeine Calculator: How Much Caffeine Is in Your Coffee?',
+    title: 'Caffeine Calculator — mg to Cups, Daily Limit & By Weight',
     metaDescription:
-      'Estimate caffeine in your coffee by drink type — or convert mg to cups. How many cups of coffee is 155 mg of caffeine? Use the calculator to find out.',
+      'Free caffeine calculator: convert 155 mg or 190 mg into cups, track daily intake vs the 400 mg limit, or estimate a rough limit by body weight.',
     excerpt:
-      'Estimate caffeine by drink and servings, and see how close you are to the daily safe limit.',
+      'Estimate caffeine by drink and servings, convert mg to cups, or ballpark a limit by body weight.',
     icon: 'Zap',
     category: 'Calculator',
     keywords: [
       'caffeine calculator',
       'how much caffeine in coffee',
       'how many cups of coffee is 155 mg of caffeine',
+      'how much is 190 mg of caffeine',
+      'caffeine calculator by weight',
+      'daily caffeine intake calculator',
       'caffeine in espresso',
       'daily caffeine limit',
     ],
@@ -1743,7 +1933,12 @@ export const TOOLS: ToolMeta[] = [
       {
         question: 'How many cups of coffee is 155 mg of caffeine?',
         answer:
-          'About one 8 oz cold brew (typically ~155 mg) or roughly 1.5–1.6 cups of regular brewed coffee (~95 mg each). A single espresso shot has about 63 mg, so 155 mg is a little under 2.5 shots. Use the calculator above to convert any mg amount into cups by drink type.',
+          'About one 8 oz cold brew (typically ~155 mg) or roughly 1.5–1.6 cups of regular brewed coffee (~95 mg each). A single espresso shot has about 63 mg, so 155 mg is a little under 2.5 shots. Use the mg → cups mode above.',
+      },
+      {
+        question: 'How much is 190 mg of caffeine?',
+        answer:
+          'About one large 16 oz drip coffee, or roughly two 8 oz brewed cups (~95 mg each), or about three espresso shots. Use the mg → cups mode and tap 190 mg.',
       },
       {
         question: 'How much caffeine is in a cup of coffee?',
@@ -1761,6 +1956,11 @@ export const TOOLS: ToolMeta[] = [
           'Most healthy adults can have up to about 400 mg of caffeine per day — roughly four 8 oz cups of coffee. Pregnant people and those sensitive to caffeine should have less.',
       },
       {
+        question: 'Can I calculate caffeine by body weight?',
+        answer:
+          'Some people use a rough ~3 mg per kg of body weight as a personal ballpark, while still respecting the general 400 mg adult ceiling. The “By body weight” mode above does that math — it is not medical advice.',
+      },
+      {
         question: 'Does dark roast have less caffeine?',
         answer:
           'Barely. Roast level has a tiny effect. By weight, dark and light are nearly the same; by scoop, light roast can have slightly more because the beans are denser. Brew method and dose matter far more.',
@@ -1775,24 +1975,37 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'coffee-measurement-converter',
     name: 'Coffee Measurement Converter',
-    title: 'Coffee Measurement Converter (Tablespoons, Scoops & Grams)',
+    title: 'Coffee Grams to Tablespoons Converter (Scoops & tsp Too)',
     metaDescription:
-      'Convert coffee measurements between grams, tablespoons, and scoops. Stop guessing and dose accurately even without a scale.',
+      'Convert 20 grams of coffee to tablespoons, 1 tbsp to grams, and coffee scoop to tablespoons. Free coffee measurement converter for recipes without a scale.',
     excerpt:
       'Convert between grams, tablespoons, and scoops so you can dose accurately even without a scale.',
     icon: 'Ruler',
     category: 'Reference',
     keywords: [
       'coffee grams to tablespoons',
+      '20 grams of coffee to tablespoons',
+      '1 tbsp of coffee to grams',
+      'how many tablespoons in a coffee scoop',
       'coffee scoop to grams',
       'how many grams in a tablespoon of coffee',
-      'how many tablespoons of coffee per cup',
+      'tbsp to grams coffee',
     ],
     faqs: [
       {
         question: 'How many grams are in a tablespoon of coffee?',
         answer:
-          'One level tablespoon of whole beans is roughly 5 grams; ground coffee is a bit denser at about 5–6 grams. A standard coffee scoop is about 2 tablespoons, or 10 grams.',
+          'One level tablespoon of ground coffee is roughly 5–5.5 grams (we use 5.3 g). Whole beans are a bit lighter by volume. A standard coffee scoop is about 2 tablespoons, or ~10 grams.',
+      },
+      {
+        question: 'How many tablespoons is 20 grams of coffee?',
+        answer:
+          'About 3.8 tablespoons of ground coffee (20 ÷ 5.3). That is a common single-cup pour-over dose. Tap the 20 g preset in the converter above.',
+      },
+      {
+        question: 'How many tablespoons in a coffee scoop?',
+        answer:
+          'One standard coffee scoop is about 2 tablespoons (~10 g of ground coffee). That is also about 6 teaspoons.',
       },
       {
         question: 'How many tablespoons of coffee per cup?',
@@ -1892,9 +2105,9 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'world-coffee-map',
     name: 'World Coffee Map Explorer',
-    title: 'World Coffee Map: Explore Coffee Origins, Flavors & Growing Regions',
+    title: 'World Coffee Map — Coffee Origins & Producing Countries',
     metaDescription:
-      'An interactive world coffee map. Click any coffee-growing country to explore altitude, flavor profile, processing methods, and recommended brew style for that origin.',
+      'Interactive world coffee map of coffee producing countries and bean origins. Click Ethiopia, Brazil, Colombia, Vietnam, and more for flavor and altitude.',
     excerpt:
       'Click any coffee-growing country to discover its altitude, flavor notes, processing methods, and ideal brew style.',
     icon: 'Beaker',
@@ -1903,6 +2116,8 @@ export const TOOLS: ToolMeta[] = [
       'world coffee map',
       'coffee growing regions',
       'coffee origins map',
+      'map of coffee producing countries',
+      'coffee bean origins',
       'ethiopia coffee flavor',
       'colombia coffee',
       'coffee producing countries',
