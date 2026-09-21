@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2, Lightbulb } from 'lucide-react'
+import { AnswerTables } from '@/components/answer-tables'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
@@ -124,6 +125,32 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
       {/* Interactive widget — single client boundary */}
       <ToolWidget slug={tool.slug} />
+
+      {/* Static answer tables — crawlable even without JS interaction */}
+      {content?.answerTables && content.answerTables.length > 0 && (
+        <AnswerTables tables={content.answerTables} />
+      )}
+
+      {/* Optional hub sections (e.g. caffeine explainer) */}
+      {content?.hubSections && content.hubSections.length > 0 && (
+        <div className="mt-12 flex flex-col gap-8">
+          {content.hubSections.map((section) => (
+            <section key={section.heading} aria-labelledby={`hub-${section.heading}`}>
+              <h2
+                id={`hub-${section.heading}`}
+                className="font-serif text-2xl font-semibold tracking-tight text-foreground"
+              >
+                {section.heading}
+              </h2>
+              <div className="mt-3 space-y-3 text-pretty leading-relaxed text-muted-foreground">
+                {section.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
 
       {/* How to use steps */}
       {content && (

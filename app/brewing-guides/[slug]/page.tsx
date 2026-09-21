@@ -180,6 +180,23 @@ export default async function BrewGuidePage({
           </Link>
         )}
 
+        {guide.slug === 'cold-brew-coffee-recipe' && (
+          <Link
+            href="/tools/iced-coffee-calculator"
+            className="mt-3 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Want iced coffee fast?
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Japanese iced / flash brew calculator — not overnight cold brew
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        )}
+
         {guide.slug === 'how-to-make-pour-over-coffee' && (
           <Link
             href="/tools/brew-timer"

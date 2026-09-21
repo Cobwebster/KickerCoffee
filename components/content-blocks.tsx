@@ -67,6 +67,47 @@ export function ContentBlocks({ blocks }: { blocks: ContentBlock[] }) {
                 {block.text}
               </blockquote>
             )
+          case 'table':
+            return (
+              <div key={i} className="overflow-x-auto rounded-xl border border-border">
+                {block.caption && (
+                  <p className="border-b border-border bg-secondary/60 px-3 py-2 text-sm text-muted-foreground">
+                    {block.caption}
+                  </p>
+                )}
+                <table className="w-full min-w-[28rem] border-collapse text-left text-sm">
+                  <thead className="bg-secondary/80">
+                    <tr>
+                      {block.headers.map((header) => (
+                        <th
+                          key={header}
+                          scope="col"
+                          className="border-b border-border px-3 py-2.5 font-semibold text-foreground"
+                        >
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.map((row, ri) => (
+                      <tr key={ri} className="odd:bg-card even:bg-secondary/30">
+                        {row.map((cell, ci) => (
+                          <td
+                            key={ci}
+                            className={`border-b border-border px-3 py-2.5 text-muted-foreground ${
+                              ci === 0 ? 'font-medium text-foreground' : ''
+                            }`}
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
           default:
             return null
         }

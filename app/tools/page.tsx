@@ -4,7 +4,7 @@ import { Scale, Timer, Snowflake, Coffee, Zap, Ruler, Beaker } from 'lucide-reac
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { TOOLS, SITE, type ToolMeta } from '@/lib/content'
+import { TOOLS, SITE, sortToolsByPopularity, type ToolMeta } from '@/lib/content'
 
 const faqs = [
   {
@@ -42,18 +42,17 @@ const faqs = [
 export const metadata: Metadata = {
   title: 'Free Coffee Calculators & Brewing Tools',
   description:
-    'Free coffee calculators and brewing tools: coffee-to-water ratio calculator, pour over brew timer, cold brew calculator, espresso ratio calculator, caffeine calculator, grind size chart, and more. No login required.',
+    'Free coffee calculators: caffeine calculator, grams to tablespoons, drip and French press ratios, how to make iced coffee, cold brew ratio, pour over timer, and more.',
   alternates: { canonical: '/tools' },
   keywords: [
     'coffee calculator',
+    'caffeine calculator',
     'coffee to water ratio calculator',
+    'how to make iced coffee',
     'french press coffee ratio calculator',
-    'pour over brew timer',
     'cold brew ratio calculator',
-    'espresso dose calculator',
-    'caffeine calculator coffee',
-    'coffee grind size chart',
     'coffee measurement converter',
+    'drip coffee calculator',
   ],
 }
 
@@ -70,10 +69,11 @@ const ICONS: Record<ToolMeta['icon'], typeof Scale> = {
 const CATEGORIES: ToolMeta['category'][] = ['Calculator', 'Timer', 'Reference']
 
 export default function ToolsPage() {
+  const orderedTools = sortToolsByPopularity(TOOLS)
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: TOOLS.map((t, i) => ({
+    itemListElement: orderedTools.map((t, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: t.title,
@@ -105,30 +105,61 @@ export default function ToolsPage() {
           Coffee Calculators & Tools
         </h1>
         <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-          Free, no-signup tools to dial in every cup — ratio calculators, a guided pour over timer,
-          caffeine estimates, and handy reference charts. Bookmark the ones you use most.
+          Free, no-signup tools ranked by what home brewers actually use — caffeine math, scoop
+          conversions, drip and French press ratios, iced coffee flash brew, cold brew batches, and
+          more.
         </p>
       </header>
 
+      <section className="mt-10" aria-labelledby="popular-tools-heading">
+        <h2
+          id="popular-tools-heading"
+          className="text-sm font-semibold uppercase tracking-wide text-muted-foreground"
+        >
+          Most used right now
+        </h2>
+        <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {orderedTools.slice(0, 6).map((tool) => {
+            const Icon = ICONS[tool.icon]
+            return (
+              <Link
+                key={tool.slug}
+                href={`/tools/${tool.slug}`}
+                className="group flex flex-col rounded-xl border border-accent/30 bg-card p-5 transition-shadow hover:shadow-lg"
+              >
+                <span className="flex size-11 items-center justify-center rounded-lg bg-accent/15 text-accent">
+                  <Icon className="size-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 text-pretty font-serif text-lg font-semibold leading-snug text-foreground">
+                  {tool.name}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {tool.excerpt}
+                </p>
+                <span className="mt-4 text-sm font-medium text-accent">Open tool →</span>
+              </Link>
+            )
+          })}
+        </div>
+      </section>
+
       {/* SEO intro block */}
-      <div className="mt-8 max-w-2xl space-y-3 text-pretty leading-relaxed text-muted-foreground">
+      <div className="mt-12 max-w-2xl space-y-3 text-pretty leading-relaxed text-muted-foreground">
         <p>
           Most coffee problems — cups that taste weak, sour, or bitter — come down to one of three
           things: the wrong ratio, the wrong grind, or the wrong timing. These tools solve all three
-          with the math done for you. Whether you are dialing in your first pour over, scaling up a
-          cold brew batch for the week, or trying to understand why your espresso is running sour,
-          there is a calculator here that gets you from "off" to "dialed in" in one brew.
+          with the math done for you. Whether you are learning how to brew cold brew coffee, how to
+          make iced coffee, dialing a French press, or converting 20 grams to tablespoons, there is a
+          calculator that gets you from “off” to “dialed in” in one brew.
         </p>
         <p>
           Every tool works on any device, requires no account, and saves no data. Input your numbers,
-          get your answer, brew your coffee. The interactive ratio calculator and guided brew timer
-          are the two most used — start there if you are new. The grind size chart and measurement
-          converter are handy references to keep open on your phone while you brew.
+          get your answer, brew your coffee.
         </p>
       </div>
 
       {CATEGORIES.map((category) => {
-        const tools = TOOLS.filter((t) => t.category === category)
+        const tools = sortToolsByPopularity(TOOLS.filter((t) => t.category === category))
         if (!tools.length) return null
         return (
           <section key={category} className="mt-12">

@@ -41,8 +41,42 @@ export type ContentBlock =
   | { type: 'steps'; items: string[] }
   | { type: 'tip'; text: string }
   | { type: 'quote'; text: string }
+  | { type: 'table'; caption?: string; headers: string[]; rows: string[][] }
 
 export type FaqItem = { question: string; answer: string }
+
+export type AnswerTable = {
+  title: string
+  caption?: string
+  headers: string[]
+  rows: string[][]
+}
+
+/** Analytics-informed order for tools hub + homepage. */
+export const TOOL_POPULARITY_ORDER: string[] = [
+  'caffeine-calculator',
+  'coffee-measurement-converter',
+  'drip-coffee-calculator',
+  'iced-coffee-calculator',
+  'cold-brew-calculator',
+  'french-press-calculator',
+  'coffee-ratio-calculator',
+  'grind-size-chart',
+  'brew-timer',
+  'espresso-ratio-calculator',
+  'world-coffee-map',
+  'coffee-lab',
+]
+
+export function sortToolsByPopularity<T extends { slug: string }>(tools: T[]): T[] {
+  return [...tools].sort((a, b) => {
+    const ai = TOOL_POPULARITY_ORDER.indexOf(a.slug)
+    const bi = TOOL_POPULARITY_ORDER.indexOf(b.slug)
+    const av = ai === -1 ? 999 : ai
+    const bv = bi === -1 ? 999 : bi
+    return av - bv
+  })
+}
 
 /* ----------------------------- Brewing guides ----------------------------- */
 
@@ -68,9 +102,9 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-make-pour-over-coffee',
     method: 'Pour Over',
-    title: 'How to Make Pour Over Coffee — V60 Recipe & Technique',
+    title: 'How to Brew Pour Over Coffee — V60 Recipe & Technique',
     metaDescription:
-      'Pour over coffee recipe for V60: coffee-to-water ratio, grind, bloom, and pour technique. Best pour over method with a clear step-by-step schedule.',
+      'How to brew pour over coffee on a V60: coffee-to-water ratio, grind, bloom, and pour technique. Clear step-by-step schedule for a clean, sweet cup.',
     excerpt:
       'A clean, bright, and endlessly repeatable cup. Master the V60 pour over with the exact ratio, grind, and pour schedule the pros use.',
     difficulty: 'Beginner',
@@ -175,9 +209,9 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'french-press-coffee-ratio-and-method',
     method: 'French Press',
-    title: 'French Press Coffee Ratio (1:15) — Cafetière Method & Technique',
+    title: 'How to Make French Press Coffee — Ratio (1:15) & Cafetière Method',
     metaDescription:
-      'French press coffee ratio: use 1:15 (about 67 g per liter). Free chart for 1 cup, 2 cups, 16 oz, and 1 L — plus grind, 4-minute steep, and cafetière technique.',
+      'How to make French press coffee: classic 1:15 ratio, per-cup chart, coarse grind, and 4-minute steep. Includes cafetière technique and a free calculator.',
     excerpt:
       'Rich, full-bodied, and nearly foolproof. Get the French press coffee ratio, grind, and 4-minute steep dialed in.',
     difficulty: 'Beginner',
@@ -216,6 +250,23 @@ export const BREW_GUIDES: BrewGuide[] = [
       {
         type: 'tip',
         text: 'Pre-warm your French press with a splash of hot water before adding grounds. It stabilizes brew temperature and helps the coffee hit the intended extraction.',
+      },
+      { type: 'heading', text: 'French press coffee ratio per cup chart' },
+      {
+        type: 'paragraph',
+        text: 'How to make French press coffee starts with dose. Use this 1:15 chart (classic strength), coarse grind, and a 4-minute steep. For mild use 1:16; for strong use 1:14 — or open the calculator for exact grams.',
+      },
+      {
+        type: 'table',
+        caption: 'Classic French press / cafetière ratio ≈ 1:15 by weight',
+        headers: ['Serving', 'Water', 'Coffee', 'Tablespoons', 'Steep'],
+        rows: [
+          ['1 cup / mug', '250 ml', '17 g', '~3 tbsp', '4 min'],
+          ['2 cups', '500 ml', '33 g', '~6 tbsp', '4 min'],
+          ['16 oz press', '473 ml', '32 g', '~6 tbsp', '4 min'],
+          ['8-cup / 1 litre', '1000 ml', '67 g', '~13 tbsp', '4 min'],
+          ['12-cup', '1500 ml', '100 g', '~19 tbsp', '4 min'],
+        ],
       },
       { type: 'heading', text: 'Why grind size matters more than anything else' },
       {
@@ -517,14 +568,24 @@ export const BREW_GUIDES: BrewGuide[] = [
         answer:
           'Bitterness usually means over-extraction: grind too fine, shot too long, or temperature too high. Grind coarser slightly, or stop the shot earlier (lower yield) while keeping the same dose.',
       },
+      {
+        question: 'What are the best coffee beans for espresso?',
+        answer:
+          'For classic milk drinks, choose a fresh medium to medium-dark blend with chocolate and caramel notes — often Brazilian or Latin American lots. For modern straight espresso, try a fresh light-medium single origin and use a longer ratio (around 1:2.5). Freshness matters more than the word “espresso” on the bag.',
+      },
+      {
+        question: 'What is a flat white coffee?',
+        answer:
+          'A flat white is a double espresso (or ristretto pair) topped with a thin layer of microfoam milk — less foam than a cappuccino, stronger coffee taste than a latte. Ratio is roughly 1:3–1:4 espresso to milk in a small cup.',
+      },
     ],
   },
   {
     slug: 'cold-brew-coffee-recipe',
     method: 'Cold Brew',
-    title: 'Cold Brew Coffee Ratio & Overnight Recipe (Concentrate 1:8)',
+    title: 'How to Brew Cold Brew Coffee — Overnight Ratio & Recipe',
     metaDescription:
-      'Cold brew coffee ratio made simple: 1:8 for concentrate or 1:15 ready-to-drink. Overnight steep time, grind size, 64 oz batch math, and dilution tips.',
+      'How to brew cold brew coffee at home: 1:8 concentrate or 1:15 ready-to-drink, overnight steep time, grind size, 64 oz batches, and dilution tips.',
     excerpt:
       'Smooth, sweet, and low in acidity. Steep coarse grounds overnight for a concentrate you can keep all week.',
     difficulty: 'Beginner',
@@ -825,6 +886,11 @@ export const GEAR: GearItem[] = [
         question: 'Is a hand grinder good enough for everyday coffee?',
         answer:
           'For one or two cups a day, yes. A quality hand grinder can outperform a cheap electric grinder at the same price. The tradeoff is convenience: grinding for large batches or espresso every morning gets tiring fast.',
+      },
+      {
+        question: 'How do you clean a coffee grinder?',
+        answer:
+          'Unplug electric grinders. Wipe the hopper, run dry rice or grinder cleaning tablets through burrs if the maker allows it, brush burrs with a soft brush, and wipe oily residue with a dry cloth — avoid soaking burrs in water. Empty old grounds before every new bag so stale fines do not flavor the next brew.',
       },
       {
         question: 'Ceramic vs steel burrs — which is better?',
@@ -1767,6 +1833,47 @@ export const TOOLS: ToolMeta[] = [
     ],
   },
   {
+    slug: 'iced-coffee-calculator',
+    name: 'Iced Coffee Calculator',
+    title: 'How to Make Iced Coffee — Japanese Iced & Flash Brew Calculator',
+    metaDescription:
+      'How to make iced coffee at home: Japanese iced (flash brew) ratios, hot-then-chill, or concentrate over ice. Free calculator for 12, 16, and 20 oz glasses — not the same as cold brew.',
+    excerpt:
+      'Flash brew onto ice, chill a hot brew, or pour concentrate over ice — sized for your glass so melting ice does not ruin the cup.',
+    icon: 'Snowflake',
+    category: 'Calculator',
+    keywords: [
+      'how to make iced coffee',
+      'japanese iced coffee',
+      'iced drip coffee ratio',
+      'iced coffee ratio',
+      'flash brew coffee',
+      'how to brew iced coffee',
+    ],
+    faqs: [
+      {
+        question: 'How do you make iced coffee?',
+        answer:
+          'The brightest method is Japanese iced coffee: brew a stronger hot pour-over or drip directly onto a weighed amount of ice so dilution is controlled. You can also brew hot normally and chill, or pour a concentrate over ice. Overnight cold brew is a different method entirely.',
+      },
+      {
+        question: 'What is Japanese iced coffee?',
+        answer:
+          'Japanese iced coffee (flash brew) is hot coffee brewed onto ice. Hot extraction keeps aromatics; ice cools the drink instantly. Typical approach: brew as if targeting full glass strength, with ~40% of the final mass as ice and the rest as hot brew water.',
+      },
+      {
+        question: 'Is iced coffee the same as cold brew?',
+        answer:
+          'No. Iced coffee is usually hot-brewed then cooled (or flash-brewed onto ice). Cold brew steeps coarse grounds in cold water for 12–18 hours. Cold brew tastes smoother and lower-acid; flash brew tastes brighter and more aromatic.',
+      },
+      {
+        question: 'What is the iced drip coffee ratio?',
+        answer:
+          'For Japanese iced / iced drip, think in final drink weight. A common flash-brew approach uses about a 1:10–1:12 coffee-to-final-drink ratio with part of the water replaced by ice. Use the calculator above for exact grams by glass size.',
+      },
+    ],
+  },
+  {
     slug: 'brew-timer',
     name: 'Pour Over Brew Timer',
     title: 'Pour Over Brew Timer (Guided Bloom & Pour Schedule)',
@@ -2222,6 +2329,8 @@ export const TOOL_CONTENT: Record<
     proTips: string[]
     whyItMatters: string
     relatedSlugs: string[]
+    answerTables?: AnswerTable[]
+    hubSections?: { heading: string; paragraphs: string[] }[]
   }
 > = {
   'coffee-ratio-calculator': {
@@ -2257,7 +2366,25 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       'Repeatability is what separates a good home brewer from a great one. Writing down your ratio means you can reproduce a great cup tomorrow, next week, or after switching beans. It also makes troubleshooting simple: if one variable is locked, you only ever have to diagnose one thing at a time.',
-    relatedSlugs: ['brew-timer', 'coffee-measurement-converter', 'espresso-ratio-calculator'],
+    relatedSlugs: [
+      'brew-timer',
+      'coffee-measurement-converter',
+      'drip-coffee-calculator',
+      'iced-coffee-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Quick coffee-to-water ratio chart',
+        caption: 'Coffee dose for common mug sizes at popular ratios (water ≈ grams).',
+        headers: ['Water', '1:15 (strong)', '1:16 (balanced)', '1:17 (light)'],
+        rows: [
+          ['250 ml (1 mug)', '17 g', '16 g', '15 g'],
+          ['500 ml (2 mugs)', '33 g', '31 g', '29 g'],
+          ['750 ml', '50 g', '47 g', '44 g'],
+          ['1 liter', '67 g', '62 g', '59 g'],
+        ],
+      },
+    ],
   },
 
   'drip-coffee-calculator': {
@@ -2293,7 +2420,26 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       'Drip coffee looks simple, but bad measurements are why so many home pots taste weak, bitter, or generic. A dedicated drip calculator meets people where they actually are: brewing for multiple cups, often without a scale, on mainstream machines with confusing markings. That makes it one of the best search-intent fits on the whole site.',
-    relatedSlugs: ['coffee-ratio-calculator', 'coffee-measurement-converter', 'french-press-calculator'],
+    relatedSlugs: [
+      'coffee-ratio-calculator',
+      'coffee-measurement-converter',
+      'iced-coffee-calculator',
+      'caffeine-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'How much coffee for drip (machine cups at 1:16.5)',
+        caption:
+          'Most Mr. Coffee–style makers use 5 oz “cups.” Grams rounded; tablespoons ≈ 5.3 g each.',
+        headers: ['Machine cups', 'Water', 'Coffee', 'Tablespoons', 'Scoops'],
+        rows: [
+          ['4 cups', '591 ml', '36 g', '6.8', '3.6'],
+          ['8 cups', '1.18 L', '72 g', '13.5', '7.2'],
+          ['10 cups', '1.48 L', '89 g', '16.9', '8.9'],
+          ['12 cups', '1.77 L', '107 g', '20.3', '10.7'],
+        ],
+      },
+    ],
   },
 
   'french-press-calculator': {
@@ -2334,6 +2480,69 @@ export const TOOL_CONTENT: Record<
       'grind-size-chart',
       'coffee-measurement-converter',
       'caffeine-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'French press coffee ratio per cup (1:15 classic)',
+        caption:
+          'How to make French press coffee by size. Coarse grind, ~4 minute steep, then decant.',
+        headers: ['Press / serving', 'Water', 'Coffee', 'Tablespoons', 'Scoops'],
+        rows: [
+          ['1 mug', '250 ml', '17 g', '3.2', '1.7'],
+          ['2 mugs', '500 ml', '33 g', '6.3', '3.3'],
+          ['16 oz press', '473 ml', '32 g', '6.0', '3.2'],
+          ['4-cup (~17 oz)', '500 ml', '33 g', '6.3', '3.3'],
+          ['8-cup / 1 L', '1000 ml', '67 g', '12.6', '6.7'],
+          ['12-cup', '1500 ml', '100 g', '18.9', '10.0'],
+        ],
+      },
+    ],
+  },
+
+  'iced-coffee-calculator': {
+    intro:
+      '“How to make iced coffee” usually means one of three things: Japanese iced coffee (hot flash-brew onto ice), hot coffee chilled in the fridge, or a strong concentrate poured over ice. It is not the same as overnight cold brew. Flash brew keeps bright aromatics; overnight cold brew is smoother and lower in acidity. This calculator sizes coffee, hot water, and ice for a 12, 16, or 20 oz glass so melting ice does not leave you with dishwater.',
+    howToUse: [
+      {
+        step: 'Pick your iced style',
+        detail:
+          'Japanese iced for bright, aromatic cups; chill a normal hot brew for convenience; concentrate-over-ice for milk drinks and tumblers.',
+      },
+      {
+        step: 'Choose glass size',
+        detail:
+          '12 oz, 16 oz, or 20 oz. The calculator splits hot brew water and ice so the final drink lands near normal strength.',
+      },
+      {
+        step: 'Brew and serve',
+        detail:
+          'For Japanese iced: grind medium-fine, brew the hot water dose into a vessel packed with the listed ice. Stir, strain if needed, drink.',
+      },
+    ],
+    proTips: [
+      'Want the smoothest iced drink with least acidity? Use the cold brew calculator and steep overnight instead.',
+      'For iced lattes, Japanese or concentrate styles cut through milk better than leftover fridge coffee.',
+      'Pre-chill your glass so less ice melts before you start drinking.',
+      'If flash brew tastes weak, increase dose slightly or reduce ice by 10%.',
+    ],
+    whyItMatters:
+      'Search interest for “how to make iced coffee” stays high year-round. Most people accidentally brew hot coffee, dump it on ice, and wonder why it tastes thin. Accounting for dilution is the whole game — and it is different from how to brew cold brew coffee.',
+    relatedSlugs: [
+      'cold-brew-calculator',
+      'coffee-ratio-calculator',
+      'drip-coffee-calculator',
+      'caffeine-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Iced coffee vs cold brew (quick compare)',
+        headers: ['Style', 'Time', 'Ratio idea', 'Taste'],
+        rows: [
+          ['Japanese iced', '3–4 min', 'Strong hot onto ice', 'Bright, aromatic'],
+          ['Hot then chill', 'Brew + cool', '1:16 hot', 'Clean, mellow'],
+          ['Cold brew', '12–18 hrs', '1:8 concentrate', 'Smooth, low acid'],
+        ],
+      },
     ],
   },
 
@@ -2407,7 +2616,25 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       "Cold brew has a notably lower acidity than hot-brewed coffee — typically 60–70% less, according to research from Toddy. That makes it a good option for people who find regular coffee hard on their stomach. The slow, cold extraction also produces a naturally sweet, mellow flavor that doesn't need much sugar.",
-    relatedSlugs: ['coffee-ratio-calculator', 'grind-size-chart', 'caffeine-calculator'],
+    relatedSlugs: [
+      'iced-coffee-calculator',
+      'coffee-ratio-calculator',
+      'grind-size-chart',
+      'caffeine-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'How to brew cold brew coffee — ratio chart',
+        caption: 'Extra-coarse grind. Fridge steep 12–18 hours (overnight works).',
+        headers: ['Batch water', 'Concentrate 1:8', 'Ready-to-drink 1:15', 'Approx servings'],
+        rows: [
+          ['500 ml', '63 g coffee', '33 g coffee', '2–4'],
+          ['800 ml', '100 g coffee', '53 g coffee', '4–6'],
+          ['1 L', '125 g coffee', '67 g coffee', '5–8'],
+          ['64 oz (1.89 L)', '237 g coffee', '126 g coffee', '10–15'],
+        ],
+      },
+    ],
   },
 
   'espresso-ratio-calculator': {
@@ -2475,7 +2702,59 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       'Tracking caffeine intake helps identify whether coffee is affecting your sleep, anxiety, or focus — three things most coffee drinkers genuinely care about. It is also useful context if you are pregnant, on medication that interacts with caffeine, or simply trying to understand your energy patterns throughout the day.',
-    relatedSlugs: ['coffee-ratio-calculator', 'espresso-ratio-calculator', 'cold-brew-calculator'],
+    relatedSlugs: [
+      'cold-brew-calculator',
+      'iced-coffee-calculator',
+      'espresso-ratio-calculator',
+      'drip-coffee-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Caffeine in common coffee drinks',
+        caption: 'Typical averages — brands and recipes vary. Decaf is not zero.',
+        headers: ['Drink', 'Serving', 'Approx caffeine'],
+        rows: [
+          ['Brewed drip', '8 oz', '95 mg'],
+          ['Large drip', '16 oz', '190 mg'],
+          ['Espresso', '1 shot (~1 oz)', '63 mg'],
+          ['Double espresso', '2 shots', '126 mg'],
+          ['Cold brew', '8 oz', '155 mg'],
+          ['Instant', '8 oz', '62 mg'],
+          ['Decaf coffee', '8 oz', '2–15 mg'],
+        ],
+      },
+      {
+        title: 'How many cups is X mg of caffeine?',
+        headers: ['Caffeine', '≈ Brewed 8 oz', '≈ Espresso shots', '≈ Cold brew 8 oz'],
+        rows: [
+          ['130 mg', '1.4 cups', '2.1 shots', '0.8 cups'],
+          ['155 mg', '1.6 cups', '2.5 shots', '1.0 cup'],
+          ['190 mg', '2.0 cups', '3.0 shots', '1.2 cups'],
+          ['400 mg (daily guide)', '4.2 cups', '6.3 shots', '2.6 cups'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Is coffee bad for you?',
+        paragraphs: [
+          'For most healthy adults, moderate coffee (around the 400 mg caffeine guideline, roughly three to four 8 oz cups) is associated with neutral-to-positive outcomes in large observational studies — including alertness and some metabolic markers. “Bad” usually shows up when intake is very high, sleep is wrecked, anxiety spikes, or you have a specific medical reason to limit caffeine. This calculator is for orientation, not a diagnosis.',
+          'If coffee bothers your stomach, try darker roasts, cold brew (often lower perceived acidity), or food with your cup. If sleep suffers, move the last caffeinated drink earlier — caffeine’s half-life is about 5–6 hours.',
+        ],
+      },
+      {
+        heading: 'Decaf coffee still has caffeine',
+        paragraphs: [
+          'Decaf is not caffeine-free. An 8 oz cup often lands between 2 and 15 mg. That is far below regular coffee, but stacking several decafs — or mixing with chocolate and tea — still adds up for sensitive people. Use the decaf preset in the calculator if you want a conservative daily picture.',
+        ],
+      },
+      {
+        heading: 'Cold brew vs drip vs espresso caffeine',
+        paragraphs: [
+          'Per ounce, espresso is strong; per serving, an 8 oz drip often beats a single shot. Cold brew varies wildly by concentrate strength and dilution — an 8 oz ready-to-drink cold brew can rival or exceed drip. Always check whether you are drinking concentrate straight (easy to overshoot).',
+        ],
+      },
+    ],
   },
 
   'coffee-measurement-converter': {
@@ -2506,7 +2785,27 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       "Volume measurement is inherently variable for coffee — the same tablespoon can mean 4 g or 7 g depending on grind and roast. That's a 75% difference in dose, which produces dramatically different cups. This converter helps you bridge the gap between recipes written for scale users and the reality of a spoon-and-scoop kitchen.",
-    relatedSlugs: ['coffee-ratio-calculator', 'grind-size-chart', 'brew-timer'],
+    relatedSlugs: [
+      'drip-coffee-calculator',
+      'french-press-calculator',
+      'coffee-ratio-calculator',
+      'caffeine-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Coffee grams to tablespoons (ground coffee)',
+        caption: 'Using ≈5.3 g per level tablespoon and ≈10 g per standard scoop (2 tbsp).',
+        headers: ['Grams', 'Tablespoons', 'Scoops', 'Teaspoons'],
+        rows: [
+          ['10 g', '1.9 tbsp', '1.0 scoop', '5.7 tsp'],
+          ['15 g', '2.8 tbsp', '1.5 scoops', '8.5 tsp'],
+          ['20 g', '3.8 tbsp', '2.0 scoops', '11.3 tsp'],
+          ['30 g', '5.7 tbsp', '3.0 scoops', '17.0 tsp'],
+          ['55 g', '10.4 tbsp', '5.5 scoops', '31.1 tsp'],
+          ['70 g', '13.2 tbsp', '7.0 scoops', '39.6 tsp'],
+        ],
+      },
+    ],
   },
 
   'grind-size-chart': {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Coffee, Wrench, Leaf, Calculator } from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
-import { SITE, BREW_GUIDES, BEAN_ARTICLES, SETUPS, TOOLS } from '@/lib/content'
+import { SITE, BREW_GUIDES, BEAN_ARTICLES, SETUPS, TOOLS, sortToolsByPopularity } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: `${SITE.name} — Coffee Brewing Guides, Ratios, Gear & Free Calculators`,
@@ -43,14 +43,7 @@ const pillars = [
   },
 ]
 
-const popularTools = TOOLS.filter((t) =>
-  [
-    'french-press-calculator',
-    'cold-brew-calculator',
-    'coffee-ratio-calculator',
-    'caffeine-calculator',
-  ].includes(t.slug),
-)
+const popularTools = sortToolsByPopularity(TOOLS).slice(0, 6)
 
 export default function HomePage() {
   const featured = BREW_GUIDES.filter((g) =>
@@ -97,17 +90,17 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/brewing-guides"
+                href="/tools/caffeine-calculator"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Start brewing
+                Open caffeine calculator
                 <ArrowRight className="size-4" />
               </Link>
               <Link
-                href="/tools/coffee-ratio-calculator"
+                href="/tools"
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
               >
-                Try the ratio calculator
+                All free tools
               </Link>
             </div>
           </div>
@@ -223,11 +216,11 @@ export default function HomePage() {
               id="tools-heading"
               className="font-serif text-3xl font-semibold tracking-tight text-foreground"
             >
-              Free coffee calculators people use most
+              Most-used coffee calculators
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Skip the guesswork. These tools answer the highest-demand brewing questions — from
-              French press coffee ratio and cold brew concentrate math to caffeine by the milligram.
+              Ranked from real traffic: caffeine math, scoop conversions, drip batches, iced coffee
+              flash brew, cold brew, and French press ratios.
             </p>
           </div>
           <Link
