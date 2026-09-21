@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { useState } from 'react'
 import { Menu, X, Coffee } from 'lucide-react'
 import { NAV, SITE } from '@/lib/content'

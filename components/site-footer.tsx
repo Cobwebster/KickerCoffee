@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { Coffee } from 'lucide-react'
 import { NAV, SITE } from '@/lib/content'
 

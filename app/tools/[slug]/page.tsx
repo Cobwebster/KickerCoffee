@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { notFound } from 'next/navigation'
-import { CheckCircle2, Lightbulb } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Lightbulb } from 'lucide-react'
 import { AnswerTables } from '@/components/answer-tables'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
@@ -108,6 +108,33 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           {tool.title}
         </h1>
         <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">{tool.excerpt}</p>
+        {tool.slug === 'french-press-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Classic French press coffee ratio is <strong>1:15</strong> — about 17 g coffee per 250
+              ml water, or 67 g per litre. Use the calculator below for your press size.
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'cold-brew-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Cold brew concentrate ratio is <strong>1:8</strong>; ready-to-drink is about{' '}
+              <strong>1:15</strong>. Steep coarse grounds 12–18 hours, then dilute concentrate ~1:1.
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'caffeine-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              ~95 mg per 8 oz brewed coffee. So 100 mg ≈ 1 cup, 155 mg ≈ 1.6 cups (or one cold brew),
+              190 mg ≈ 2 cups / one large drip.
+            </p>
+          </aside>
+        )}
       </header>
 
       {/* Intro prose — above the widget so crawlers see it immediately */}
@@ -125,6 +152,39 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
       {/* Interactive widget — single client boundary */}
       <ToolWidget slug={tool.slug} />
+
+      {tool.slug === 'french-press-calculator' && (
+        <Link
+          href="/brewing-guides/french-press-coffee-ratio-and-method"
+          className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+        >
+          <span>
+            <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+              Full guide
+            </span>
+            <span className="mt-0.5 block text-sm font-medium text-foreground">
+              French press coffee ratio method — grind, 4-minute steep, and cafetière technique
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 text-accent" />
+        </Link>
+      )}
+      {tool.slug === 'cold-brew-calculator' && (
+        <Link
+          href="/brewing-guides/cold-brew-coffee-recipe"
+          className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+        >
+          <span>
+            <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+              Full guide
+            </span>
+            <span className="mt-0.5 block text-sm font-medium text-foreground">
+              Cold brew coffee ratio & overnight recipe — step by step
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 text-accent" />
+        </Link>
+      )}
 
       {/* Static answer tables — crawlable even without JS interaction */}
       {content?.answerTables && content.answerTables.length > 0 && (

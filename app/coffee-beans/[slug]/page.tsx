@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { notFound } from 'next/navigation'
 import { Clock, ArrowRight } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -8,6 +8,7 @@ import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { BEAN_ARTICLES, SITE, getBeanArticle } from '@/lib/content'
+import { QuickAnswer } from '@/components/quick-answer'
 
 export function generateStaticParams() {
   return BEAN_ARTICLES.map((a) => ({ slug: a.slug }))
@@ -51,7 +52,29 @@ export default async function BeanArticlePage({
   const article = getBeanArticle(slug)
   if (!article) notFound()
 
-  const related = BEAN_ARTICLES.filter((a) => a.slug !== article.slug)
+  const relatedPriority: Record<string, string[]> = {
+    'coffee-roast-levels-explained': [
+      'coffee-bean-origins-guide',
+      'how-to-store-coffee-beans',
+      'is-black-coffee-bad-for-you',
+      'how-much-coffee-is-too-much',
+    ],
+    'coffee-bean-origins-guide': [
+      'coffee-roast-levels-explained',
+      'how-to-store-coffee-beans',
+      'is-coffee-good-for-you',
+    ],
+    'how-to-store-coffee-beans': [
+      'coffee-roast-levels-explained',
+      'coffee-bean-origins-guide',
+      'is-black-coffee-bad-for-you',
+    ],
+  }
+  const related =
+    (relatedPriority[article.slug]
+      ?.map((s) => BEAN_ARTICLES.find((a) => a.slug === s))
+      .filter(Boolean) as typeof BEAN_ARTICLES) ??
+    BEAN_ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 4)
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -90,6 +113,7 @@ export default async function BeanArticlePage({
           <h1 className="mt-2 text-balance font-serif text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl">
             {article.title}
           </h1>
+          {article.quickAnswer && <QuickAnswer>{article.quickAnswer}</QuickAnswer>}
           <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1">
               <Clock className="size-4" aria-hidden="true" />

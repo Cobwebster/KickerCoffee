@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { Scale, Timer, Snowflake, Coffee, Zap, Ruler, Beaker } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   keywords: [
     'coffee calculator',
     'caffeine calculator',
+    'coffee calories calculator',
+    'caffeine half life calculator',
     'coffee to water ratio calculator',
     'how to make iced coffee',
     'french press coffee ratio calculator',

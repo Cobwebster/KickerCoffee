@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { notFound } from 'next/navigation'
 import { Star, Check, X, ArrowRight } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -8,6 +8,7 @@ import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { GEAR, SITE, getGearItem } from '@/lib/content'
+import { QuickAnswer } from '@/components/quick-answer'
 
 export function generateStaticParams() {
   return GEAR.map((g) => ({ slug: g.slug }))
@@ -88,6 +89,7 @@ export default async function GearDetailPage({
           <h1 className="mt-2 text-balance font-serif text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl">
             {item.title}
           </h1>
+          {item.quickAnswer && <QuickAnswer>{item.quickAnswer}</QuickAnswer>}
           <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1 font-medium text-foreground">
               <Star className="size-4 fill-accent text-accent" aria-hidden="true" />
@@ -110,6 +112,23 @@ export default async function GearDetailPage({
         </div>
 
         <p className="mt-8 text-pretty text-lg leading-relaxed text-foreground">{item.intro}</p>
+
+        {item.slug === 'best-burr-coffee-grinders' && (
+          <Link
+            href="/brewing-guides/how-to-make-pour-over-coffee"
+            className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Pair with a recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                How to make pour over coffee — then dial grind on your new burr grinder
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        )}
 
         {/* Pros & cons */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2">

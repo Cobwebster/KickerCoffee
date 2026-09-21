@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import { ChevronRight } from 'lucide-react'
 import { SITE } from '@/lib/content'
 import { JsonLd } from '@/components/json-ld'

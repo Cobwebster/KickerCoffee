@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import Image from 'next/image'
 import { Clock, ArrowRight } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -28,25 +28,43 @@ const faqs = [
     answer:
       'Yes. Origin affects acidity, body, sweetness, and aroma because altitude, climate, soil, varietal, and processing all shape flavor. Ethiopian coffees often taste floral or fruity, while Brazilian coffees tend to be nuttier and lower in acidity.',
   },
+  {
+    question: 'Is black coffee bad for you?',
+    answer:
+      'For most healthy adults, moderate black coffee is not “bad” and is often linked with neutral-to-positive outcomes in research. Problems usually come from too much caffeine, late-day cups that wreck sleep, or stomach/anxiety sensitivity. See our black coffee health guide for details.',
+  },
+  {
+    question: 'How much coffee is too much?',
+    answer:
+      'A common adult guideline is about 400 mg of caffeine per day — roughly three to four 8 oz cups, depending on brew strength. Large cold brews and multiple espresso drinks can exceed that faster than you think.',
+  },
 ]
 
 export const metadata: Metadata = {
-  title: 'Coffee Beans & Roast Education — Origins, Roast Levels & Freshness',
+  title: 'Coffee Beans, Roasts & Health — Origins, Freshness & FAQs',
   description:
-    'Learn about coffee beans: roast levels explained, how bean origins shape flavor, and how to store coffee to keep it fresh. Beginner-friendly coffee education.',
+    'Coffee beans education plus health FAQs: roast levels, origins, storage, is black coffee bad for you, how much coffee is too much, and more.',
   alternates: { canonical: '/coffee-beans' },
+  keywords: [
+    'coffee beans',
+    'roast levels',
+    'is black coffee bad for you',
+    'is coffee good for you',
+    'how much coffee is too much',
+    'does coffee dehydrate you',
+  ],
   openGraph: {
-    title: 'Coffee Beans & Roast Education — Origins, Roast Levels & Freshness',
+    title: 'Coffee Beans, Roasts & Health — Origins, Freshness & FAQs',
     description:
-      'Learn about coffee beans: roast levels explained, how bean origins shape flavor, and how to store coffee to keep it fresh. Beginner-friendly coffee education.',
+      'Coffee beans education plus health FAQs: roast levels, origins, storage, is black coffee bad for you, and daily caffeine limits.',
     type: 'website',
     url: `${SITE.url}/coffee-beans`,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Coffee Beans & Roast Education — Origins, Roast Levels & Freshness',
+    title: 'Coffee Beans, Roasts & Health — Origins, Freshness & FAQs',
     description:
-      'Learn about coffee beans: roast levels explained, how bean origins shape flavor, and how to store coffee to keep it fresh. Beginner-friendly coffee education.',
+      'Coffee beans education plus health FAQs: roast levels, origins, storage, is black coffee bad for you, and daily caffeine limits.',
   },
 }
 

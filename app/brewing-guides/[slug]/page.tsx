@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Clock, Gauge, Scale, Coffee, ArrowRight } from 'lucide-react'
@@ -8,6 +8,7 @@ import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { BREW_GUIDES, SITE, getBrewGuide } from '@/lib/content'
+import { QuickAnswer } from '@/components/quick-answer'
 
 export function generateStaticParams() {
   return BREW_GUIDES.map((g) => ({ slug: g.slug }))
@@ -51,7 +52,28 @@ export default async function BrewGuidePage({
   const guide = getBrewGuide(slug)
   if (!guide) notFound()
 
-  const related = BREW_GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3)
+  const relatedMap: Record<string, string[]> = {
+    'french-press-coffee-ratio-and-method': [
+      'cold-brew-coffee-recipe',
+      'how-to-make-pour-over-coffee',
+      'how-to-use-aeropress',
+    ],
+    'cold-brew-coffee-recipe': [
+      'french-press-coffee-ratio-and-method',
+      'how-to-make-pour-over-coffee',
+      'how-to-use-aeropress',
+    ],
+    'how-to-make-pour-over-coffee': [
+      'french-press-coffee-ratio-and-method',
+      'cold-brew-coffee-recipe',
+      'how-to-use-aeropress',
+    ],
+  }
+  const related =
+    (relatedMap[guide.slug]
+      ?.map((s) => BREW_GUIDES.find((g) => g.slug === s))
+      .filter(Boolean) as typeof BREW_GUIDES) ??
+    BREW_GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3)
 
   const steps = guide.body.find((b) => b.type === 'steps')
   const howToSchema = {
@@ -110,6 +132,7 @@ export default async function BrewGuidePage({
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             {guide.excerpt}
           </p>
+          {guide.quickAnswer && <QuickAnswer>{guide.quickAnswer}</QuickAnswer>}
           <p className="mt-3 text-sm text-muted-foreground">
             Updated{' '}
             {new Date(guide.updated).toLocaleDateString('en-US', {

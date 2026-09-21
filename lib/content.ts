@@ -55,6 +55,8 @@ export type AnswerTable = {
 /** Analytics-informed order for tools hub + homepage. */
 export const TOOL_POPULARITY_ORDER: string[] = [
   'caffeine-calculator',
+  'coffee-calories-calculator',
+  'caffeine-half-life-calculator',
   'coffee-measurement-converter',
   'drip-coffee-calculator',
   'iced-coffee-calculator',
@@ -96,15 +98,17 @@ export type BrewGuide = {
   intro: string
   body: ContentBlock[]
   faqs: FaqItem[]
+  /** Short SERP-style answer shown above the fold for CTR. */
+  quickAnswer?: string
 }
 
 export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-make-pour-over-coffee',
     method: 'Pour Over',
-    title: 'How to Brew Pour Over Coffee — V60 Recipe & Technique',
+    title: 'How to Make Pour Over Coffee — Brew V60 Step by Step',
     metaDescription:
-      'How to brew pour over coffee on a V60: coffee-to-water ratio, grind, bloom, and pour technique. Clear step-by-step schedule for a clean, sweet cup.',
+      'How to brew pour over coffee (V60): 1:16 ratio, medium-fine grind, bloom, and pour schedule. Step-by-step how to make pour over coffee at home.',
     excerpt:
       'A clean, bright, and endlessly repeatable cup. Master the V60 pour over with the exact ratio, grind, and pour schedule the pros use.',
     difficulty: 'Beginner',
@@ -112,8 +116,10 @@ export const BREW_GUIDES: BrewGuide[] = [
     ratio: '1:16 (60 g/L)',
     grind: 'Medium-fine',
     yield: '1–2 cups',
-    updated: '2026-06-15',
+    updated: '2026-09-21',
     image: '/images/pour-over-hero.png',
+    quickAnswer:
+      'Use a 1:16 coffee-to-water ratio (20 g coffee to 320 g water), medium-fine grind, 96°C / 205°F water, a 30–45 second bloom, then finish around 3:00–3:30 total.',
     intro:
       'Pour over is the best way to learn how variables like grind, water temperature, and pour speed shape flavor. With a single dripper, a filter, and a scale you can brew a café-quality cup that highlights the bright, delicate notes of a good single-origin coffee.',
     body: [
@@ -209,18 +215,20 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'french-press-coffee-ratio-and-method',
     method: 'French Press',
-    title: 'How to Make French Press Coffee — Ratio (1:15) & Cafetière Method',
+    title: 'French Press Coffee Ratio (1:15) — Cafetière Chart & Method',
     metaDescription:
-      'How to make French press coffee: classic 1:15 ratio, per-cup chart, coarse grind, and 4-minute steep. Includes cafetière technique and a free calculator.',
+      'French press coffee ratio: classic 1:15 (67 g/L). How much coffee for French press / cafetière per cup, grind size, 4-minute steep, and a free calculator.',
     excerpt:
-      'Rich, full-bodied, and nearly foolproof. Get the French press coffee ratio, grind, and 4-minute steep dialed in.',
+      'The classic French press coffee ratio is 1:15. Get grams per cup, coarse grind, and a clean 4-minute steep — plus cafetière tips.',
     difficulty: 'Beginner',
     brewTime: '4–5 min',
     ratio: '1:15 (67 g/L)',
     grind: 'Coarse',
     yield: '3–4 cups',
-    updated: '2026-07-17',
+    updated: '2026-09-21',
     image: '/images/french-press-hero.png',
+    quickAnswer:
+      'Start at a 1:15 French press coffee ratio — about 17 g coffee per 250 ml water (67 g per litre). Coarse grind, steep 4 minutes, press gently, and decant immediately.',
     intro:
       'The French press (or cafetière) is immersion brewing at its simplest. Because the metal mesh filter lets natural oils through, it produces a heavier, richer body than paper-filtered methods. There is no pour technique to master and no specialized equipment beyond a press and a scale — making it one of the most forgiving ways to brew genuinely great coffee at home.',
     body: [
@@ -312,6 +320,21 @@ export const BREW_GUIDES: BrewGuide[] = [
       },
     ],
     faqs: [
+      {
+        question: 'What is the French press coffee ratio?',
+        answer:
+          'The classic French press coffee ratio is 1:15 by weight — one gram of coffee to 15 grams of water (about 67 g per litre). Use 1:14 for stronger or 1:16 for milder. That is also the standard cafetière coffee ratio.',
+      },
+      {
+        question: 'What is the cafetière coffee ratio?',
+        answer:
+          'Cafetière is another name for French press. Use the same 1:15 coffee-to-water ratio, coarse grind, and about a 4-minute steep. For one mug (250 ml) that is roughly 17 g of coffee.',
+      },
+      {
+        question: 'How much coffee for French press?',
+        answer:
+          'For one 250 ml mug at 1:15, use about 17 g (~3 tablespoons). For an 8-cup / 1 litre press, use about 67 g. Our French press calculator sizes any press instantly.',
+      },
       {
         question: 'What is the best French press coffee-to-water ratio?',
         answer:
@@ -583,18 +606,20 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'cold-brew-coffee-recipe',
     method: 'Cold Brew',
-    title: 'How to Brew Cold Brew Coffee — Overnight Ratio & Recipe',
+    title: 'Cold Brew Coffee Ratio & Recipe — Overnight Concentrate (1:8)',
     metaDescription:
-      'How to brew cold brew coffee at home: 1:8 concentrate or 1:15 ready-to-drink, overnight steep time, grind size, 64 oz batches, and dilution tips.',
+      'Cold brew coffee ratio: 1:8 concentrate or 1:15 ready-to-drink. Overnight cold brew recipe, grind size, 64 oz batches, dilution, and a free calculator.',
     excerpt:
-      'Smooth, sweet, and low in acidity. Steep coarse grounds overnight for a concentrate you can keep all week.',
+      'Smooth, low-acid cold brew. Use a 1:8 concentrate ratio (or 1:15 ready-to-drink), steep overnight, and keep a batch all week.',
     difficulty: 'Beginner',
     brewTime: '12–18 hrs',
     ratio: '1:8 concentrate',
     grind: 'Coarse',
     yield: '4–6 cups',
-    updated: '2026-07-17',
+    updated: '2026-09-21',
     image: '/images/cold-brew-hero.png',
+    quickAnswer:
+      'For concentrate use a 1:8 cold brew coffee ratio (e.g. 100 g coffee to 800 g water). Steep coarse grounds 12–18 hours in the fridge, filter, then dilute about 1:1 to drink.',
     intro:
       'Cold brew steeps coarse coffee in cool water for 12–18 hours. Because no heat is involved, it extracts fewer acids and bitter compounds than any hot-brew method — producing a naturally sweet, mellow concentrate with about 60–70% less acidity than drip coffee. One batch kept in the fridge gives you café-quality iced coffee for a full week.',
     body: [
@@ -816,6 +841,8 @@ export type GearItem = {
   cons: string[]
   body: ContentBlock[]
   faqs: FaqItem[]
+  /** Short SERP-style answer shown above the fold for CTR. */
+  quickAnswer?: string
 }
 
 export const GEAR: GearItem[] = [
@@ -823,16 +850,18 @@ export const GEAR: GearItem[] = [
     slug: 'best-burr-coffee-grinders',
     category: 'Grinder',
     name: 'Burr Coffee Grinders',
-    title: 'Best Burr Grinder 2026 — Affordable to Premium Coffee Burr Grinders',
+    title: 'Best Burr Grinder 2026 — Cheap, Affordable & Premium Picks',
     metaDescription:
-      'Best burr grinder picks for every budget: best affordable burr coffee grinder, best cheap hand grinders, and espresso-ready models. Why a burr grinder beats a blade.',
+      'Best burr grinder 2026: cheap and affordable burr coffee grinders plus premium picks. Why a burr coffee grinder beats a blade — and what to buy first.',
     excerpt:
-      'The single most important upgrade for better coffee. Our budget-to-premium burr grinder picks.',
+      'The single most important upgrade for better coffee. Best cheap, affordable, and premium burr coffee grinders.',
     priceRange: '$40–$700',
     bestFor: 'Everyone — upgrade this first',
     rating: 4.8,
-    updated: '2026-07-17',
+    updated: '2026-09-21',
     image: '/images/grinder-hero.png',
+    quickAnswer:
+      'Buy a burr grinder (not a blade) first. For most filter coffee, a solid hand or entry electric burr in the roughly $40–$150 range is enough; espresso needs finer, more precise adjustment.',
     intro:
       'If you only upgrade one thing, make it your grinder. A quality burr grinder produces uniform particles for even extraction — something a blade grinder simply cannot do. Uniform grounds are the foundation of every great cup.',
     pros: [
@@ -1156,19 +1185,24 @@ export type BeanArticle = {
   intro: string
   body: ContentBlock[]
   faqs: FaqItem[]
+  /** Short SERP-style answer shown above the fold for CTR. */
+  quickAnswer?: string
 }
 
 export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'coffee-roast-levels-explained',
     topic: 'Roasting',
-    title: 'Coffee Roast Levels Explained: Light vs Medium vs Dark Roast',
+    title: 'Types of Coffee Roasts Explained — Light, Medium & Dark',
     metaDescription:
-      'Coffee roast levels explained in depth — types of coffee roasts from light to dark, first and second crack, light vs medium vs dark flavor, caffeine myths, and how to brew each roast.',
-    excerpt: 'How roast level changes flavor, acidity, and body — and which one is right for you.',
+      'Types of coffee roasts and roast levels explained: light vs medium vs dark, what medium roast coffee tastes like, caffeine myths, and how to brew each type of coffee roast.',
+    excerpt:
+      'The main types of coffee roasts are light, medium, and dark. Here is how each roast level changes flavor, acidity, and body.',
     readTime: '14 min',
-    updated: '2026-07-17',
+    updated: '2026-09-21',
     image: '/images/roast-levels-hero.png',
+    quickAnswer:
+      'There are three main types of coffee roast: light (bright, origin-forward), medium (balanced sweetness), and dark (bold, low-acid, roast-driven). “Roast level” is how far the beans were taken through that spectrum.',
     intro:
       'Roast level is one of the biggest factors in how your coffee tastes — often more than people expect. Green coffee starts grassy and vegetal; roasting develops sweetness, aroma, and body while gradually trading origin character for roast flavor. Understanding light vs medium vs dark roast helps you buy bags you will actually enjoy and brew them in a way that matches how the beans were roasted.',
     body: [
@@ -1398,13 +1432,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'coffee-bean-origins-guide',
     topic: 'Origins',
-    title: 'Coffee Bean Origins: How Region Shapes Flavor',
+    title: 'Coffee Bean Origins by Country — How Region Shapes Flavor',
     metaDescription:
-      'A guide to coffee bean origins and how growing region shapes flavor. Compare African, Latin American, and Asian coffees — with country profiles, processing, and buying tips.',
-    excerpt: 'Why Ethiopian coffee tastes like blueberries and Sumatran tastes earthy — origin decoded.',
+      'Coffee bean origins by country: how growing region shapes flavor. Compare Ethiopia, Colombia, Brazil, and more — plus processing and buying tips.',
+    excerpt:
+      'Why Ethiopian coffee tastes like blueberries and Sumatran tastes earthy — coffee bean origin by country, decoded.',
     readTime: '12 min',
-    updated: '2026-07-08',
+    updated: '2026-09-21',
     image: '/images/origins-hero.png',
+    quickAnswer:
+      'Coffee bean origin (country and region) changes acidity, body, and aroma as much as roast. High-grown African lots often taste fruity or floral; many Latin American lots taste caramel/nutty; some Asian lots taste earthy and full.',
     intro:
       'Where coffee grows — the soil, altitude, climate, varietal, and processing method — shapes its flavor as much as the roast. Coffee only thrives in the "Bean Belt" between the Tropics of Cancer and Capricorn, where warm days, cool nights, and seasonal rainfall let cherries ripen slowly and develop complex sugars. Learning regional flavor profiles helps you shop for beans you will love and understand why the same roast tastes completely different from one country to the next.',
     body: [
@@ -1560,13 +1597,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'how-to-store-coffee-beans',
     topic: 'Freshness',
-    title: 'How to Store Coffee Beans to Keep Them Fresh',
+    title: 'Best Way to Store Coffee Beans (Keep Them Fresh)',
     metaDescription:
-      'How to store coffee beans: airtight container, pantry vs freezer, and how long beans stay fresh. Skip the fridge — keep coffee beans fresh longer.',
-    excerpt: 'Air, light, heat, and moisture are the enemies. Store beans right and taste the difference.',
+      'Best way to store coffee beans: opaque airtight container, cool pantry, away from light and heat. How long beans stay fresh — and why the fridge is a bad idea.',
+    excerpt:
+      'Air, light, heat, and moisture kill freshness. The best way to store coffee beans is simple — and it is not the fridge.',
     readTime: '5 min',
-    updated: '2026-07-17',
+    updated: '2026-09-21',
     image: '/images/storage-hero.png',
+    quickAnswer:
+      'Store whole beans in an opaque, airtight container at room temperature away from the stove and sunlight. Buy what you will finish in 2–4 weeks. Skip the fridge; freeze only long-term portions you will not thaw repeatedly.',
     intro:
       'Freshly roasted coffee is at its best within a few weeks. The four enemies of freshness are oxygen, light, heat, and moisture. Store beans correctly and every cup tastes noticeably better.',
     body: [
@@ -1607,6 +1647,11 @@ export const BEAN_ARTICLES: BeanArticle[] = [
     ],
     faqs: [
       {
+        question: 'What is the best way to store coffee beans?',
+        answer:
+          'Keep whole beans in an opaque, airtight container in a cool pantry away from light, heat, and moisture. Grind just before brewing. Buy amounts you will finish in 2–4 weeks. Do not store coffee in the fridge.',
+      },
+      {
         question: 'Should I store coffee in the fridge?',
         answer:
           'No. The fridge is humid and full of odors that coffee readily absorbs, plus temperature swings cause condensation. A cool, dark cupboard is far better.',
@@ -1638,6 +1683,460 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       },
     ],
   },
+  {
+    slug: 'is-black-coffee-bad-for-you',
+    topic: 'Health',
+    title: 'Is Black Coffee Bad for You? Benefits, Risks & When to Cut Back',
+    metaDescription:
+      'Is black coffee bad for you? What research says about black coffee benefits and side effects, caffeine limits, stomach issues, sleep, and who should drink less.',
+    excerpt:
+      'Black coffee is not “bad” for most healthy adults — but dose, timing, and your body decide whether it helps or hurts.',
+    readTime: '10 min',
+    updated: '2026-09-21',
+    image: '/images/home-hero.png',
+    intro:
+      '“Is black coffee bad for you?” is one of the most-searched coffee questions online — usually after a jittery morning, poor sleep, or a stomach that does not love straight espresso. Short answer: for most healthy adults, moderate black coffee is linked with neutral-to-positive outcomes in large studies. Problems usually come from too much caffeine, drinking it too late, or pairing it with a sensitive stomach or anxiety. This guide separates myth from evidence and flags when cutting back makes sense. It is general information, not medical advice.',
+    body: [
+      { type: 'heading', text: 'What “black coffee” actually means' },
+      {
+        type: 'paragraph',
+        text: 'Black coffee is coffee with no milk, cream, sugar, syrup, or flavor shots — just brewed coffee (or espresso) and water. That keeps calories near zero and removes the sugar load of many café drinks. It does not remove caffeine, natural acids, or bitter compounds. So “healthier than a caramel latte” is usually true for calories; “harmless at any dose” is not.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Typical 8 oz black drip: ~2 calories, ~95 mg caffeine.',
+          'Espresso shot: ~3 calories, ~63 mg caffeine.',
+          'Large 16 oz black drip: still nearly calorie-free, but ~190 mg caffeine.',
+        ],
+      },
+      { type: 'heading', text: 'What research generally finds' },
+      {
+        type: 'paragraph',
+        text: 'Observational studies (not perfect proof of cause) often associate regular coffee drinking with lower risk of type 2 diabetes, some liver diseases, and Parkinson’s disease, plus modest cardiovascular associations at moderate intake. Coffee also delivers polyphenols (antioxidant plant compounds). Benefits are usually seen around 2–4 cups a day for adults who tolerate caffeine — not from slamming six large cold brews.',
+      },
+      {
+        type: 'tip',
+        text: 'Most healthy-adult guidelines cite about 400 mg of caffeine per day as a reasonable upper limit — roughly three to four 8 oz coffees. Pregnancy guidance is lower (often ~200 mg). Always follow your clinician if you have a condition or take medication that interacts with caffeine.',
+      },
+      { type: 'heading', text: 'When black coffee can feel “bad”' },
+      {
+        type: 'list',
+        items: [
+          'Sleep: caffeine’s half-life is about 5–6 hours. An afternoon cup can still be active at bedtime.',
+          'Anxiety and jitters: caffeine is a stimulant; high doses amplify heart rate and nervousness in sensitive people.',
+          'Stomach and reflux: coffee can relax the lower esophageal sphincter and increase acid for some people — black coffee is not gentler just because it has no milk.',
+          'Empty stomach: some people get nausea or reflux; others feel fine. Listen to your body.',
+          'Bone and mineral myths: moderate coffee is not a major calcium thief if your diet is otherwise solid; extreme intake plus poor diet is a different story.',
+          'Dependency: withdrawal headaches are real when you skip your usual dose.',
+        ],
+      },
+      { type: 'heading', text: 'Black coffee vs coffee with milk or sugar' },
+      {
+        type: 'paragraph',
+        text: 'From a calorie and sugar standpoint, black coffee wins. A splash of milk adds modest protein and calories; large sweetened drinks can add as much sugar as dessert. If “is black coffee bad for you” is really “is my morning coffee wrecking my goals,” check additives first, then caffeine timing and total milligrams.',
+      },
+      { type: 'heading', text: 'Who should be more careful' },
+      {
+        type: 'list',
+        items: [
+          'People who are pregnant or trying to conceive (follow obstetric caffeine limits).',
+          'Anyone with uncontrolled anxiety, panic disorders, or caffeine-triggered palpitations.',
+          'People with significant GERD or ulcers who notice flares after coffee.',
+          'Those on medications that interact with caffeine (ask a pharmacist or doctor).',
+          'Kids and teens — lower body weight means lower safe caffeine budgets.',
+        ],
+      },
+      { type: 'heading', text: 'Practical takeaway' },
+      {
+        type: 'paragraph',
+        text: 'Black coffee is not inherently bad. Keep total caffeine in a sensible range, stop caffeine earlier in the day if sleep suffers, and switch to lower-acid methods (often cold brew or darker roast) or food with your cup if your stomach complains. If symptoms are severe or new, get personal medical advice rather than reverse-engineering Reddit threads.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is black coffee bad for you every day?',
+        answer:
+          'Daily black coffee at moderate caffeine levels is fine for most healthy adults and is even linked with some positive health associations. “Every day” becomes a problem when dose is very high, sleep collapses, anxiety spikes, or you have a medical reason to limit caffeine.',
+      },
+      {
+        question: 'Does black coffee burn fat or help weight loss?',
+        answer:
+          'Caffeine can slightly raise alertness and short-term metabolism, and black coffee has almost no calories — useful if it replaces sugary drinks. It is not a fat-burning shortcut. Weight change still depends on overall diet and activity.',
+      },
+      {
+        question: 'Is black coffee bad for your heart?',
+        answer:
+          'For most people, moderate coffee is not considered harmful to heart health and some studies associate it with lower cardiovascular risk. Palpitations, very high intake, or existing heart conditions are reasons to talk with a clinician rather than self-dose upward.',
+      },
+      {
+        question: 'Is black coffee acidic and bad for teeth?',
+        answer:
+          'Coffee is acidic and can stain enamel over time. Rinse with water after drinking, wait before brushing right after acidic drinks, and keep sugar out of the cup. Acidity alone does not mean you must quit coffee.',
+      },
+      {
+        question: 'How much black coffee is safe per day?',
+        answer:
+          'A common adult guideline is up to about 400 mg of caffeine daily — often three to four 8 oz cups, depending on brew strength. Use a caffeine calculator if you drink large cups, espresso, or cold brew, which can pack more milligrams than you expect.',
+      },
+    ],
+  },
+  {
+    slug: 'is-coffee-good-for-you',
+    topic: 'Health',
+    title: 'Is Coffee Good for You? Evidence-Based Benefits (and Limits)',
+    metaDescription:
+      'Is coffee good for you? Evidence-based coffee health benefits — energy, antioxidants, diabetes and liver associations — plus caffeine limits and who should go easy.',
+    excerpt:
+      'Coffee can be part of a healthy routine for many adults — here is what the evidence actually supports, and what it does not.',
+    readTime: '9 min',
+    updated: '2026-09-21',
+    image: '/images/roast-levels-hero.png',
+    intro:
+      'People ask “is coffee good for you?” for the same reason they ask if it is bad: mixed headlines. The honest middle: coffee is a complex plant beverage with caffeine and polyphenols. For many healthy adults, moderate intake looks compatible with — and sometimes associated with — better long-term outcomes. It is not a superfood miracle, and more is not always better.',
+    body: [
+      { type: 'heading', text: 'Documented upsides people care about' },
+      {
+        type: 'list',
+        items: [
+          'Alertness and reaction time: caffeine blocks adenosine receptors; that is the reliable, short-term benefit.',
+          'Antioxidant polyphenols: coffee is a major source of these compounds in many Western diets.',
+          'Type 2 diabetes: many cohort studies link regular coffee with lower risk (correlation, not a prescription).',
+          'Liver health markers: observational data often favor coffee drinkers for certain liver outcomes.',
+          'Parkinson’s disease: caffeine intake has been associated with lower risk in multiple studies.',
+          'Everyday performance: better focus for tasks that reward wakefulness — if you are not overdosed into jitters.',
+        ],
+      },
+      { type: 'heading', text: 'What coffee does not magically do' },
+      {
+        type: 'paragraph',
+        text: 'Coffee will not cancel a poor sleep schedule, replace vegetables, or detox your liver overnight. “Bulletproof”-style claims and extreme fasting-plus-espresso protocols are marketing more often than medicine. Benefits in studies usually reflect habitual moderate drinking inside an otherwise normal lifestyle.',
+      },
+      { type: 'heading', text: 'Brew style and additives change the picture' },
+      {
+        type: 'paragraph',
+        text: 'Black filter coffee keeps calories minimal. Paper filters also trap some cafestol and kahweol (compounds in coffee oils that can raise LDL cholesterol in sensitive people). Unfiltered methods — French press, boiled coffee, some espresso — let more of those oils through. Milk and sugar are fine in moderation; syrup-heavy drinks behave more like dessert.',
+      },
+      {
+        type: 'tip',
+        text: 'If cholesterol is a concern and you drink a lot of unfiltered coffee, talk with your clinician — switching some cups to paper-filtered drip is a common practical tweak.',
+      },
+      { type: 'heading', text: 'How to get the upsides with fewer downsides' },
+      {
+        type: 'steps',
+        items: [
+          'Stay near or under ~400 mg caffeine/day unless advised otherwise.',
+          'Stop caffeine 8+ hours before bed if sleep is fragile (or earlier if you are a slow metabolizer).',
+          'Prefer quality beans and clean water — stale oily coffee tastes worse and invites bigger sugar “fixes.”',
+          'Pair coffee with food if empty-stomach cups cause reflux or nausea.',
+          'Use our caffeine and half-life tools to see how your real drinks add up across the day.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is coffee good for you every morning?',
+        answer:
+          'For many adults, a morning coffee habit is compatible with good health — especially if it replaces sugary sodas and does not wreck sleep. Morning timing is usually better than late-day caffeine for sleep quality.',
+      },
+      {
+        question: 'Does coffee have antioxidants?',
+        answer:
+          'Yes. Coffee contains polyphenols that act as antioxidants in the diet. That is one reason researchers study coffee beyond caffeine alone.',
+      },
+      {
+        question: 'Is decaf still healthy?',
+        answer:
+          'Decaf keeps many of the plant compounds with far less caffeine, so it can be a smart swap if caffeine bothers you. Decaf is not completely caffeine-free (often a few milligrams per cup).',
+      },
+      {
+        question: 'How many cups of coffee a day is healthy?',
+        answer:
+          'Many adults do well at 2–4 typical cups, staying under roughly 400 mg of caffeine. Cup size and brew strength matter more than the number printed on the mug.',
+      },
+    ],
+  },
+  {
+    slug: 'does-coffee-dehydrate-you',
+    topic: 'Health',
+    title: 'Does Coffee Dehydrate You? Caffeine, Fluid Balance & Myths',
+    metaDescription:
+      'Does coffee dehydrate you? Why moderate coffee still counts toward fluids, when caffeine’s mild diuretic effect matters, and how much water to drink with coffee.',
+    excerpt:
+      'Coffee is a mild diuretic, but your morning mug still contributes to hydration for most regular drinkers.',
+    readTime: '6 min',
+    updated: '2026-09-21',
+    image: '/images/pour-over-hero.png',
+    intro:
+      'The old advice — “coffee does not count as water” — is mostly outdated for people who drink coffee regularly. Caffeine has a mild diuretic effect, but the fluid in the cup usually more than offsets it at typical doses. Extreme intake, heat, alcohol, or illness change the math.',
+    body: [
+      { type: 'heading', text: 'What the science suggests' },
+      {
+        type: 'paragraph',
+        text: 'Controlled studies find that moderate coffee intake hydrates similarly to water in habitual caffeine users. The body adapts; the dramatic “coffee empties you out” effect is overstated for 1–4 normal cups. Very high caffeine doses or people who rarely drink caffeine may notice more urine output.',
+      },
+      { type: 'heading', text: 'When dehydration risk is real' },
+      {
+        type: 'list',
+        items: [
+          'You rely on coffee alone during hard exercise or hot weather without extra water.',
+          'You stack energy drinks, pre-workouts, and coffee into huge caffeine totals.',
+          'You have vomiting, diarrhea, or fever — then prioritize oral rehydration, not espresso.',
+          'You use coffee to skip meals and fluids all day.',
+        ],
+      },
+      { type: 'heading', text: 'Practical hydration habits with coffee' },
+      {
+        type: 'steps',
+        items: [
+          'Count your coffee toward daily fluids, but still drink water across the day.',
+          'Match large cold brew or multiple espresso sessions with extra water if your mouth feels dry or urine is very dark.',
+          'After sweaty workouts, prioritize water or an electrolyte drink; coffee is optional, not your recovery plan.',
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Dry mouth after coffee is often from caffeine plus bitter compounds and mouth breathing — not proof you are clinically dehydrated. Still, a glass of water beside the mug is an easy habit.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does coffee dehydrate you?',
+        answer:
+          'Not in a meaningful way for most people drinking moderate amounts. Coffee provides fluid; caffeine’s diuretic effect is mild, especially if you drink coffee regularly.',
+      },
+      {
+        question: 'Does coffee count as water intake?',
+        answer:
+          'Yes for hydration accounting in healthy adults at typical intakes. It should not be your only fluid if you are sweating heavily or sick.',
+      },
+      {
+        question: 'Should I drink a glass of water with every coffee?',
+        answer:
+          'It is a good habit for comfort and overall fluid goals, but it is not required to “cancel” dehydration from a normal cup.',
+      },
+    ],
+  },
+  {
+    slug: 'coffee-on-an-empty-stomach',
+    topic: 'Health',
+    title: 'Coffee on an Empty Stomach: What Happens & How to Soften It',
+    metaDescription:
+      'Is coffee on an empty stomach bad? Why some people get acid, jitters, or nausea, and simple fixes — food, roast, brew method, and timing.',
+    excerpt:
+      'Empty-stomach coffee is fine for many people and rough for others — here is why, and how to make mornings gentler.',
+    readTime: '7 min',
+    updated: '2026-09-21',
+    image: '/images/espresso-hero.png',
+    intro:
+      'Is coffee on an empty stomach bad? It depends on your gut, caffeine sensitivity, and brew. Coffee stimulates acid production and can relax the valve that keeps stomach contents down — so fasting cups amplify reflux or nausea for some people. Others drink espresso before breakfast for years with no issue. Treat symptoms as data, not a universal rule.',
+    body: [
+      { type: 'heading', text: 'What can happen on an empty stomach' },
+      {
+        type: 'list',
+        items: [
+          'Stronger awareness of caffeine (faster “hit,” sometimes more jitters).',
+          'Heartburn or sour stomach if you are reflux-prone.',
+          'Nausea, especially with large, hot, acidic light-roast cups.',
+          'A louder cortisol-and-caffeine wake-up if you were already stressed or underslept.',
+        ],
+      },
+      { type: 'heading', text: 'Ways to keep the ritual without the burn' },
+      {
+        type: 'steps',
+        items: [
+          'Eat a few bites of food first — yogurt, toast, banana, or leftover dinner all count.',
+          'Try a darker roast or cold brew; many people find them easier than bright light-roast pour overs.',
+          'Shrink the first cup; save the second for after breakfast.',
+          'Avoid slamming espresso on a completely empty stomach if you already know reflux is your pattern.',
+          'Skip adding lots of sugar on an empty stomach if that spikes energy then crashes you.',
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'If empty-stomach coffee reliably causes pain, vomiting, or black stools, stop experimenting online and see a clinician — that is beyond “tweak your roast.”',
+      },
+      { type: 'heading', text: 'Fasting and “bulletproof” coffee notes' },
+      {
+        type: 'paragraph',
+        text: 'Black coffee is often allowed in intermittent fasting protocols because it has negligible calories, but fasting rules vary by goal (autophagy claims vs calorie window vs medical fasting). Butter or oil coffee breaks a fast by calories. If fasting makes acid worse, prioritize gut comfort over dogma.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is it bad to drink coffee on an empty stomach?',
+        answer:
+          'Not automatically. Many people tolerate it. If you get reflux, nausea, or anxiety spikes, eat first or change brew strength and roast. Persistent pain deserves medical advice.',
+      },
+      {
+        question: 'Does coffee on an empty stomach raise cortisol dangerously?',
+        answer:
+          'Caffeine can raise alertness hormones temporarily. For healthy adults that is usually a short-lived effect, not a proven long-term “adrenal crash.” If you feel wired-and-tired, fix sleep and dose before chasing hormone hacks.',
+      },
+      {
+        question: 'What should I eat before coffee?',
+        answer:
+          'Anything gentle you actually eat: toast, oats, eggs, yogurt, or fruit. The goal is a little buffer, not a perfect macro meal.',
+      },
+    ],
+  },
+  {
+    slug: 'how-much-coffee-is-too-much',
+    topic: 'Health',
+    title: 'How Much Coffee Is Too Much? Daily Limits by Situation',
+    metaDescription:
+      'How much coffee is too much? Adult 400 mg caffeine guideline, pregnancy limits, signs you are overdoing it, and how large cups and cold brew change the count.',
+    excerpt:
+      'Cup counts lie — milligrams matter. Here is how to tell when coffee intake is too high for you.',
+    readTime: '8 min',
+    updated: '2026-09-21',
+    image: '/images/french-press-hero.png',
+    intro:
+      '“How much coffee is too much?” cannot be answered with a single mug count. An 8 oz home drip and a 20 oz café cold brew are different drugs in different costumes. Use caffeine milligrams, your symptoms, and your life stage — then adjust.',
+    body: [
+      { type: 'heading', text: 'Common adult guideline' },
+      {
+        type: 'paragraph',
+        text: 'Health authorities often cite up to about 400 mg of caffeine per day for healthy adults as a amount not generally associated with negative effects. That is roughly four 8 oz brewed coffees at ~95 mg each — or fewer drinks if they are large, espresso-heavy, or cold-brew strong.',
+      },
+      {
+        type: 'table',
+        caption: 'Rough caffeine math (averages vary by brand and recipe).',
+        headers: ['Drink', 'Typical serving', 'Approx caffeine'],
+        rows: [
+          ['Brewed drip', '8 oz', '95 mg'],
+          ['Large drip', '16 oz', '190 mg'],
+          ['Espresso', '1 shot', '63 mg'],
+          ['Cold brew', '8 oz', '100–200 mg'],
+          ['Energy drink', '16 oz', '150–300 mg'],
+        ],
+      },
+      { type: 'heading', text: 'Signs you may be over your personal limit' },
+      {
+        type: 'list',
+        items: [
+          'Insomnia or 3 a.m. wake-ups after afternoon coffee',
+          'Restlessness, tremor, or racing heart',
+          'Worsening anxiety or panic feelings',
+          'Stomach pain, reflux flares, or lost appetite',
+          'Needing ever-larger doses just to feel normal',
+          'Headaches on days you skip coffee (tolerance/withdrawal cycle)',
+        ],
+      },
+      { type: 'heading', text: 'Special situations' },
+      {
+        type: 'list',
+        items: [
+          'Pregnancy: many guidelines suggest around 200 mg caffeine/day or less — confirm with your obstetric provider.',
+          'Teens: lower body weight → lower budget; energy drinks plus coffee add up fast.',
+          'Slow caffeine metabolizers (genetics, some medications): the same cup lasts longer — earlier cutoffs help.',
+          'Heart rhythm issues or severe anxiety: get individualized advice; online averages are not enough.',
+        ],
+      },
+      { type: 'heading', text: 'How to cut back without misery' },
+      {
+        type: 'steps',
+        items: [
+          'Swap one regular cup for half-caf or decaf each week.',
+          'Shrink cup size before cutting cup count.',
+          'Move the last caffeinated drink earlier by 60–90 minutes.',
+          'Use our caffeine calculator to map your real week, not your aspirational “two small cups.”',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How much coffee is too much in a day?',
+        answer:
+          'For many healthy adults, regularly exceeding about 400 mg of caffeine is a practical “too much” line — sooner if you get sleep loss, jitters, or reflux. Count milligrams, not just mugs.',
+      },
+      {
+        question: 'Is 3 cups of coffee a day too much?',
+        answer:
+          'Three 8 oz cups are often fine (~285 mg). Three large café drinks might blow past 400 mg. Size and brew method decide.',
+      },
+      {
+        question: 'Is 6 cups of coffee a day too much?',
+        answer:
+          'Often yes for caffeine — six typical drip cups can land near or above 500–600 mg. Some people tolerate it; many pay in sleep and anxiety. Track symptoms and total mg.',
+      },
+      {
+        question: 'Can you overdose on coffee?',
+        answer:
+          'Caffeine overdose is possible at very high intakes (especially powders and energy products). Classic coffee cups make extreme overdose harder but not impossible when combined with other stimulants. Severe symptoms need emergency care.',
+      },
+    ],
+  },
+  {
+    slug: 'coffee-and-anxiety',
+    topic: 'Health',
+    title: 'Coffee and Anxiety: Why Caffeine Can Spike Nerves (and What Helps)',
+    metaDescription:
+      'Does coffee cause anxiety? How caffeine mimics panic symptoms, who is most sensitive, and practical ways to keep coffee without the jitters.',
+    excerpt:
+      'Caffeine can mimic anxiety symptoms — here is how to tell the difference and dial coffee back without quitting cold turkey.',
+    readTime: '7 min',
+    updated: '2026-09-21',
+    image: '/images/cold-brew-hero.png',
+    intro:
+      'Does coffee cause anxiety? It can trigger or amplify anxious feelings in sensitive people because caffeine raises heart rate, sharpens alertness, and can cause tremor — the same body signals many brains read as danger. That does not mean coffee “creates” an anxiety disorder by itself, but it is a common and fixable aggravator.',
+    body: [
+      { type: 'heading', text: 'Why coffee can feel like anxiety' },
+      {
+        type: 'paragraph',
+        text: 'Caffeine blocks adenosine (sleepiness) and increases catecholamine signaling. Result: more awake, sometimes more wired. If you already run hot on stress, a double espresso on no sleep is rocket fuel. Panic attacks and caffeine overstimulation can feel similar (racing heart, chest tightness, restlessness), which is why clinicians often ask about caffeine intake.',
+      },
+      { type: 'heading', text: 'Who notices it most' },
+      {
+        type: 'list',
+        items: [
+          'People with anxiety or panic disorders',
+          'Slow caffeine metabolizers',
+          'Anyone stacking coffee with energy drinks or pre-workout',
+          'New or returning drinkers with low tolerance',
+          'People drinking coffee late while sleep-deprived',
+        ],
+      },
+      { type: 'heading', text: 'Practical dials that help' },
+      {
+        type: 'steps',
+        items: [
+          'Cap daily caffeine and spread it — two smaller cups beat one massive cold brew for some people.',
+          'Eat with coffee; empty-stomach hits feel sharper.',
+          'Switch the afternoon cup to half-caf or decaf.',
+          'Try a lower-caffeine method day (smaller espresso drink vs huge drip).',
+          'Protect sleep; anxiety and caffeine interact viciously when you are exhausted.',
+          'If cutting back, taper over 1–2 weeks to reduce withdrawal headaches.',
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Track one week: note coffee timing, approximate mg, sleep, and anxiety peaks. Patterns jump out faster than guessing.',
+      },
+      { type: 'heading', text: 'When to get help beyond coffee tweaks' },
+      {
+        type: 'paragraph',
+        text: 'If anxiety is constant, panic attacks are frequent, or cutting caffeine does nothing, treat that as a mental-health and medical issue — not a brewing problem. Coffee adjustments are a lever, not therapy or medication.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does coffee cause anxiety?',
+        answer:
+          'Caffeine can cause anxious symptoms or worsen existing anxiety, especially at high doses. It is a common trigger, but lasting anxiety disorders have broader causes and deserve proper care.',
+      },
+      {
+        question: 'Can decaf still make you anxious?',
+        answer:
+          'Usually much less, because caffeine is the main driver. Decaf still has a little caffeine and the ritual can feel stimulating, but most people sensitive to coffee tolerate decaf far better.',
+      },
+      {
+        question: 'How long until caffeine anxiety wears off?',
+        answer:
+          'Caffeine’s half-life is about 5–6 hours for many adults, so a big dose can affect you for much of the day. Our caffeine half-life calculator estimates when levels drop.',
+      },
+    ],
+  },
 ]
 
 /* ----------------------------- Tools & calculators ----------------------------- */
@@ -1666,11 +2165,11 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'coffee-ratio-calculator',
     name: 'Coffee Ratio Calculator',
-    title: 'Coffee-to-Water Ratio Calculator (Free — Grams & Cups)',
+    title: 'Coffee-to-Water Ratio Calculator (Free) — How Much Coffee per Cup',
     metaDescription:
-      'Free coffee to water ratio calculator. Instantly convert coffee ratios for pour over, drip, and French press — how much coffee per cup in grams or tablespoons.',
+      'Free coffee to water ratio calculator. Convert coffee ratios for pour over, drip, and French press — how much coffee per cup in grams or tablespoons.',
     excerpt:
-      'Enter any one value — coffee, water, or cups — and get the perfect brew measurements for any ratio.',
+      'Coffee to water ratio calculator: enter coffee, water, or cups and get perfect brew measurements for any ratio.',
     icon: 'Scale',
     category: 'Calculator',
     keywords: [
@@ -1770,11 +2269,11 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'french-press-calculator',
     name: 'French Press Calculator',
-    title: 'French Press Coffee Ratio Calculator — Free Cafetière Chart',
+    title: 'French Press Coffee Ratio Calculator (1:15) — Free Cafetière Chart',
     metaDescription:
-      'French press coffee ratio calculator: 1:15 classic. How much coffee for 1 cup, 2 cups, 16 oz, 1 litre / 8-cup press — grams, tablespoons, scoops, and steep time.',
+      'French press coffee ratio calculator: classic 1:15. How much coffee for French press / cafetière — 1 cup, 2 cups, 1 litre — grams, tablespoons, scoops, steep time.',
     excerpt:
-      'Dial in French press coffee ratio by press size and strength. Get grams, tablespoons, grind, and steep time instantly.',
+      'French press coffee ratio by press size and strength. Instant grams, tablespoons, grind, and steep time — including cafetière sizes.',
     icon: 'Coffee',
     category: 'Calculator',
     keywords: [
@@ -1915,11 +2414,11 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'cold-brew-calculator',
     name: 'Cold Brew Calculator',
-    title: 'Cold Brew Coffee Ratio Calculator — Concentrate, 64 oz & Overnight',
+    title: 'Cold Brew Coffee Ratio Calculator — 1:8 Concentrate & Overnight',
     metaDescription:
-      'Cold brew coffee ratio calculator in grams: 1:8 concentrate or 1:15 ready-to-drink. Scale any batch including 64 oz, see steep time, and get tablespoon amounts.',
+      'Cold brew coffee ratio calculator: 1:8 concentrate or 1:15 ready-to-drink. Scale any batch including 64 oz, steep time, grams, and tablespoons.',
     excerpt:
-      'Scale cold brew to any jar or batch. Pick concentrate or ready-to-drink and get exact amounts.',
+      'Cold brew coffee ratio for concentrate or ready-to-drink. Scale any jar — including 64 oz — in grams and tablespoons.',
     icon: 'Snowflake',
     category: 'Calculator',
     keywords: [
@@ -2043,6 +2542,16 @@ export const TOOLS: ToolMeta[] = [
           'About one 8 oz cold brew (typically ~155 mg) or roughly 1.5–1.6 cups of regular brewed coffee (~95 mg each). A single espresso shot has about 63 mg, so 155 mg is a little under 2.5 shots. Use the mg → cups mode above.',
       },
       {
+        question: 'How many cups of coffee is 100 mg of caffeine?',
+        answer:
+          'About one 8 oz cup of brewed coffee (~95 mg) — essentially one normal mug. That is roughly 1.6 espresso shots or a bit under one typical 8 oz cold brew.',
+      },
+      {
+        question: 'How many cups of coffee is 80 mg of caffeine?',
+        answer:
+          'A little under one 8 oz brewed coffee (~95 mg), or roughly 1.3 espresso shots. Instant coffee cups often land near this range depending on brand and scoop size.',
+      },
+      {
         question: 'How much is 190 mg of caffeine?',
         answer:
           'About one large 16 oz drip coffee, or roughly two 8 oz brewed cups (~95 mg each), or about three espresso shots. Use the mg → cups mode and tap 190 mg.',
@@ -2076,6 +2585,99 @@ export const TOOLS: ToolMeta[] = [
         question: 'How much caffeine is in decaf coffee?',
         answer:
           'Decaf is not caffeine-free. An 8 oz cup of decaf usually has about 2–15 mg of caffeine — enough that sensitive people can still notice it if they drink several cups.',
+      },
+    ],
+  },
+  {
+    slug: 'coffee-calories-calculator',
+    name: 'Coffee Calories Calculator',
+    title: 'Coffee Calories Calculator — Black Coffee, Lattes & Add-Ins',
+    metaDescription:
+      'Free coffee calories calculator: calories in black coffee, espresso, lattes, and iced drinks. Add sugar and milk to see how your daily coffee calories add up.',
+    excerpt:
+      'See calories in black coffee vs milk drinks, then dial sugar and milk add-ins for a realistic daily total.',
+    icon: 'Scale',
+    category: 'Calculator',
+    keywords: [
+      'calories in black coffee',
+      'coffee calories calculator',
+      'how many calories in coffee',
+      'calories in a cup of coffee',
+      'latte calories',
+      'espresso calories',
+      'does black coffee have calories',
+    ],
+    faqs: [
+      {
+        question: 'How many calories are in black coffee?',
+        answer:
+          'An 8 oz cup of black coffee has about 2 calories — essentially negligible. Larger black coffees stay near zero unless you add milk, cream, sugar, or syrup.',
+      },
+      {
+        question: 'Does black coffee have calories?',
+        answer:
+          'Technically yes, but only a couple of calories per cup from dissolved solids. For tracking and weight goals, plain black coffee is usually treated as zero.',
+      },
+      {
+        question: 'How many calories in a latte?',
+        answer:
+          'A typical 12 oz café latte is often around 150 calories depending on milk type and brand. Oat and whole milk run higher; skim runs lower. Flavored syrups add more quickly.',
+      },
+      {
+        question: 'How many calories does sugar add to coffee?',
+        answer:
+          'About 16 calories per teaspoon of sugar. Two teaspoons add roughly 32 calories per cup — easy to overlook across multiple drinks.',
+      },
+      {
+        question: 'Is black coffee good for weight loss?',
+        answer:
+          'Black coffee can help if it replaces sugary drinks and fits your caffeine tolerance. It is not a fat burner on its own. Total diet and sleep still matter more.',
+      },
+    ],
+  },
+  {
+    slug: 'caffeine-half-life-calculator',
+    name: 'Caffeine Half-Life Calculator',
+    title: 'Caffeine Half-Life Calculator — How Long Until It Wears Off?',
+    metaDescription:
+      'Caffeine half-life calculator: estimate how much caffeine is left hours after coffee, and when levels drop to 50%, 25%, or 10%. Free how-long-does-caffeine-last tool.',
+    excerpt:
+      'Estimate remaining caffeine after your last cup and see when it drops toward half, a quarter, or nearly gone.',
+    icon: 'Timer',
+    category: 'Calculator',
+    keywords: [
+      'caffeine half life',
+      'how long does caffeine last',
+      'how long does coffee stay in your system',
+      'caffeine half life calculator',
+      'when does caffeine wear off',
+      'how long until caffeine wears off',
+    ],
+    faqs: [
+      {
+        question: 'What is the half-life of caffeine?',
+        answer:
+          'For many healthy adults, caffeine’s half-life is about 5–6 hours — meaning roughly half the dose is still in your system after that time. Genetics, pregnancy, liver health, and some medications can shorten or lengthen it.',
+      },
+      {
+        question: 'How long does caffeine last?',
+        answer:
+          'You may feel peak effects within an hour, but meaningful amounts can remain for 8–12+ hours after a large dose. That is why afternoon coffee wrecks sleep for many people.',
+      },
+      {
+        question: 'How long does coffee stay in your system?',
+        answer:
+          'Coffee’s caffeine clears gradually. After one half-life (~5–6 hours) about half remains; after two half-lives about a quarter remains. Trace amounts linger longer.',
+      },
+      {
+        question: 'When should I stop drinking coffee to sleep?',
+        answer:
+          'A common rule is 8+ hours before bed. If you are sensitive, stop by early afternoon. Use the calculator with your real dose and bedtime to see what is still circulating.',
+      },
+      {
+        question: 'Does food change caffeine half-life?',
+        answer:
+          'Food can slow absorption slightly so the “hit” feels smoother, but it does not dramatically change the overall half-life for most people.',
       },
     ],
   },
@@ -2707,6 +3309,8 @@ export const TOOL_CONTENT: Record<
       'iced-coffee-calculator',
       'espresso-ratio-calculator',
       'drip-coffee-calculator',
+      'coffee-calories-calculator',
+      'caffeine-half-life-calculator',
     ],
     answerTables: [
       {
@@ -2752,6 +3356,145 @@ export const TOOL_CONTENT: Record<
         heading: 'Cold brew vs drip vs espresso caffeine',
         paragraphs: [
           'Per ounce, espresso is strong; per serving, an 8 oz drip often beats a single shot. Cold brew varies wildly by concentrate strength and dilution — an 8 oz ready-to-drink cold brew can rival or exceed drip. Always check whether you are drinking concentrate straight (easy to overshoot).',
+        ],
+      },
+    ],
+  },
+
+  'coffee-calories-calculator': {
+    intro:
+      'Searches for “calories in black coffee” and “how many calories in a latte” never die — because café menus hide the gap between a nearly zero-calorie black cup and a dessert drink in a coffee cup. This calculator starts with realistic averages for common drinks, then lets you add teaspoons of sugar and tablespoons of milk so your daily total matches how you actually doctor the mug.',
+    howToUse: [
+      {
+        step: 'Pick the drink closest to yours',
+        detail:
+          'Black coffee sizes stay near zero calories. Milk drinks (latte, cappuccino, mocha) jump quickly. If your café drink is not listed, start from the nearest style and add sugar/milk sliders.',
+      },
+      {
+        step: 'Set servings per day',
+        detail:
+          'Two small black coffees are still trivial calories. Two large mochas are not. The daily total updates instantly.',
+      },
+      {
+        step: 'Add sugar and milk if you use them',
+        detail:
+          'Each teaspoon of sugar is about 16 kcal; each tablespoon of whole milk about 9 kcal. Syrups and creamers vary — treat the sugar slider as a stand-in for sweet add-ins.',
+      },
+      {
+        step: 'Compare the table',
+        detail:
+          'The comparison table shows how the same serving count looks as black coffee versus richer café drinks — useful when you are deciding what to order.',
+      },
+    ],
+    proTips: [
+      'Black coffee is the easiest “free” beverage in a calorie budget; the trap is syrup, whipped cream, and large milk drinks.',
+      'Oat milk and sweet creamers often add more calories than a splash of dairy — check the carton if you track closely.',
+      'Iced “coffee” drinks at chains are frequently pre-sweetened; the sweet iced preset is a starting point, not your exact franchise recipe.',
+      'If weight loss is the goal, swapping one sugary coffee for black (or half-sweet) often beats a complicated supplement stack.',
+    ],
+    whyItMatters:
+      'People underestimate liquid calories. A transparent coffee calories calculator answers the exact queries Google sends — black coffee calories, latte calories, sugar in coffee — and pairs naturally with health articles on whether black coffee is “bad” or helpful.',
+    relatedSlugs: [
+      'caffeine-calculator',
+      'caffeine-half-life-calculator',
+      'coffee-measurement-converter',
+      'drip-coffee-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Calories in common coffee drinks',
+        caption: 'Ballpark averages — recipes and milk types vary.',
+        headers: ['Drink', 'Serving', 'Approx calories'],
+        rows: [
+          ['Black coffee', '8 oz', '~2 kcal'],
+          ['Black coffee', '16 oz', '~5 kcal'],
+          ['Espresso', '1 shot', '~3 kcal'],
+          ['Latte', '12 oz', '~150 kcal'],
+          ['Cappuccino', '8 oz', '~80 kcal'],
+          ['Mocha', '12 oz', '~290 kcal'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Why black coffee is almost zero calories',
+        paragraphs: [
+          'Brewed coffee is mostly water plus a tiny amount of dissolved solids. Without milk or sugar, an 8 oz cup lands around 2 calories. That is why black coffee shows up in cutting diets and intermittent fasting discussions — the energy load is negligible compared with flavored café drinks.',
+        ],
+      },
+      {
+        heading: 'Where coffee calories actually come from',
+        paragraphs: [
+          'Milk, cream, sugar, syrups, sauces, and whipped cream. A “coffee” can become a 300–500 kcal dessert without changing the bean. If you love milk drinks, smaller sizes and fewer pumps of syrup usually matter more than switching bean origin.',
+        ],
+      },
+    ],
+  },
+
+  'caffeine-half-life-calculator': {
+    intro:
+      '“How long does caffeine last?” is really a pharmacokinetics question dressed as a lifestyle worry. Caffeine’s average half-life in healthy adults is about 5–6 hours, so a 2 pm cold brew can still be meaningful at 10 pm. This calculator estimates remaining milligrams over time so you can plan the last cup before bed — not diagnose metabolism.',
+    howToUse: [
+      {
+        step: 'Choose a dose',
+        detail:
+          'Pick a common coffee drink or enter a custom milligram amount if you know your brand’s caffeine number.',
+      },
+      {
+        step: 'Set how long ago you drank it',
+        detail:
+          'The readout shows estimated caffeine still circulating right now, plus a timeline of the next several hours.',
+      },
+      {
+        step: 'Adjust half-life if you know you are sensitive',
+        detail:
+          'Slow metabolizers and pregnancy often mean a longer half-life; some people clear caffeine faster. Move the slider to explore, then use sleep quality as the real feedback loop.',
+      },
+      {
+        step: 'Plan your cutoff',
+        detail:
+          'Look at when the dose falls toward 25% or 10% relative to bedtime. If you still feel wired, pull the last cup earlier tomorrow — calculators approximate; your nights are the truth.',
+      },
+    ],
+    proTips: [
+      'Half-life is not the same as “I feel normal.” Subjective alertness fades before caffeine fully clears.',
+      'Stacking drinks resets the clock — two coffees four hours apart leave more in your system than one morning cup.',
+      'Energy drinks plus coffee is a common way people accidentally double dose for evening events.',
+      'Pair this tool with the daily caffeine calculator to stay under ~400 mg while also protecting sleep timing.',
+    ],
+    whyItMatters:
+      'Sleep disruption is one of the biggest real-world downsides of coffee. A half-life tool targets high-intent queries (“how long does coffee stay in your system,” “when does caffeine wear off”) and supports the health content cluster around anxiety, empty-stomach coffee, and daily limits.',
+    relatedSlugs: [
+      'caffeine-calculator',
+      'coffee-calories-calculator',
+      'cold-brew-calculator',
+      'espresso-ratio-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Rough remaining caffeine (5.5 h half-life)',
+        caption: 'Starting from a 190 mg large drip at hour 0.',
+        headers: ['Hours later', 'Approx left', '% of dose'],
+        rows: [
+          ['0 h', '190 mg', '100%'],
+          ['3 h', '132 mg', '~70%'],
+          ['5.5 h', '95 mg', '50%'],
+          ['8 h', '70 mg', '~37%'],
+          ['11 h', '48 mg', '25%'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Why afternoon coffee ruins sleep for some people',
+        paragraphs: [
+          'If your half-life is on the long side, a 3 pm cup still leaves a large fraction of caffeine at 11 pm. You may not feel “wired,” but deep sleep can still suffer. Earlier cutoffs beat sleep aids stacked on late espresso.',
+        ],
+      },
+      {
+        heading: 'Coffee and anxiety timing',
+        paragraphs: [
+          'Caffeine’s stimulant window overlaps with anxious body signals (faster heart rate, restlessness). Spacing doses and avoiding huge late boluses helps many people keep coffee without the panic-adjacent feeling — see our coffee and anxiety guide for more context.',
         ],
       },
     ],
