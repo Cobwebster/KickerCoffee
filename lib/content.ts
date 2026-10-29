@@ -2732,7 +2732,7 @@ export const TOOLS: ToolMeta[] = [
     metaDescription:
       'Free caffeine calculator: convert 155 mg or 190 mg into cups, track daily intake vs the 400 mg limit, or estimate a rough limit by body weight.',
     excerpt:
-      'Estimate caffeine by drink and servings, convert mg to cups, or ballpark a limit by body weight.',
+      'Estimate caffeine by drink and servings, enter a custom mg from any label, convert mg to cups, or ballpark a limit by body weight.',
     icon: 'Zap',
     category: 'Calculator',
     keywords: [
@@ -2780,6 +2780,11 @@ export const TOOLS: ToolMeta[] = [
         question: 'What is the safe daily caffeine limit?',
         answer:
           'Most healthy adults can have up to about 400 mg of caffeine per day — roughly four 8 oz cups of coffee. Pregnant people and those sensitive to caffeine should have less.',
+      },
+      {
+        question: 'Can I enter caffeine milligrams from my own drink?',
+        answer:
+          'Yes. In Daily intake, choose Custom drink and type the milligrams from the can, café nutrition sheet, or supplement facts. Then set how many servings you have. Shortcuts are there for tea, common energy drinks, and pre-workout — but the label always wins.',
       },
       {
         question: 'Can I calculate caffeine by body weight?',
@@ -3028,7 +3033,7 @@ export const TOOLS: ToolMeta[] = [
     metaDescription:
       'Interactive world coffee map of coffee producing countries and bean origins. Click Ethiopia, Brazil, Colombia, Vietnam, and more for flavor and altitude.',
     excerpt:
-      'Click any coffee-growing country to discover its altitude, flavor notes, processing methods, and ideal brew style.',
+      'Search or click 26 coffee origins — altitude, flavors, process, species, and a cup profile for each producing country.',
     icon: 'Beaker',
     category: 'Reference',
     keywords: [
@@ -3070,7 +3075,12 @@ export const TOOLS: ToolMeta[] = [
       {
         question: 'Arabica vs Robusta — which countries grow which?',
         answer:
-          'Most specialty origins (Ethiopia, Colombia, Kenya, Costa Rica) grow Arabica. Vietnam grows mostly Robusta. Brazil grows both. Arabica tastes sweeter and more complex; Robusta has more caffeine and a heavier, earthier profile.',
+          'Most specialty origins (Ethiopia, Colombia, Kenya, Costa Rica) grow Arabica. Vietnam grows mostly Robusta. Brazil, Indonesia, India, and Uganda grow both. Arabica tastes sweeter and more complex; Robusta has more caffeine and a heavier, earthier profile.',
+      },
+      {
+        question: 'How do I use the world coffee map on a phone?',
+        answer:
+          'Do not try to tap tiny countries. Use the search box or the origin chips (Ethiopia, Vietnam, Jamaica…). The map will zoom to that country. Jamaica and other small islands are easy to miss on a world map — the list is the reliable way in.',
       },
     ],
   },
@@ -3493,7 +3503,7 @@ export const TOOL_CONTENT: Record<
       {
         step: 'Select your drink',
         detail:
-          'Choose the drink type closest to what you actually drink. The listed mg values are averages — your specific beans and brewer will vary, but these are reliable ballpark figures drawn from USDA and published food lab data.',
+          'Choose the drink type closest to what you actually drink, or pick Custom drink and type the milligrams from the label (energy drink, pre-workout, café nutrition PDF). Preset values are averages from USDA-style data — your beans and brewer will vary.',
       },
       {
         step: 'Set your daily servings',
@@ -3796,12 +3806,12 @@ export const TOOL_CONTENT: Record<
 
   'world-coffee-map': {
     intro:
-      'Coffee is a product of place. The same Coffea arabica plant grown at 800 meters in Brazil produces a completely different cup than one grown at 2,000 meters in Ethiopia — and both taste nothing like a Sumatran. Altitude, soil composition, rainfall patterns, average temperature, and the way beans are processed after harvest all shape flavor in ways that cannot be replicated by changing any brew variable. This map lets you explore 15 major coffee-producing origins, understand what makes each unique, and match an origin to the brewing method that suits it best.',
+      'Coffee is a product of place. The same Coffea arabica plant grown at 800 meters in Brazil produces a completely different cup than one grown at 2,000 meters in Ethiopia — and both taste nothing like a Sumatran. Altitude, soil, rainfall, temperature, species (Arabica vs Robusta), and processing after harvest shape flavor in ways no grind setting can fake. This map covers 26 producing countries across the coffee belt. Search by name, flavor, or process; tap a chip if the country is too small to hit; then read altitude, harvest, cup bars, and a brew that actually suits that origin.',
     howToUse: [
       {
-        step: 'Click a highlighted country',
+        step: 'Search or filter, then open a country',
         detail:
-          'Coffee-producing countries are shown in a warm amber tone. Click any one to open the origin profile panel below the map with altitude, process methods, flavor profile, and recommended brew.',
+          'Type Ethiopia, Gesha, Robusta, or honey process. Filter Africa / Americas / Asia. Colored countries on the map are producers (by region). Tiny islands like Jamaica are easier from the chip list than from the globe. The map zooms to the origin you pick.',
       },
       {
         step: 'Read the flavor profile',
@@ -3809,14 +3819,14 @@ export const TOOL_CONTENT: Record<
           'Body and acidity bars show where this origin sits on the spectrum. High acidity coffees like Kenya and Ethiopia suit pour over methods that highlight brightness. Low-acid, full-body origins like Brazil and Sumatra suit espresso and French press.',
       },
       {
-        step: 'Check the process method',
+        step: 'Check species and process',
         detail:
-          'Natural (dry) processing tends to produce fruity, winey, heavy-bodied cups. Washed processing gives cleaner, brighter, more acidic cups. Honey is a middle ground. Origin + process together tell you more about flavor than origin alone.',
+          'Arabica is the specialty default. Robusta (Vietnam and much of Uganda) is heavier and more caffeinated. Natural processing tends to be fruity and winey; washed is cleaner; honey sits in between; wet-hulled Sumatra is its own earthy category.',
       },
       {
         step: 'Use the brew recommendation',
         detail:
-          'Each origin lists its best-suited brew method. This is a starting point — every origin can work in any method — but some matches are much more satisfying than others.',
+          'Each origin lists a best-suited brew method. That is a starting point — every origin can work in any method — but some matches are much more satisfying than others. Vietnam links through to the iced coffee recipe; others go to the origins guide.',
       },
     ],
     proTips: [
@@ -3827,7 +3837,27 @@ export const TOOL_CONTENT: Record<
     ],
     whyItMatters:
       'Understanding origin is the fastest way to reliably buy coffee you will enjoy. Instead of guessing from vague tasting notes on a bag, knowing that you love washed Ethiopian pour overs or low-acid Brazilian espresso means you can walk into any specialty coffee shop and know exactly what to ask for.',
-    relatedSlugs: ['grind-size-chart', 'coffee-ratio-calculator', 'brew-timer'],
+    relatedSlugs: [
+      'grind-size-chart',
+      'coffee-ratio-calculator',
+      'brew-timer',
+      'caffeine-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Who grows the coffee (ballpark)',
+        caption: 'Shares move year to year. Brazil and Vietnam dominate volume; East Africa dominates specialty menus.',
+        headers: ['Origin', 'Typical role', 'Cup in one line'],
+        rows: [
+          ['Brazil', '#1 volume', 'Low-acid chocolate and nut; espresso backbone'],
+          ['Vietnam', '#2 volume, mostly Robusta', 'Heavy, high caffeine; phin and blends'],
+          ['Colombia', '#3, washed Arabica', 'Caramel, apple, reliable daily filter'],
+          ['Indonesia', 'Wet-hulled Sumatra', 'Earthy, syrupy, low acid'],
+          ['Ethiopia', 'Arabica homeland', 'Floral, blueberry, jasmine pour over'],
+          ['Kenya', 'Specialty auction lots', 'Blackcurrant, grapefruit, very bright'],
+        ],
+      },
+    ],
   },
 
   'coffee-lab': {

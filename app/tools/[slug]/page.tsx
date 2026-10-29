@@ -144,6 +144,16 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             </p>
           </aside>
         )}
+        {tool.slug === 'world-coffee-map' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Coffee grows in the tropical <strong>coffee belt</strong>. Brazil grows the most;
+              Vietnam is #2 (mostly Robusta); Ethiopia is where Arabica comes from. Search a country
+              below if the map is too small to tap.
+            </p>
+          </aside>
+        )}
         {tool.slug === 'hydration-calculator' && (
           <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>

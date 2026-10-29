@@ -12,6 +12,16 @@ const DRINKS = [
   { id: 'decaf', label: 'Decaf (8 oz)', mg: 3 },
 ] as const
 
+type DrinkId = (typeof DRINKS)[number]['id'] | 'custom'
+
+const CUSTOM_PRESETS = [
+  { mg: 40, label: 'Tea' },
+  { mg: 80, label: 'Red Bull 8.4 oz' },
+  { mg: 150, label: 'Energy drink' },
+  { mg: 200, label: 'Monster 16 oz' },
+  { mg: 300, label: 'Pre-workout' },
+] as const
+
 const SAFE_LIMIT = 400
 /** Rough adult guideline often cited alongside body-weight discussions (~3 mg/kg). */
 const MG_PER_KG = 3
@@ -21,15 +31,23 @@ function round(n: number, d = 1) {
   return Math.round(n * f) / f
 }
 
+function clampMg(n: number) {
+  if (!Number.isFinite(n)) return 0
+  return Math.min(1000, Math.max(0, Math.round(n)))
+}
+
 export function CaffeineCalculator() {
   const [mode, setMode] = useState<'intake' | 'from-mg' | 'by-weight'>('intake')
-  const [drinkId, setDrinkId] = useState<(typeof DRINKS)[number]['id']>('brewed')
+  const [drinkId, setDrinkId] = useState<DrinkId>('brewed')
+  const [customMg, setCustomMg] = useState(80)
   const [servings, setServings] = useState(2)
   const [targetMg, setTargetMg] = useState(155)
   const [weightKg, setWeightKg] = useState(70)
 
-  const drink = DRINKS.find((d) => d.id === drinkId)!
-  const total = drink.mg * servings
+  const preset = drinkId === 'custom' ? null : DRINKS.find((d) => d.id === drinkId)
+  const drinkMg = drinkId === 'custom' ? customMg : preset!.mg
+  const drinkLabel = drinkId === 'custom' ? 'Custom drink' : preset!.label
+  const total = drinkMg * servings
   const pct = Math.min(100, (total / SAFE_LIMIT) * 100)
   const over = total > SAFE_LIMIT
 
@@ -76,7 +94,7 @@ export function CaffeineCalculator() {
           <select
             id="drink"
             value={drinkId}
-            onChange={(e) => setDrinkId(e.target.value as typeof drinkId)}
+            onChange={(e) => setDrinkId(e.target.value as DrinkId)}
             className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base font-medium text-foreground outline-none focus:border-accent"
           >
             {DRINKS.map((d) => (
@@ -84,7 +102,48 @@ export function CaffeineCalculator() {
                 {d.label} — {d.mg} mg
               </option>
             ))}
+            <option value="custom">Custom drink — enter mg</option>
           </select>
+
+          {drinkId === 'custom' && (
+            <div className="mt-4 rounded-xl border border-border bg-background p-4">
+              <div className="mb-1 flex items-baseline justify-between">
+                <label htmlFor="custom-mg" className="text-sm font-medium text-foreground">
+                  Caffeine in your drink
+                </label>
+                <span className="text-xs text-muted-foreground">mg per serving</span>
+              </div>
+              <input
+                id="custom-mg"
+                type="number"
+                inputMode="numeric"
+                min={0}
+                max={1000}
+                value={customMg}
+                onChange={(e) => setCustomMg(clampMg(Number(e.target.value)))}
+                className="w-full bg-transparent text-2xl font-semibold text-foreground outline-none"
+              />
+              <p className="mt-2 text-xs text-muted-foreground">
+                Use the milligrams on the can, café nutrition PDF, or your pre-workout label.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {CUSTOM_PRESETS.map((p) => (
+                  <button
+                    key={p.mg}
+                    type="button"
+                    onClick={() => setCustomMg(p.mg)}
+                    className={`rounded-lg border px-2.5 py-1 text-xs font-medium transition-colors ${
+                      customMg === p.mg
+                        ? 'border-accent bg-accent/10 text-foreground'
+                        : 'border-border text-muted-foreground hover:border-accent/50'
+                    }`}
+                  >
+                    {p.label} ({p.mg})
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-5">
             <div className="mb-2 flex items-baseline justify-between">
@@ -108,6 +167,9 @@ export function CaffeineCalculator() {
           <div className="mt-6 rounded-2xl bg-secondary p-6 text-center">
             <div className="text-sm text-muted-foreground">Estimated daily caffeine</div>
             <div className="mt-1 text-5xl font-semibold text-foreground">{total} mg</div>
+            <div className="mt-1 text-sm text-muted-foreground">
+              {drinkMg} mg × {servings} {servings === 1 ? 'serving' : 'servings'} of {drinkLabel}
+            </div>
             <div className="mt-4 h-3 w-full overflow-hidden rounded-full bg-background">
               <div
                 className={`h-full rounded-full transition-all ${over ? 'bg-destructive' : 'bg-accent'}`}
