@@ -58,6 +58,14 @@ export function SiteFooter() {
             </li>
             <li>
               <Link
+                href="/recipes/iced-latte"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Iced Latte Recipe
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/tools/drip-coffee-calculator"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >

@@ -14,6 +14,8 @@ import { MeasurementConverter } from './measurement-converter'
 import { GrindChart } from './grind-chart'
 import { WorldCoffeeMap } from './world-coffee-map'
 import { CoffeeLabSimulator } from './coffee-lab'
+import { ProteinCoffeeCalculator } from './protein-coffee-calculator'
+import { HydrationCalculator } from './hydration-calculator'
 
 const WIDGETS: Record<string, () => React.JSX.Element> = {
   'coffee-ratio-calculator': RatioCalculator,
@@ -30,6 +32,8 @@ const WIDGETS: Record<string, () => React.JSX.Element> = {
   'grind-size-chart': GrindChart,
   'world-coffee-map': WorldCoffeeMap,
   'coffee-lab': CoffeeLabSimulator,
+  'protein-coffee-calculator': ProteinCoffeeCalculator,
+  'hydration-calculator': HydrationCalculator,
 }
 
 export function ToolWidget({ slug }: { slug: string }) {

@@ -68,6 +68,21 @@ export default async function BrewGuidePage({
       'cold-brew-coffee-recipe',
       'how-to-use-aeropress',
     ],
+    'how-to-make-protein-coffee': [
+      'how-to-make-a-flat-white',
+      'espresso-tonic-recipe',
+      'cold-brew-coffee-recipe',
+    ],
+    'espresso-tonic-recipe': [
+      'how-to-make-a-flat-white',
+      'how-to-pull-espresso-shot',
+      'how-to-make-protein-coffee',
+    ],
+    'how-to-make-a-flat-white': [
+      'how-to-pull-espresso-shot',
+      'espresso-tonic-recipe',
+      'how-to-make-protein-coffee',
+    ],
   }
   const related =
     (relatedMap[guide.slug]
@@ -214,6 +229,23 @@ export default async function BrewGuidePage({
               </span>
               <span className="mt-0.5 block text-sm font-medium text-foreground">
                 Japanese iced / flash brew calculator — not overnight cold brew
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        )}
+
+        {guide.slug === 'how-to-make-protein-coffee' && (
+          <Link
+            href="/tools/protein-coffee-calculator"
+            className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Free tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Protein coffee calculator — protein grams, calories, and caffeine
               </span>
             </span>
             <ArrowRight className="size-4 shrink-0 text-accent" />

@@ -1,3 +1,10 @@
+import {
+  TRENDING_BEAN_ARTICLES,
+  TRENDING_BREW_GUIDES,
+  TRENDING_TOOL_CONTENT,
+  TRENDING_TOOLS,
+} from './trending-guides'
+
 export const SITE = {
   name: 'KickerCoffee',
   domain: 'kickercoffee.com',
@@ -14,6 +21,11 @@ export const NAV: NavItem[] = [
     label: 'Brewing Guides',
     href: '/brewing-guides',
     description: 'Step-by-step recipes for every brew method.',
+  },
+  {
+    label: 'Recipes',
+    href: '/recipes',
+    description: 'Iced lattes, cappuccinos, and café drinks at home.',
   },
   {
     label: 'Gear & Setups',
@@ -55,6 +67,8 @@ export type AnswerTable = {
 /** Analytics-informed order for tools hub + homepage. */
 export const TOOL_POPULARITY_ORDER: string[] = [
   'caffeine-calculator',
+  'protein-coffee-calculator',
+  'hydration-calculator',
   'coffee-calories-calculator',
   'caffeine-half-life-calculator',
   'coffee-measurement-converter',
@@ -117,7 +131,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     grind: 'Medium-fine',
     yield: '1–2 cups',
     updated: '2026-09-21',
-    image: '/images/pour-over-hero.png',
+    image: '/images/pour-over-hero.webp',
     quickAnswer:
       'Use a 1:16 coffee-to-water ratio (20 g coffee to 320 g water), medium-fine grind, 96°C / 205°F water, a 30–45 second bloom, then finish around 3:00–3:30 total.',
     intro:
@@ -226,7 +240,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     grind: 'Coarse',
     yield: '3–4 cups',
     updated: '2026-09-21',
-    image: '/images/french-press-hero.png',
+    image: '/images/french-press-hero.webp',
     quickAnswer:
       'Start at a 1:15 French press coffee ratio — about 17 g coffee per 250 ml water (67 g per litre). Coarse grind, steep 4 minutes, press gently, and decant immediately.',
     intro:
@@ -376,7 +390,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     grind: 'Medium-fine',
     yield: '1 cup',
     updated: '2026-05-28',
-    image: '/images/aeropress-hero.png',
+    image: '/images/aeropress-hero.webp',
     intro:
       'The AeroPress combines immersion and pressure into one of the most versatile coffee brewers ever made. It uses gentle air pressure and a short steep to produce a clean, smooth, low-acidity cup. It is nearly indestructible, cleans in 15 seconds, and goes from kitchen to camping trip without complaints. There are two popular styles — standard and inverted — and both are worth knowing.',
     body: [
@@ -497,7 +511,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     grind: 'Fine',
     yield: '1 double shot',
     updated: '2026-06-01',
-    image: '/images/espresso-hero.png',
+    image: '/images/espresso-hero.webp',
     intro:
       'Espresso forces hot water through finely-ground, compacted coffee at around 9 bars of pressure in 25–30 seconds, producing a concentrated, syrupy shot layered with crema. It is the most demanding brew method — tiny grind changes have outsized effects — but once you understand the brew ratio as your guiding variable, dialing in any espresso becomes a logical, repeatable process rather than guesswork.',
     body: [
@@ -617,7 +631,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     grind: 'Coarse',
     yield: '4–6 cups',
     updated: '2026-09-21',
-    image: '/images/cold-brew-hero.png',
+    image: '/images/cold-brew-hero.webp',
     quickAnswer:
       'For concentrate use a 1:8 cold brew coffee ratio (e.g. 100 g coffee to 800 g water). Steep coarse grounds 12–18 hours in the fridge, filter, then dilute about 1:1 to drink.',
     intro:
@@ -732,7 +746,7 @@ export const BREW_GUIDES: BrewGuide[] = [
     grind: 'Fine-medium',
     yield: '2–3 cups',
     updated: '2026-04-30',
-    image: '/images/moka-pot-hero.png',
+    image: '/images/moka-pot-hero.webp',
     intro:
       'The Moka pot is an Italian stovetop brewer that uses steam pressure to force water up through a basket of coffee grounds. Invented in 1933 by Alfonso Bialetti, it remains one of the most popular coffee makers in the world. The result is bold, concentrated, and rich — closer to espresso than drip, without needing an expensive machine. The most common mistake is using too much heat too fast, which scorches the grounds and produces a harsh, burnt-tasting cup.',
     body: [
@@ -820,6 +834,7 @@ export const BREW_GUIDES: BrewGuide[] = [
       },
     ],
   },
+  ...TRENDING_BREW_GUIDES,
 ]
 
 /* ----------------------------- Gear & setups ----------------------------- */
@@ -859,7 +874,7 @@ export const GEAR: GearItem[] = [
     bestFor: 'Everyone — upgrade this first',
     rating: 4.8,
     updated: '2026-09-21',
-    image: '/images/grinder-hero.png',
+    image: '/images/grinder-hero.webp',
     quickAnswer:
       'Buy a burr grinder (not a blade) first. For most filter coffee, a solid hand or entry electric burr in the roughly $40–$150 range is enough; espresso needs finer, more precise adjustment.',
     intro:
@@ -941,7 +956,7 @@ export const GEAR: GearItem[] = [
     bestFor: 'Pour over and drip enthusiasts',
     rating: 4.6,
     updated: '2026-05-18',
-    image: '/images/kettle-hero.png',
+    image: '/images/kettle-hero.webp',
     intro:
       'A gooseneck kettle gives you slow, precise control over where and how fast water hits the coffee bed. Variable-temperature models let you match water heat to roast level, which is a genuine flavor upgrade for light roasts.',
     pros: [
@@ -1013,7 +1028,7 @@ export const GEAR: GearItem[] = [
     bestFor: 'Anyone chasing consistency',
     rating: 4.5,
     updated: '2026-04-22',
-    image: '/images/scale-hero.png',
+    image: '/images/scale-hero.webp',
     intro:
       'Scooping coffee by volume is wildly inconsistent because beans vary in size and density. A scale lets you weigh a precise dose and track water in real time, so a great cup becomes a repeatable cup.',
     pros: [
@@ -1097,7 +1112,7 @@ export const SETUPS: Setup[] = [
     excerpt: 'Everything a first-timer needs to brew genuinely great coffee, without overspending.',
     budget: 'Under $200',
     level: 'Rookie',
-    image: '/images/setup-beginner-hero.png',
+    image: '/images/setup-beginner-hero.webp',
     intro:
       'You do not need an expensive machine to make delicious coffee. This starter kit prioritizes the things that actually move the needle: a burr grinder and a simple, forgiving brew method.',
     items: [
@@ -1137,7 +1152,7 @@ export const SETUPS: Setup[] = [
     excerpt: 'Café-quality shots at home. The machine, grinder, and accessories serious enthusiasts choose.',
     budget: '$1,500+',
     level: 'Enthusiast',
-    image: '/images/setup-espresso-hero.png',
+    image: '/images/setup-espresso-hero.webp',
     intro:
       'When you are ready to chase espresso seriously, the grinder matters as much as the machine. This setup pairs temperature-stable brewing with a grinder that can resolve tiny adjustments.',
     items: [
@@ -1200,7 +1215,7 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'The main types of coffee roasts are light, medium, and dark. Here is how each roast level changes flavor, acidity, and body.',
     readTime: '14 min',
     updated: '2026-09-21',
-    image: '/images/roast-levels-hero.png',
+    image: '/images/roast-levels-hero.webp',
     quickAnswer:
       'There are three main types of coffee roast: light (bright, origin-forward), medium (balanced sweetness), and dark (bold, low-acid, roast-driven). “Roast level” is how far the beans were taken through that spectrum.',
     intro:
@@ -1439,7 +1454,7 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Why Ethiopian coffee tastes like blueberries and Sumatran tastes earthy — coffee bean origin by country, decoded.',
     readTime: '12 min',
     updated: '2026-09-21',
-    image: '/images/origins-hero.png',
+    image: '/images/origins-hero.webp',
     quickAnswer:
       'Coffee bean origin (country and region) changes acidity, body, and aroma as much as roast. High-grown African lots often taste fruity or floral; many Latin American lots taste caramel/nutty; some Asian lots taste earthy and full.',
     intro:
@@ -1604,7 +1619,7 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Air, light, heat, and moisture kill freshness. The best way to store coffee beans is simple — and it is not the fridge.',
     readTime: '5 min',
     updated: '2026-09-21',
-    image: '/images/storage-hero.png',
+    image: '/images/storage-hero.webp',
     quickAnswer:
       'Store whole beans in an opaque, airtight container at room temperature away from the stove and sunlight. Buy what you will finish in 2–4 weeks. Skip the fridge; freeze only long-term portions you will not thaw repeatedly.',
     intro:
@@ -1693,7 +1708,7 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Black coffee is not “bad” for most healthy adults — but dose, timing, and your body decide whether it helps or hurts.',
     readTime: '10 min',
     updated: '2026-09-21',
-    image: '/images/home-hero.png',
+    image: '/images/home-hero.webp',
     intro:
       '“Is black coffee bad for you?” is one of the most-searched coffee questions online — usually after a jittery morning, poor sleep, or a stomach that does not love straight espresso. Short answer: for most healthy adults, moderate black coffee is linked with neutral-to-positive outcomes in large studies. Problems usually come from too much caffeine, drinking it too late, or pairing it with a sensitive stomach or anxiety. This guide separates myth from evidence and flags when cutting back makes sense. It is general information, not medical advice.',
     body: [
@@ -1789,9 +1804,9 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Is coffee good for you? Evidence-based coffee health benefits — energy, antioxidants, diabetes and liver associations — plus caffeine limits and who should go easy.',
     excerpt:
       'Coffee can be part of a healthy routine for many adults — here is what the evidence actually supports, and what it does not.',
-    readTime: '9 min',
-    updated: '2026-09-21',
-    image: '/images/roast-levels-hero.png',
+    readTime: '12 min',
+    updated: '2026-10-29',
+    image: '/images/roast-levels-hero.webp',
     intro:
       'People ask “is coffee good for you?” for the same reason they ask if it is bad: mixed headlines. The honest middle: coffee is a complex plant beverage with caffeine and polyphenols. For many healthy adults, moderate intake looks compatible with — and sometimes associated with — better long-term outcomes. It is not a superfood miracle, and more is not always better.',
     body: [
@@ -1832,6 +1847,36 @@ export const BEAN_ARTICLES: BeanArticle[] = [
           'Use our caffeine and half-life tools to see how your real drinks add up across the day.',
         ],
       },
+      { type: 'heading', text: 'What “moderate” looks like in real drinks' },
+      {
+        type: 'paragraph',
+        text: 'Headlines that say “three cups” assume small home mugs. A 16 oz café drip can be two of those cups in one hand. Cold brew concentrate drunk straight can overshoot faster than espresso. The health associations in observational studies cluster around habitual, moderate caffeine — not a venti-plus-energy-drink stack.',
+      },
+      {
+        type: 'table',
+        caption: 'Same “two drinks” can be a safe day or a rough day.',
+        headers: ['Pattern', 'Approx caffeine', 'How it usually feels'],
+        rows: [
+          ['Two 8 oz home drips', '~190 mg', 'Typical moderate day for many adults'],
+          ['One 16 oz drip + a double espresso', '~300 mg+', 'Still under 400 mg for many, late timing matters'],
+          ['Large cold brew + energy drink', 'often 400 mg+', 'Easy to overshoot sleep and jitters'],
+        ],
+      },
+      { type: 'heading', text: 'Decaf, half-caf, and who benefits' },
+      {
+        type: 'paragraph',
+        text: 'If the plant compounds are what you want and caffeine is the problem, decaf is the practical swap — not mushroom marketing by default. Half-caf (mix regular and decaf beans, or alternate cups) is how a lot of people keep the ritual past 2 p.m. Pregnant people and those with panic-prone caffeine responses should follow clinician limits, not internet cup counts.',
+      },
+      { type: 'heading', text: 'How to read coffee health news' },
+      {
+        type: 'list',
+        items: [
+          'Observational studies show associations, not “coffee caused this.” People who drink coffee also differ in smoking, exercise, and diet.',
+          'Industry-funded and tiny studies get outsized headlines. Prefer large cohorts and reviews over a single mouse paper.',
+          'Adding butter, MCT oil, or six pumps of syrup changes the drink you are studying.',
+          'This page is general information, not medical advice or a reason to start drinking coffee if you hate it.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -1854,6 +1899,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         answer:
           'Many adults do well at 2–4 typical cups, staying under roughly 400 mg of caffeine. Cup size and brew strength matter more than the number printed on the mug.',
       },
+      {
+        question: 'Is unfiltered coffee less healthy than drip?',
+        answer:
+          'Unfiltered methods let through more cafestol, which can raise LDL in some people who drink a lot of it. Paper-filtered drip traps more of those oils. If cholesterol is a concern, talk with a clinician rather than guessing from brew method alone.',
+      },
+      {
+        question: 'Does adding milk cancel coffee’s benefits?',
+        answer:
+          'A splash of milk does not wipe out the drink. Large sugary milk drinks change calories and blood-sugar load more than they cancel polyphenols. Black vs latte is mostly a calorie and satiety question.',
+      },
     ],
   },
   {
@@ -1864,9 +1919,9 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Does coffee dehydrate you? Why moderate coffee still counts toward fluids, when caffeine’s mild diuretic effect matters, and how much water to drink with coffee.',
     excerpt:
       'Coffee is a mild diuretic, but your morning mug still contributes to hydration for most regular drinkers.',
-    readTime: '6 min',
-    updated: '2026-09-21',
-    image: '/images/pour-over-hero.png',
+    readTime: '10 min',
+    updated: '2026-10-29',
+    image: '/images/pour-over-hero.webp',
     intro:
       'The old advice — “coffee does not count as water” — is mostly outdated for people who drink coffee regularly. Caffeine has a mild diuretic effect, but the fluid in the cup usually more than offsets it at typical doses. Extreme intake, heat, alcohol, or illness change the math.',
     body: [
@@ -1896,7 +1951,39 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       },
       {
         type: 'tip',
-        text: 'Dry mouth after coffee is often from caffeine plus bitter compounds and mouth breathing — not proof you are clinically dehydrated. Still, a glass of water beside the mug is an easy habit.',
+        text: 'Dry mouth after coffee is often from caffeine plus bitter compounds and mouth breathing — not proof you are clinically dehydrated. Still, a glass of water beside the mug is an easy habit. Use the hydration calculator (height, weight, glasses so far) if you want a personal daily target — it is an estimate, not a lab test.',
+      },
+      { type: 'heading', text: 'Why the myth stuck' },
+      {
+        type: 'paragraph',
+        text: 'Caffeine can increase urine output a little, especially in people who rarely use it. Older advice treated that as “coffee does not count.” Later controlled work on habitual drinkers found that moderate coffee hydrated about as well as water. Your kidneys adapt. A first-time 400 mg day on an empty stomach in the heat is not the same as your weekday two drips.',
+      },
+      { type: 'heading', text: 'Coffee vs water vs sports drink' },
+      {
+        type: 'table',
+        caption: 'For a normal indoor day — not a marathon.',
+        headers: ['Situation', 'What to drink'],
+        rows: [
+          ['Desk day, 1–3 coffees', 'Coffee counts; still sip water'],
+          ['Long run / hot warehouse shift', 'Water or electrolytes first; coffee is extra'],
+          ['Hangover / stomach bug', 'Oral rehydration; skip stacking espresso'],
+          ['You only drank coffee since breakfast', 'Add water — coffee is fluid, not a full day’s plan'],
+        ],
+      },
+      { type: 'heading', text: 'How much extra water with coffee?' },
+      {
+        type: 'paragraph',
+        text: 'There is no law that every espresso needs a chaser glass. A useful default is: drink to thirst, keep urine pale straw, and if you have three large caffeinated drinks before noon, put a bottle on the desk. People who get headaches they blame on “coffee dehydration” are often also under-eating, hungover, or sleeping five hours.',
+      },
+      { type: 'heading', text: 'What actually dehydrates you faster' },
+      {
+        type: 'list',
+        items: [
+          'Alcohol (the real diuretic in the “coffee then wine” night).',
+          'Heavy sweating without replacing fluids.',
+          'High-sugar energy drinks on top of coffee in heat.',
+          'Ignoring thirst because you are “only allowed water at meals.”',
+        ],
       },
     ],
     faqs: [
@@ -1915,6 +2002,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         answer:
           'It is a good habit for comfort and overall fluid goals, but it is not required to “cancel” dehydration from a normal cup.',
       },
+      {
+        question: 'Does espresso dehydrate you more than drip?',
+        answer:
+          'Per ounce espresso is stronger in caffeine, but a single shot is a small volume of fluid. A large drip often has more total water and sometimes more total caffeine. Neither is a special dehydrator at normal doses.',
+      },
+      {
+        question: 'How much water should I drink if I drink coffee?',
+        answer:
+          'Use a body-size target (about 30–35 ml fluid per kg, all drinks included) and count coffee toward it. The hydration calculator turns height, weight, and glasses so far into an estimate.',
+      },
     ],
   },
   {
@@ -1925,9 +2022,9 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Is coffee on an empty stomach bad? Why some people get acid, jitters, or nausea, and simple fixes — food, roast, brew method, and timing.',
     excerpt:
       'Empty-stomach coffee is fine for many people and rough for others — here is why, and how to make mornings gentler.',
-    readTime: '7 min',
-    updated: '2026-09-21',
-    image: '/images/espresso-hero.png',
+    readTime: '11 min',
+    updated: '2026-10-29',
+    image: '/images/espresso-hero.webp',
     intro:
       'Is coffee on an empty stomach bad? It depends on your gut, caffeine sensitivity, and brew. Coffee stimulates acid production and can relax the valve that keeps stomach contents down — so fasting cups amplify reflux or nausea for some people. Others drink espresso before breakfast for years with no issue. Treat symptoms as data, not a universal rule.',
     body: [
@@ -1961,6 +2058,33 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         type: 'paragraph',
         text: 'Black coffee is often allowed in intermittent fasting protocols because it has negligible calories, but fasting rules vary by goal (autophagy claims vs calorie window vs medical fasting). Butter or oil coffee breaks a fast by calories. If fasting makes acid worse, prioritize gut comfort over dogma.',
       },
+      { type: 'heading', text: 'Why empty-stomach coffee hits harder' },
+      {
+        type: 'paragraph',
+        text: 'With no food in the pipeline, caffeine absorbs a bit faster for some people, stomach acid has nothing to work on except the drink, and a bright light roast has more perceived acidity. Cortisol is already high in the early morning; stacking a huge cold brew on four hours of sleep can feel like panic even if the same drink is fine after eggs. None of this means coffee “destroys stomach lining” for everyone — that phrase is internet folklore.',
+      },
+      { type: 'heading', text: 'Brew methods that are often gentler' },
+      {
+        type: 'table',
+        caption: 'Individual guts vary — this is a starting map, not a medical ranking.',
+        headers: ['Method', 'Why it may feel easier', 'Watch-out'],
+        rows: [
+          ['Cold brew', 'Lower perceived acidity for many people', 'Can be very high caffeine if undiluted'],
+          ['Darker drip / espresso with milk', 'Less bright acid, milk buffers', 'Milk drinks are not “empty stomach” if you care about fasting calories'],
+          ['Small espresso after a few bites', 'Lower volume of acid', 'Still a stimulant hit'],
+          ['Light-roast V60, huge mug, no food', 'Highest “sharp” risk for reflux-prone drinkers', 'Common morning mistake'],
+        ],
+      },
+      { type: 'heading', text: 'A simple two-week test' },
+      {
+        type: 'steps',
+        items: [
+          'Week A: coffee after 150–300 calories of food (toast, yogurt, leftover rice).',
+          'Week B: same coffee, same time, empty stomach.',
+          'Note reflux, nausea, jitters, and 11 a.m. crash. Keep grind and dose identical.',
+          'If week A is clearly better, stop arguing with influencers — eat first.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -1978,6 +2102,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         answer:
           'Anything gentle you actually eat: toast, oats, eggs, yogurt, or fruit. The goal is a little buffer, not a perfect macro meal.',
       },
+      {
+        question: 'Does cold brew hurt less on an empty stomach?',
+        answer:
+          'Many people find cold brew less sharp because it extracts fewer acids. It can still carry a lot of caffeine. If reflux is your issue, it may help; if jitters are the issue, watch the milligrams.',
+      },
+      {
+        question: 'Can I drink coffee while intermittent fasting?',
+        answer:
+          'Black coffee is usually allowed in calorie-window fasting. If it wrecks your stomach, the protocol is not worth the pain. Cream, butter, and protein powder break a fast by calories.',
+      },
     ],
   },
   {
@@ -1988,9 +2122,9 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'How much coffee is too much? Adult 400 mg caffeine guideline, pregnancy limits, signs you are overdoing it, and how large cups and cold brew change the count.',
     excerpt:
       'Cup counts lie — milligrams matter. Here is how to tell when coffee intake is too high for you.',
-    readTime: '8 min',
-    updated: '2026-09-21',
-    image: '/images/french-press-hero.png',
+    readTime: '12 min',
+    updated: '2026-10-29',
+    image: '/images/french-press-hero.webp',
     intro:
       '“How much coffee is too much?” cannot be answered with a single mug count. An 8 oz home drip and a 20 oz café cold brew are different drugs in different costumes. Use caffeine milligrams, your symptoms, and your life stage — then adjust.',
     body: [
@@ -2043,6 +2177,25 @@ export const BEAN_ARTICLES: BeanArticle[] = [
           'Use our caffeine calculator to map your real week, not your aspirational “two small cups.”',
         ],
       },
+      { type: 'heading', text: 'Cup size is the trap' },
+      {
+        type: 'paragraph',
+        text: '“I only have two coffees” is how people hide a 400 mg morning. Home mugs, café “mediums,” and travel tumblers are not standardized. Weigh or read caffeine posts when you can. If you use our caffeine calculator, log the actual drink size — 8 oz vs 16 oz doubles drip milligrams.',
+      },
+      { type: 'heading', text: 'Tolerance is not the same as safety' },
+      {
+        type: 'paragraph',
+        text: 'You can feel “fine” on 500 mg because you are used to it and still sleep poorly, grind your teeth, or live on antacids. Feeling wired is a late signal. Sleep quality, resting heart rate, and afternoon anxiety are earlier ones. Cutting 20% for two weeks is a better experiment than quitting cold turkey and declaring coffee evil when withdrawal hits.',
+      },
+      { type: 'heading', text: 'Stacking coffee with other caffeine' },
+      {
+        type: 'list',
+        items: [
+          'Pre-workout, energy drinks, caffeine pills, and strong tea all count toward the same 400 mg ballpark.',
+          'Chocolate and some pain relievers add a little; they rarely matter until you are already near the line.',
+          'Decaf plus three energy drinks is still a caffeine problem.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -2065,6 +2218,16 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         answer:
           'Caffeine overdose is possible at very high intakes (especially powders and energy products). Classic coffee cups make extreme overdose harder but not impossible when combined with other stimulants. Severe symptoms need emergency care.',
       },
+      {
+        question: 'Is 200 mg of caffeine a day too much?',
+        answer:
+          'For most healthy adults, 200 mg is a moderate day — about two 8 oz drips. It is a common pregnancy-related cap; if you are pregnant, follow your obstetric clinician, not a general adult 400 mg line.',
+      },
+      {
+        question: 'How do I know my personal caffeine limit?',
+        answer:
+          'Track milligrams, sleep, and jitters for a week. The useful limit is the highest intake that still lets you sleep and stay calm — which may be well under 400 mg.',
+      },
     ],
   },
   {
@@ -2075,9 +2238,9 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       'Does coffee cause anxiety? How caffeine mimics panic symptoms, who is most sensitive, and practical ways to keep coffee without the jitters.',
     excerpt:
       'Caffeine can mimic anxiety symptoms — here is how to tell the difference and dial coffee back without quitting cold turkey.',
-    readTime: '7 min',
-    updated: '2026-09-21',
-    image: '/images/cold-brew-hero.png',
+    readTime: '11 min',
+    updated: '2026-10-29',
+    image: '/images/cold-brew-hero.webp',
     intro:
       'Does coffee cause anxiety? It can trigger or amplify anxious feelings in sensitive people because caffeine raises heart rate, sharpens alertness, and can cause tremor — the same body signals many brains read as danger. That does not mean coffee “creates” an anxiety disorder by itself, but it is a common and fixable aggravator.',
     body: [
@@ -2118,6 +2281,41 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         type: 'paragraph',
         text: 'If anxiety is constant, panic attacks are frequent, or cutting caffeine does nothing, treat that as a mental-health and medical issue — not a brewing problem. Coffee adjustments are a lever, not therapy or medication.',
       },
+      { type: 'heading', text: 'Caffeine anxiety vs a panic attack' },
+      {
+        type: 'paragraph',
+        text: 'Caffeine overstimulation often peaks 30–90 minutes after a big dose: shaky hands, restlessness, “I need to walk it off.” Panic can include fear of dying, going crazy, or losing control, and it can happen with little caffeine. They overlap in the body. If cutting caffeine for two weeks barely changes attacks, you are not looking at a brewing problem.',
+      },
+      { type: 'heading', text: 'A taper that usually beats cold turkey' },
+      {
+        type: 'steps',
+        items: [
+          'Write down every caffeinated drink for three days (size, not “a coffee”).',
+          'Cut about 25% — smaller cups or one drink swapped to half-caf.',
+          'Hold that for four to five days so withdrawal headaches settle.',
+          'Repeat until mornings feel alert without the chest-tight first hour.',
+          'Keep one enjoyable cup if you want the ritual; anxiety care can coexist with coffee.',
+        ],
+      },
+      { type: 'heading', text: 'Brewing choices that often feel calmer' },
+      {
+        type: 'list',
+        items: [
+          'Paper-filtered drip instead of a huge unfiltered concentrate.',
+          'Smaller espresso drinks rather than a 20 oz cold brew.',
+          'Food first; see the empty-stomach guide.',
+          'Last caffeine before mid-afternoon if sleep is fragile — poor sleep feeds anxiety tomorrow.',
+        ],
+      },
+      { type: 'heading', text: 'When coffee is not the main story' },
+      {
+        type: 'paragraph',
+        text: 'Nicotine, skipped meals, hanging over, thyroid issues, and some medications mimic or amplify the same shaky feeling. If you already drink one small morning coffee and still have daily panic, shrinking the cup will not be enough. Mention caffeine to a clinician so they do not assume you drink six energy drinks — and so they do not ignore a real anxiety disorder because you also like espresso.',
+      },
+      {
+        type: 'tip',
+        text: 'Do not use more coffee to “push through” an anxious morning. That is how a 95 mg drip becomes a 300 mg spiral. Walk, water, food, then decide if you even want the second cup.',
+      },
     ],
     faqs: [
       {
@@ -2135,8 +2333,19 @@ export const BEAN_ARTICLES: BeanArticle[] = [
         answer:
           'Caffeine’s half-life is about 5–6 hours for many adults, so a big dose can affect you for much of the day. Our caffeine half-life calculator estimates when levels drop.',
       },
+      {
+        question: 'Should I quit coffee if I have anxiety?',
+        answer:
+          'Not automatically. Many people do better with a lower dose and earlier cutoff. If panic is frequent, get proper care and mention caffeine so your clinician can factor it in.',
+      },
+      {
+        question: 'Is cold brew better for anxiety than espresso?',
+        answer:
+          'Not if the milligrams are higher. Cold brew can be calmer in acidity but worse in total caffeine. Compare serving size, not the word “cold.”',
+      },
     ],
   },
+  ...TRENDING_BEAN_ARTICLES,
 ]
 
 /* ----------------------------- Tools & calculators ----------------------------- */
@@ -2156,6 +2365,7 @@ export type ToolMeta = {
     | 'Zap'
     | 'Ruler'
     | 'Beaker'
+    | 'Droplets'
   category: 'Calculator' | 'Timer' | 'Reference'
   keywords: string[]
   faqs: FaqItem[]
@@ -2914,6 +3124,7 @@ export const TOOLS: ToolMeta[] = [
       },
     ],
   },
+  ...TRENDING_TOOLS,
 ]
 
 /* ----------------------------- Tool long-form SEO content ----------------------------- */
@@ -3655,6 +3866,7 @@ export const TOOL_CONTENT: Record<
       'Most coffee guides give you a recipe. This simulator gives you the underlying logic — so when your cup is sour, you understand why finer grind or higher temp will fix it; when it is bitter, you know to go coarser or pull back the temperature. This is how baristas and roasters think, and once it clicks, dialing in any brew on any equipment becomes intuitive rather than accidental.',
     relatedSlugs: ['coffee-ratio-calculator', 'grind-size-chart', 'brew-timer'],
   },
+  ...TRENDING_TOOL_CONTENT,
 }
 
 /* ----------------------------- Helpers ----------------------------- */

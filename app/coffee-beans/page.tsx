@@ -38,6 +38,16 @@ const faqs = [
     answer:
       'A common adult guideline is about 400 mg of caffeine per day — roughly three to four 8 oz cups, depending on brew strength. Large cold brews and multiple espresso drinks can exceed that faster than you think.',
   },
+  {
+    question: 'Is mushroom coffee better for you than coffee?',
+    answer:
+      'Not proven as a superior health drink. Most blends simply have less caffeine because part of the serving is mushroom extract. See the mushroom coffee explainer for caffeine numbers and evidence limits.',
+  },
+  {
+    question: 'Does matcha have more caffeine than coffee?',
+    answer:
+      'Usually no. An 8 oz drip coffee is often ~95 mg; a typical matcha serving is often lower unless the café uses a heavy scoop. Compare drinks in the matcha vs coffee guide.',
+  },
 ]
 
 export const metadata: Metadata = {
@@ -49,6 +59,9 @@ export const metadata: Metadata = {
     'coffee beans',
     'roast levels',
     'is black coffee bad for you',
+    'mushroom coffee',
+    'matcha vs coffee',
+    'oat milk in coffee',
     'is coffee good for you',
     'how much coffee is too much',
     'does coffee dehydrate you',

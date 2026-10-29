@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Link } from '@/components/link'
 import Image from 'next/image'
-import { ArrowRight, Coffee, Wrench, Leaf, Calculator } from 'lucide-react'
+import { ArrowRight, Coffee, Wrench, Leaf, Calculator, UtensilsCrossed } from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
 import { SITE, BREW_GUIDES, BEAN_ARTICLES, SETUPS, TOOLS, sortToolsByPopularity } from '@/lib/content'
+import { RECIPES } from '@/lib/recipes'
 
 export const metadata: Metadata = {
   title: `${SITE.name} — Coffee Brewing Guides, Ratios, Gear & Free Calculators`,
@@ -19,6 +20,13 @@ const pillars = [
     description:
       'Step-by-step recipes with exact coffee-to-water ratios, grind sizes, and timings for French press, cold brew, pour over, and more.',
     icon: Coffee,
+  },
+  {
+    href: '/recipes',
+    title: 'Drink recipes',
+    description:
+      'Iced lattes, cappuccinos, Vietnamese iced coffee, pistachio latte, and other café drinks you can repeat at home.',
+    icon: UtensilsCrossed,
   },
   {
     href: '/gear',
@@ -106,7 +114,7 @@ export default function HomePage() {
           </div>
           <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
             <Image
-              src="/images/home-hero.png"
+              src="/images/home-hero.webp"
               alt="Pour over coffee being brewed with a gooseneck kettle over a glass carafe"
               fill
               priority
@@ -132,10 +140,10 @@ export default function HomePage() {
             Explore {SITE.name}
           </h2>
           <p className="mt-2 max-w-2xl text-muted-foreground">
-            Four paths through the site — pick a guide if you want a recipe, a calculator if you
-            want numbers, or gear and beans if you are still building your setup.
+            Guides for brew methods, drink recipes for café orders, calculators for numbers, plus
+            gear and beans if you are still building your setup.
           </p>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {pillars.map((p) => (
               <Link
                 key={p.href}
@@ -306,6 +314,57 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="flex items-end justify-between gap-4">
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground">
+              Café drink recipes
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Iced latte, Vietnamese iced coffee, and a homemade pistachio latte — drinks people
+              actually order, with ratios and no-machine options.
+            </p>
+          </div>
+          <Link
+            href="/recipes"
+            className="hidden shrink-0 items-center gap-1 text-sm font-medium text-accent sm:inline-flex"
+          >
+            All recipes
+            <ArrowRight className="size-4" />
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {RECIPES.filter((r) =>
+            ['iced-latte', 'vietnamese-iced-coffee', 'iced-pistachio-latte'].includes(r.slug),
+          ).map((recipe) => (
+            <Link
+              key={recipe.slug}
+              href={`/recipes/${recipe.slug}`}
+              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-shadow hover:shadow-lg"
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src={recipe.image}
+                  alt={recipe.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <span className="text-xs font-semibold uppercase tracking-wide text-accent">
+                  {recipe.category}
+                </span>
+                <h3 className="mt-2 text-pretty font-serif text-lg font-semibold leading-snug text-foreground">
+                  {recipe.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{recipe.excerpt}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Education + setups */}
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-2">
         <div>
@@ -318,7 +377,16 @@ export default function HomePage() {
             means in the cup.
           </p>
           <ul className="mt-6 flex flex-col divide-y divide-border rounded-xl border border-border bg-card">
-            {BEAN_ARTICLES.map((a) => (
+            {BEAN_ARTICLES.filter((a) =>
+              [
+                'coffee-roast-levels-explained',
+                'coffee-bean-origins-guide',
+                'how-to-store-coffee-beans',
+                'mushroom-coffee-explained',
+                'matcha-vs-coffee',
+                'oat-milk-in-coffee',
+              ].includes(a.slug),
+            ).map((a) => (
               <li key={a.slug}>
                 <Link
                   href={`/coffee-beans/${a.slug}`}

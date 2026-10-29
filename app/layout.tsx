@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} — Everything Coffee`,
     description: SITE.description,
-    images: [{ url: '/images/home-hero.png' }],
+    images: [{ url: '/images/home-hero.webp' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE.name} — Everything Coffee`,
     description: SITE.description,
-    images: ['/images/home-hero.png'],
+    images: ['/images/home-hero.webp'],
   },
   robots: {
     index: true,

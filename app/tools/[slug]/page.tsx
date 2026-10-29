@@ -36,7 +36,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: tool.title,
       description: tool.metaDescription,
-      images: ['/images/home-hero.png'],
+      images: ['/images/home-hero.webp'],
     },
   }
 }
@@ -135,6 +135,25 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             </p>
           </aside>
         )}
+        {tool.slug === 'protein-coffee-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Most homemade proffee protein comes from the scoop (~20–25 g) plus milk (~8 g per cup
+              of dairy). Coffee adds caffeine, not protein.
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'hydration-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              A typical adult target is about <strong>30–35 ml of fluid per kg</strong> of body
+              weight, adjusted for height and a hot/sweaty day. Coffee usually counts. This is a
+              planning estimate, not a medical hydration test.
+            </p>
+          </aside>
+        )}
       </header>
 
       {/* Intro prose — above the widget so crawlers see it immediately */}
@@ -164,6 +183,38 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             </span>
             <span className="mt-0.5 block text-sm font-medium text-foreground">
               French press coffee ratio method — grind, 4-minute steep, and cafetière technique
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 text-accent" />
+        </Link>
+      )}
+      {tool.slug === 'protein-coffee-calculator' && (
+        <Link
+          href="/brewing-guides/how-to-make-protein-coffee"
+          className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+        >
+          <span>
+            <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+              Full guide
+            </span>
+            <span className="mt-0.5 block text-sm font-medium text-foreground">
+              How to make protein coffee — iced, hot, and no clumps
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 text-accent" />
+        </Link>
+      )}
+      {tool.slug === 'hydration-calculator' && (
+        <Link
+          href="/coffee-beans/does-coffee-dehydrate-you"
+          className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+        >
+          <span>
+            <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+              Related guide
+            </span>
+            <span className="mt-0.5 block text-sm font-medium text-foreground">
+              Does coffee dehydrate you? Why your mug still counts as fluid
             </span>
           </span>
           <ArrowRight className="size-4 shrink-0 text-accent" />

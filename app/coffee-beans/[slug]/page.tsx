@@ -69,6 +69,30 @@ export default async function BeanArticlePage({
       'coffee-bean-origins-guide',
       'is-black-coffee-bad-for-you',
     ],
+    'does-coffee-dehydrate-you': [
+      'how-much-coffee-is-too-much',
+      'is-coffee-good-for-you',
+      'coffee-and-anxiety',
+      'coffee-on-an-empty-stomach',
+    ],
+    'mushroom-coffee-explained': [
+      'matcha-vs-coffee',
+      'is-coffee-good-for-you',
+      'coffee-and-anxiety',
+      'how-much-coffee-is-too-much',
+    ],
+    'matcha-vs-coffee': [
+      'mushroom-coffee-explained',
+      'is-coffee-good-for-you',
+      'coffee-and-anxiety',
+      'how-much-coffee-is-too-much',
+    ],
+    'oat-milk-in-coffee': [
+      'coffee-roast-levels-explained',
+      'mushroom-coffee-explained',
+      'is-black-coffee-bad-for-you',
+      'how-to-store-coffee-beans',
+    ],
   }
   const related =
     (relatedPriority[article.slug]
@@ -142,6 +166,23 @@ export default async function BeanArticlePage({
         </div>
 
         <p className="mt-8 text-pretty text-lg leading-relaxed text-foreground">{article.intro}</p>
+
+        {article.slug === 'does-coffee-dehydrate-you' && (
+          <Link
+            href="/tools/hydration-calculator"
+            className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Free tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Hydration calculator — height, weight, and water you’ve already drunk
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        )}
 
         <div className="mt-8">
           <ContentBlocks blocks={article.body} />

@@ -28,12 +28,22 @@ const faqs = [
     answer:
       'Sour coffee usually means under-extraction, often from too coarse a grind, too little brew time, or water that is too cool. Bitter coffee usually means over-extraction from too fine a grind, too much time, or excessive heat. Grind size is the first variable to adjust in most cases.',
   },
+  {
+    question: 'How do you make protein coffee at home?',
+    answer:
+      'Shake protein powder into cold milk until smooth, then add espresso or cold brew. For hot drinks, whisk powder into warm milk first — never dump it into boiling coffee. Full recipes are in the protein coffee (proffee) guide.',
+  },
+  {
+    question: 'What is the difference between a flat white and a cappuccino?',
+    answer:
+      'Similar small cup, different texture. A cappuccino has a thicker foam cap. A flat white uses glossy microfoam and usually a double espresso, so it tastes more coffee-forward. See the flat white guide for the home recipe.',
+  },
 ]
 
 export const metadata: Metadata = {
-  title: 'Coffee Brewing Guides — Pour Over, French Press, Espresso & More',
+  title: 'Coffee Brewing Guides — Pour Over, Protein Coffee, Flat White & More',
   description:
-    'Step-by-step coffee brewing guides for every method: pour over, French press, AeroPress, espresso, cold brew, and Moka pot. Exact ratios, grind sizes, and timings.',
+    'Step-by-step coffee brewing guides: pour over, French press, protein coffee (proffee), espresso tonic, flat white, AeroPress, espresso, cold brew, and Moka pot.',
   alternates: { canonical: '/brewing-guides' },
   openGraph: {
     title: 'Coffee Brewing Guides — Pour Over, French Press, Espresso & More',
@@ -87,7 +97,12 @@ export default function BrewingGuidesPage() {
         </h1>
         <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
           Tested, step-by-step recipes for every brew method — with the exact coffee-to-water ratio,
-          grind size, and timing you need for a repeatable, delicious cup.
+          grind size, and timing you need for a repeatable, delicious cup. For café drinks (iced
+          latte, cappuccino, Vietnamese iced coffee), see{' '}
+          <Link href="/recipes" className="font-medium text-accent hover:underline">
+            drink recipes
+          </Link>
+          .
         </p>
       </header>
 

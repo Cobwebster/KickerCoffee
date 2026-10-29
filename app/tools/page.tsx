@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Link } from '@/components/link'
-import { Scale, Timer, Snowflake, Coffee, Zap, Ruler, Beaker } from 'lucide-react'
+import { Scale, Timer, Snowflake, Coffee, Zap, Ruler, Beaker, Droplets } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   keywords: [
     'coffee calculator',
     'caffeine calculator',
+    'protein coffee calculator',
+    'hydration calculator',
     'coffee calories calculator',
     'caffeine half life calculator',
     'coffee to water ratio calculator',
@@ -66,6 +68,7 @@ const ICONS: Record<ToolMeta['icon'], typeof Scale> = {
   Zap,
   Ruler,
   Beaker,
+  Droplets,
 }
 
 const CATEGORIES: ToolMeta['category'][] = ['Calculator', 'Timer', 'Reference']
