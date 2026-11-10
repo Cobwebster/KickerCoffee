@@ -56,9 +56,9 @@ const popularTools = sortToolsByPopularity(TOOLS).slice(0, 6)
 export default function HomePage() {
   const featured = BREW_GUIDES.filter((g) =>
     [
+      'coffee-brewing-ratios-and-grind-size-chart',
       'french-press-coffee-ratio-and-method',
       'cold-brew-coffee-recipe',
-      'how-to-make-pour-over-coffee',
     ].includes(g.slug),
   )
 
@@ -98,17 +98,17 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/tools/caffeine-calculator"
+                href="/tools/caffeine-day-planner"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Open caffeine calculator
+                Caffeine day planner
                 <ArrowRight className="size-4" />
               </Link>
               <Link
-                href="/tools"
+                href="/tools/drip-coffee-calculator"
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
               >
-                All free tools
+                Drip coffee calculator
               </Link>
             </div>
           </div>
@@ -209,8 +209,8 @@ export default function HomePage() {
               cold brew ratio
             </Link>
             , and a{' '}
-            <Link href="/tools/caffeine-calculator" className="font-medium text-foreground underline-offset-4 hover:underline">
-              caffeine calculator
+            <Link href="/tools/caffeine-day-planner" className="font-medium text-foreground underline-offset-4 hover:underline">
+              caffeine day planner
             </Link>
             .
           </p>
@@ -321,8 +321,8 @@ export default function HomePage() {
               Café drink recipes
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Iced latte, Vietnamese iced coffee, and a homemade pistachio latte — drinks people
-              actually order, with ratios and no-machine options.
+              Korean cream coffee, yeonyu latte, and a deep cream latte — café drinks people are
+              actually searching, with ratios and no-machine options.
             </p>
           </div>
           <Link
@@ -335,7 +335,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {RECIPES.filter((r) =>
-            ['iced-latte', 'vietnamese-iced-coffee', 'iced-pistachio-latte'].includes(r.slug),
+            ['korean-cream-coffee', 'yeonyu-latte', 'deep-cream-latte'].includes(r.slug),
           ).map((recipe) => (
             <Link
               key={recipe.slug}

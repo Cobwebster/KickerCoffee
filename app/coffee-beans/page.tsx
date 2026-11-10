@@ -5,7 +5,8 @@ import { Clock, ArrowRight } from 'lucide-react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { BEAN_ARTICLES, SITE } from '@/lib/content'
+import { AffiliatePicks } from '@/components/affiliate-picks'
+import { BEAN_ARTICLES, BEAN_PICKS, SITE } from '@/lib/content'
 
 const faqs = [
   {
@@ -122,7 +123,15 @@ export default function CoffeeBeansPage() {
         </p>
       </header>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 max-w-3xl">
+        <AffiliatePicks
+          heading="Whole-bean bags we recommend on Amazon"
+          intro="Start with a medium roast while you learn, then branch into espresso blends or bold dark roasts. Open a link for live pricing — freshness still beats brand hype."
+          products={BEAN_PICKS}
+        />
+      </div>
+
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {BEAN_ARTICLES.map((a) => (
           <Link
             key={a.slug}

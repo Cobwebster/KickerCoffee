@@ -8,6 +8,7 @@ import { BrewTimer } from './brew-timer'
 import { ColdBrewCalculator } from './cold-brew-calculator'
 import { EspressoCalculator } from './espresso-calculator'
 import { CaffeineCalculator } from './caffeine-calculator'
+import { CaffeineDayPlanner } from './caffeine-day-planner'
 import { CoffeeCaloriesCalculator } from './coffee-calories-calculator'
 import { CaffeineHalfLifeCalculator } from './caffeine-half-life-calculator'
 import { MeasurementConverter } from './measurement-converter'
@@ -26,6 +27,7 @@ const WIDGETS: Record<string, () => React.JSX.Element> = {
   'cold-brew-calculator': ColdBrewCalculator,
   'espresso-ratio-calculator': EspressoCalculator,
   'caffeine-calculator': CaffeineCalculator,
+  'caffeine-day-planner': CaffeineDayPlanner,
   'coffee-calories-calculator': CoffeeCaloriesCalculator,
   'caffeine-half-life-calculator': CaffeineHalfLifeCalculator,
   'coffee-measurement-converter': MeasurementConverter,

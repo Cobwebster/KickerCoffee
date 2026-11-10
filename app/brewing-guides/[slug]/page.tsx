@@ -7,7 +7,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { BREW_GUIDES, SITE, getBrewGuide } from '@/lib/content'
+import { AffiliatePicks } from '@/components/affiliate-picks'
+import { BEAN_PICKS, BREW_GUIDES, SITE, getBrewGuide } from '@/lib/content'
 import { QuickAnswer } from '@/components/quick-answer'
 
 export function generateStaticParams() {
@@ -54,19 +55,39 @@ export default async function BrewGuidePage({
 
   const relatedMap: Record<string, string[]> = {
     'french-press-coffee-ratio-and-method': [
-      'cold-brew-coffee-recipe',
+      'coffee-brewing-ratios-and-grind-size-chart',
       'how-to-make-pour-over-coffee',
       'how-to-use-aeropress',
     ],
     'cold-brew-coffee-recipe': [
+      'coffee-brewing-ratios-and-grind-size-chart',
       'french-press-coffee-ratio-and-method',
       'how-to-make-pour-over-coffee',
-      'how-to-use-aeropress',
     ],
     'how-to-make-pour-over-coffee': [
+      'coffee-brewing-ratios-and-grind-size-chart',
+      'french-press-coffee-ratio-and-method',
+      'how-to-use-aeropress',
+    ],
+    'how-to-use-aeropress': [
+      'coffee-brewing-ratios-and-grind-size-chart',
+      'how-to-make-pour-over-coffee',
+      'french-press-coffee-ratio-and-method',
+    ],
+    'how-to-pull-espresso-shot': [
+      'coffee-brewing-ratios-and-grind-size-chart',
+      'how-to-make-a-flat-white',
+      'moka-pot-coffee-guide',
+    ],
+    'moka-pot-coffee-guide': [
+      'how-to-pull-espresso-shot',
+      'coffee-brewing-ratios-and-grind-size-chart',
+      'how-to-use-aeropress',
+    ],
+    'coffee-brewing-ratios-and-grind-size-chart': [
+      'how-to-make-pour-over-coffee',
       'french-press-coffee-ratio-and-method',
       'cold-brew-coffee-recipe',
-      'how-to-use-aeropress',
     ],
     'how-to-make-protein-coffee': [
       'how-to-make-a-flat-white',
@@ -274,6 +295,18 @@ export default async function BrewGuidePage({
         </div>
 
         <FaqSection faqs={guide.faqs} />
+
+        <AffiliatePicks
+          heading="Beans for this brew method"
+          intro="Technique only goes so far on stale coffee. These whole-bean Amazon picks are solid starters for the method above."
+          products={
+            guide.method.toLowerCase().includes('espresso') ||
+            guide.slug.includes('espresso') ||
+            guide.slug.includes('moka')
+              ? BEAN_PICKS.filter((b) => b.roast === 'Espresso' || b.roast === 'Dark').slice(0, 3)
+              : BEAN_PICKS.filter((b) => b.roast === 'Medium' || b.roast === 'Dark').slice(0, 3)
+          }
+        />
       </article>
 
       {/* Related */}

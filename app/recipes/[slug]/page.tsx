@@ -8,7 +8,9 @@ import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { QuickAnswer } from '@/components/quick-answer'
+import { YouTubeEmbed } from '@/components/youtube-embed'
 import { SITE } from '@/lib/content'
+import { buildRecipeJsonLd } from '@/lib/recipe-schema'
 import { RECIPES, getRecipe } from '@/lib/recipes'
 
 export function generateStaticParams() {
@@ -53,23 +55,7 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
     .map((s) => RECIPES.find((r) => r.slug === s))
     .filter(Boolean) as typeof RECIPES
 
-  const recipeSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Recipe',
-    name: recipe.name,
-    description: recipe.metaDescription,
-    image: `${SITE.url}${recipe.image}`,
-    dateModified: recipe.updated,
-    recipeYield: recipe.yield,
-    totalTime: recipe.time.includes('15') ? 'PT15M' : 'PT10M',
-    recipeIngredient: recipe.ingredients,
-    recipeInstructions: recipe.steps.map((text, i) => ({
-      '@type': 'HowToStep',
-      position: i + 1,
-      text,
-    })),
-    author: { '@type': 'Organization', name: SITE.name },
-  }
+  const recipeSchema = buildRecipeJsonLd(recipe)
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -113,10 +99,10 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
           </p>
         </header>
 
-        <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl border border-border">
+        <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl border border-border sm:aspect-video">
           <Image
             src={recipe.image}
-            alt={recipe.title}
+            alt={`${recipe.name} — homemade café drink`}
             fill
             priority
             sizes="(max-width: 768px) 100vw, 768px"
@@ -173,7 +159,7 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
           </h2>
           <ol className="mt-4 flex flex-col gap-5">
             {recipe.steps.map((step, i) => (
-              <li key={i} className="flex gap-4">
+              <li key={i} id={`step-${i + 1}`} className="flex scroll-mt-24 gap-4">
                 <span
                   className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-accent/15 text-xs font-bold text-accent"
                   aria-hidden="true"
@@ -185,6 +171,14 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
             ))}
           </ol>
         </section>
+
+        {recipe.youtube && (
+          <YouTubeEmbed
+            id={recipe.youtube.id}
+            title={recipe.youtube.title}
+            channel={recipe.youtube.channel}
+          />
+        )}
 
         <div className="mt-10">
           <ContentBlocks blocks={recipe.body} />

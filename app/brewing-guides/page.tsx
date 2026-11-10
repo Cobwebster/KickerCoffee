@@ -16,7 +16,12 @@ const faqs = [
   {
     question: 'What coffee-to-water ratio should I use for most brew methods?',
     answer:
-      'A 1:16 ratio is the best all-purpose starting point for most filter methods. That means 1 gram of coffee for every 16 grams of water. French press often tastes better slightly stronger at around 1:15, while espresso uses a completely different dose-to-yield ratio.',
+      'A 1:16 ratio is the best all-purpose starting point for most filter methods. That means 1 gram of coffee for every 16 grams of water. French press often tastes better slightly stronger at around 1:15, while espresso uses a completely different dose-to-yield ratio (about 1:2). See the brewing ratios & grind size chart for every method in one table.',
+  },
+  {
+    question: 'What grind size should I use for coffee?',
+    answer:
+      'Coarse for French press and cold brew, medium for drip, medium-fine for pour over and AeroPress, fine for espresso. If the cup is sour, grind finer; if bitter, grind coarser. The grind size chart tool shows the full scale.',
   },
   {
     question: 'Which coffee brewing method makes the strongest coffee?',
@@ -41,9 +46,9 @@ const faqs = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Coffee Brewing Guides — Pour Over, Protein Coffee, Flat White & More',
+  title: 'Coffee Brewing Guides — Ratios, Grind Charts & Step-by-Step Recipes',
   description:
-    'Step-by-step coffee brewing guides: pour over, French press, protein coffee (proffee), espresso tonic, flat white, AeroPress, espresso, cold brew, and Moka pot.',
+    'Coffee brewing guides with exact ratios and grind sizes: pour over, French press, espresso, cold brew, AeroPress, Moka pot, plus a full ratio & grind size chart.',
   alternates: { canonical: '/brewing-guides' },
   openGraph: {
     title: 'Coffee Brewing Guides — Pour Over, French Press, Espresso & More',
@@ -146,6 +151,50 @@ export default function BrewingGuidesPage() {
           </Link>
         ))}
       </div>
+
+      <section className="mt-16 border-t border-border pt-10">
+        <h2 className="font-serif text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+          Coffee ratio & grind cheat sheet
+        </h2>
+        <p className="mt-3 max-w-3xl text-pretty leading-relaxed text-muted-foreground">
+          Start here, then open the full guide for steps. Filter coffee is usually 1:15–1:17 by
+          weight; espresso is ~1:2 dose to yield; cold brew concentrate is ~1:8 before you dilute.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-border">
+          <table className="w-full min-w-[32rem] text-left text-sm">
+            <thead className="bg-secondary/60 text-xs uppercase tracking-wide text-muted-foreground">
+              <tr>
+                <th className="px-4 py-3 font-semibold">Method</th>
+                <th className="px-4 py-3 font-semibold">Ratio</th>
+                <th className="px-4 py-3 font-semibold">Grind</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border text-muted-foreground">
+              {[
+                ['Pour over', '1:16', 'Medium-fine'],
+                ['French press', '1:15', 'Coarse'],
+                ['AeroPress', '1:14–1:16', 'Medium-fine'],
+                ['Espresso', '1:2 (18g→36g)', 'Fine'],
+                ['Cold brew concentrate', '1:8', 'Extra coarse'],
+                ['Drip', '1:16–1:17', 'Medium'],
+                ['Moka pot', 'Fill basket', 'Fine–medium'],
+              ].map(([method, ratio, grind]) => (
+                <tr key={method}>
+                  <td className="px-4 py-3 font-medium text-foreground">{method}</td>
+                  <td className="px-4 py-3">{ratio}</td>
+                  <td className="px-4 py-3">{grind}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <Link
+          href="/brewing-guides/coffee-brewing-ratios-and-grind-size-chart"
+          className="mt-4 inline-flex text-sm font-medium text-accent hover:underline"
+        >
+          Full brewing ratios & grind size chart →
+        </Link>
+      </section>
 
       <section className="mt-16 grid gap-10 border-t border-border pt-10 lg:grid-cols-[1.2fr_0.8fr]">
         <div>

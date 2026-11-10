@@ -42,6 +42,14 @@ export function SiteFooter() {
           <ul className="mt-4 flex flex-col gap-2">
             <li>
               <Link
+                href="/brewing-guides/coffee-brewing-ratios-and-grind-size-chart"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Ratio & Grind Chart
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/brewing-guides/how-to-make-pour-over-coffee"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >

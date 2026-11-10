@@ -1,3 +1,4 @@
+import type { AffiliateProduct } from './amazon'
 import {
   TRENDING_BEAN_ARTICLES,
   TRENDING_BREW_GUIDES,
@@ -64,24 +65,25 @@ export type AnswerTable = {
   rows: string[][]
 }
 
-/** Analytics-informed order for tools hub + homepage. */
+/** Analytics-informed order for tools hub + homepage (GA page views). */
 export const TOOL_POPULARITY_ORDER: string[] = [
+  'caffeine-day-planner',
   'caffeine-calculator',
-  'protein-coffee-calculator',
-  'hydration-calculator',
-  'coffee-calories-calculator',
-  'caffeine-half-life-calculator',
-  'coffee-measurement-converter',
   'drip-coffee-calculator',
-  'iced-coffee-calculator',
+  'coffee-measurement-converter',
   'cold-brew-calculator',
+  'world-coffee-map',
+  'caffeine-half-life-calculator',
+  'coffee-lab',
+  'hydration-calculator',
   'french-press-calculator',
   'coffee-ratio-calculator',
   'grind-size-chart',
-  'brew-timer',
+  'coffee-calories-calculator',
+  'protein-coffee-calculator',
+  'iced-coffee-calculator',
   'espresso-ratio-calculator',
-  'world-coffee-map',
-  'coffee-lab',
+  'brew-timer',
 ]
 
 export function sortToolsByPopularity<T extends { slug: string }>(tools: T[]): T[] {
@@ -120,17 +122,17 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-make-pour-over-coffee',
     method: 'Pour Over',
-    title: 'How to Make Pour Over Coffee — Brew V60 Step by Step',
+    title: 'How to Make Pour Over Coffee (V60) — 1:16 Ratio & Pour Schedule',
     metaDescription:
-      'How to brew pour over coffee (V60): 1:16 ratio, medium-fine grind, bloom, and pour schedule. Step-by-step how to make pour over coffee at home.',
+      'How to make pour over coffee on a V60: 1:16 ratio (20 g to 320 g), medium-fine grind, 30–45s bloom, finish by 3:00–3:30. Step-by-step home recipe.',
     excerpt:
-      'A clean, bright, and endlessly repeatable cup. Master the V60 pour over with the exact ratio, grind, and pour schedule the pros use.',
+      'A clean, bright, repeatable V60 cup — exact ratio, grind, bloom, and pour schedule.',
     difficulty: 'Beginner',
     brewTime: '3–4 min',
     ratio: '1:16 (60 g/L)',
     grind: 'Medium-fine',
     yield: '1–2 cups',
-    updated: '2026-09-21',
+    updated: '2026-11-10',
     image: '/images/pour-over-hero.webp',
     quickAnswer:
       'Use a 1:16 coffee-to-water ratio (20 g coffee to 320 g water), medium-fine grind, 96°C / 205°F water, a 30–45 second bloom, then finish around 3:00–3:30 total.',
@@ -229,17 +231,17 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'french-press-coffee-ratio-and-method',
     method: 'French Press',
-    title: 'French Press Coffee Ratio (1:15) — Cafetière Chart & Method',
+    title: 'French Press Coffee Ratio (1:15) — Chart, Grind & 4-Minute Method',
     metaDescription:
-      'French press coffee ratio: classic 1:15 (67 g/L). How much coffee for French press / cafetière per cup, grind size, 4-minute steep, and a free calculator.',
+      'French press coffee ratio 1:15 (67 g/L): how much coffee for French press / cafetière per cup, coarse grind, 4-minute steep, and a free calculator.',
     excerpt:
-      'The classic French press coffee ratio is 1:15. Get grams per cup, coarse grind, and a clean 4-minute steep — plus cafetière tips.',
+      'The classic French press coffee ratio is 1:15. Grams per cup, coarse grind, and a clean 4-minute steep.',
     difficulty: 'Beginner',
     brewTime: '4–5 min',
     ratio: '1:15 (67 g/L)',
     grind: 'Coarse',
     yield: '3–4 cups',
-    updated: '2026-09-21',
+    updated: '2026-11-10',
     image: '/images/french-press-hero.webp',
     quickAnswer:
       'Start at a 1:15 French press coffee ratio — about 17 g coffee per 250 ml water (67 g per litre). Coarse grind, steep 4 minutes, press gently, and decant immediately.',
@@ -379,18 +381,20 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-use-aeropress',
     method: 'AeroPress',
-    title: 'How to Use an AeroPress: Methods, Ratio & Technique',
+    title: 'How to Use an AeroPress — Ratio (1:15), Grind & Standard vs Inverted',
     metaDescription:
-      'How to use an AeroPress — standard and inverted methods, best AeroPress technique, ratio, grind, and a 2-cup recipe for a smooth, low-acidity cup.',
+      'How to use an AeroPress: 15 g coffee to 240 g water (~1:15), medium-fine grind, standard and inverted methods, iced recipe, and troubleshooting sour or bitter cups.',
     excerpt:
-      'Compact, travel-friendly, and incredibly versatile. Learn the standard and inverted AeroPress methods.',
+      'Compact, travel-friendly, and forgiving. Standard and inverted AeroPress recipes with the exact ratio and grind to start.',
     difficulty: 'Beginner',
     brewTime: '1–2 min',
     ratio: '1:14 to 1:16',
     grind: 'Medium-fine',
     yield: '1 cup',
-    updated: '2026-05-28',
+    updated: '2026-11-10',
     image: '/images/aeropress-hero.webp',
+    quickAnswer:
+      'Start with 15 g medium-fine coffee and 240 g water at ~90°C (about 1:15). Stir, steep ~1 minute, press 20–30 seconds. Use the standard method first; try inverted once you want a longer steep with zero drip-through.',
     intro:
       'The AeroPress combines immersion and pressure into one of the most versatile coffee brewers ever made. It uses gentle air pressure and a short steep to produce a clean, smooth, low-acidity cup. It is nearly indestructible, cleans in 15 seconds, and goes from kitchen to camping trip without complaints. There are two popular styles — standard and inverted — and both are worth knowing.',
     body: [
@@ -500,18 +504,20 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'how-to-pull-espresso-shot',
     method: 'Espresso',
-    title: 'How to Pull a Perfect Espresso Shot at Home',
+    title: 'How to Pull Espresso at Home — 18g In, 36g Out (1:2) in 25–30s',
     metaDescription:
-      'Learn how to pull a perfect espresso shot: dose, grind, tamp, and the ideal brew ratio and shot time. A beginner-friendly guide to dialing in espresso.',
+      'How to pull espresso at home: 18 g in / 36 g out (1:2), fine grind, tamp, 25–30 second shot. Fix sour, bitter, and channeling — plus ristretto vs lungo.',
     excerpt:
-      'Concentrated, syrupy, and the base of every latte and cappuccino. Learn to dial in a balanced shot.',
+      'Dial in a double shot: dose, grind, tamp, and stop by weight at a 1:2 brew ratio.',
     difficulty: 'Advanced',
     brewTime: '25–30 sec',
     ratio: '1:2 (18 g in, 36 g out)',
     grind: 'Fine',
     yield: '1 double shot',
-    updated: '2026-06-01',
+    updated: '2026-11-10',
     image: '/images/espresso-hero.webp',
+    quickAnswer:
+      'Dose 18 g, tamp evenly, pull to 36 g liquid (1:2) in about 25–30 seconds. Sour and fast → grind finer. Bitter and slow → grind coarser. Change grind before you change dose.',
     intro:
       'Espresso forces hot water through finely-ground, compacted coffee at around 9 bars of pressure in 25–30 seconds, producing a concentrated, syrupy shot layered with crema. It is the most demanding brew method — tiny grind changes have outsized effects — but once you understand the brew ratio as your guiding variable, dialing in any espresso becomes a logical, repeatable process rather than guesswork.',
     body: [
@@ -620,17 +626,17 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'cold-brew-coffee-recipe',
     method: 'Cold Brew',
-    title: 'Cold Brew Coffee Ratio & Recipe — Overnight Concentrate (1:8)',
+    title: 'Cold Brew Coffee Ratio (1:8) — Overnight Concentrate Recipe',
     metaDescription:
-      'Cold brew coffee ratio: 1:8 concentrate or 1:15 ready-to-drink. Overnight cold brew recipe, grind size, 64 oz batches, dilution, and a free calculator.',
+      'Cold brew coffee ratio 1:8 for concentrate (or 1:15 ready-to-drink). Overnight recipe, extra-coarse grind, dilution, fridge life, and a free calculator.',
     excerpt:
-      'Smooth, low-acid cold brew. Use a 1:8 concentrate ratio (or 1:15 ready-to-drink), steep overnight, and keep a batch all week.',
+      'Smooth, low-acid cold brew: 1:8 concentrate, steep overnight, dilute, drink all week.',
     difficulty: 'Beginner',
     brewTime: '12–18 hrs',
     ratio: '1:8 concentrate',
     grind: 'Coarse',
     yield: '4–6 cups',
-    updated: '2026-09-21',
+    updated: '2026-11-10',
     image: '/images/cold-brew-hero.webp',
     quickAnswer:
       'For concentrate use a 1:8 cold brew coffee ratio (e.g. 100 g coffee to 800 g water). Steep coarse grounds 12–18 hours in the fridge, filter, then dilute about 1:1 to drink.',
@@ -735,18 +741,20 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'moka-pot-coffee-guide',
     method: 'Moka Pot',
-    title: 'Moka Pot Guide: Stovetop Coffee Done Right',
+    title: 'How to Use a Moka Pot — Grind, Heat & No Bitter Coffee',
     metaDescription:
-      'How to use a Moka pot for rich, espresso-style stovetop coffee without bitterness. Get the grind, heat level, and technique that avoids burnt flavors.',
+      'How to use a Moka pot: fill the basket (no tamp), medium-fine grind, start with hot water, low heat, pull off at the first gurgle. Fix bitter, weak, or spurting stovetop coffee.',
     excerpt:
-      'The classic Italian stovetop brewer. Get a rich, espresso-style cup without the bitterness.',
+      'Italian stovetop coffee that tastes bold — not burnt. Heat, grind, and timing that actually work.',
     difficulty: 'Intermediate',
     brewTime: '5 min',
     ratio: 'Fill the basket',
     grind: 'Fine-medium',
     yield: '2–3 cups',
-    updated: '2026-04-30',
+    updated: '2026-11-10',
     image: '/images/moka-pot-hero.webp',
+    quickAnswer:
+      'Fill the basket level (do not tamp), use medium-fine grind, put hot water in the base just below the valve, and brew on the lowest heat. Remove the pot as soon as coffee flows — the gurgle means stop.',
     intro:
       'The Moka pot is an Italian stovetop brewer that uses steam pressure to force water up through a basket of coffee grounds. Invented in 1933 by Alfonso Bialetti, it remains one of the most popular coffee makers in the world. The result is bold, concentrated, and rich — closer to espresso than drip, without needing an expensive machine. The most common mistake is using too much heat too fast, which scorches the grounds and produces a harsh, burnt-tasting cup.',
     body: [
@@ -832,6 +840,166 @@ export const BREW_GUIDES: BrewGuide[] = [
         answer:
           'Rinse with hot water only. Soap removes the seasoning that builds up inside and can leave residue that affects flavor. Dry it fully before storing to prevent oxidation on aluminum models.',
       },
+      {
+        question: 'What grind size for a Moka pot?',
+        answer:
+          'Medium-fine — finer than drip, coarser than espresso. Too fine and the pot spurts or stalls; too coarse and the coffee tastes thin.',
+      },
+    ],
+  },
+  {
+    slug: 'coffee-brewing-ratios-and-grind-size-chart',
+    method: 'All Methods',
+    title: 'Coffee Brewing Ratios & Grind Size Chart (Every Method)',
+    metaDescription:
+      'Coffee brewing ratio and grind size chart for pour over, French press, espresso, cold brew, AeroPress, drip, and Moka pot. Golden ratio, times, and how to fix sour or bitter coffee.',
+    excerpt:
+      'One chart for coffee-to-water ratios and grind sizes across every home brew method — plus what to change when the cup is off.',
+    difficulty: 'Beginner',
+    brewTime: '1–18 hrs',
+    ratio: '1:15–1:17 filter · 1:2 espresso',
+    grind: 'See chart by method',
+    yield: 'Any batch size',
+    updated: '2026-11-10',
+    image: '/images/home-hero.webp',
+    quickAnswer:
+      'Most filter coffee starts at 1:16 (about 15–16 g per 250 ml mug). French press ~1:15, pour over/drip 1:16–1:17, cold brew concentrate ~1:8, espresso ~1:2 (18 g in / 36 g out). Match grind to contact time: coarse for French press and cold brew, medium for drip, medium-fine for pour over and AeroPress, fine for espresso.',
+    intro:
+      'People search “coffee ratio” and “grind size chart” for the same reason: every method page online uses slightly different numbers. This guide is the single starting table we use across KickerCoffee — then links into the full recipes when you are ready to brew. Ratios are by weight (grams of coffee to grams of water). One millilitre of water ≈ one gram.',
+    body: [
+      { type: 'heading', text: 'Coffee-to-water ratio chart' },
+      {
+        type: 'table',
+        caption: 'Start here, then adjust ±1 ratio step for taste. Espresso is dose:yield, not mug strength.',
+        headers: ['Method', 'Ratio', 'Example', 'Full guide'],
+        rows: [
+          ['Pour over (V60)', '1:16', '20 g → 320 g water', 'Pour over guide'],
+          ['Drip machine', '1:16–1:17', '60–62 g per litre', 'Drip calculator'],
+          ['French press', '1:15', '30 g → 450 g water', 'French press guide'],
+          ['AeroPress', '1:14–1:16', '15 g → 240 g water', 'AeroPress guide'],
+          ['Espresso', '1:2', '18 g in → 36 g out', 'Espresso guide'],
+          ['Cold brew concentrate', '1:8', '100 g → 800 g water', 'Cold brew guide'],
+          ['Cold brew ready-to-drink', '1:15', 'Same as filter strength', 'Cold brew guide'],
+          ['Moka pot', 'Fill basket', 'Level grounds, no tamp', 'Moka pot guide'],
+          ['Iced (flash brew)', 'Strong hot onto ice', 'Brew ~40% as ice', 'Iced coffee tool'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'The SCA “golden cup” ballpark is about 55 g coffee per litre of water (~1:18). Most home drinkers prefer a little stronger — 1:15 to 1:17 — especially for immersion methods. Use the coffee ratio calculator if you think in mugs, litres, or tablespoons instead of ratios.',
+      },
+      { type: 'heading', text: 'Coffee grind size chart' },
+      {
+        type: 'table',
+        caption: 'Texture beats “click number” — grinders are not standardized.',
+        headers: ['Method', 'Grind', 'Feels like', 'Contact time'],
+        rows: [
+          ['Turkish', 'Extra fine', 'Powdered sugar', 'Minutes to foam'],
+          ['Espresso', 'Fine', 'Table flour / fine sugar', '25–30 seconds'],
+          ['Moka pot', 'Fine–medium', 'Between espresso and drip', '~5 minutes'],
+          ['AeroPress', 'Medium-fine', 'Table salt', '1–2 minutes'],
+          ['Pour over (V60)', 'Medium-fine', 'Table salt', '2:30–3:30'],
+          ['Drip / Kalita', 'Medium', 'Sand', '4–6 minutes'],
+          ['Chemex', 'Medium-coarse', 'Rough sand', '4–5 minutes'],
+          ['French press', 'Coarse', 'Sea salt / breadcrumbs', '4 minutes'],
+          ['Cold brew', 'Extra coarse', 'Peppercorns', '12–18 hours'],
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Longer contact → coarser grind. Shorter contact → finer grind. If you only change one thing when coffee tastes wrong, change grind size first.',
+      },
+      { type: 'heading', text: 'How much coffee per cup? (quick math)' },
+      {
+        type: 'list',
+        items: [
+          '1 mug (250 ml) at 1:16 ≈ 15–16 g coffee (~2 rounded tbsp whole beans).',
+          '2 mugs (500 ml) at 1:16 ≈ 31 g.',
+          '1 litre at 1:16 ≈ 62 g; at 1:15 ≈ 67 g (classic French press litre).',
+          'Coffee-maker “cups” are often 5 oz — use the drip calculator so 12 cups is not 12 mugs.',
+        ],
+      },
+      { type: 'heading', text: 'Sour vs bitter — what the chart cannot fix alone' },
+      {
+        type: 'paragraph',
+        text: 'Ratio sets strength (how concentrated the drink is). Extraction sets balance (sour vs bitter vs sweet). You can have a strong sour cup (too much coffee, too coarse) or a weak bitter cup (too little coffee, too fine). When the cup is off:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Sour, thin, salty → under-extracted: grind finer, hotter water, or longer time.',
+          'Bitter, drying, hollow → over-extracted: grind coarser, cooler water, or shorter time.',
+          'Weak but balanced → use more coffee (stronger ratio) or less water.',
+          'Harsh and muddy (French press) → coarser grind, shorter steep, decant fully after plunging.',
+        ],
+      },
+      { type: 'heading', text: 'Filter vs espresso vs cold brew — pick a lane' },
+      {
+        type: 'paragraph',
+        text: 'Filter methods (pour over, drip, French press, AeroPress) share the same ratio language. Espresso uses dose:yield because the “cup” is a 30–40 g shot. Cold brew concentrates look extreme (1:8) until you dilute — compare diluted strength to drip, not concentrate to concentrate. Moka sits between drip and espresso: fill the basket, control heat, do not chase a 1:2 shot time.',
+      },
+      { type: 'heading', text: 'Water temperature cheat sheet' },
+      {
+        type: 'list',
+        items: [
+          'Most filter: 92–96°C (198–205°F). Light roasts like the hot end.',
+          'AeroPress: often 85–92°C — cooler for dark roasts.',
+          'Espresso: machine-set, typically ~93°C at the group.',
+          'Cold brew: fridge-cold; time replaces heat.',
+          'Moka: start with hot water in the base so the pot spends less time on the burner.',
+        ],
+      },
+      { type: 'heading', text: 'Which method should you brew today?' },
+      {
+        type: 'table',
+        caption: 'Match the tool to the job, not the Instagram aesthetic.',
+        headers: ['You want…', 'Brew this'],
+        rows: [
+          ['Clearest single-origin flavors', 'Pour over'],
+          ['Set-and-forget pot for guests', 'Drip machine'],
+          ['Full body, easy technique', 'French press'],
+          ['Travel / office / one mug fast', 'AeroPress'],
+          ['Milk drinks (latte, flat white)', 'Espresso (or Moka + milk)'],
+          ['Low-acid iced coffee for the week', 'Cold brew concentrate'],
+          ['Bold stovetop without a machine', 'Moka pot'],
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Open the free grind size chart tool for a visual scale, or the ratio calculator to size any batch. The method guides above are the deep recipes — this page is the map.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the best coffee-to-water ratio?',
+        answer:
+          'For most drip and pour over, start at 1:16. French press often tastes better at 1:15. Espresso is usually 1:2 by weight (dose to yield). Adjust after you taste — stronger means more coffee, not automatically a finer grind.',
+      },
+      {
+        question: 'What grind size should I use for coffee?',
+        answer:
+          'Match grind to brew time: coarse for French press and cold brew, medium for drip, medium-fine for pour over and AeroPress, fine for espresso. If the cup is sour, go finer; if bitter, go coarser.',
+      },
+      {
+        question: 'What is the golden ratio for coffee?',
+        answer:
+          'Roughly 55 g of coffee per litre of water (~1:18), from SCA-style guidelines. Many home brewers land happier around 1:15–1:17 for a richer mug.',
+      },
+      {
+        question: 'How much coffee for one cup?',
+        answer:
+          'For a 250 ml mug at 1:16, use about 15–16 g of coffee. That is roughly two rounded tablespoons of whole beans — weigh when you can.',
+      },
+      {
+        question: 'Is espresso ratio the same as drip ratio?',
+        answer:
+          'No. Espresso ratios are dose:yield (e.g. 18 g in, 36 g out). Drip ratios are coffee:brew water for a full mug. Do not brew drip at 1:2.',
+      },
+      {
+        question: 'Why does my coffee taste bitter even at the right ratio?',
+        answer:
+          'Ratio controls strength; grind and time control extraction. Bitter usually means too fine, too hot, or too long. Coarsen the grind or shorten the brew before you water the coffee down.',
+      },
     ],
   },
   ...TRENDING_BREW_GUIDES,
@@ -858,6 +1026,8 @@ export type GearItem = {
   faqs: FaqItem[]
   /** Short SERP-style answer shown above the fold for CTR. */
   quickAnswer?: string
+  /** Amazon product picks — tag via NEXT_PUBLIC_AMAZON_TAG. */
+  picks?: AffiliateProduct[]
 }
 
 export const GEAR: GearItem[] = [
@@ -865,15 +1035,15 @@ export const GEAR: GearItem[] = [
     slug: 'best-burr-coffee-grinders',
     category: 'Grinder',
     name: 'Burr Coffee Grinders',
-    title: 'Best Burr Grinder 2026 — Cheap, Affordable & Premium Picks',
+    title: 'Best Burr Coffee Grinders 2026 — Budget, Hand & Espresso Picks',
     metaDescription:
-      'Best burr grinder 2026: cheap and affordable burr coffee grinders plus premium picks. Why a burr coffee grinder beats a blade — and what to buy first.',
+      'Best burr coffee grinders 2026: Capresso Infinity, Timemore C3, and Baratza Sette 30 compared. Why a burr grinder beats a blade — and what to buy first.',
     excerpt:
       'The single most important upgrade for better coffee. Best cheap, affordable, and premium burr coffee grinders.',
     priceRange: '$40–$700',
     bestFor: 'Everyone — upgrade this first',
     rating: 4.8,
-    updated: '2026-09-21',
+    updated: '2026-11-10',
     image: '/images/grinder-hero.webp',
     quickAnswer:
       'Buy a burr grinder (not a blade) first. For most filter coffee, a solid hand or entry electric burr in the roughly $40–$150 range is enough; espresso needs finer, more precise adjustment.',
@@ -942,21 +1112,49 @@ export const GEAR: GearItem[] = [
           'Steel burrs are sharper and more common in higher-end grinders; they cut cleanly and stay precise. Ceramic burrs stay sharp a long time and run cooler, but can chip if a stone hits them. For most home buyers, burr quality and alignment matter more than the material label alone.',
       },
     ],
+    picks: [
+      {
+        name: 'Capresso Infinity Conical Burr Grinder',
+        asin: 'B0000AR7TC',
+        affiliateUrl: 'https://link.amazon/B05yyYHJy',
+        tier: 'Budget',
+        priceHint: 'Often ~$100–130',
+        why: 'Cheapest electric burr that still beats a blade for drip and French press. Not ideal for serious espresso.',
+      },
+      {
+        name: 'TIMEMORE Chestnut C3 Hand Grinder',
+        asin: 'B0CNDBVVDG',
+        affiliateUrl: 'https://link.amazon/B07xJN4Wy',
+        tier: 'Best overall',
+        priceHint: 'Often ~$70–90',
+        why: 'Best value upgrade for pour over / AeroPress. Consistent conical burrs without a big electric footprint.',
+      },
+      {
+        name: 'Baratza Sette 30',
+        asin: 'B075G11F9N',
+        affiliateUrl: 'https://link.amazon/B01Bbc0sF',
+        tier: 'Premium',
+        priceHint: 'Often ~$300',
+        why: 'Dedicated espresso-first workflow (timed dosing, portafilter arms). Pair with a Bambino-class machine.',
+      },
+    ],
   },
   {
     slug: 'best-gooseneck-kettles',
     category: 'Kettle',
     name: 'Gooseneck Kettles',
-    title: 'Best Gooseneck Kettles for Pour Over Coffee',
+    title: 'Best Gooseneck Kettles 2026 — Pour Over Electric & Stovetop',
     metaDescription:
-      'The best gooseneck kettles for pour over coffee, including variable temperature electric models. Why the pour spout controls your extraction.',
+      'Best gooseneck kettles 2026 for pour over: Hario Buono, Bonavita, and Fellow Stagg EKG compared. Variable-temp electric vs stovetop — what to buy.',
     excerpt:
       'Precise pouring is half the battle in pour over. Our favorite variable-temperature gooseneck kettles.',
     priceRange: '$35–$180',
     bestFor: 'Pour over and drip enthusiasts',
     rating: 4.6,
-    updated: '2026-05-18',
+    updated: '2026-11-10',
     image: '/images/kettle-hero.webp',
+    quickAnswer:
+      'A gooseneck spout matters more than brand. For pour over weekly, a variable-temp electric (Bonavita or Fellow Stagg) is worth it; a Hario Buono stovetop is the budget path.',
     intro:
       'A gooseneck kettle gives you slow, precise control over where and how fast water hits the coffee bed. Variable-temperature models let you match water heat to roast level, which is a genuine flavor upgrade for light roasts.',
     pros: [
@@ -1014,21 +1212,55 @@ export const GEAR: GearItem[] = [
           'Absolutely. A stovetop gooseneck still gives you the pouring control that matters most. Electric kettles mainly add speed, convenience, and precise temperature control.',
       },
     ],
+    picks: [
+      {
+        name: 'Hario V60 Buono Gooseneck Kettle (1.2 L)',
+        asin: 'B079ZYN4KL',
+        affiliateUrl: 'https://link.amazon/B06K86WGa',
+        tier: 'Budget',
+        priceHint: 'Often ~$50–60',
+        why: 'Stovetop classic. Excellent spout control without another plug on the counter.',
+      },
+      {
+        name: 'Bonavita 1.0 L Variable Temperature Gooseneck',
+        asin: 'B08C9DR1JQ',
+        tier: 'Best overall',
+        priceHint: 'Often ~$80–110',
+        why: 'Degree control, hold mode, and a real gooseneck — the practical daily driver for pour over.',
+      },
+      {
+        name: 'Fellow Stagg EKG Electric Gooseneck',
+        asin: 'B077JBQZPX',
+        affiliateUrl: 'https://link.amazon/B0iaF95YO',
+        tier: 'Premium',
+        priceHint: 'Often ~$150–170',
+        why: 'Best-in-class pour feel and to-the-degree control. Pay for design + workflow polish.',
+      },
+      {
+        name: 'Fellow Stagg EKG Pro',
+        asin: 'B0BBP8GW9C',
+        tier: 'Premium',
+        priceHint: 'Often ~$200',
+        why: 'EKG features plus a fuller display and scheduling if you want the nicer UI.',
+      },
+    ],
   },
   {
     slug: 'best-coffee-scales',
     category: 'Scale',
     name: 'Coffee Scales',
-    title: 'Best Coffee Scales with Timers for Precise Brewing',
+    title: 'Best Coffee Scales 2026 — Timer Scales for Pour Over & Espresso',
     metaDescription:
-      'The best coffee scales with built-in timers for pour over and espresso. Why weighing your coffee and water is the key to repeatable results.',
+      'Best coffee scales with timers 2026: Greater Goods, OXO Brew, and Timemore Black Mirror compared. Why 0.1 g resolution and fast response matter.',
     excerpt:
       'Consistency starts with weighing. The best coffee scales with timers for repeatable brews.',
     priceRange: '$15–$150',
     bestFor: 'Anyone chasing consistency',
     rating: 4.5,
-    updated: '2026-04-22',
+    updated: '2026-11-10',
     image: '/images/scale-hero.webp',
+    quickAnswer:
+      'Any 0.1 g scale with a timer beats scooping. Greater Goods or OXO for most people; Timemore Black Mirror if you want a dedicated coffee scale look and rechargeable battery.',
     intro:
       'Scooping coffee by volume is wildly inconsistent because beans vary in size and density. A scale lets you weigh a precise dose and track water in real time, so a great cup becomes a repeatable cup.',
     pros: [
@@ -1087,6 +1319,32 @@ export const GEAR: GearItem[] = [
           'Yes. Brew time and brew weight work together, so having both in one place makes it easier to repeat recipes and troubleshoot bad cups. It is not mandatory, but once you use one, it is hard to go back.',
       },
     ],
+    picks: [
+      {
+        name: 'Greater Goods Coffee Scale with Timer',
+        asin: 'B0CGCZMPKW',
+        affiliateUrl: 'https://link.amazon/B03CBn8Up',
+        tier: 'Budget',
+        priceHint: 'Often ~$25–35',
+        why: '0.1 g resolution, timer, silicone cover — enough for pour over and most home espresso.',
+      },
+      {
+        name: 'OXO Brew Precision Coffee Scale with Timer',
+        asin: 'B07MVRZR9W',
+        affiliateUrl: 'https://link.amazon/B0aTCebcF',
+        tier: 'Best overall',
+        priceHint: 'Often ~$50',
+        why: 'Fast response, clear display, durable everyday scale that also works outside coffee.',
+      },
+      {
+        name: 'TIMEMORE Black Mirror Basic Plus',
+        asin: 'B097Q569SJ',
+        affiliateUrl: 'https://link.amazon/B03OWF9Jq',
+        tier: 'Premium',
+        priceHint: 'Often ~$50–70',
+        why: 'Dedicated coffee aesthetic, USB-C recharge, auto-timing modes. Great on a pour-over station.',
+      },
+    ],
   },
 ]
 
@@ -1099,33 +1357,125 @@ export type Setup = {
   level: string
   image: string
   intro: string
-  items: { name: string; why: string }[]
+  /** Short SERP-style answer shown above the fold. */
+  quickAnswer?: string
+  updated?: string
+  /** Long-form buying advice — keeps setup pages out of thin-content territory. */
+  body?: ContentBlock[]
+  items: {
+    name: string
+    why: string
+    asin?: string
+    affiliateUrl?: string
+    priceHint?: string
+  }[]
   faqs: FaqItem[]
 }
 
 export const SETUPS: Setup[] = [
   {
     slug: 'beginner-home-coffee-setup',
-    title: 'The Best Beginner Home Coffee Setup Under $200',
+    title: 'The Best Beginner Home Coffee Setup Under $200 (2026)',
     metaDescription:
-      'A complete beginner home coffee setup under $200: grinder, brewer, kettle, and scale. Everything a rookie needs to brew great coffee at home.',
+      'Best beginner home coffee setup under $200 (2026): Timemore C3 grinder, V60, Hario Buono kettle, coffee scale, and medium-roast beans — shoppable Amazon kit with buy order and first-week brewing tips.',
     excerpt: 'Everything a first-timer needs to brew genuinely great coffee, without overspending.',
     budget: 'Under $200',
     level: 'Rookie',
     image: '/images/setup-beginner-hero.webp',
+    updated: '2026-11-10',
+    quickAnswer:
+      'Spend most of your budget on a burr grinder, then add a simple pour-over (or AeroPress), a gooseneck kettle, a 0.1 g scale, and fresh medium-roast whole beans. That under-$200 kit beats a cheap espresso machine with a blade grinder.',
     intro:
-      'You do not need an expensive machine to make delicious coffee. This starter kit prioritizes the things that actually move the needle: a burr grinder and a simple, forgiving brew method.',
+      'You do not need an expensive machine to make delicious coffee. This starter kit prioritizes the things that actually move the needle: a burr grinder, a simple forgiving brew method, a way to weigh ratios, controlled pouring, and fresh whole beans. Buy in that order if you are spreading purchases across a few paychecks.',
+    body: [
+      { type: 'heading', text: 'Why this kit (and not a $99 espresso machine)' },
+      {
+        type: 'paragraph',
+        text: 'Entry espresso machines look impressive in product photos, but they usually ship with a weak built-in grinder or assume you already own a good one. Uneven grounds make sour-bitter shots no matter how pretty the steam wand is. Filter coffee with a solid hand grinder teaches you grind, ratio, and time — skills that transfer the day you do buy espresso gear. This kit is designed so every dollar buys control you will feel in the cup.',
+      },
+      { type: 'heading', text: 'Buy order if you cannot purchase everything at once' },
+      {
+        type: 'list',
+        items: [
+          'Week 1: Timemore C3 + medium-roast whole beans. Grind fresh into whatever brewer you already own.',
+          'Week 2: Scale with timer. Switch from scoops to grams — your cups stop swinging wildly.',
+          'Week 3: V60 (or AeroPress) + filters. Learn a repeatable recipe.',
+          'Week 4: Gooseneck kettle. Pour control is the last big pour-over upgrade before an electric temp kettle.',
+        ],
+      },
+      { type: 'heading', text: 'Your first week of brewing' },
+      {
+        type: 'paragraph',
+        text: 'Use a 1:16 ratio as the default (for example 20 g coffee to 320 g water). Medium-fine for V60, slightly coarser for AeroPress. Bloom 30–45 seconds with ~2× the dose in water, then finish pours by about 3:00–3:30 on a V60. If the cup tastes sour and thin, grind finer or pour slower. If it tastes harsh and drying, grind coarser or shorten contact time. Change one variable at a time for three brews before you blame the beans.',
+      },
+      {
+        type: 'tip',
+        text: 'Pair this kit with our pour over guide and the ratio calculator. The gear only works if you stop guessing dose by the tablespoon.',
+      },
+      { type: 'heading', text: 'Common beginner mistakes this setup prevents' },
+      {
+        type: 'list',
+        items: [
+          'Buying a blade grinder “for now” — it creates fines and boulders that taste muddy forever.',
+          'Skipping the scale — two scoops of different beans are not the same recipe.',
+          'Pouring from a wide kitchen kettle — channeling and uneven extraction on V60.',
+          'Using pre-ground grocery coffee — aroma is already gone before the first brew.',
+          'Upgrading the dripper before the grinder — prettier plastic does not fix grind distribution.',
+        ],
+      },
+      { type: 'heading', text: 'When to upgrade next' },
+      {
+        type: 'paragraph',
+        text: 'After a month of consistent cups, the highest-value upgrades are usually an electric variable-temp gooseneck (Fellow Stagg or Bonavita) if you pour over daily, or a dedicated espresso path (see the pro espresso setup) if milk drinks are the goal. Do not buy both at once — pick the drink you make five mornings a week.',
+      },
+    ],
     items: [
-      { name: 'Hand burr grinder', why: 'Uniform grounds are the #1 flavor upgrade — and hand grinders are cheap.' },
-      { name: 'Plastic V60 or AeroPress', why: 'Forgiving, durable, and cheap. Both make an excellent cup.' },
-      { name: 'Basic gooseneck kettle', why: 'Precise pouring without breaking the bank.' },
-      { name: '0.1 g coffee scale with timer', why: 'Makes your ratios repeatable from day one.' },
+      {
+        name: 'TIMEMORE Chestnut C3 hand grinder',
+        why: 'Uniform grounds are the #1 flavor upgrade — and this hand grinder punches above its price.',
+        asin: 'B0CNDBVVDG',
+        affiliateUrl: 'https://link.amazon/B07xJN4Wy',
+        priceHint: '~$70–90',
+      },
+      {
+        name: 'Hario V60 Plastic 02',
+        why: 'Forgiving, durable, cheap pour-over cone for 1–2 cups.',
+        asin: 'B006IKMUIG',
+        priceHint: '~$13',
+      },
+      {
+        name: 'AeroPress Original (optional second brewer)',
+        why: 'Travel-proof and nearly impossible to mess up — great backup to the V60.',
+        asin: 'B0018RY8H0',
+        priceHint: '~$40',
+      },
+      {
+        name: 'Hario Buono gooseneck kettle',
+        why: 'Precise pouring without buying an electric kettle yet.',
+        asin: 'B079ZYN4KL',
+        affiliateUrl: 'https://link.amazon/B06K86WGa',
+        priceHint: '~$50–60',
+      },
+      {
+        name: 'Greater Goods coffee scale with timer',
+        why: 'Makes ratios repeatable from day one at a beginner price.',
+        asin: 'B0CGCZMPKW',
+        affiliateUrl: 'https://link.amazon/B03CBn8Up',
+        priceHint: '~$30',
+      },
+      {
+        name: 'Kicking Horse Three Sisters (medium roast beans)',
+        why: 'Fresh whole beans complete the kit — medium roast is the easiest place to start tasting.',
+        asin: 'B0027Z5J6G',
+        affiliateUrl: 'https://link.amazon/B03JCW6ul',
+        priceHint: '~$30–40 / 2.2 lb',
+      },
     ],
     faqs: [
       {
         question: 'What is the best beginner home coffee setup?',
         answer:
-          'The best beginner setup puts most of the budget into a burr grinder, then pairs it with a simple brewer, a kettle, and a scale. That combination improves grind quality, consistency, and brew control without forcing you into expensive espresso gear too early.',
+          'The best beginner setup puts most of the budget into a burr grinder, then pairs it with a simple brewer, a kettle, a scale, and fresh whole beans. That combination improves grind quality, consistency, and brew control without forcing you into expensive espresso gear too early.',
       },
       {
         question: 'Can I make great coffee at home without an expensive machine?',
@@ -1140,32 +1490,119 @@ export const SETUPS: Setup[] = [
       {
         question: 'What is the first upgrade after a beginner coffee setup?',
         answer:
-          'Usually the grinder. If you already have a decent grinder, the next step is often a more temperature-stable kettle or a better scale. Upgrades should remove a real bottleneck, not just add cost.',
+          'If your grinder is already solid, the next step is often a variable-temperature electric gooseneck or a faster, more precise scale. Upgrades should remove a real bottleneck — sour cups from uneven pours, or inconsistent dose — not just add counter clutter.',
+      },
+      {
+        question: 'Is a hand grinder good enough for daily coffee?',
+        answer:
+          'For one or two cups a day, yes. A quality hand grinder like the Timemore C3 can outperform cheap electric grinders at the same price. Switch to electric when you brew large batches every morning or start chasing espresso fineness.',
+      },
+      {
+        question: 'Do I need both a V60 and an AeroPress?',
+        answer:
+          'No. Start with one. V60 teaches pour control and clarity; AeroPress is more forgiving and travel-friendly. Add the second only if you want variety after your primary method feels automatic.',
+      },
+      {
+        question: 'How much should I budget for beans each month?',
+        answer:
+          'Plan on roughly one to two bags per person depending on cup size. A 2.2 lb medium roast like Three Sisters stretches further than tiny specialty bags while you learn. Freshness still beats buying bulk that sits for months.',
       },
     ],
   },
   {
     slug: 'pro-espresso-setup',
-    title: 'The Pro Home Espresso Setup: Café Quality at Home',
+    title: 'Pro Home Espresso Setup 2026 — Bambino, Sette & Scale',
     metaDescription:
-      'A pro home espresso setup for café-quality shots: dual-boiler machine, dedicated espresso grinder, and the accessories that dial in consistency.',
+      'Pro home espresso setup 2026: Breville Bambino Plus, Baratza Sette 30, OXO scale, and espresso beans. Dial-in workflow, dose/yield targets, and when to upgrade — not just a shopping list.',
     excerpt: 'Café-quality shots at home. The machine, grinder, and accessories serious enthusiasts choose.',
     budget: '$1,500+',
     level: 'Enthusiast',
     image: '/images/setup-espresso-hero.webp',
+    updated: '2026-11-10',
+    quickAnswer:
+      'Pair a temperature-capable machine (Bambino Plus class) with a dedicated espresso grinder (Sette 30), a fast 0.1 g scale, and a forgiving medium espresso roast. Spend on the grinder before chasing dual boilers.',
     intro:
-      'When you are ready to chase espresso seriously, the grinder matters as much as the machine. This setup pairs temperature-stable brewing with a grinder that can resolve tiny adjustments.',
+      'When you are ready to chase espresso seriously, the grinder matters as much as the machine. This setup pairs a fast heat-up machine with a dedicated espresso grinder, a scale for dose and yield, and a forgiving espresso roast to dial in on — so you learn extraction instead of guessing.',
+    body: [
+      { type: 'heading', text: 'Why this stack works' },
+      {
+        type: 'paragraph',
+        text: 'Home espresso fails most often because the grind cannot resolve tiny changes. A Bambino-class machine can pull excellent shots when the puck is even and the dose/yield are weighed. The Baratza Sette 30 is built for espresso workflow (timed dosing, portafilter-friendly), and the OXO scale turns “looks about right” into grams in / grams out. Lavazza Espresso or Super Crema give you a stable, widely available bean while you learn — save ultra-light single origins for after your dial-in muscle memory exists.',
+      },
+      { type: 'heading', text: 'Dial-in targets for week one' },
+      {
+        type: 'list',
+        items: [
+          'Dose: start around 18 g in a double basket (match your basket; do not overdose a small basket).',
+          'Yield: aim for roughly 1:2 (18 g in → ~36 g out) in about 25–32 seconds from pump start.',
+          'If the shot gushes fast and tastes sour/salty: grind finer or dose up slightly.',
+          'If the shot chokes or tastes harsh/bitter: grind coarser or shorten the ratio.',
+          'Change grind first. Only change dose or yield after three consistent shots at one setting.',
+        ],
+      },
+      { type: 'heading', text: 'Workflow that keeps shots consistent' },
+      {
+        type: 'paragraph',
+        text: 'Weigh beans into the portafilter or dosing cup, distribute evenly (WDT tool or a simple needle if you add one later), tamp level with consistent pressure, flush the group briefly, then pull onto the scale. Log grind setting, dose, yield, and time for a week. Humidity and bean age drift — yesterday’s perfect setting can run fast today as beans dry out.',
+      },
+      {
+        type: 'tip',
+        text: 'Use the espresso ratio calculator on KickerCoffee to lock a target before you chase taste. Numbers first, then nudge grind.',
+      },
+      { type: 'heading', text: 'Milk drinks vs straight espresso' },
+      {
+        type: 'paragraph',
+        text: 'The Bambino Plus auto-textures milk well enough for daily lattes. If you mostly drink milk drinks, a slightly darker or chocolate-forward espresso blend hides small dial-in errors. If you drink straight shots, expect to spend more time on distribution and grind — and consider upgrading the grinder before the machine when you outgrow the Sette’s resolution.',
+      },
+      { type: 'heading', text: 'What this setup is not' },
+      {
+        type: 'list',
+        items: [
+          'Not a dual-boiler café clone — back-to-back six-drink parties will stress a single-boiler/thermojet workflow.',
+          'Not a substitute for water quality — hard water scales machines; very soft water tastes hollow.',
+          'Not “set and forget” — espresso is a skill. Budget practice bags, not only gear.',
+        ],
+      },
+      { type: 'heading', text: 'Next upgrades (only when needed)' },
+      {
+        type: 'paragraph',
+        text: 'Bottomless portafilter for diagnosing channeling, a precision basket, then either a stronger grinder or a dual-boiler/heat-exchanger if milk volume and temperature stability become the bottleneck. Skip novelty gadgets until dose, yield, and distribution are boringly consistent.',
+      },
+    ],
     items: [
-      { name: 'Dual-boiler or heat-exchanger machine', why: 'Stable temperature and the ability to steam and brew at once.' },
-      { name: 'Dedicated espresso grinder', why: 'Fine, stepless adjustment is essential for dialing in.' },
-      { name: 'Precision tamper and distribution tool', why: 'Even puck prep prevents channeling.' },
-      { name: 'Bottomless portafilter and shot scale', why: 'Diagnose extraction and hit ratios precisely.' },
+      {
+        name: 'Breville Bambino Plus',
+        why: 'Fast heat-up, 54 mm portafilter, and auto milk texturing — serious espresso without a dual-boiler footprint.',
+        asin: 'B08ZK15YNK',
+        priceHint: '~$500',
+      },
+      {
+        name: 'Baratza Sette 30 espresso grinder',
+        why: 'Dedicated espresso grind speed and timed dosing. Spend here before upgrading the machine again.',
+        asin: 'B075G11F9N',
+        affiliateUrl: 'https://link.amazon/B01Bbc0sF',
+        priceHint: '~$300',
+      },
+      {
+        name: 'OXO Brew coffee scale with timer',
+        why: 'Weigh dose and yield. Espresso without a scale is guessing.',
+        asin: 'B07MVRZR9W',
+        affiliateUrl: 'https://link.amazon/B0aTCebcF',
+        priceHint: '~$50',
+      },
+      {
+        name: 'Lavazza Espresso 100% Arabica whole bean',
+        why: 'Forgiving medium espresso roast for dialing shots — floral/fruit notes without ultra-light drama.',
+        asin: 'B00P0ZMWEC',
+        affiliateUrl: 'https://link.amazon/B04q1U4fp',
+        priceHint: '~$20–28 / 2.2 lb',
+      },
     ],
     faqs: [
       {
         question: 'What is the best home espresso setup for serious enthusiasts?',
         answer:
-          'A strong enthusiast setup usually combines a temperature-stable machine, a dedicated espresso grinder, and a few puck-prep tools that make extraction more consistent. The grinder is just as important as the machine because espresso depends on tiny grind adjustments.',
+          'A strong enthusiast setup usually combines a temperature-capable machine, a dedicated espresso grinder, and a scale for dose and yield. The grinder is just as important as the machine because espresso depends on tiny grind adjustments.',
       },
       {
         question: 'Should I spend more on the espresso machine or the grinder?',
@@ -1175,16 +1612,92 @@ export const SETUPS: Setup[] = [
       {
         question: 'Do I need a dual-boiler machine at home?',
         answer:
-          'Not everyone does. Dual-boiler machines are most useful if you make milk drinks often, want tighter temperature control, or pull several drinks back to back. For occasional straight espresso, a simpler machine may be enough.',
+          'Not everyone does. Dual-boiler machines help most if you make milk drinks often, want tighter temperature control, or pull several drinks back to back. For occasional straight espresso, a Bambino-class machine is enough while you learn.',
       },
       {
         question: 'What accessories actually matter for espresso consistency?',
         answer:
-          'A good scale, a tamper that fits your basket well, and a way to distribute grounds evenly matter far more than novelty gadgets. A bottomless portafilter is also useful because it shows channeling immediately and helps you diagnose puck-prep problems.',
+          'A good scale, a tamper that fits your basket, and even distribution matter far more than novelty gadgets. A bottomless portafilter is useful later because it shows channeling immediately.',
+      },
+      {
+        question: 'What coffee-to-water ratio should I use for espresso?',
+        answer:
+          'Start around 1:2 (for example 18 g coffee to 36 g liquid espresso) in roughly 25–32 seconds. Adjust grind before you abandon the ratio. Our espresso ratio calculator helps you lock targets.',
+      },
+      {
+        question: 'Why do my shots taste different every day?',
+        answer:
+          'Beans age, humidity changes, and tiny grind drifts stack up. Weigh every shot, note the grind setting, and expect to nudge finer as a bag opens and degasses. Inconsistency usually means unmeasured dose — not a broken machine.',
       },
     ],
   },
 ]
+
+/* ----------------------------- Bean affiliate picks ----------------------------- */
+
+/** Whole-bean Amazon picks to affiliate across gear, beans, and brew pages. */
+export const BEAN_PICKS: AffiliateProduct[] = [
+  {
+    name: 'Kicking Horse Three Sisters (Medium Roast)',
+    asin: 'B0027Z5J6G',
+    affiliateUrl: 'https://link.amazon/B03JCW6ul',
+    tier: 'Best overall',
+    roast: 'Medium',
+    priceHint: 'Often ~$30–40 / 2.2 lb',
+    why: 'Organic medium roast with cocoa and stone-fruit notes — the easiest everyday bag while you learn your palate.',
+  },
+  {
+    name: 'Lavazza Espresso 100% Arabica',
+    asin: 'B00P0ZMWEC',
+    affiliateUrl: 'https://link.amazon/B04q1U4fp',
+    tier: 'Essential',
+    roast: 'Espresso',
+    priceHint: 'Often ~$20–28 / 2.2 lb',
+    why: 'All-Arabica medium roast for espresso, moka, or drip when you want a softer, less robusta-forward cup.',
+  },
+  {
+    name: 'Lavazza Super Crema Whole Bean',
+    asin: 'B0BBQH5XYJ',
+    tier: 'Essential',
+    roast: 'Espresso',
+    priceHint: 'Often ~$25–35 / 2.2 lb',
+    why: 'Creamy medium espresso roast that dials easily on home machines — Arabica/Robusta blend with rich crema.',
+  },
+  {
+    name: 'Death Wish Organic Dark Roast',
+    asin: 'B006CNTR6W',
+    affiliateUrl: 'https://link.amazon/B04NE75BF',
+    tier: 'Premium',
+    roast: 'Dark',
+    priceHint: 'Often ~$16–20 / 16 oz',
+    why: 'High-caffeine Arabica + Robusta dark roast for bold cups — pair with the caffeine day planner so you do not overshoot sleep.',
+  },
+  {
+    name: 'Counter Culture Forty Six Blend',
+    asin: 'B07N3FZGGL',
+    affiliateUrl: 'https://link.amazon/B0b64IdV8',
+    tier: 'Premium',
+    roast: 'Dark',
+    priceHint: 'Often ~$18–22 / 12 oz',
+    why: 'Specialty dark blend (chocolate, smoke, full body) when you want roaster-level quality still available on Amazon.',
+  },
+  {
+    name: "Peet's Decaf Major Dickason's Blend",
+    asin: 'B0D14Z388K',
+    affiliateUrl: 'https://link.amazon/B06hB51cp',
+    tier: 'Best overall',
+    roast: 'Decaf',
+    priceHint: 'Often ~$18–22 / two 10.5 oz bags',
+    why: 'Water-processed dark-roast decaf with real body — the bag people grab when they want evening coffee without the buzz.',
+  },
+]
+
+export function getBeanPicks(opts?: { roast?: AffiliateProduct['roast']; limit?: number }) {
+  let list = BEAN_PICKS
+  if (opts?.roast) list = list.filter((p) => p.roast === opts.roast)
+  if (opts?.limit) list = list.slice(0, opts.limit)
+  return list
+}
 
 /* ----------------------------- Beans & roasts ----------------------------- */
 
@@ -1208,13 +1721,13 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'coffee-roast-levels-explained',
     topic: 'Roasting',
-    title: 'Types of Coffee Roasts Explained — Light, Medium & Dark',
+    title: 'Types of Coffee Roasts — Light vs Medium vs Dark (Caffeine Myth)',
     metaDescription:
-      'Types of coffee roasts and roast levels explained: light vs medium vs dark, what medium roast coffee tastes like, caffeine myths, and how to brew each type of coffee roast.',
+      'Types of coffee roasts explained: light vs medium vs dark, what medium roast tastes like, does dark roast have more caffeine, and how to brew each roast level.',
     excerpt:
-      'The main types of coffee roasts are light, medium, and dark. Here is how each roast level changes flavor, acidity, and body.',
+      'Light, medium, and dark roast — flavor, acidity, body, and the caffeine myth in plain English.',
     readTime: '14 min',
-    updated: '2026-09-21',
+    updated: '2026-11-10',
     image: '/images/roast-levels-hero.webp',
     quickAnswer:
       'There are three main types of coffee roast: light (bright, origin-forward), medium (balanced sweetness), and dark (bold, low-acid, roast-driven). “Roast level” is how far the beans were taken through that spectrum.',
@@ -1612,13 +2125,13 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'how-to-store-coffee-beans',
     topic: 'Freshness',
-    title: 'Best Way to Store Coffee Beans (Keep Them Fresh)',
+    title: 'How to Store Coffee Beans — Keep Them Fresh (Fridge Myth)',
     metaDescription:
       'Best way to store coffee beans: opaque airtight container, cool pantry, away from light and heat. How long beans stay fresh — and why the fridge is a bad idea.',
     excerpt:
       'Air, light, heat, and moisture kill freshness. The best way to store coffee beans is simple — and it is not the fridge.',
-    readTime: '5 min',
-    updated: '2026-09-21',
+    readTime: '7 min',
+    updated: '2026-11-10',
     image: '/images/storage-hero.webp',
     quickAnswer:
       'Store whole beans in an opaque, airtight container at room temperature away from the stove and sunlight. Buy what you will finish in 2–4 weeks. Skip the fridge; freeze only long-term portions you will not thaw repeatedly.',
@@ -2345,6 +2858,117 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       },
     ],
   },
+  {
+    slug: 'best-decaf-coffee',
+    topic: 'Decaf',
+    title: 'Best Decaf Coffee 2026 — How to Buy Decaf That Still Tastes Like Coffee',
+    metaDescription:
+      'Best decaf coffee 2026: Swiss Water vs chemical process, how much caffeine is left, brewing tips, and a water-processed Peet’s Major Dickason’s pick that actually tastes bold.',
+    excerpt:
+      'Decaf does not have to taste like brown water. How processing works, what “good decaf” means, and a dark-roast pick worth buying.',
+    readTime: '12 min',
+    updated: '2026-11-10',
+    image: '/images/roast-levels-hero.webp',
+    quickAnswer:
+      'Good decaf starts with quality beans and a gentle decaf process (Swiss Water / water process preferred by many specialty buyers), then a roast that still has body. Expect about 2–15 mg caffeine per 8 oz cup — not zero — and brew it like real coffee with a scale and fresh grind when you can.',
+    intro:
+      'Plenty of people search “best decaf coffee” after a bad bag taught them the wrong lesson: that decaf means thin, papery, and pointless. That is usually bad green coffee or an old roast — not an iron law of chemistry. Modern water-processed decafs can taste rich and chocolatey; you just have to buy and brew them with the same standards you use for regular beans.',
+    body: [
+      { type: 'heading', text: 'What “good decaf” actually means' },
+      {
+        type: 'paragraph',
+        text: 'Decaffeination removes most caffeine from green coffee before roasting. The cup still depends on origin, roast development, freshness, and brew method. If a roaster starts with mediocre beans, stripping caffeine will not invent sweetness. Look for: a named process (Swiss Water or other water process is a common preference), a roast date or at least a clear brand with high turnover, and tasting notes that sound like coffee — chocolate, nut, caramel — not apologetic marketing.',
+      },
+      { type: 'heading', text: 'How much caffeine is left in decaf?' },
+      {
+        type: 'paragraph',
+        text: 'Decaf is not caffeine-free. An 8 oz cup of decaf often lands around 2–15 mg of caffeine, versus roughly 70–140+ mg for many regular brewed coffees depending on strength. Sensitive people can still notice stacked afternoon decafs, chocolate, and tea. If sleep is the goal, treat decaf as “very low,” not “safe to pound at 10 p.m. with no math.” Our caffeine calculator has a decaf preset for a conservative daily total.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Regulations generally require decaf to have most caffeine removed — not every milligram.',
+          'Darker roasts do not “remove more caffeine” in a meaningful way; process does the heavy lifting.',
+          'Espresso-sized decaf shots are small volume but can still add up across a milk-drink habit.',
+        ],
+      },
+      { type: 'heading', text: 'Swiss Water / water process vs solvent process' },
+      {
+        type: 'paragraph',
+        text: 'Broadly, caffeine can be removed with water-based methods (often marketed as Swiss Water Process) or with solvent-assisted methods. Many specialty buyers prefer water process for flavor and marketing clarity. Solvent-processed coffees can still taste excellent when the green coffee and roast are strong — do not panic at the word “process,” but do read the bag if you have a preference. Peet’s highlights natural water processing on its decaf Major Dickason’s line; Kicking Horse and others also sell Swiss Water dark decafs if you want whole-bean organic options.',
+      },
+      { type: 'heading', text: 'Why so much decaf tastes bad (and how to avoid it)' },
+      {
+        type: 'list',
+        items: [
+          'Stale stock: low-turnover grocery decaf can sit forever. Prefer brands that sell quickly or show roast dating.',
+          'Under-dosing: people brew decaf weaker “because it is evening.” Use a normal ratio; weakness tastes papery.',
+          'Wrong grind: pre-ground is convenient but ages fast. Whole bean + burr grinder still wins for aroma.',
+          'Expecting light-roast fireworks: many crowd-pleasing decafs are medium-dark for body. That is a feature for evening cups.',
+        ],
+      },
+      { type: 'heading', text: 'Our Amazon pick for bold decaf' },
+      {
+        type: 'paragraph',
+        text: 'Peet’s Decaf Major Dickason’s Blend is the practical recommendation for people who want dark-roast body without the caffeine load of regular Major D. It is water-processed, widely available, and tastes like a real dinner coffee rather than a compromise. The listing we link is ground (handy for drip); if you own a grinder, also check for whole-bean decaf versions when stock allows — grind freshness still matters.',
+      },
+      {
+        type: 'tip',
+        text: 'Brew decaf at a normal 1:15–1:17 filter ratio. If it tastes hollow, grind a bit finer or raise dose before you assume “all decaf is bad.”',
+      },
+      { type: 'heading', text: 'Who should switch to decaf (or half-caf)' },
+      {
+        type: 'paragraph',
+        text: 'Afternoon anxiety, fragile sleep, pregnancy limits from a clinician, reflux that worsens with caffeine, or a simple desire to keep the ritual after your cutoff time. Half-caf (mix regular and decaf beans, or alternate cups) is often easier than quitting cold turkey. Pair evening decaf with the caffeine day planner so your morning regular cups still leave room under your bedtime target.',
+      },
+      { type: 'heading', text: 'Brewing tips by method' },
+      {
+        type: 'list',
+        items: [
+          'Drip / pour over: same recipe as regular medium-dark coffee; filtered water; do not starve the dose.',
+          'French press: coarse grind, 1:15, full immersion — dark decaf shines here.',
+          'Espresso: dial like regular; expect slightly different behavior bag to bag. Weigh dose and yield.',
+          'Moka pot: medium-fine, fill the basket level — chocolate-forward decafs work well.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'This is general coffee education, not medical advice. Caffeine sensitivity and pregnancy guidelines belong in a conversation with your clinician — especially if you are using decaf to manage symptoms.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the best decaf coffee?',
+        answer:
+          'The best decaf starts with good beans and a clear process (many people prefer Swiss Water / water process), then a roast with real body. Peet’s Decaf Major Dickason’s is a strong widely available dark-roast option; specialty water-process bags from local roasters can be even better when fresh.',
+      },
+      {
+        question: 'Does decaf coffee have caffeine?',
+        answer:
+          'Yes. Decaf usually has about 2–15 mg per 8 oz cup — far less than regular coffee, but not zero. Sensitive sleepers should still count stacked cups.',
+      },
+      {
+        question: 'Is Swiss Water Process decaf better?',
+        answer:
+          'Many specialty buyers prefer water-based processes for flavor and labeling clarity. Excellent cups exist from other processes too — freshness and roast quality matter as much as the method name on the bag.',
+      },
+      {
+        question: 'Why does my decaf taste weak or papery?',
+        answer:
+          'Often stale beans, too little dose, or too coarse a grind. Brew decaf with a normal coffee-to-water ratio and buy fresher bags. Darker, chocolate-forward decafs also hide thinness better than pale, underdeveloped ones.',
+      },
+      {
+        question: 'Can I drink decaf at night?',
+        answer:
+          'Most people can, because the caffeine load is low. If you are extremely sensitive, keep the last cup earlier or switch to herbal tea — a little caffeine plus the warm ritual can still feel stimulating.',
+      },
+      {
+        question: 'Is decaf healthier than regular coffee?',
+        answer:
+          'Not automatically. You lose most of the caffeine stimulation (good or bad depending on your goals) while keeping many of coffee’s plant compounds. For sleep and anxiety, lower caffeine often helps; for athletic alertness, regular coffee may be the point. This is not medical advice.',
+      },
+    ],
+  },
   ...TRENDING_BEAN_ARTICLES,
 ]
 
@@ -2375,11 +2999,11 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'coffee-ratio-calculator',
     name: 'Coffee Ratio Calculator',
-    title: 'Coffee-to-Water Ratio Calculator (Free) — How Much Coffee per Cup',
+    title: 'Coffee-to-Water Ratio Calculator — How Much Coffee per Cup',
     metaDescription:
-      'Free coffee to water ratio calculator. Convert coffee ratios for pour over, drip, and French press — how much coffee per cup in grams or tablespoons.',
+      'Free coffee-to-water ratio calculator for pour over, drip, and French press. How much coffee per cup in grams or tablespoons — start at 1:16.',
     excerpt:
-      'Coffee to water ratio calculator: enter coffee, water, or cups and get perfect brew measurements for any ratio.',
+      'Enter coffee, water, or cups — get grams and tablespoons for any brew ratio (1:15–1:18).',
     icon: 'Scale',
     category: 'Calculator',
     keywords: [
@@ -2387,9 +3011,11 @@ export const TOOLS: ToolMeta[] = [
       'coffee ratio calculator',
       'coffee to water ratio calculator',
       'how much coffee per cup',
+      'how much coffee for 2 cups',
       'golden ratio coffee',
       'coffee ratios',
       'water coffee ratio',
+      '1:16 coffee ratio',
     ],
     faqs: [
       {
@@ -2726,6 +3352,59 @@ export const TOOLS: ToolMeta[] = [
     ],
   },
   {
+    slug: 'caffeine-day-planner',
+    name: 'Caffeine Day Planner',
+    title: 'Caffeine Day Planner — Log Coffee, Sleep Cutoff & Half-Life Curve',
+    metaDescription:
+      'Free caffeine day planner: log every coffee, see caffeine left at bedtime, and get a sleep cutoff time. Daily intake vs 400 mg with a half-life curve.',
+    excerpt:
+      'Log today’s drinks on a timeline. See remaining caffeine at bedtime and when to stop for sleep.',
+    icon: 'Zap',
+    category: 'Calculator',
+    keywords: [
+      'caffeine day planner',
+      'when to stop drinking coffee',
+      'caffeine sleep cutoff',
+      'how much caffeine left at bedtime',
+      'daily caffeine tracker',
+      'caffeine timeline',
+      'coffee affecting sleep calculator',
+      'caffeine half life day log',
+    ],
+    faqs: [
+      {
+        question: 'When should I stop drinking coffee to sleep?',
+        answer:
+          'A common rule is 8+ hours before bed, but your real cutoff depends on dose and timing. Log your drinks and bedtime in the planner — it estimates when remaining caffeine drops toward your target (default ~50 mg).',
+      },
+      {
+        question: 'How much caffeine is left at bedtime?',
+        answer:
+          'Caffeine clears with a half-life of about 5–6 hours for many adults. Two morning cups can still leave a meaningful amount at 10 pm if you also had an afternoon latte. The planner stacks every drink on a timeline.',
+      },
+      {
+        question: 'What is a caffeine day planner?',
+        answer:
+          'It is a daily caffeine log plus half-life math: add each coffee with a time, see total milligrams vs the ~400 mg guideline, watch a curve of caffeine still in your system, and get a suggested cutoff for sleep.',
+      },
+      {
+        question: 'Is 400 mg of caffeine safe per day?',
+        answer:
+          'For most healthy adults, about 400 mg per day is a widely cited upper guideline — roughly four 8 oz brewed coffees. Sensitive people, pregnancy, and some medications call for less. This tool is orientation, not medical advice.',
+      },
+      {
+        question: 'Does afternoon coffee wreck sleep even if I feel fine?',
+        answer:
+          'Often yes. You can feel “not wired” while enough caffeine remains to delay deep sleep. Tracking remaining milligrams at bedtime is more useful than waiting until you feel jittery.',
+      },
+      {
+        question: 'Can I save my caffeine log?',
+        answer:
+          'Yes — the planner stores today’s drinks and sleep settings in your browser so you can reopen the page without re-entering everything.',
+      },
+    ],
+  },
+  {
     slug: 'caffeine-calculator',
     name: 'Caffeine Calculator',
     title: 'Caffeine Calculator — mg to Cups, Daily Limit & By Weight',
@@ -2956,15 +3635,16 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'grind-size-chart',
     name: 'Grind Size Chart',
-    title: 'Coffee Grind Size Chart by Brew Method',
+    title: 'Coffee Grind Size Chart — Espresso, Pour Over, French Press & More',
     metaDescription:
-      'A visual coffee grind size chart. Find the right grind — from extra fine to extra coarse — for espresso, pour over, drip, French press, and cold brew.',
+      'Coffee grind size chart for every brew method: espresso (fine), pour over (medium-fine), drip (medium), French press & cold brew (coarse). Fix sour or bitter cups.',
     excerpt:
-      'Find the right grind for every brew method, from espresso-fine to cold-brew-coarse.',
+      'Visual grind chart from espresso-fine to cold-brew-coarse — plus what to change when the cup tastes off.',
     icon: 'Beaker',
     category: 'Reference',
     keywords: [
       'coffee grind size chart',
+      'coffee grind chart',
       'grind size for pour over',
       'espresso grind size',
       'french press grind size',
@@ -2972,6 +3652,7 @@ export const TOOLS: ToolMeta[] = [
       'what grind for drip coffee',
       'coffee grind too fine',
       'coffee grind too coarse',
+      'aeropress grind size',
     ],
     faqs: [
       {
@@ -2993,6 +3674,11 @@ export const TOOLS: ToolMeta[] = [
         question: 'What grind size for espresso?',
         answer:
           'Espresso needs a fine grind — closer to powdered sugar or very fine salt — so a ~25–30 second shot at a 1:2 ratio can extract properly. If the shot gushes and tastes sour, grind finer. If it drips slowly and tastes bitter, grind coarser. Espresso is the most sensitive grind setting on any chart.',
+      },
+      {
+        question: 'What grind size for AeroPress?',
+        answer:
+          'Medium-fine (table salt) is the best all-purpose AeroPress grind. Go finer for a short concentrate; coarser for a longer immersion-style cup. The AeroPress is forgiving — dial by taste after one brew.',
       },
       {
         question: 'What grind size for cold brew?',
@@ -3031,9 +3717,9 @@ export const TOOLS: ToolMeta[] = [
     name: 'World Coffee Map Explorer',
     title: 'World Coffee Map — Coffee Origins & Producing Countries',
     metaDescription:
-      'Interactive world coffee map of coffee producing countries and bean origins. Click Ethiopia, Brazil, Colombia, Vietnam, and more for flavor and altitude.',
+      'Interactive world coffee map of 29 origins. Filter by cup style, compare countries, and explore Ethiopia, Brazil, Colombia, Vietnam, Kona, and more.',
     excerpt:
-      'Search or click 26 coffee origins — altitude, flavors, process, species, and a cup profile for each producing country.',
+      'Search, filter, or compare 29 coffee origins — altitude, flavors, process, species, and a cup profile for each producing country.',
     icon: 'Beaker',
     category: 'Reference',
     keywords: [
@@ -3045,6 +3731,8 @@ export const TOOLS: ToolMeta[] = [
       'ethiopia coffee flavor',
       'colombia coffee',
       'coffee producing countries',
+      'kona coffee',
+      'arabica vs robusta countries',
     ],
     faqs: [
       {
@@ -3078,9 +3766,19 @@ export const TOOLS: ToolMeta[] = [
           'Most specialty origins (Ethiopia, Colombia, Kenya, Costa Rica) grow Arabica. Vietnam grows mostly Robusta. Brazil, Indonesia, India, and Uganda grow both. Arabica tastes sweeter and more complex; Robusta has more caffeine and a heavier, earthier profile.',
       },
       {
+        question: 'Is Kona coffee really from Hawaii?',
+        answer:
+          'True Kona must be grown in a certified belt on Hawaii’s Big Island. “Kona blend” bags can be mostly other origins with a small Kona percentage — check the label. On this map, Hawaii is list-only so the whole USA is not painted as a coffee country.',
+      },
+      {
+        question: 'How do I compare two coffee origins?',
+        answer:
+          'Turn on Compare, then tap two countries (or chips). You get side-by-side acidity, body, sweetness, caffeine, altitude, and process — useful when deciding between Kenya vs Ethiopia or Brazil vs Sumatra.',
+      },
+      {
         question: 'How do I use the world coffee map on a phone?',
         answer:
-          'Do not try to tap tiny countries. Use the search box or the origin chips (Ethiopia, Vietnam, Jamaica…). The map will zoom to that country. Jamaica and other small islands are easy to miss on a world map — the list is the reliable way in.',
+          'Do not try to tap tiny countries. Use search, cup-style filters, or the origin chips (Ethiopia, Vietnam, Jamaica…). The map zooms to that country. Jamaica, Panama, and Hawaii are easier from the list than from the globe.',
       },
     ],
   },
@@ -3158,7 +3856,7 @@ export const TOOL_CONTENT: Record<
 > = {
   'coffee-ratio-calculator': {
     intro:
-      'The coffee-to-water ratio is the single biggest lever you can pull to change the taste of your cup — bigger than grind size, bigger than water temperature, bigger than brew time. Too little coffee and the water passes right through without extracting enough flavor, leaving a sour, thin cup. Too much and you pull out every harsh, bitter compound the bean has to offer. The SCA (Specialty Coffee Association) defines the "golden cup standard" as 55 g of coffee per liter of water, which sits right at 1:18. Most home brewers land happiest between 1:15 and 1:17.',
+      'The coffee-to-water ratio is the single biggest lever you can pull to change the strength of your cup. Too little coffee and the drink tastes thin; too much and it turns heavy or harsh. The SCA-style “golden cup” ballpark is about 55 g per litre (~1:18). Most home brewers land happier at 1:15–1:17. Use this calculator to size any batch, then open the brewing ratios & grind size chart if you need method-by-method starting points (French press 1:15, pour over 1:16, espresso 1:2, cold brew concentrate 1:8).',
     howToUse: [
       {
         step: 'Pick your target strength',
@@ -3496,6 +4194,67 @@ export const TOOL_CONTENT: Record<
     relatedSlugs: ['coffee-ratio-calculator', 'caffeine-calculator', 'grind-size-chart'],
   },
 
+  'caffeine-day-planner': {
+    intro:
+      'Most caffeine tools answer one drink at a time. Real life is a stack: morning drip, mid-morning espresso, afternoon iced latte — then you wonder why sleep is thin. This planner logs every drink with a time, estimates caffeine still in your system across the day (using a typical ~5.5 hour half-life), shows what may remain at bedtime, and suggests a cutoff so you can protect sleep without guessing.',
+    howToUse: [
+      {
+        step: 'Add each coffee with a time',
+        detail:
+          'Use presets (brewed, double espresso, cold brew, iced latte, shaken espresso…) or custom milligrams from a label. Times matter as much as dose — a 3 pm latte hits bedtime harder than the same drink at 8 am.',
+      },
+      {
+        step: 'Set bedtime and glance at the curve',
+        detail:
+          'The chart shows estimated caffeine still circulating. The dashed line is your bedtime target (default 50 mg). Total ingested is compared with the common ~400 mg daily guideline.',
+      },
+      {
+        step: 'Use the cutoff suggestion',
+        detail:
+          'The planner finds the latest time in today’s log that still leaves you under your bedtime target. If even early cups overshoot, lower afternoon doses or move bedtime caffeine earlier — switching to late-night decaf alone rarely fixes a heavy afternoon.',
+      },
+    ],
+    proTips: [
+      'Feeling “fine” at 9 pm does not mean caffeine is gone. Sleep quality often suffers before you feel jittery.',
+      'Half-life varies: many adults are near 5–6 hours; pregnancy and some medications can slow clearance. Adjust the slider if you know you are sensitive.',
+      'Cold brew and large café cups hide milligrams. Prefer label or café nutrition numbers when you have them.',
+      'The log saves in your browser so tomorrow’s first coffee is one tap away — treat it like a habit tracker for sleep, not a medical device.',
+    ],
+    whyItMatters:
+      'Sleep and anxiety searches around coffee are huge, but most advice is a vague “no coffee after 2 pm.” Your cutoff depends on what you drank and when. A day planner turns that into a personal number — and it is the natural home for people who already use our caffeine and half-life calculators.',
+    relatedSlugs: [
+      'caffeine-calculator',
+      'caffeine-half-life-calculator',
+      'coffee-calories-calculator',
+      'hydration-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Rough caffeine by drink (planner presets)',
+        caption: 'Averages for orientation — brands and recipes vary.',
+        headers: ['Drink', 'Approx caffeine'],
+        rows: [
+          ['Brewed coffee 8 oz', '95 mg'],
+          ['Large drip 16 oz', '190 mg'],
+          ['Espresso shot', '63 mg'],
+          ['Double espresso / iced latte (2 shots)', '126 mg'],
+          ['Cold brew 8 oz', '155 mg'],
+          ['Shaken espresso (2–3 shots)', '~170 mg'],
+        ],
+      },
+      {
+        title: 'Why timing beats “cups per day”',
+        headers: ['Pattern', 'What usually happens'],
+        rows: [
+          ['2 × 95 mg at 8 am only', 'Often fine for a 10:30 pm bedtime'],
+          ['95 mg at 8 am + 126 mg at 3 pm', 'Meaningful caffeine may remain at night'],
+          ['400 mg before noon', 'Daily total OK for many; sleep still depends on last dose'],
+          ['Late energy drink + coffee', 'Easy to overshoot both total mg and bedtime leftover'],
+        ],
+      },
+    ],
+  },
+
   'caffeine-calculator': {
     intro:
       'Caffeine is the world\'s most widely consumed psychoactive substance, and coffee is its biggest delivery vehicle. A single 8 oz brewed cup contains roughly 80–100 mg depending on roast level, bean variety, and brew method. Cold brew and drip are at the high end; espresso per ounce is high but per serving is moderate because the serving is small. The FDA considers 400 mg per day safe for most healthy adults — that is four standard mugs of brewed coffee. This calculator helps you see exactly where your current intake lands.',
@@ -3526,6 +4285,7 @@ export const TOOL_CONTENT: Record<
     whyItMatters:
       'Tracking caffeine intake helps identify whether coffee is affecting your sleep, anxiety, or focus — three things most coffee drinkers genuinely care about. It is also useful context if you are pregnant, on medication that interacts with caffeine, or simply trying to understand your energy patterns throughout the day.',
     relatedSlugs: [
+      'caffeine-day-planner',
       'cold-brew-calculator',
       'iced-coffee-calculator',
       'espresso-ratio-calculator',
@@ -3654,7 +4414,7 @@ export const TOOL_CONTENT: Record<
 
   'caffeine-half-life-calculator': {
     intro:
-      '“How long does caffeine last?” is really a pharmacokinetics question dressed as a lifestyle worry. Caffeine’s average half-life in healthy adults is about 5–6 hours, so a 2 pm cold brew can still be meaningful at 10 pm. This calculator estimates remaining milligrams over time so you can plan the last cup before bed — not diagnose metabolism.',
+      '“How long does caffeine last?” is really a pharmacokinetics question dressed as a lifestyle worry. Caffeine’s average half-life in healthy adults is about 5–6 hours, so a 2 pm cold brew can still be meaningful at 10 pm. This calculator estimates remaining milligrams over time for a single dose. For a full day of stacked coffees and a sleep cutoff, use the caffeine day planner.',
     howToUse: [
       {
         step: 'Choose a dose',
@@ -3686,6 +4446,7 @@ export const TOOL_CONTENT: Record<
     whyItMatters:
       'Sleep disruption is one of the biggest real-world downsides of coffee. A half-life tool targets high-intent queries (“how long does coffee stay in your system,” “when does caffeine wear off”) and supports the health content cluster around anxiety, empty-stomach coffee, and daily limits.',
     relatedSlugs: [
+      'caffeine-day-planner',
       'caffeine-calculator',
       'coffee-calories-calculator',
       'cold-brew-calculator',
@@ -3774,7 +4535,7 @@ export const TOOL_CONTENT: Record<
 
   'grind-size-chart': {
     intro:
-      "Grind size controls extraction rate. Finer grinds have more surface area exposed to water, so they extract quickly — ideal for espresso's 25-second shot. Coarser grinds extract slowly, which is why French press and cold brew need minutes to hours rather than seconds. When grind is mismatched to brew method, the result is predictable: too fine for the method produces over-extracted bitterness; too coarse produces under-extracted sourness and weakness. This chart maps every common brew method to the grind size that produces the most balanced cup.",
+      "Grind size controls extraction rate. Finer grinds have more surface area, so they extract quickly — which is why espresso needs ~25–30 seconds and French press needs ~4 minutes. When grind is mismatched to the method, the cup fails in predictable ways: too fine → bitter and clogged; too coarse → sour and thin. Pair this chart with the coffee brewing ratios guide (1:16 filter, 1:2 espresso, 1:8 cold brew concentrate) so you are not fighting two unknowns at once.",
     howToUse: [
       {
         step: 'Find your brew method in the chart',
@@ -3784,56 +4545,76 @@ export const TOOL_CONTENT: Record<
       {
         step: 'Use the tactile reference to calibrate',
         detail:
-          "Rub a pinch of your ground coffee between your fingers. Fine espresso grind should feel like soft flour or powdery table salt — no distinct grit. Pour over medium-fine should have a light sandy texture. French press coarse should feel like raw cane sugar or cracked sea salt.",
+          "Rub a pinch of ground coffee between your fingers. Espresso should feel powdery; pour over like table salt; French press like sea salt or breadcrumbs. Ignore the number printed on a cheap grinder until the texture matches.",
       },
       {
-        step: 'Adjust your grinder in steps',
+        step: 'Taste, then move 1–2 clicks',
         detail:
-          "Most grinders label settings 1–10 or use numbered clicks. Move one or two steps at a time and brew a test cup before moving further. Grind-size taste issues are exaggerated in espresso (one click can change a shot dramatically) and subtle in drip (several clicks may barely register).",
+          'Sour / fast drain → finer. Bitter / stalled → coarser. Change grind before ratio. Espresso reacts to half-clicks; drip may need several steps before you notice.',
       },
     ],
     proTips: [
-      "Grind consistency matters as much as grind size. A cheap blade grinder produces a mix of fine dust and coarse chunks — the dust over-extracts and turns bitter while the chunks under-extract. A burr grinder cuts coffee to a uniform size. It's the most impactful upgrade you can make to your setup.",
-      'After changing grind size, always discard the first few grams of output. Grounds from the previous setting linger in the burr chamber and will skew your new results.',
-      "Coffee absorbs moisture, which swells the grounds and affects how they grind. Expect to re-dial your grinder after a new bag, especially if you've switched roasters or origins.",
-      "Espresso grind is the most sensitive — a half-click on a quality grinder is meaningful. Pour over and drip are forgiving. French press and cold brew are the most forgiving of all, which is why they're great starting points for new home brewers.",
-      "Altitude and humidity affect grind. If you're at high altitude, water boils at a lower temperature, which changes extraction dynamics and may require a slightly finer grind to compensate.",
+      'Blade grinders make dust + boulders in the same scoop. A burr grinder is the single biggest taste upgrade for any brew method on this chart.',
+      'Purge a few grams after changing settings — old grind size sits in the burr chamber.',
+      'New bags and humid weather shift grind needs. Re-dial when the cup suddenly goes sour or bitter with the “same” recipe.',
+      'French press muddy? Go coarser and decant fully after plunging — do not keep steeping on the grounds.',
+      'Want the full ratio + grind table in one place? Open the brewing ratios & grind size chart guide, then come back here for the visual scale.',
     ],
     whyItMatters:
-      "Grind is the most frequently mis-set variable in home coffee. Most 'bad coffee' complaints — sour, bitter, weak, muddy — are directly traceable to grind size before anything else. This chart is the reference to reach for first whenever a cup tastes off.",
-    relatedSlugs: ['coffee-ratio-calculator', 'brew-timer', 'espresso-ratio-calculator'],
+      "Most 'bad coffee' at home is a grind problem first. Fix texture before you blame the beans, the kettle, or the ratio.",
+    relatedSlugs: [
+      'coffee-ratio-calculator',
+      'brew-timer',
+      'espresso-ratio-calculator',
+      'french-press-calculator',
+    ],
+    answerTables: [
+      {
+        title: 'Grind vs what went wrong',
+        caption: 'Change grind first. Ratio second.',
+        headers: ['Taste / behavior', 'Likely grind issue', 'Move'],
+        rows: [
+          ['Sour, thin, finishes fast', 'Too coarse / under-extracted', 'Finer'],
+          ['Bitter, drying, stalls', 'Too fine / over-extracted', 'Coarser'],
+          ['Muddy French press', 'Too fine for mesh', 'Much coarser'],
+          ['Espresso gushes <20s', 'Too coarse for basket', 'Finer'],
+          ['Espresso chokes >40s', 'Too fine', 'Coarser'],
+        ],
+      },
+    ],
   },
 
   'world-coffee-map': {
     intro:
-      'Coffee is a product of place. The same Coffea arabica plant grown at 800 meters in Brazil produces a completely different cup than one grown at 2,000 meters in Ethiopia — and both taste nothing like a Sumatran. Altitude, soil, rainfall, temperature, species (Arabica vs Robusta), and processing after harvest shape flavor in ways no grind setting can fake. This map covers 26 producing countries across the coffee belt. Search by name, flavor, or process; tap a chip if the country is too small to hit; then read altitude, harvest, cup bars, and a brew that actually suits that origin.',
+      'Coffee is a product of place. The same Coffea arabica plant grown at 800 meters in Brazil produces a completely different cup than one grown at 2,000 meters in Ethiopia — and both taste nothing like a Sumatran. Altitude, soil, rainfall, temperature, species (Arabica vs Robusta), and processing after harvest shape flavor in ways no grind setting can fake. This map covers 29 producing origins across the coffee belt — including Hawaii (Kona), Bolivia, and Thailand. Search by name, filter by cup style or species, compare two countries side by side, or deep-link a profile with the share button.',
     howToUse: [
       {
-        step: 'Search or filter, then open a country',
+        step: 'Search, filter, or browse the list',
         detail:
-          'Type Ethiopia, Gesha, Robusta, or honey process. Filter Africa / Americas / Asia. Colored countries on the map are producers (by region). Tiny islands like Jamaica are easier from the chip list than from the globe. The map zooms to the origin you pick.',
+          'Type Ethiopia, Gesha, Robusta, or honey process. Filter by belt (Africa / Americas / Asia), cup style (bright, floral, chocolate, earthy), or species. Colored countries on the map are producers. Tiny islands and Hawaii are easier from the chip list or desktop side panel than from the globe.',
       },
       {
-        step: 'Read the flavor profile',
+        step: 'Open a country profile',
         detail:
-          'Body and acidity bars show where this origin sits on the spectrum. High acidity coffees like Kenya and Ethiopia suit pour over methods that highlight brightness. Low-acid, full-body origins like Brazil and Sumatra suit espresso and French press.',
+          'Tap a country or chip. You get altitude, harvest, flavors, process, varietals, cup bars (acidity / body / sweetness), caffeine level, and a brew that usually suits that origin. The URL hash updates so you can copy a link to Ethiopia, Kenya, etc.',
       },
       {
-        step: 'Check species and process',
+        step: 'Compare two origins',
+        detail:
+          'Turn on Compare and pick two countries. Side-by-side bars and a metric table show acidity, body, sweetness, caffeine, altitude, and process — useful when you are stuck between Kenya vs Ethiopia or Brazil vs Sumatra.',
+      },
+      {
+        step: 'Use species + process as buying clues',
         detail:
           'Arabica is the specialty default. Robusta (Vietnam and much of Uganda) is heavier and more caffeinated. Natural processing tends to be fruity and winey; washed is cleaner; honey sits in between; wet-hulled Sumatra is its own earthy category.',
-      },
-      {
-        step: 'Use the brew recommendation',
-        detail:
-          'Each origin lists a best-suited brew method. That is a starting point — every origin can work in any method — but some matches are much more satisfying than others. Vietnam links through to the iced coffee recipe; others go to the origins guide.',
       },
     ],
     proTips: [
       'Single-origin coffees highlight the terroir of one farm or region. Blends balance multiple origins for consistency. For exploring coffee origins, always start with single-origin bags.',
       'Roast level can mask or enhance origin character. Light roasts preserve the most origin flavor — fruity Ethiopian naturals are best enjoyed light. Dark roasts shift character toward roast-driven chocolate and smoke.',
       'The processing method is often listed on specialty coffee bags and is as important as origin for predicting flavor.',
-      'If you want to explore high-acidity coffees, Kenya and Ethiopia are the places to start. If you prefer low-acid, smooth cups, Brazil and Sumatra are your best bet.',
+      'If you want high-acidity coffees, filter “Bright & fruity” (Kenya, Ethiopia, Burundi). For low-acid, smooth cups, try chocolate/earthy filters (Brazil, Sumatra, India monsooned).',
+      'Luxury labels (Kona, Blue Mountain, Panama Gesha) are tiny GI zones — counterfeits and blends are common. Read the bag, not just the buzzword.',
     ],
     whyItMatters:
       'Understanding origin is the fastest way to reliably buy coffee you will enjoy. Instead of guessing from vague tasting notes on a bag, knowing that you love washed Ethiopian pour overs or low-acid Brazilian espresso means you can walk into any specialty coffee shop and know exactly what to ask for.',
@@ -3855,6 +4636,21 @@ export const TOOL_CONTENT: Record<
           ['Indonesia', 'Wet-hulled Sumatra', 'Earthy, syrupy, low acid'],
           ['Ethiopia', 'Arabica homeland', 'Floral, blueberry, jasmine pour over'],
           ['Kenya', 'Specialty auction lots', 'Blackcurrant, grapefruit, very bright'],
+          ['Hawaii (Kona)', 'Tiny GI luxury lot', 'Mild, clean, low acid — watch for blends'],
+          ['Panama', 'Gesha auctions', 'Jasmine, tropical, tea-like luxury cups'],
+          ['Thailand', 'Rising northern specialty', 'Chocolate, spice; Arabica + Robusta'],
+          ['Bolivia', 'High Andean specialty', 'Stone fruit, caramel, clean washed'],
+        ],
+      },
+      {
+        title: 'Cup-style shortcuts',
+        caption: 'Use the map filters with the same names. These are starting points, not rules.',
+        headers: ['If you like…', 'Filter', 'Try first'],
+        rows: [
+          ['Bright citrus / berry', 'Bright & fruity', 'Kenya, Ethiopia, Burundi, Rwanda'],
+          ['Tea-like florals', 'Floral & tea-like', 'Ethiopia, Panama Gesha, Rwanda'],
+          ['Chocolate / nut espresso', 'Chocolate & nutty', 'Brazil, Guatemala, Nicaragua'],
+          ['Heavy, earthy body', 'Earthy & heavy', 'Indonesia (Sumatra), India, Vietnam'],
         ],
       },
     ],

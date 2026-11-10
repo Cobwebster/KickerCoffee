@@ -7,7 +7,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { ContentBlocks } from '@/components/content-blocks'
 import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
-import { BEAN_ARTICLES, SITE, getBeanArticle } from '@/lib/content'
+import { AffiliatePicks } from '@/components/affiliate-picks'
+import { BEAN_ARTICLES, BEAN_PICKS, SITE, getBeanArticle } from '@/lib/content'
 import { QuickAnswer } from '@/components/quick-answer'
 
 export function generateStaticParams() {
@@ -92,6 +93,17 @@ export default async function BeanArticlePage({
       'mushroom-coffee-explained',
       'is-black-coffee-bad-for-you',
       'how-to-store-coffee-beans',
+    ],
+    'best-decaf-coffee': [
+      'how-much-coffee-is-too-much',
+      'coffee-and-anxiety',
+      'coffee-roast-levels-explained',
+      'how-to-store-coffee-beans',
+    ],
+    'coffee-and-anxiety': [
+      'best-decaf-coffee',
+      'how-much-coffee-is-too-much',
+      'is-coffee-good-for-you',
     ],
   }
   const related =
@@ -189,6 +201,33 @@ export default async function BeanArticlePage({
         </div>
 
         <FaqSection faqs={article.faqs} />
+
+        {(article.slug === 'coffee-roast-levels-explained' ||
+          article.slug === 'coffee-bean-origins-guide' ||
+          article.slug === 'how-to-store-coffee-beans' ||
+          article.slug === 'best-decaf-coffee' ||
+          article.slug === 'coffee-and-anxiety' ||
+          article.slug === 'how-much-coffee-is-too-much') && (
+          <AffiliatePicks
+            heading={
+              article.slug === 'best-decaf-coffee'
+                ? 'Shop our recommended decaf'
+                : 'Shop whole-bean coffee on Amazon'
+            }
+            intro={
+              article.slug === 'best-decaf-coffee'
+                ? 'Water-processed Peet’s Decaf Major Dickason’s — bold dark-roast flavor without the full caffeine load. Prices move; open the listing for live stock.'
+                : 'Education first — then a bag that matches the roast style you just learned. Prices and roast dates change; check the listing before you buy.'
+            }
+            products={
+              article.slug === 'best-decaf-coffee'
+                ? BEAN_PICKS.filter((b) => b.roast === 'Decaf')
+                : article.slug === 'coffee-roast-levels-explained'
+                  ? BEAN_PICKS
+                  : BEAN_PICKS.slice(0, 4)
+            }
+          />
+        )}
       </article>
 
       <section className="mt-16 border-t border-border pt-10" aria-labelledby="related-heading">

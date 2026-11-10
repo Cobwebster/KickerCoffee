@@ -15,6 +15,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE.url}/sitemap.xml`,
-    host: SITE.url,
+    // Preferred host for crawlers (www + https). Sitemap URLs already use SITE.url.
+    host: 'www.kickercoffee.com',
   }
 }

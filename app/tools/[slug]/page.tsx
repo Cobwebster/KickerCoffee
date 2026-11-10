@@ -126,12 +126,59 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             </p>
           </aside>
         )}
+        {tool.slug === 'caffeine-day-planner' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Caffeine’s half-life is about <strong>5–6 hours</strong>. Log every drink with a time —
+              the planner estimates what is still left at bedtime and suggests a cutoff (often earlier
+              than “no coffee after 2 pm” if you stack afternoon cups).
+            </p>
+          </aside>
+        )}
         {tool.slug === 'caffeine-calculator' && (
           <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
             <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
               ~95 mg per 8 oz brewed coffee. So 100 mg ≈ 1 cup, 155 mg ≈ 1.6 cups (or one cold brew),
               190 mg ≈ 2 cups / one large drip.
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'drip-coffee-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Coffee-maker “cups” are usually <strong>5 oz</strong>, not 8 oz mugs. For 12 cups start
+              around <strong>106–113 g</strong> coffee (~1.8 L water) at a 1:16–1:17 drip ratio.
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'coffee-measurement-converter' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              About <strong>5 g per level tablespoon</strong> of ground coffee, or ~10 g per standard
+              2-tbsp scoop. Grams beat scoops — roast and grind change how densely coffee packs.
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'coffee-ratio-calculator' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Start at <strong>1:16</strong> for drip/pour over (~15–16 g per 250 ml mug). French
+              press often prefers <strong>1:15</strong>. Espresso is a different scale (~1:2
+              dose:yield).
+            </p>
+          </aside>
+        )}
+        {tool.slug === 'grind-size-chart' && (
+          <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
+            <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
+              Coarse = French press / cold brew. Medium = drip. Medium-fine = pour over / AeroPress.
+              Fine = espresso. Sour cup → grind finer; bitter → coarser.
             </p>
           </aside>
         )}
@@ -149,8 +196,8 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
             <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
               Coffee grows in the tropical <strong>coffee belt</strong>. Brazil grows the most;
-              Vietnam is #2 (mostly Robusta); Ethiopia is where Arabica comes from. Search a country
-              below if the map is too small to tap.
+              Vietnam is #2 (mostly Robusta); Ethiopia is where Arabica comes from. Filter by cup
+              style, compare two origins, or search if the map is too small to tap.
             </p>
           </aside>
         )}
@@ -166,9 +213,188 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         )}
       </header>
 
-      {/* Intro prose — above the widget so crawlers see it immediately */}
+      {/* Widget first — GA shows tool users bounce when prose blocks the calculator */}
+      <ToolWidget slug={tool.slug} />
+
+      {tool.slug === 'caffeine-day-planner' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/tools/caffeine-calculator"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Caffeine calculator — mg to cups & daily limit
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/coffee-beans/coffee-and-anxiety"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Coffee and anxiety — when caffeine spikes nerves
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'caffeine-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/tools/caffeine-day-planner"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                New
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Caffeine day planner — sleep cutoff for your whole day
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/tools/caffeine-half-life-calculator"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Caffeine half-life — when will it leave your system?
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'drip-coffee-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/tools/coffee-ratio-calculator"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Coffee-to-water ratio calculator (any mug size)
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/brewing-guides/coffee-brewing-ratios-and-grind-size-chart"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Full chart
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Brewing ratios & grind sizes for every method
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'coffee-measurement-converter' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/tools/drip-coffee-calculator"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Drip coffee calculator — 4 / 8 / 10 / 12 cups
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/tools/coffee-ratio-calculator"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related tool
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Ratio calculator — lock 1:15 / 1:16 / 1:17
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'coffee-ratio-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/brewing-guides/french-press-coffee-ratio-and-method"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Full guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                French press coffee ratio (1:15) — method
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/brewing-guides/coffee-brewing-ratios-and-grind-size-chart"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Full chart
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                All-method ratio & grind size chart
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'grind-size-chart' && (
+        <Link
+          href="/brewing-guides/coffee-brewing-ratios-and-grind-size-chart"
+          className="mt-6 flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+        >
+          <span>
+            <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+              Full guide
+            </span>
+            <span className="mt-0.5 block text-sm font-medium text-foreground">
+              Coffee brewing ratios & grind size chart — every method
+            </span>
+          </span>
+          <ArrowRight className="size-4 shrink-0 text-accent" />
+        </Link>
+      )}
+
       {content && (
-        <section className="mb-8" aria-labelledby="intro-heading">
+        <section className="mt-10" aria-labelledby="intro-heading">
           <h2
             id="intro-heading"
             className="font-serif text-xl font-semibold tracking-tight text-foreground"
@@ -178,9 +404,6 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">{content.intro}</p>
         </section>
       )}
-
-      {/* Interactive widget — single client boundary */}
-      <ToolWidget slug={tool.slug} />
 
       {tool.slug === 'french-press-calculator' && (
         <Link
@@ -245,6 +468,134 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           </span>
           <ArrowRight className="size-4 shrink-0 text-accent" />
         </Link>
+      )}
+      {tool.slug === 'world-coffee-map' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/coffee-beans/coffee-bean-origins-guide"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Full guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Coffee bean origins guide — how terroir shapes the cup
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/recipes/vietnamese-iced-coffee"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Vietnamese iced coffee (cà phê sữa đá)
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'iced-coffee-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/recipes/iced-latte"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Iced latte — espresso, milk & ice ratio
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/recipes/brown-sugar-shaken-espresso"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Brown sugar shaken espresso at home
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'espresso-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/recipes/cappuccino"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Cappuccino recipe — foam & milk ratio
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/recipes/cortado"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Cortado vs flat white — how to make one
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'coffee-calories-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/recipes/mocha"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Homemade mocha — control the chocolate
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/recipes"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                All recipes
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Café drinks with measured ingredients
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
       )}
 
       {/* Static answer tables — crawlable even without JS interaction */}

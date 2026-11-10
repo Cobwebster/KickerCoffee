@@ -3,7 +3,7 @@ import type { ContentBlock, FaqItem } from './content'
 export type Recipe = {
   slug: string
   name: string
-  category: 'Espresso drink' | 'Iced' | 'Classic' | 'Viral'
+  category: 'Espresso drink' | 'Iced' | 'Classic' | 'Viral' | 'Korean café'
   title: string
   metaDescription: string
   excerpt: string
@@ -12,6 +12,12 @@ export type Recipe = {
   yield: string
   updated: string
   image: string
+  /** Optional how-to video — only set when a real public YouTube tutorial exists. */
+  youtube?: {
+    id: string
+    title: string
+    channel: string
+  }
   quickAnswer: string
   intro: string
   ingredients: string[]
@@ -35,7 +41,13 @@ export const RECIPES: Recipe[] = [
     time: '4 min',
     yield: '1 tall glass (12–16 oz)',
     updated: '2026-10-29',
-    image: '/images/cold-brew-hero.webp',
+    image: '/images/recipes/iced-latte.webp',
+    youtube: {
+      id: 'S3qoxUWpYcQ',
+      title: "How to Make an Iced Latte | Perfect Coffee",
+      channel: "Howcast",
+    },
+    
     quickAnswer:
       'Pull a double espresso (about 50–60 ml), fill a glass with ice, add 180–240 ml cold milk, then pour the shots over. That is roughly 1:4 espresso to milk. Stir. Sweeten the espresso before the milk if you use syrup.',
     intro:
@@ -136,7 +148,13 @@ export const RECIPES: Recipe[] = [
     time: '5 min',
     yield: '1 cup (150–180 ml)',
     updated: '2026-10-29',
-    image: '/images/espresso-hero.webp',
+    image: '/images/recipes/cappuccino.webp',
+    youtube: {
+      id: '3kZC6Lbl-4Y',
+      title: "How to Make a Coffee-Shop Quality Cappuccino at Home Without a Fancy Machine",
+      channel: "Rajiv Surendra",
+    },
+    
     quickAnswer:
       'Traditional cappuccino is about equal parts espresso, steamed milk, and milk foam in a 150–180 ml cup — often a double espresso with a thick, spoonable foam cap. It is foamier than a flat white and much smaller than a café latte.',
     intro:
@@ -237,7 +255,13 @@ export const RECIPES: Recipe[] = [
     time: '3 min',
     yield: '1 small glass (~120 ml)',
     updated: '2026-10-29',
-    image: '/images/espresso-hero.webp',
+    image: '/images/recipes/cortado.webp',
+    youtube: {
+      id: 'ncDuadvtmBM',
+      title: "Making a Cortado & a Piccolo Latte: What’s the Difference?",
+      channel: "Artisti Coffee Roasters",
+    },
+    
     quickAnswer:
       'A cortado is a double espresso cut with roughly the same volume of lightly steamed milk — about 50–60 ml espresso and 50–60 ml milk in a ~120 ml glass. Little foam. Stronger and smaller than a flat white.',
     intro:
@@ -336,7 +360,13 @@ export const RECIPES: Recipe[] = [
     time: '5 min',
     yield: '1 glass or cup',
     updated: '2026-10-29',
-    image: '/images/home-hero.webp',
+    image: '/images/recipes/spanish-latte.webp',
+    youtube: {
+      id: '34ddPN4aC-8',
+      title: "Making Iced Spanish Latte. Espresso before milk or milk before espresso?",
+      channel: "Chao Coffee and Tea",
+    },
+    
     quickAnswer:
       'Stir 20–30 ml sweetened condensed milk with a double espresso, then add 120–180 ml hot or cold milk. For iced, build over ice. Start with 25 ml condensed milk and reduce if it is candy-sweet.',
     intro:
@@ -427,7 +457,7 @@ export const RECIPES: Recipe[] = [
           'Evaporated milk is unsweetened. You would need extra sugar and it will not taste the same. Condensed milk is the defining ingredient.',
       },
     ],
-    relatedSlugs: ['vietnamese-iced-coffee', 'iced-latte', 'mocha'],
+    relatedSlugs: ['yeonyu-latte', 'vietnamese-iced-coffee', 'iced-latte'],
   },
   {
     slug: 'vietnamese-iced-coffee',
@@ -442,7 +472,13 @@ export const RECIPES: Recipe[] = [
     time: '8–12 min (phin) / 5 min (Moka)',
     yield: '1 tall glass',
     updated: '2026-10-29',
-    image: '/images/cold-brew-hero.webp',
+    image: '/images/recipes/vietnamese-iced-coffee.webp',
+    youtube: {
+      id: 'Eax_IAKZUho',
+      title: "Making traditional Vietnamese coffee with a phin filter",
+      channel: "DAYBREAK VIETNAMESE COFFEE",
+    },
+    
     quickAnswer:
       'Brew a small, strong cup of dark coffee (phin, Moka, or espresso), stir in 2–3 tablespoons sweetened condensed milk until dissolved, then pour over a glass packed with ice. Use a chocolatey dark roast or Vietnamese-style ground coffee if you can.',
     intro:
@@ -531,7 +567,13 @@ export const RECIPES: Recipe[] = [
     time: '6 min (plus syrup)',
     yield: '1 tall glass',
     updated: '2026-10-29',
-    image: '/images/espresso-hero.webp',
+    image: '/images/recipes/brown-sugar-shaken-espresso.webp',
+    youtube: {
+      id: 'xbz-GWQsN4I',
+      title: "How to Make STARBUCKS Brown Sugar SHAKEN ESPRESSO at Home",
+      channel: "Jerry Papandrea",
+    },
+    
     quickAnswer:
       'Shake 2–3 espresso shots with 15–25 ml brown sugar syrup and ice for 10–15 seconds. Strain or dump into a glass, top with a splash (30–60 ml) of milk — oat is the usual. Do not fill the glass with milk like a latte.',
     intro:
@@ -622,7 +664,13 @@ export const RECIPES: Recipe[] = [
     time: '15 min (first batch of syrup) / 4 min after',
     yield: '1 drink (syrup makes ~8)',
     updated: '2026-10-29',
-    image: '/images/french-press-hero.webp',
+    image: '/images/recipes/pistachio-latte.webp',
+    youtube: {
+      id: 'pgzTC5OyRes',
+      title: "Pistachio Latte at Home — Starbucks-Style",
+      channel: "Richard Gregory",
+    },
+    
     quickAnswer:
       'Simmer chopped pistachios with sugar and water, strain, then use 20–30 ml syrup with a double espresso and 150–200 ml milk. Iced: build over ice. A pinch of salt in the syrup is what makes it taste “pistachio café” instead of generic nut.',
     intro:
@@ -702,7 +750,13 @@ export const RECIPES: Recipe[] = [
     time: '5 min',
     yield: '1 cup or tall glass',
     updated: '2026-10-29',
-    image: '/images/espresso-hero.webp',
+    image: '/images/recipes/mocha.webp',
+    youtube: {
+      id: '906khxWTiIw',
+      title: "The Absolute BEST Mocha Recipe You’ll Ever Make",
+      channel: "Morgan Eckroth",
+    },
+    
     quickAnswer:
       'Stir 15–20 g cocoa (or 25–30 g melted dark chocolate) with a double espresso until smooth, then add 150–200 ml steamed or cold milk. Iced: chocolate-espresso first, then ice and milk. Use real cocoa; chocolate syrup is optional, not required.',
     intro:
@@ -798,7 +852,13 @@ export const RECIPES: Recipe[] = [
     time: '10 min homemade chai / 4 min with concentrate',
     yield: '1 mug or glass',
     updated: '2026-10-29',
-    image: '/images/pour-over-hero.webp',
+    image: '/images/recipes/dirty-chai.webp',
+    youtube: {
+      id: '5p9uNaYLgqs',
+      title: "This Honey Vanilla Dirty Chai Latte Is NEXT LEVEL",
+      channel: "Created to Coffee",
+    },
+    
     quickAnswer:
       'Brew a strong masala chai (or heat a unsweetened concentrate), add 1–2 espresso shots, then milk to taste. Classic dirty chai is chai-forward with espresso in the background. Two shots in a small mug if you want it “dirty.”',
     intro:
@@ -892,7 +952,13 @@ export const RECIPES: Recipe[] = [
     time: '3 min',
     yield: '1 serving',
     updated: '2026-10-29',
-    image: '/images/espresso-hero.webp',
+    image: '/images/recipes/affogato.webp',
+    youtube: {
+      id: 'vGitBQ5mYZg',
+      title: "How To Make Affogato At Home (a simple recipe)",
+      channel: "European Coffee Trip",
+    },
+    
     quickAnswer:
       'Put one firm scoop of vanilla gelato or ice cream in a cold bowl or glass. Pull a hot double espresso and pour it over immediately. Serve at once with a spoon. Do not pre-pour and wait.',
     intro:
@@ -977,7 +1043,407 @@ export const RECIPES: Recipe[] = [
           'Dense vanilla gelato. Very cheap airy ice cream melts too fast. Chocolate ice cream makes a mocha-like version.',
       },
     ],
-    relatedSlugs: ['mocha', 'cappuccino', 'cortado'],
+    relatedSlugs: ['mocha', 'cappuccino', 'korean-cream-coffee'],
+  },
+  {
+    slug: 'korean-cream-coffee',
+    name: 'Korean Cream Coffee',
+    category: 'Korean café',
+    title: 'Korean Cream Coffee (Einspänner) — Thick Cream Over Iced Coffee',
+    metaDescription:
+      'Korean cream coffee recipe (아이스 아인슈페너): iced Americano or espresso with lightly sweetened whipped cream. Ratios, soft-peak cream, vs latte, home café method.',
+    excerpt:
+      'The K-café drink TikTok calls “Korean cream coffee”: strong iced coffee, dense cream cap you sip through — not a latte with a dollop of Reddi-wip.',
+    difficulty: 'Beginner',
+    time: '6 min',
+    yield: '1 tall glass',
+    updated: '2026-11-10',
+    image: '/images/recipes/korean-cream-coffee.webp',
+    youtube: {
+      id: '8uOhz4MMpeY',
+      title: "How to Make Whipped Cream (Vienna, Einspanner, etc)",
+      channel: "Celo Kim",
+    },
+    
+    quickAnswer:
+      'Fill a glass with ice and a strong double espresso (or cold brew) topped with cold water to Americano strength. Whip 80–100 ml cold heavy cream with 1–2 tsp sugar to soft peaks — thick enough to float, soft enough to sip. Spoon on top. Drink through the cream; do not stir into a milkshake unless you want to.',
+    intro:
+      'Korean cream coffee (often sold as iced Einspänner / 아인슈페너) is Austria’s cream-topped coffee remixed for Seoul’s ice-first café culture. Abroad it gets searched as “Korean cream coffee” because K-cafés made the tall glass + thick cream photo famous — and because chains keep pushing cream-forward drinks (deep cream lattes, fresh-cream Americanos) in 2025–2026. At home the whole trick is strong coffee under soft, spoonable cream, not canned foam on watery drip.',
+    ingredients: [
+      '2 espresso shots (50–60 ml) or 80–100 ml strong cold brew / Moka concentrate',
+      '60–100 ml cold water (to cut espresso into iced Americano strength)',
+      'Ice, enough to fill a tall glass',
+      '80–100 ml very cold heavy cream (35%+ fat)',
+      '1–2 tsp sugar, powdered sugar, or simple syrup (optional vanilla)',
+      'Optional dusting: cocoa, cinnamon, or a pinch of salt on the cream',
+    ],
+    steps: [
+      'Chill the glass 5 minutes. Pack with ice.',
+      'Pull espresso (or measure concentrate). Pour over ice, then add cold water until the coffee sits below the cream line you want — usually leave the top third empty.',
+      'Whip cold cream with sugar to soft peaks: peaks flop over, cream still pourable/spoonable. Stop before stiff buttercream peaks.',
+      'Spoon or pour cream onto the coffee so it sits as a distinct layer 2–3 cm thick.',
+      'Sip through the cream. First taste should be sweet cream, then bitter coffee — that contrast is the drink.',
+    ],
+    body: [
+      { type: 'heading', text: 'Korean cream coffee vs latte vs dabang deep cream latte' },
+      {
+        type: 'list',
+        items: [
+          'Korean cream coffee / iced Einspänner: black iced coffee + floating whipped cream. Milk is optional or minimal.',
+          'Iced latte: espresso mixed into a lot of cold milk + ice. Cream is not the point.',
+          '2026 “deep cream latte” chain style: cream blended into the milk base (~30% cream) so the whole drink is dense — closer to our deep cream latte recipe than to a cream cap.',
+        ],
+      },
+      { type: 'heading', text: 'Cream texture is the whole skill' },
+      {
+        type: 'paragraph',
+        text: 'Soft peaks float and sip. Stiff peaks sit like frosting and force you to dig with a spoon. Under-whipped cream sinks and turns the glass beige. Use a cold bowl, cold cream, and stop early. Handheld frother works; French-press plunge works; stand mixer is overkill for 100 ml.',
+      },
+      {
+        type: 'table',
+        caption: 'Sugar stays in the cream so the coffee stays clean.',
+        headers: ['Cream', 'Result'],
+        rows: [
+          ['No sugar', 'Café-bitter contrast; cream tastes flat to some'],
+          ['1 tsp / 100 ml', 'Soft Korean café default'],
+          ['2–3 tsp', 'Dessert; easy to overshoot'],
+          ['Condensed milk in cream', 'Closer to yeonyu dessert coffee — different drink'],
+        ],
+      },
+      { type: 'heading', text: 'Coffee strength under the cream' },
+      {
+        type: 'paragraph',
+        text: 'Weak drip under cream tastes like iced coffee with dessert topping. A double shot or cold brew concentrate holds up. Korean “eoljuk-ah” culture (얼죽아 — iced Americano even in winter) is why this drink is iced by default; hot Einspänner exists but searches and café photos are iced.',
+      },
+      { type: 'heading', text: 'No espresso machine' },
+      {
+        type: 'paragraph',
+        text: 'Moka pot concentrate + cold water over ice. Or instant espresso (2 tsp in 60 ml hot water) cooled on ice. Do not drown the glass in 12 oz of weak drip before the cream goes on.',
+      },
+      { type: 'heading', text: 'Calories and caffeine' },
+      {
+        type: 'paragraph',
+        text: 'Caffeine ≈ the shots (~120 mg for a double). Calories live in the cream: 80–100 ml heavy cream is often 250–350+ kcal before sugar. This is a café treat, not a black-coffee health hack. For milk-forward richness without a cream cap, make the deep cream latte instead.',
+      },
+      {
+        type: 'tip',
+        text: 'Photograph first if you care — cream collapses as it sits. Drink within 5–10 minutes or the ice melts into the cream layer.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is Korean cream coffee?',
+        answer:
+          'Usually iced coffee (Americano or espresso over ice) topped with a thick layer of lightly sweetened whipped cream. Cafés often call it Einspänner. You sip through the cream into the coffee.',
+      },
+      {
+        question: 'Is Einspänner the same as Korean cream coffee?',
+        answer:
+          'Einspänner is the Austrian name. Korean cafés iced it, sweetened the cream lightly, and made the tall-glass look viral. Same family of drink.',
+      },
+      {
+        question: 'How do you keep the cream from sinking?',
+        answer:
+          'Whip to soft peaks, use cold heavy cream (not half-and-half), and pour coffee that is not still steaming hot onto the ice first. Thin cream sinks.',
+      },
+      {
+        question: 'Can I use oat milk cream?',
+        answer:
+          'Barista oat milk alone will not whip into a stable cap. Use dairy heavy cream, or a whipping plant cream labeled for whipping. Regular oat milk makes a latte, not this drink.',
+      },
+    ],
+    relatedSlugs: ['deep-cream-latte', 'yeonyu-latte', 'iced-latte'],
+  },
+  {
+    slug: 'deep-cream-latte',
+    name: 'Deep Cream Latte',
+    category: 'Korean café',
+    title: 'Deep Cream Latte Recipe — Korean-Style Rich Milk Latte at Home',
+    metaDescription:
+      'Deep cream latte recipe inspired by Korean café “kkosup” / cream-blended lattes: espresso with milk + heavy cream for dense, nutty body. Hot or iced ratios.',
+    excerpt:
+      'When iced lattes taste watery, Korea’s answer is richer dairy — cream blended into the milk, not just foam on top.',
+    difficulty: 'Beginner',
+    time: '5 min',
+    yield: '1 cup or tall glass',
+    updated: '2026-11-10',
+    image: '/images/recipes/deep-cream-latte.webp',
+    youtube: {
+      id: '1wyJyx8l3zs',
+      title: "카페 시그니처 메뉴 크림라떼 만들기",
+      channel: "도나니홈카페",
+    },
+    
+    quickAnswer:
+      'Mix cold milk and heavy cream about 7:3 (e.g. 140 ml milk + 60 ml cream). Add a double espresso. Drink hot (steam the blend gently) or iced. Sweeten lightly if you want café sweetness. This is denser than a normal latte — that nutty richness is the point of 2026 “kkosup latte” craze.',
+    intro:
+      'In 2026 Korean social feeds filled with 고소 라떼 / “kkosup latte” talk — milk that tastes rich, almost nutty, that does not go thin the second ice melts. Chains answered with house milks and deep cream lattes that fold fresh cream into the dairy base (Paik’s Deep Cream Latte is a recent example). You do not need a proprietary carton. Milk + cream + espresso gets you most of the way home.',
+    ingredients: [
+      '2 espresso shots (50–60 ml) or 50 ml strong Moka coffee',
+      '140 ml cold whole milk (barista oat works if you accept a different flavor)',
+      '60 ml cold heavy cream (about 30% of the dairy by volume)',
+      'Ice if iced',
+      'Optional: 1 tsp sugar or brown sugar; pinch of salt',
+    ],
+    steps: [
+      'Stir milk and cream together until uniform. Taste — it should already feel heavier than milk alone.',
+      'Hot: steam or heat the blend to ~60–65°C without scorching. Pull espresso into the cup, pour dairy over, swirl.',
+      'Iced: fill a glass with ice, pour the milk-cream blend, then espresso on top. Stir once.',
+      'Sweeten only after tasting. Cream already reads sweet to many people.',
+      'If it tastes greasy, drop cream toward 20% next time. If it tastes like a normal latte, push cream toward 35%.',
+    ],
+    body: [
+      { type: 'heading', text: 'Why Korean cafés went cream-dense' },
+      {
+        type: 'paragraph',
+        text: 'Standard iced lattes in a huge cup melt into beige water. Korea’s café density means people compare mouthfeel shop-to-shop. “Gosuhada” (고소하다) — that roasted-nut dairy richness — became the scorecard. Cream in the base beats syrup for that texture. Matcha cream drinks and black-velvet-style cream coffees sit in the same texture war.',
+      },
+      { type: 'heading', text: '7:3 milk to cream is a starting point' },
+      {
+        type: 'table',
+        caption: 'Total dairy ~200 ml before espresso.',
+        headers: ['Milk : cream', 'Feel'],
+        rows: [
+          ['9:1', 'Slightly richer latte'],
+          ['7:3', 'Deep cream / kkosup ballpark'],
+          ['1:1', 'Dessert; easy to coat the mouth'],
+        ],
+      },
+      { type: 'heading', text: 'Deep cream latte vs cream-top Einspänner' },
+      {
+        type: 'paragraph',
+        text: 'Cream coffee floats a whipped layer on black iced coffee. Deep cream latte mixes cream through the drink so every sip is dairy-forward. Same ingredient, different architecture. If you want the Instagram cream cap, make Korean cream coffee. If you want a richer everyday latte, stay here.',
+      },
+      { type: 'heading', text: 'Oat and lactose-free notes' },
+      {
+        type: 'paragraph',
+        text: 'Barista oat + a splash of coconut cream can fake richness but tastes different. Lactose-free milk + dairy cream still works if cream is tolerated. Do not expect carton “latte foam” drinks to match 30% real cream.',
+      },
+      { type: 'heading', text: 'Calories' },
+      {
+        type: 'paragraph',
+        text: 'A 7:3 blend with whole milk and cream plus two shots often lands 250–350 kcal depending on cream fat %. That is the trade for texture. Cut the glass size before you cut the cream ratio to zero.',
+      },
+      {
+        type: 'tip',
+        text: 'A tiny pinch of salt in the dairy mix makes cream taste “nutty” instead of flat-sweet — the cheap version of what café house milks are chasing.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is a deep cream latte?',
+        answer:
+          'A latte where heavy cream is blended into the milk (often around 20–30% of the dairy) so the whole drink is denser — not just whipped cream on top.',
+      },
+      {
+        question: 'What is a kkosup latte?',
+        answer:
+          'Korean internet slang for a rich, “gosu” (고소) milk-forward latte — nutty, heavy dairy mouthfeel. Cafés answer with special milks or cream blends. This recipe is the home version.',
+      },
+      {
+        question: 'Deep cream latte vs Korean cream coffee?',
+        answer:
+          'Deep cream latte mixes cream into milk with espresso. Korean cream coffee (Einspänner-style) is iced black coffee with a whipped cream cap.',
+      },
+      {
+        question: 'Can I make it without an espresso machine?',
+        answer:
+          'Yes — 50 ml strong Moka or AeroPress concentrate into the milk-cream mix. Weak drip will taste like cream milk.',
+      },
+    ],
+    relatedSlugs: ['korean-cream-coffee', 'yeonyu-latte', 'iced-latte'],
+  },
+  {
+    slug: 'yeonyu-latte',
+    name: 'Yeonyu Latte',
+    category: 'Korean café',
+    title: 'Yeonyu Latte Recipe — Korean Condensed Milk Coffee (연유라떼)',
+    metaDescription:
+      'Yeonyu latte (연유라떼) recipe: Korean condensed milk latte with espresso and milk. Hot or iced ratios, vs Spanish latte, sweetness control, no-machine options.',
+    excerpt:
+      'Korea’s everyday sweet latte — espresso, milk, and sweetened condensed milk. Café yeonyu at home without a chain menu board.',
+    difficulty: 'Beginner',
+    time: '4 min',
+    yield: '1 mug or tall glass',
+    updated: '2026-11-10',
+    image: '/images/recipes/yeonyu-latte.webp',
+    youtube: {
+      id: '34ddPN4aC-8',
+      title: "Making Iced Spanish Latte (condensed-milk latte — same build as yeonyu)",
+      channel: "Chao Coffee and Tea",
+    },
+    
+    quickAnswer:
+      'Stir 20–30 ml sweetened condensed milk into a double espresso until dissolved, then add 150–200 ml hot or cold milk. Iced: build over ice. Start at 25 ml condensed milk — Korean yeonyu lattes are sweet on purpose, but you can dial down.',
+    intro:
+      '연유라떼 (yeonyu latte) is one of the drinks that quietly runs Korean café and convenience-coffee culture: condensed milk sweetness, espresso, milk. It sits next to Spanish latte and Vietnamese iced coffee in the “condensed milk family,” but the Korean café version usually includes a full pour of fresh milk (unlike cà phê sữa đá) and is ordered as a default sweet latte, not a tourist drink. Paik’s and other chains still list daldal yeonyu latte as a volume seller while cream drinks trend on top.',
+    ingredients: [
+      '2 espresso shots or 50 ml strong Moka coffee',
+      '20–30 ml sweetened condensed milk (연유)',
+      '150–200 ml milk, hot or very cold',
+      'Ice if iced',
+      'Optional: vanilla or a pinch of salt',
+    ],
+    steps: [
+      'Spoon condensed milk into the cup.',
+      'Pull espresso onto it and stir until no white streaks remain on the bottom.',
+      'Hot: steam milk and pour. Iced: ice, cold milk, then the espresso-condensed mix (or mix first, then ice and milk).',
+      'Taste before adding more condensed milk.',
+      'For a “daldal” (달달) café-sweet version, push toward 30–35 ml; for coffee-forward, stay near 15–20 ml.',
+    ],
+    body: [
+      { type: 'heading', text: 'Yeonyu latte vs Spanish latte vs Vietnamese iced coffee' },
+      {
+        type: 'table',
+        caption: 'Same can of condensed milk, different builds.',
+        headers: ['Drink', 'Fresh milk?', 'Vibe'],
+        rows: [
+          ['Yeonyu latte', 'Yes, lots', 'Korean sweet café latte'],
+          ['Spanish latte', 'Yes, lots', 'Same family; often marketed with cinnamon'],
+          ['Vietnamese sữa đá', 'Usually no', 'Strong coffee + condensed + ice'],
+        ],
+      },
+      { type: 'heading', text: 'Why it hits in Korea' },
+      {
+        type: 'paragraph',
+        text: 'Condensed milk dissolves cleanly in espresso, survives ice better than some syrups, and tastes “café sweet” without needing three pumps of vanilla. Low-cost chains scaled it; specialty shops sometimes elevate it with better espresso. It pairs with the broader 2026 latte boom (cream, hojicha, rice, nut lattes) as the familiar sweet baseline.',
+      },
+      { type: 'heading', text: 'Iced yeonyu latte' },
+      {
+        type: 'paragraph',
+        text: 'Dissolve condensed milk in hot espresso first — cold condensed milk is glue. Then ice and milk. Two shots in a 12–16 oz glass or it becomes milk candy. Shake in a jar if you want foam without a steam wand.',
+      },
+      { type: 'heading', text: 'No espresso machine' },
+      {
+        type: 'paragraph',
+        text: 'Moka pot is the Korean-home classic stand-in. Instant espresso works. Use a chocolatey medium-dark roast; floral light roast fights condensed milk the same way it does in a Spanish latte.',
+      },
+      { type: 'heading', text: 'Calories' },
+      {
+        type: 'paragraph',
+        text: '~25 ml condensed milk is often 80–90 kcal plus the milk. A large iced yeonyu can land 220–300 kcal. Treat it as a sweet coffee.',
+      },
+      {
+        type: 'tip',
+        text: 'Rinse the condensed-milk spoon in the espresso so nothing stays stuck. Undissolved 연유 is the #1 homemade failure — same as Spanish latte.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is a yeonyu latte?',
+        answer:
+          'A Korean condensed-milk latte: espresso (or strong coffee), sweetened condensed milk (yeonyu), and fresh milk. Hot or iced.',
+      },
+      {
+        question: 'Is yeonyu latte the same as Spanish latte?',
+        answer:
+          'Same condensed-milk idea. Spanish latte is the common English café name; yeonyu latte is the Korean menu name. Recipes overlap; sweetness and branding differ more than technique.',
+      },
+      {
+        question: 'How much condensed milk in a yeonyu latte?',
+        answer:
+          'Start with 20–30 ml for a double-shot drink. “Daldal” café versions often go sweeter.',
+      },
+      {
+        question: 'Can I use evaporated milk?',
+        answer:
+          'No — evaporated milk is unsweetened. Yeonyu means sweetened condensed milk.',
+      },
+    ],
+    relatedSlugs: ['spanish-latte', 'vietnamese-iced-coffee', 'deep-cream-latte'],
+  },
+  {
+    slug: 'dalgona-coffee',
+    name: 'Dalgona Coffee',
+    category: 'Korean café',
+    title: 'Dalgona Coffee Recipe — Whipped Instant Coffee (달고나 커피)',
+    metaDescription:
+      'Dalgona coffee recipe: equal parts instant coffee, sugar, and hot water whipped to peaks over milk. Hot or iced, ratios, why instant works, and Korean café context.',
+    excerpt:
+      'The whipped coffee that put K-café drinks on global TikTok — still the easiest impressive home coffee foam.',
+    difficulty: 'Beginner',
+    time: '5–8 min',
+    yield: '1 glass',
+    updated: '2026-11-10',
+    image: '/images/recipes/dalgona-coffee.webp',
+    youtube: {
+      id: 'BjJqZ0iTKKQ',
+      title: "How to Make Dalgona Coffee: Viral Tik Tok Whipped Coffee Recipe",
+      channel: "Chef Studio",
+    },
+    
+    quickAnswer:
+      'Whip 2 tbsp instant coffee + 2 tbsp sugar + 2 tbsp hot water until thick and glossy (2–5 minutes). Spoon over a glass of milk with ice (or hot milk). Instant coffee is required — espresso does not whip the same way.',
+    intro:
+      'Dalgona coffee (달고나 커피) was the 2020 lockdown export that made “Korean coffee” a search category worldwide. Named after the honeycomb toffee snack, it is whipped instant coffee foam over milk. It is not the same as 2026 cream lattes — different foam, different era — but people still search the recipe daily, and it belongs next to cream coffee and yeonyu in any K-café roundup.',
+    ingredients: [
+      '2 tbsp instant coffee granules (not ground beans, not espresso)',
+      '2 tbsp sugar',
+      '2 tbsp hot water',
+      '200–250 ml milk, cold for iced or hot for hot',
+      'Ice if iced',
+    ],
+    steps: [
+      'Combine instant coffee, sugar, and hot water in a bowl.',
+      'Whip with a hand mixer, frother, or whisk until the color lightens and the foam holds stiff peaks (2–5 minutes).',
+      'Fill a glass with ice and milk (or hot milk for a hot version).',
+      'Spoon the dalgona foam on top.',
+      'Sip through the foam or stir — both are correct; stirring makes a sweeter latte.',
+    ],
+    body: [
+      { type: 'heading', text: 'Why instant coffee is mandatory' },
+      {
+        type: 'paragraph',
+        text: 'Instant granules dissolve and whip with sugar into a stable foam. Fresh espresso has oils and different proteins; it will not make the same peaks. If you only have espresso, make Korean cream coffee instead of forcing a fake dalgona.',
+      },
+      { type: 'heading', text: '1:1:1 ratio' },
+      {
+        type: 'paragraph',
+        text: 'Equal tablespoons of coffee, sugar, and water is the viral formula. Less sugar = harder to stabilize and less “dalgona.” Sugar substitutes often fail to whip; if you need lower sugar, expect thinner foam or use a cream-cap drink instead.',
+      },
+      { type: 'heading', text: 'Dalgona vs Korean cream coffee vs deep cream latte' },
+      {
+        type: 'list',
+        items: [
+          'Dalgona: whipped instant coffee + sugar foam on milk.',
+          'Cream coffee: dairy cream foam on iced black coffee.',
+          'Deep cream latte: cream mixed into milk with espresso.',
+        ],
+      },
+      { type: 'heading', text: 'Arm workout vs mixer' },
+      {
+        type: 'paragraph',
+        text: 'A cheap electric frother or hand mixer makes this a 2-minute drink. A balloon whisk works and builds character. Stop when the foam turns pale caramel and holds a peak.',
+      },
+      { type: 'heading', text: 'Caffeine note' },
+      {
+        type: 'paragraph',
+        text: 'Two tablespoons of instant can exceed a normal drip cup depending on brand. This is not a “light” coffee. Taste the foam — it is concentrated.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do you make dalgona coffee?',
+        answer:
+          'Whip equal parts instant coffee, sugar, and hot water until fluffy, then spoon over milk. Instant coffee is required.',
+      },
+      {
+        question: 'Can I make dalgona with espresso?',
+        answer:
+          'Not really — the foam will not whip the same. Use instant, or make a cream-top Einspänner with dairy cream instead.',
+      },
+      {
+        question: 'Is dalgona coffee still popular?',
+        answer:
+          'It is no longer the #1 Seoul trend (cream-dense lattes are louder in 2026), but it remains a high-search homemade recipe and the drink that introduced many people to K-café culture.',
+      },
+      {
+        question: 'Why is it called dalgona?',
+        answer:
+          'The whipped foam’s color and sweetness reminded people of dalgona, the Korean sugar candy. The drink is coffee foam, not melted candy.',
+      },
+    ],
+    relatedSlugs: ['korean-cream-coffee', 'yeonyu-latte', 'iced-latte'],
   },
 ]
 
