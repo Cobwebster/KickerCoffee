@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { SITE } from '@/lib/content'
+import { SITE } from '@/lib/site'
 
 /**
  * Next.js generates /robots.txt from this file.

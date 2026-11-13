@@ -1,11 +1,10 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Geist, Geist_Mono, Fraunces } from 'next/font/google'
 import { JsonLd } from '@/components/json-ld'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
-import { SITE } from '@/lib/content'
+import { SITE } from '@/lib/site'
 import './globals.css'
 
 const geistSans = Geist({
@@ -24,6 +23,10 @@ const fraunces = Fraunces({
 })
 
 const GA_ID = 'G-3EB9QKJ0BH'
+
+/** Prefer pure static HTML from the CDN — avoids ISR/Fluid work on content pages. */
+export const dynamic = 'force-static'
+export const revalidate = false
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -118,7 +121,6 @@ export default function RootLayout({
         <SiteFooter />
         {process.env.NODE_ENV === 'production' && (
           <>
-            <Analytics />
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               strategy="afterInteractive"

@@ -1,6 +1,7 @@
 import { Link } from '@/components/link'
 import { Coffee } from 'lucide-react'
-import { NAV, SITE } from '@/lib/content'
+import { NAV } from '@/lib/nav'
+import { SITE } from '@/lib/site'
 
 export function SiteFooter() {
   return (
@@ -95,7 +96,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row">
           <p>
-            &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
+            &copy; 2026 {SITE.name}. All rights reserved.
           </p>
           <p>{SITE.domain}</p>
         </div>

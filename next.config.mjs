@@ -8,6 +8,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Serve public images as-is — skips Vercel Image Optimization bill entirely.
   images: {
     unoptimized: true,
   },
@@ -15,6 +16,28 @@ const nextConfig = {
   // lockfile-based root detection — pin it to this project directory.
   turbopack: {
     root: __dirname,
+  },
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.(ico|png|jpg|jpeg|gif|webp|svg|woff2)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
   async redirects() {
     return [

@@ -11,48 +11,47 @@ import { RECIPES } from '@/lib/recipes'
 
 const BASE = SITE.url
 
+/** Stable build-time stamp — avoid `new Date()` so regenerations don't churn ISR writes. */
+const BUILD_STAMP = '2026-11-13'
+
 /**
- * Next.js generates /sitemap.xml from this file at build time.
- * All URLs are absolute. changeFrequency and priority follow Google's
- * best-practice conventions for content sites.
+ * Fully static sitemap. lastModified comes from content `updated` fields when present.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString()
-
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: BASE,
-      lastModified: now,
+      lastModified: BUILD_STAMP,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${BASE}/brewing-guides`,
-      lastModified: now,
+      lastModified: BUILD_STAMP,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE}/gear`,
-      lastModified: now,
+      lastModified: BUILD_STAMP,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE}/coffee-beans`,
-      lastModified: now,
+      lastModified: BUILD_STAMP,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE}/tools`,
-      lastModified: now,
+      lastModified: BUILD_STAMP,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${BASE}/recipes`,
-      lastModified: now,
+      lastModified: BUILD_STAMP,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
@@ -60,42 +59,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const brewGuideRoutes: MetadataRoute.Sitemap = BREW_GUIDES.map((g) => ({
     url: `${BASE}/brewing-guides/${g.slug}`,
-    lastModified: g.updated ?? now,
+    lastModified: g.updated ?? BUILD_STAMP,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
   const gearRoutes: MetadataRoute.Sitemap = GEAR.map((g) => ({
     url: `${BASE}/gear/${g.slug}`,
-    lastModified: g.updated ?? now,
+    lastModified: g.updated ?? BUILD_STAMP,
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
   const setupRoutes: MetadataRoute.Sitemap = SETUPS.map((s) => ({
     url: `${BASE}/gear/setups/${s.slug}`,
-    lastModified: now,
+    lastModified: s.updated ?? BUILD_STAMP,
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
   const beanRoutes: MetadataRoute.Sitemap = BEAN_ARTICLES.map((a) => ({
     url: `${BASE}/coffee-beans/${a.slug}`,
-    lastModified: a.updated ?? now,
+    lastModified: a.updated ?? BUILD_STAMP,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
   const toolRoutes: MetadataRoute.Sitemap = TOOLS.map((t) => ({
     url: `${BASE}/tools/${t.slug}`,
-    lastModified: now,
+    lastModified: BUILD_STAMP,
     changeFrequency: 'yearly',
     priority: 0.8,
   }))
 
   const recipeRoutes: MetadataRoute.Sitemap = RECIPES.map((r) => ({
     url: `${BASE}/recipes/${r.slug}`,
-    lastModified: r.updated ?? now,
+    lastModified: r.updated ?? BUILD_STAMP,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))

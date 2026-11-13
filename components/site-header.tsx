@@ -3,7 +3,8 @@
 import { Link } from '@/components/link'
 import { useState } from 'react'
 import { Menu, X, Coffee } from 'lucide-react'
-import { NAV, SITE } from '@/lib/content'
+import { NAV } from '@/lib/nav'
+import { SITE } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 export function SiteHeader() {

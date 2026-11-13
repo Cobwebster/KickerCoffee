@@ -6,44 +6,8 @@ import {
   TRENDING_TOOLS,
 } from './trending-guides'
 
-export const SITE = {
-  name: 'KickerCoffee',
-  domain: 'kickercoffee.com',
-  url: 'https://www.kickercoffee.com',
-  description:
-    'KickerCoffee is your complete coffee resource: step-by-step brewing guides, honest gear reviews, curated home setups, roast education, and free brewing calculators for beginners and experts alike.',
-  tagline: 'Everything coffee, from first pour to pro setup.',
-}
-
-export type NavItem = { label: string; href: string; description: string }
-
-export const NAV: NavItem[] = [
-  {
-    label: 'Brewing Guides',
-    href: '/brewing-guides',
-    description: 'Step-by-step recipes for every brew method.',
-  },
-  {
-    label: 'Recipes',
-    href: '/recipes',
-    description: 'Iced lattes, cappuccinos, and café drinks at home.',
-  },
-  {
-    label: 'Gear & Setups',
-    href: '/gear',
-    description: 'Reviews and curated kits for every budget.',
-  },
-  {
-    label: 'Beans & Roasts',
-    href: '/coffee-beans',
-    description: 'Learn origins, roast levels, and tasting.',
-  },
-  {
-    label: 'Calculators',
-    href: '/tools',
-    description: 'Ratio calculator, brew timer, and more.',
-  },
-]
+export { SITE } from './site'
+export { NAV, type NavItem } from './nav'
 
 /* ----------------------------- Shared types ----------------------------- */
 
