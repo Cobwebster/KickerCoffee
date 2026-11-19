@@ -3,11 +3,19 @@ import { Coffee } from 'lucide-react'
 import { NAV } from '@/lib/nav'
 import { SITE } from '@/lib/site'
 
+const OTHER_SITES = [
+  {
+    name: 'Theme Park Index',
+    href: 'https://www.themeparkindex.com/',
+    description: 'Wait times, parks, and trip planning.',
+  },
+]
+
 export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="sm:col-span-2 lg:col-span-1">
           <Link
             href="/"
             className="flex items-center gap-2 font-serif text-lg font-semibold tracking-tight"
@@ -89,6 +97,27 @@ export function SiteFooter() {
                 Roast Levels Explained
               </Link>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-semibold text-foreground">Our other sites</h2>
+          <ul className="mt-4 flex flex-col gap-3">
+            {OTHER_SITES.map((site) => (
+              <li key={site.href}>
+                <a
+                  href={site.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {site.name}
+                </a>
+                <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground/80">
+                  {site.description}
+                </p>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
