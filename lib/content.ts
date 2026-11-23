@@ -19,6 +19,7 @@ export type ContentBlock =
   | { type: 'tip'; text: string }
   | { type: 'quote'; text: string }
   | { type: 'table'; caption?: string; headers: string[]; rows: string[][] }
+  | { type: 'image'; src: string; alt: string; caption?: string }
 
 export type FaqItem = { question: string; answer: string }
 

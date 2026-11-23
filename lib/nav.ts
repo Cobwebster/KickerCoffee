@@ -13,6 +13,11 @@ export const NAV: NavItem[] = [
     description: 'Iced lattes, cappuccinos, and café drinks at home.',
   },
   {
+    label: 'Food Recipes',
+    href: '/food-recipes',
+    description: 'Breakfast, bakery, and healthy plates with real photos.',
+  },
+  {
     label: 'Gear & Setups',
     href: '/gear',
     description: 'Reviews and curated kits for every budget.',

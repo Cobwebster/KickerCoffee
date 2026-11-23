@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { Link } from '@/components/link'
 import Image from 'next/image'
-import { ArrowRight, Coffee, Wrench, Leaf, Calculator, UtensilsCrossed } from 'lucide-react'
+import { ArrowRight, Coffee, Wrench, Leaf, Calculator, UtensilsCrossed, Salad } from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
 import { SITE, BREW_GUIDES, BEAN_ARTICLES, SETUPS, TOOLS, sortToolsByPopularity } from '@/lib/content'
 import { RECIPES } from '@/lib/recipes'
+import { FOOD_RECIPES } from '@/lib/food-recipes'
 
 export const metadata: Metadata = {
   title: `${SITE.name} — Coffee Brewing Guides, Ratios, Gear & Free Calculators`,
@@ -27,6 +28,13 @@ const pillars = [
     description:
       'Iced lattes, cappuccinos, Vietnamese iced coffee, pistachio latte, and other café drinks you can repeat at home.',
     icon: UtensilsCrossed,
+  },
+  {
+    href: '/food-recipes',
+    title: 'Food recipes',
+    description:
+      'Breakfast, bakery, and healthy plates with real photos — overnight oats, avocado toast, cookies, and more.',
+    icon: Salad,
   },
   {
     href: '/gear',
@@ -346,6 +354,57 @@ export default function HomePage() {
                 <Image
                   src={recipe.image}
                   alt={recipe.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <span className="text-xs font-semibold uppercase tracking-wide text-accent">
+                  {recipe.category}
+                </span>
+                <h3 className="mt-2 text-pretty font-serif text-lg font-semibold leading-snug text-foreground">
+                  {recipe.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{recipe.excerpt}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="flex items-end justify-between gap-4">
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground">
+              Food for coffee people
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Real-photo recipes — breakfast jars, bakery cookies, healthy bowls — with optional
+              coffee pairings. Separate from drink recipes on purpose.
+            </p>
+          </div>
+          <Link
+            href="/food-recipes"
+            className="hidden shrink-0 items-center gap-1 text-sm font-medium text-accent sm:inline-flex"
+          >
+            All food recipes
+            <ArrowRight className="size-4" />
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {FOOD_RECIPES.filter((r) =>
+            ['overnight-oats', 'avocado-toast', 'chocolate-chip-cookies'].includes(r.slug),
+          ).map((recipe) => (
+            <Link
+              key={recipe.slug}
+              href={`/food-recipes/${recipe.slug}`}
+              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-shadow hover:shadow-lg"
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src={recipe.image}
+                  alt={recipe.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Lightbulb } from 'lucide-react'
 import type { ContentBlock } from '@/lib/content'
 
@@ -107,6 +108,25 @@ export function ContentBlocks({ blocks }: { blocks: ContentBlock[] }) {
                   </tbody>
                 </table>
               </div>
+            )
+          case 'image':
+            return (
+              <figure key={i} className="overflow-hidden rounded-2xl border border-border">
+                <div className="relative aspect-[4/3] w-full sm:aspect-video">
+                  <Image
+                    src={block.src}
+                    alt={block.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 768px"
+                    className="object-cover"
+                  />
+                </div>
+                {block.caption && (
+                  <figcaption className="border-t border-border bg-secondary/40 px-4 py-2.5 text-sm text-muted-foreground">
+                    {block.caption}
+                  </figcaption>
+                )}
+              </figure>
             )
           default:
             return null

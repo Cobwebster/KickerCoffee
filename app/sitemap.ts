@@ -8,6 +8,7 @@ import {
   TOOLS,
 } from '@/lib/content'
 import { RECIPES } from '@/lib/recipes'
+import { FOOD_RECIPES } from '@/lib/food-recipes'
 
 const BASE = SITE.url
 
@@ -51,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE}/recipes`,
+      lastModified: BUILD_STAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE}/food-recipes`,
       lastModified: BUILD_STAMP,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -99,6 +106,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
+  const foodRoutes: MetadataRoute.Sitemap = FOOD_RECIPES.map((r) => ({
+    url: `${BASE}/food-recipes/${r.slug}`,
+    lastModified: r.updated ?? BUILD_STAMP,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
   return [
     ...staticRoutes,
     ...brewGuideRoutes,
@@ -107,5 +121,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...beanRoutes,
     ...toolRoutes,
     ...recipeRoutes,
+    ...foodRoutes,
   ]
 }

@@ -41,6 +41,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Old short path → recipe-keyword URL
+      {
+        source: '/food',
+        destination: '/food-recipes',
+        permanent: true,
+      },
+      {
+        source: '/food/:slug',
+        destination: '/food-recipes/:slug',
+        permanent: true,
+      },
       // Apex → www (belt-and-suspenders with middleware; needs matching Vercel domain too)
       {
         source: '/:path*',
