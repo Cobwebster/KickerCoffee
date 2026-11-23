@@ -143,7 +143,15 @@ export function SiteFooter() {
           <p>
             &copy; 2026 {SITE.name}. All rights reserved.
           </p>
-          <p>{SITE.domain}</p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/cookie-policy"
+              className="transition-colors hover:text-foreground"
+            >
+              Cookie Policy
+            </Link>
+            <p>{SITE.domain}</p>
+          </div>
         </div>
       </div>
     </footer>

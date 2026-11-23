@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Fraunces } from 'next/font/google'
 import { JsonLd } from '@/components/json-ld'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { CookieBanner } from '@/components/cookie-banner'
 import { SITE } from '@/lib/site'
 import './globals.css'
 
@@ -119,6 +120,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <CookieBanner />
         {process.env.NODE_ENV === 'production' && (
           <>
             <Script

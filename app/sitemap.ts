@@ -62,6 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${BASE}/cookie-policy`,
+      lastModified: BUILD_STAMP,
+      changeFrequency: 'yearly',
+      priority: 0.2,
+    },
   ]
 
   const brewGuideRoutes: MetadataRoute.Sitemap = BREW_GUIDES.map((g) => ({
