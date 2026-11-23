@@ -29,6 +29,18 @@ export type FoodRecipe = {
   relatedSlugs: string[]
   cuisine?: string
   keywords?: string[]
+  /** Estimated per-serving nutrition for Recipe JSON-LD + on-page display. */
+  nutrition: {
+    servingSize: string
+    calories: number
+    fatContent: number
+    saturatedFatContent?: number
+    carbohydrateContent: number
+    sugarContent?: number
+    fiberContent?: number
+    proteinContent: number
+    sodiumContent?: number
+  }
 }
 
 export const FOOD_RECIPES: FoodRecipe[] = [
@@ -48,6 +60,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '1 jar (about 350–400 ml)',
     updated: '2026-11-23',
     image: '/images/food/overnight-oats.webp',
+    nutrition: {
+      servingSize: '1 jar',
+      calories: 380,
+      fatContent: 11,
+      saturatedFatContent: 3,
+      carbohydrateContent: 55,
+      sugarContent: 18,
+      fiberContent: 8,
+      proteinContent: 16,
+      sodiumContent: 95,
+    },
     coffeePairing: {
       drink: 'Medium roast drip or a flat white',
       why: 'Overnight oats bring soft sweetness from fruit, maple, and creamy dairy. A medium roast drip echoes caramel and chocolate notes without harsh bitterness, so the jar still tastes like breakfast instead of dessert. A flat white works when you want the same idea in a milk drink — microfoam mirrors the yogurt-oat texture and keeps the cup small enough that it does not drown the oats.',
@@ -179,6 +202,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '1 plate (2 toasts)',
     updated: '2026-11-23',
     image: '/images/food/avocado-toast.webp',
+    nutrition: {
+      servingSize: '1 plate (2 toasts with egg)',
+      calories: 420,
+      fatContent: 28,
+      saturatedFatContent: 5,
+      carbohydrateContent: 32,
+      sugarContent: 3,
+      fiberContent: 12,
+      proteinContent: 14,
+      sodiumContent: 480,
+    },
     coffeePairing: {
       drink: 'Bright medium roast filter coffee or a cortado',
       why: 'Avocado is rich and fatty; lemon, salt, and pepper keep it savory. A citrusy medium roast cuts through that fat the way a squeeze of lemon does, so each bite stays fresh instead of heavy. A cortado is the café shortcut: enough espresso bitterness to contrast the toast, enough milk to soften any sharp acidity so it still feels like brunch.',
@@ -283,6 +317,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '2 jars',
     updated: '2026-11-23',
     image: '/images/food/greek-yogurt-parfait.webp',
+    nutrition: {
+      servingSize: '1 jar',
+      calories: 260,
+      fatContent: 6,
+      saturatedFatContent: 3,
+      carbohydrateContent: 32,
+      sugarContent: 24,
+      fiberContent: 3,
+      proteinContent: 22,
+      sodiumContent: 75,
+    },
     coffeePairing: {
       drink: 'Espresso or Americano',
       why: 'Greek yogurt parfait is sweet-tart from honey and strawberries on a tangy dairy base. Bitter espresso (or a long Americano) resets your palate between spoonfuls so the honey does not pile up and the berries stay bright. It is the same logic cafés use when they serve a short coffee with a fruit dessert instead of another sweet latte.',
@@ -385,6 +430,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '12 large cookies',
     updated: '2026-11-23',
     image: '/images/food/chocolate-chip-cookies.webp',
+    nutrition: {
+      servingSize: '1 large cookie',
+      calories: 240,
+      fatContent: 13,
+      saturatedFatContent: 8,
+      carbohydrateContent: 30,
+      sugarContent: 18,
+      fiberContent: 2,
+      proteinContent: 3,
+      sodiumContent: 160,
+    },
     coffeePairing: {
       drink: 'Espresso, cortado, or dark roast drip',
       why: 'Salted chocolate chunk cookies are sugar, butter, and molten dark chocolate. Bitter coffee cuts that sweetness so the chocolate tastes deeper instead of candy-flat, and flaky salt on the cookie pops against espresso bitterness. A cortado keeps the pairing café-sized; dark drip is the dunking cup when you want a longer sip.',
@@ -494,6 +550,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '9–12 brownies',
     updated: '2026-11-23',
     image: '/images/food/salted-caramel-brownies.webp',
+    nutrition: {
+      servingSize: '1 brownie (1/12 of pan)',
+      calories: 290,
+      fatContent: 14,
+      saturatedFatContent: 8,
+      carbohydrateContent: 40,
+      sugarContent: 32,
+      fiberContent: 3,
+      proteinContent: 3,
+      sodiumContent: 140,
+    },
     coffeePairing: {
       drink: 'Straight espresso or Americano',
       why: 'Salted caramel brownies stack three big flavors: fudgy cocoa, sticky caramel, and sea salt. Espresso bitterness slices through caramel sweetness so the salt stays sharp and the chocolate does not taste muddy. An Americano stretches the same idea into a longer cup for slow plated dessert. Milk-heavy drinks blur the caramel edge — save those for cupcakes.',
@@ -602,6 +669,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '12 cupcakes',
     updated: '2026-11-23',
     image: '/images/food/chocolate-cupcakes.webp',
+    nutrition: {
+      servingSize: '1 frosted cupcake',
+      calories: 360,
+      fatContent: 18,
+      saturatedFatContent: 7,
+      carbohydrateContent: 48,
+      sugarContent: 36,
+      fiberContent: 2,
+      proteinContent: 4,
+      sodiumContent: 250,
+    },
     coffeePairing: {
       drink: 'Cappuccino or latte',
       why: 'Chocolate cupcakes with buttercream are pure cocoa richness. Steamed milk and foam soften that intensity the way café dessert cases intend — you get chocolate-on-chocolate without a bitter wall. A cappuccino keeps more espresso punch; a latte is gentler if the frosting is very sweet. The hot milk drink also mirrors the soft crumb temperature when cupcakes are served fresh.',
@@ -711,6 +789,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '2 wraps',
     updated: '2026-11-23',
     image: '/images/food/chicken-wrap.webp',
+    nutrition: {
+      servingSize: '1 wrap',
+      calories: 480,
+      fatContent: 16,
+      saturatedFatContent: 4,
+      carbohydrateContent: 42,
+      sugarContent: 6,
+      fiberContent: 5,
+      proteinContent: 38,
+      sodiumContent: 720,
+    },
     coffeePairing: {
       drink: 'Iced latte or cold brew',
       why: 'A warm chicken wrap with lime, herbs, and creamy sauce is savory and a little rich. Cold coffee is the weekday café combo: chilled sweetness (or clean cold brew bitterness) resets your mouth between bites and keeps lunch from feeling heavy. An iced latte matches the creamy sauce; unsweetened cold brew stays sharper if your wrap already has a lot of sauce.',
@@ -811,6 +900,17 @@ export const FOOD_RECIPES: FoodRecipe[] = [
     yield: '2 bowls',
     updated: '2026-11-23',
     image: '/images/food/bibimbap.webp',
+    nutrition: {
+      servingSize: '1 bowl',
+      calories: 540,
+      fatContent: 18,
+      saturatedFatContent: 4,
+      carbohydrateContent: 72,
+      sugarContent: 8,
+      fiberContent: 7,
+      proteinContent: 22,
+      sodiumContent: 890,
+    },
     coffeePairing: {
       drink: 'Iced Americano (after the bowl)',
       why: 'Bibimbap is not a traditional coffee pairing — gochujang, sesame, and kimchi want clean contrast, not a latte. An iced Americano after (or beside) the bowl is a modern café habit: cold bitterness cools spice, dilutes residual heat, and clears sesame oil from your palate without adding dairy that can mute chili. Drink it between bites or as the finish once the bowl is mixed.',

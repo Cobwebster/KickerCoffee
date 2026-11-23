@@ -51,6 +51,26 @@ export function buildFoodRecipeJsonLd(recipe: FoodRecipe) {
       text,
       url: `${pageUrl}#step-${i + 1}`,
     })),
+    nutrition: {
+      '@type': 'NutritionInformation',
+      servingSize: recipe.nutrition.servingSize,
+      calories: `${recipe.nutrition.calories} calories`,
+      fatContent: `${recipe.nutrition.fatContent} g`,
+      ...(recipe.nutrition.saturatedFatContent != null
+        ? { saturatedFatContent: `${recipe.nutrition.saturatedFatContent} g` }
+        : {}),
+      carbohydrateContent: `${recipe.nutrition.carbohydrateContent} g`,
+      ...(recipe.nutrition.sugarContent != null
+        ? { sugarContent: `${recipe.nutrition.sugarContent} g` }
+        : {}),
+      ...(recipe.nutrition.fiberContent != null
+        ? { fiberContent: `${recipe.nutrition.fiberContent} g` }
+        : {}),
+      proteinContent: `${recipe.nutrition.proteinContent} g`,
+      ...(recipe.nutrition.sodiumContent != null
+        ? { sodiumContent: `${recipe.nutrition.sodiumContent} mg` }
+        : {}),
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,

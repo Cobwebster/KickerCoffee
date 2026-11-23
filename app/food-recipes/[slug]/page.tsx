@@ -136,6 +136,48 @@ export default async function FoodRecipePage({
 
         <p className="mt-8 text-pretty text-lg leading-relaxed text-foreground">{recipe.intro}</p>
 
+        <section className="mt-10" aria-labelledby="nutrition-heading">
+          <h2
+            id="nutrition-heading"
+            className="font-serif text-2xl font-semibold tracking-tight text-foreground"
+          >
+            Nutrition
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Estimated per {recipe.nutrition.servingSize.toLowerCase()}. Values are approximate and
+            change with brands and toppings.
+          </p>
+          <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[
+              { label: 'Calories', value: `${recipe.nutrition.calories}` },
+              { label: 'Fat', value: `${recipe.nutrition.fatContent} g` },
+              { label: 'Carbs', value: `${recipe.nutrition.carbohydrateContent} g` },
+              { label: 'Protein', value: `${recipe.nutrition.proteinContent} g` },
+              ...(recipe.nutrition.sugarContent != null
+                ? [{ label: 'Sugar', value: `${recipe.nutrition.sugarContent} g` }]
+                : []),
+              ...(recipe.nutrition.fiberContent != null
+                ? [{ label: 'Fiber', value: `${recipe.nutrition.fiberContent} g` }]
+                : []),
+              ...(recipe.nutrition.sodiumContent != null
+                ? [{ label: 'Sodium', value: `${recipe.nutrition.sodiumContent} mg` }]
+                : []),
+            ].map((row) => (
+              <div
+                key={row.label}
+                className="rounded-lg border border-border bg-card px-3 py-2.5"
+              >
+                <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {row.label}
+                </dt>
+                <dd className="mt-0.5 font-serif text-lg font-semibold text-foreground">
+                  {row.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
         <section className="mt-10" aria-labelledby="ingredients-heading">
           <h2
             id="ingredients-heading"
