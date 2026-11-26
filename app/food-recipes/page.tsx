@@ -7,6 +7,7 @@ import { FaqSection } from '@/components/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { SITE } from '@/lib/site'
 import { FOOD_RECIPES } from '@/lib/food-recipes'
+import { FOOD_GUIDES } from '@/lib/food-guides'
 import { buildFoodRecipeItemListJsonLd } from '@/lib/food-recipe-schema'
 
 const faqs = [
@@ -19,6 +20,11 @@ const faqs = [
     question: 'Do you have healthy and indulgent recipes?',
     answer:
       'Yes. Overnight oats, yogurt parfaits, bibimbap, and chicken wraps sit next to cookies, cupcakes, and brownies. Pick the lane that matches the day.',
+  },
+  {
+    question: 'What are the best snacks to have with coffee?',
+    answer:
+      'Cookies and brownies with medium–dark coffee, avocado toast with brighter filter, oats or yogurt parfait with drip or a flat white. See our best snacks with coffee guide for pairings and recipe links.',
   },
   {
     question: 'Are the photos AI-generated?',
@@ -46,6 +52,7 @@ export const metadata: Metadata = {
     'chocolate chip cookies',
     'bibimbap recipe',
     'coffee pairing food',
+    'best snacks with coffee',
   ],
   openGraph: {
     title: 'Food Recipes — Real Photos, Homemade Plates',
@@ -88,6 +95,47 @@ export default function FoodRecipesHubPage() {
           hero shots). Every recipe page explains what coffee to pair and why.
         </p>
       </header>
+
+      {FOOD_GUIDES.length > 0 && (
+        <section className="mt-10" aria-labelledby="food-guides-heading">
+          <h2
+            id="food-guides-heading"
+            className="font-serif text-2xl font-semibold tracking-tight text-foreground"
+          >
+            Guides
+          </h2>
+          <div className="mt-4 grid gap-4">
+            {FOOD_GUIDES.map((g) => (
+              <Link
+                key={g.slug}
+                href={`/food-recipes/guides/${g.slug}`}
+                className="group flex flex-col overflow-hidden rounded-xl border border-accent/35 bg-accent/5 transition-colors hover:border-accent sm:flex-row"
+              >
+                <div className="relative aspect-[16/10] w-full shrink-0 sm:aspect-auto sm:w-56 sm:self-stretch">
+                  <Image
+                    src={g.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, 224px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-center p-5">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-accent">
+                    {g.topic}
+                  </span>
+                  <span className="mt-1 font-serif text-xl font-semibold text-foreground group-hover:underline">
+                    {g.title}
+                  </span>
+                  <span className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {g.excerpt}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {FOOD_RECIPES.map((r) => (

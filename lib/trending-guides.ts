@@ -903,9 +903,11 @@ export const TRENDING_TOOLS: ToolMeta[] = [
     category: 'Calculator',
     keywords: [
       'protein coffee calculator',
+      'proffee recipe',
       'proffee calories',
+      'protein powder in coffee calories',
       'how much protein in protein coffee',
-      'protein coffee calories',
+      'does collagen count as protein coffee',
       'protein latte protein grams',
     ],
     faqs: [
@@ -915,24 +917,34 @@ export const TRENDING_TOOLS: ToolMeta[] = [
           'Most of it comes from the powder and the milk. One scoop of whey is often 20–25 g; a cup of dairy milk adds ~8 g; coffee adds ~0. Coffee-shop protein lattes vary by size and booster.',
       },
       {
-        question: 'How many calories are in proffee?',
+        question: 'How many calories are in protein powder in coffee?',
         answer:
-          'A whey scoop is often 110–140 kcal. Milk can add 30–150+ kcal depending on type and amount. Black coffee is negligible. Syrups stack fast.',
+          'A whey scoop is often 110–140 kcal. Milk can add 30–150+ kcal depending on type and amount. Black coffee is negligible. Syrups stack fast. Use the calculator with your label numbers for a homemade estimate.',
+      },
+      {
+        question: 'What is a proffee recipe?',
+        answer:
+          'Proffee is protein powder mixed into coffee — hot, iced, or shaken with espresso and ice. Typical DIY build: 1 scoop whey, double espresso or strong drip, optional milk. The full how-to-make-protein-coffee guide covers mixing so it does not clump.',
+      },
+      {
+        question: 'Does collagen count as protein coffee?',
+        answer:
+          'Collagen in coffee adds protein grams and is a common “proffee” style, especially in black coffee. It is not a complete whey-style amino profile, but it still counts toward daily protein for most people tracking intake. Use the collagen preset and enter your tub’s grams.',
       },
       {
         question: 'Does protein powder add caffeine?',
         answer:
-          'Almost never, unless it is a pre-workout or coffee-flavored mix with added caffeine. Check the label. This calculator treats powder as 0 mg caffeine.',
+          'Almost never, unless it is a pre-workout or coffee-flavored mix with added caffeine. Check the label. This calculator treats powder as 0 mg caffeine and adds espresso shots separately.',
       },
       {
         question: 'Is homemade protein coffee the same as a café protein latte?',
         answer:
-          'Same idea, different ingredients. Cafés often use protein-fortified milk instead of a kitchen scoop. Use this tool for homemade builds.',
+          'Same idea, different ingredients. Cafés often use protein-fortified milk instead of a kitchen scoop — calories and sweetness can diverge even when protein looks similar on the menu. Use this tool for DIY builds.',
       },
       {
         question: 'Can I use plant protein in the calculator?',
         answer:
-          'Yes — type your scoop’s protein grams and calories from the label. Plant scoops are often lower protein per calorie and grittier in hot coffee.',
+          'Yes — pick the plant preset or type your scoop’s protein grams and calories from the label. Plant scoops are often lower protein per calorie and grittier in hot coffee.',
       },
       {
         question: 'Does milk double-count protein with the powder?',
@@ -966,14 +978,19 @@ export const TRENDING_TOOLS: ToolMeta[] = [
           'A common adult starting point is about 30–35 ml per kilogram of body weight, then adjusted for height (body size) and heat or exercise. Many people land near 2–3 litres from all fluids, not water alone. This tool estimates a personal target — it is not a prescription.',
       },
       {
+        question: 'Does coffee count as water?',
+        answer:
+          'For most regular coffee drinkers, yes — the water in the cup counts toward daily fluids. Caffeine is only a mild diuretic at typical doses. Log coffee and tea separately here; still drink plain water across the day, especially after sweat.',
+      },
+      {
+        question: 'Does coffee dehydrate you?',
+        answer:
+          'Usually not at 1–4 normal cups. The mug is mostly water. Very high caffeine, alcohol, heat illness, or not drinking anything else is a different story. Read the full dehydrate guide linked on this page for the myth vs the studies.',
+      },
+      {
         question: 'Does height matter for hydration?',
         answer:
           'Weight drives most of the math, but height changes body surface area and estimated total body water. Two people at 70 kg can have different fluid targets if one is much taller.',
-      },
-      {
-        question: 'Does coffee count toward hydration?',
-        answer:
-          'For most regular coffee drinkers, yes — the water in the cup counts. Caffeine is only a mild diuretic at typical doses. Very high caffeine, alcohol, heat, or illness is a different story.',
       },
       {
         question: 'Can this tell me if I am dehydrated?',
@@ -984,6 +1001,11 @@ export const TRENDING_TOOLS: ToolMeta[] = [
         question: 'Can you drink too much water?',
         answer:
           'Yes. Forcing gallons can dilute blood sodium (hyponatremia), especially during long endurance events. Hitting 100–120% of this estimate is plenty for a normal day.',
+      },
+      {
+        question: 'Does tea count the same as coffee?',
+        answer:
+          'Yes in this calculator — both are mostly water. Split the sliders if you want to see how much of today’s intake is coffee vs tea vs plain water.',
       },
     ],
   },
@@ -1006,19 +1028,24 @@ export const TRENDING_TOOL_CONTENT: Record<
       'People searching how to make protein coffee immediately want two numbers: grams of protein and calories. This calculator uses typical USDA-style averages for milk and coffee, plus a customizable powder scoop, so you can see whether your “healthy latte” is a 180 kcal breakfast or a 400 kcal dessert. Brands vary — treat the output as a planning estimate.',
     howToUse: [
       {
-        step: 'Pick your coffee base',
+        step: 'Pick hot, iced, or shaken',
         detail:
-          'Espresso, strong drip, and cold brew change caffeine a lot and calories almost not at all. Choose what you actually brew.',
+          'Style changes the mixing tip (and how people search “proffee recipe”). Numbers stay honest to ingredients; shaken builds often add extra espresso shots.',
       },
       {
-        step: 'Set your protein powder',
+        step: 'Choose a powder preset',
         detail:
-          'Use the label if you have it (protein grams and calories per scoop). The defaults assume a typical whey isolate scoop.',
+          'Whey, plant, or collagen presets fill typical grams and calories. Override with your label anytime — Custom locks your numbers.',
+      },
+      {
+        step: 'Pick your coffee base (+ extra shots)',
+        detail:
+          'Espresso, strong drip, and cold brew change caffeine a lot and calories almost not at all. Extra shots stack caffeine for shaken café-style builds.',
       },
       {
         step: 'Choose milk type and amount',
         detail:
-          'Oat and whole milk move calories more than protein. Almond milk does the opposite. Barista oat is not magically high-protein.',
+          'Oat and whole milk move calories more than protein. Almond milk does the opposite. Collagen presets often start with milk at zero.',
       },
       {
         step: 'Add syrup if you use it',
@@ -1027,10 +1054,10 @@ export const TRENDING_TOOL_CONTENT: Record<
       },
     ],
     proTips: [
-      'Mix powder into cold milk first so the calculator’s “one scoop” actually ends up in the glass, not in the sink strainer.',
-      'If you use Fairlife-style ultra-filtered milk, bump protein and keep calories similar to the “high-protein dairy” preset.',
-      'Collagen in black coffee: set milk to zero and lower the scoop calories/protein to your collagen tub.',
-      'Café protein lattes are a different formula — this tool is for homemade proffee.',
+      'Hot: slurry powder in warm milk first. Iced: shake powder with cold milk before coffee. Shaken: espresso + powder + ice in a jar.',
+      'If you use Fairlife-style ultra-filtered milk, use the high-protein dairy preset.',
+      'Collagen in black coffee: use the collagen preset — it is still “protein coffee” for gram tracking, just not whey.',
+      'Café protein lattes are a different formula — this tool is for homemade proffee. Open the full protein coffee guide for clump-free method.',
     ],
     whyItMatters:
       'Protein coffee is the rare viral drink that people actually make daily. A calculator that shows protein next to caffeine stops the two failure modes: chalky over-scooping, and a “fitness drink” that is secretly a mocha.',
@@ -1088,12 +1115,12 @@ export const TRENDING_TOOL_CONTENT: Record<
       {
         step: 'Log what you’ve already drunk',
         detail:
-          'Slide water glasses (250 ml metric / 8 oz US). Add coffee or tea cups if you want them included — moderate coffee still counts as fluid for most habitual drinkers.',
+          'Slide water glasses (250 ml metric / 8 oz US). Log coffee and tea on separate sliders — both count as fluid for most habitual drinkers. Today’s log auto-saves in this browser.',
       },
       {
         step: 'Set the kind of day you’re having',
         detail:
-          'Desk days stay at the base target. Walking or a hot commute needs more. Hard workouts and heat need more still — this is a rough multiplier, not sweat-loss science.',
+          'Desk days stay at the base target. Walking or a hot commute needs more. Turn on the extra sweat / workout bump after a long run or sauna — still a rough multiplier, not sweat-loss science.',
       },
       {
         step: 'Read percent, litres left, and glasses left',
@@ -1152,7 +1179,14 @@ export const TRENDING_TOOL_CONTENT: Record<
       {
         heading: 'Coffee, tea, and what we ignore',
         paragraphs: [
-          'The coffee slider assumes a typical cup of fluid. It does not subtract extra urine from a 400 mg caffeine bomb, and it does not add soup, fruit, or beer. Alcohol still dehydrates relative to water. Food moisture is a real part of intake in diet surveys — this tool is drinks-only so you do not get a false “I’m done” from a watery lunch.',
+          'Coffee and tea sliders assume a typical cup of fluid each. They do not subtract extra urine from a 400 mg caffeine bomb, and they do not add soup, fruit, or beer. Alcohol still dehydrates relative to water. Food moisture is a real part of intake in diet surveys — this tool is drinks-only so you do not get a false “I’m done” from a watery lunch.',
+        ],
+      },
+      {
+        heading: 'Myth check: “coffee doesn’t count”',
+        paragraphs: [
+          'Search results still claim coffee dehydrates you by default. For regular drinkers at normal doses, the fluid in the cup counts — which is why this calculator lets you log it. That does not mean coffee replaces water after a workout or in heat. Pair the percentage bar with pale-straw urine and thirst.',
+          'If you want the study-level myth vs nuance, open Does coffee dehydrate you? then come back and log today’s glasses.',
         ],
       },
     ],

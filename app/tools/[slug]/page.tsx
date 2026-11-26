@@ -112,8 +112,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
             <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
-              Classic French press coffee ratio is <strong>1:15</strong> — about 17 g coffee per 250
-              ml water, or 67 g per litre. Use the calculator below for your press size.
+              French press coffee ratio in <strong>grams per liter</strong>:{' '}
+              <strong>67 g/L</strong> at <strong>1:15</strong> (≈17 g per 250 ml mug). Mild ≈63 g/L;
+              strong ≈71 g/L. Size your press below.
             </p>
           </aside>
         )}
@@ -130,9 +131,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
             <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
-              Caffeine’s half-life is about <strong>5–6 hours</strong>. Log every drink with a time —
-              the planner estimates what is still left at bedtime and suggests a cutoff (often earlier
-              than “no coffee after 2 pm” if you stack afternoon cups).
+              To cut caffeine, <strong>log every drink</strong> (or custom mg) on the calendar, set a
+              daily goal (~200 → 100 → 50 mg), and watch the <strong>7-day average</strong> fall —
+              saved in your browser. Keep ~8–10 hours between last caffeine and bed.
             </p>
           </aside>
         )}
@@ -140,8 +141,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <aside className="mt-4 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">Quick answer</p>
             <p className="mt-1.5 text-pretty text-base leading-relaxed text-foreground">
-              ~95 mg per 8 oz brewed coffee. So 100 mg ≈ 1 cup, 155 mg ≈ 1.6 cups (or one cold brew),
-              190 mg ≈ 2 cups / one large drip.
+              ~95 mg per 8 oz drip. <strong>80 mg ≈ 0.8 cup</strong> · <strong>100 ≈ 1</strong> ·{' '}
+              <strong>150 ≈ 1.6</strong> · <strong>190 ≈ 2</strong> · <strong>200 ≈ 2</strong> ·{' '}
+              <strong>400 ≈ 4 cups</strong> (common daily guide). Use mg → cups below.
             </p>
           </aside>
         )}
@@ -227,7 +229,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 Related tool
               </span>
               <span className="mt-0.5 block text-sm font-medium text-foreground">
-                Caffeine calculator — mg to cups & daily limit
+                Caffeine calculator — stack drinks, then log them here
               </span>
             </span>
             <ArrowRight className="size-4 shrink-0 text-accent" />
@@ -259,7 +261,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 New
               </span>
               <span className="mt-0.5 block text-sm font-medium text-foreground">
-                Caffeine day planner — sleep cutoff for your whole day
+                Caffeine tracker — calendar log, cut-down goals & weekly trends
               </span>
             </span>
             <ArrowRight className="size-4 shrink-0 text-accent" />
@@ -274,6 +276,102 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               </span>
               <span className="mt-0.5 block text-sm font-medium text-foreground">
                 Caffeine half-life — when will it leave your system?
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'french-press-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/brewing-guides/french-press-coffee-ratio-and-method"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Full guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                French press ratio grams per liter — 67 g/L chart & method
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/coffee-beans/coffee-roast-levels-explained"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Types of coffee roast — light vs medium vs dark
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'iced-coffee-calculator' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/recipes/iced-latte"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Recipe
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Iced latte recipe — ratio, shots & how to make one
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/brewing-guides/best-coffee-brewing-methods-compared"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Compare methods
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Cold brew vs flash iced vs espresso milk drinks
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+        </div>
+      )}
+      {tool.slug === 'world-coffee-map' && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/coffee-beans/coffee-bean-origins-guide"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                How coffee beans from different countries compare
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-accent" />
+          </Link>
+          <Link
+            href="/coffee-beans/coffee-roast-levels-explained"
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-accent"
+          >
+            <span>
+              <span className="block text-xs font-semibold uppercase tracking-wide text-accent">
+                Related guide
+              </span>
+              <span className="mt-0.5 block text-sm font-medium text-foreground">
+                Types of coffee roast — before origin notes disappear
               </span>
             </span>
             <ArrowRight className="size-4 shrink-0 text-accent" />
@@ -533,7 +631,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           </Link>
         </div>
       )}
-      {tool.slug === 'espresso-calculator' && (
+      {tool.slug === 'espresso-ratio-calculator' && (
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           <Link
             href="/recipes/cappuccino"

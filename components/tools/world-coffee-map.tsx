@@ -21,6 +21,8 @@ import {
   GitCompareArrows,
   Link2,
   Check,
+  Printer,
+  Share2,
 } from 'lucide-react'
 import { Link } from '@/components/link'
 import {
@@ -87,6 +89,34 @@ function caffeineColor(level: Origin['caffeine']) {
   if (level === 'High') return '#fb923c'
   if (level === 'Medium') return '#fbbf24'
   return '#86efac'
+}
+
+function brewToolLinks(brew: string): { href: string; label: string }[] {
+  const b = brew.toLowerCase()
+  const links: { href: string; label: string }[] = []
+  if (b.includes('espresso')) {
+    links.push({ href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio' })
+    links.push({ href: '/tools/grind-size-chart?method=espresso', label: 'Espresso grind' })
+  } else if (b.includes('french')) {
+    links.push({ href: '/tools/french-press-calculator', label: 'French press calculator' })
+    links.push({ href: '/tools/grind-size-chart?method=french-press', label: 'French press grind' })
+  } else if (b.includes('phin') || b.includes('iced')) {
+    links.push({ href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' })
+    links.push({ href: '/recipes/vietnamese-iced-coffee', label: 'Vietnamese iced recipe' })
+  } else if (b.includes('cold')) {
+    links.push({ href: '/tools/cold-brew-calculator', label: 'Cold brew calculator' })
+    links.push({ href: '/tools/grind-size-chart?method=cold-brew', label: 'Cold brew grind' })
+  } else {
+    links.push({ href: '/tools/coffee-ratio-calculator?ratio=16', label: 'Brew ratio 1:16' })
+    links.push({
+      href: b.includes('drip')
+        ? '/tools/grind-size-chart?method=drip'
+        : '/tools/grind-size-chart?method=pour-over',
+      label: 'Grind for this brew',
+    })
+  }
+  links.push({ href: '/tools/coffee-lab', label: 'Dial taste in Coffee Lab' })
+  return links.slice(0, 3)
 }
 
 function ProfileBars({ origin, compact = false }: { origin: Origin; compact?: boolean }) {
@@ -271,27 +301,41 @@ function OriginDetail({
               {origin.caffeine}
             </span>
           </div>
-          {origin.guideHref ? (
-            <Link
-              href={origin.guideHref}
-              className="mt-auto flex items-center gap-1.5 rounded-lg border border-amber-700/30 bg-amber-950/30 px-3 py-2 text-xs font-medium text-amber-400 transition-colors hover:bg-amber-900/40"
-            >
-              <Coffee className="size-3" />
-              {origin.id === 'VN'
-                ? 'Vietnamese iced coffee recipe'
-                : `Read ${origin.name} in the origins guide`}
-              <ChevronRight className="ml-auto size-3" />
-            </Link>
-          ) : (
-            <Link
-              href="/coffee-beans/coffee-bean-origins-guide"
-              className="mt-auto flex items-center gap-1.5 rounded-lg border border-amber-700/30 bg-amber-950/30 px-3 py-2 text-xs font-medium text-amber-400 transition-colors hover:bg-amber-900/40"
-            >
-              <Coffee className="size-3" />
-              Coffee origins guide
-              <ChevronRight className="ml-auto size-3" />
-            </Link>
-          )}
+          <div className="mt-auto flex flex-col gap-2">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+              Brew this origin
+            </p>
+            {brewToolLinks(origin.brew).map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="flex items-center gap-1.5 rounded-lg border border-amber-700/30 bg-amber-950/30 px-3 py-2 text-xs font-medium text-amber-400 transition-colors hover:bg-amber-900/40"
+              >
+                <Coffee className="size-3 shrink-0" />
+                {l.label}
+                <ChevronRight className="ml-auto size-3 shrink-0" />
+              </Link>
+            ))}
+            {origin.guideHref ? (
+              <Link
+                href={origin.guideHref}
+                className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:border-white/20"
+              >
+                {origin.id === 'VN'
+                  ? 'Vietnamese iced coffee recipe'
+                  : `${origin.name} in origins guide`}
+                <ChevronRight className="ml-auto size-3" />
+              </Link>
+            ) : (
+              <Link
+                href="/coffee-beans/coffee-bean-origins-guide"
+                className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white/70 transition-colors hover:border-white/20"
+              >
+                Coffee origins guide
+                <ChevronRight className="ml-auto size-3" />
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -314,18 +358,51 @@ function ComparePanel({
     { key: 'body', label: 'Body' },
     { key: 'sweetness', label: 'Sweetness' },
   ]
+  const [shareState, setShareState] = useState<'idle' | 'copied'>('idle')
+
+  async function shareCompare() {
+    const url = `${window.location.origin}${window.location.pathname}?compare=${originSlug(a)},${originSlug(b)}`
+    try {
+      await navigator.clipboard.writeText(url)
+      setShareState('copied')
+      window.setTimeout(() => setShareState('idle'), 1600)
+      history.replaceState(null, '', `?compare=${originSlug(a)},${originSlug(b)}`)
+    } catch {
+      /* ignore */
+    }
+  }
 
   return (
-    <div className="border-t border-white/8 bg-[#0e0905] px-5 py-5">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <h3 className="font-serif text-lg font-semibold text-white">Compare origins</h3>
-        <button
-          type="button"
-          onClick={onClear}
-          className="text-xs text-white/40 transition-colors hover:text-white/70"
-        >
-          Clear compare
-        </button>
+    <div className="border-t border-white/8 bg-[#0e0905] px-5 py-5 print:border-0 print:bg-white print:text-black">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <h3 className="font-serif text-lg font-semibold text-white print:text-black">
+          Compare origins
+        </h3>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={shareCompare}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 text-xs text-white/60 transition-colors hover:text-white/90 print:hidden"
+          >
+            <Share2 className="size-3.5" />
+            {shareState === 'copied' ? 'Link copied' : 'Copy compare link'}
+          </button>
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 text-xs text-white/60 transition-colors hover:text-white/90 print:hidden"
+          >
+            <Printer className="size-3.5" />
+            Print card
+          </button>
+          <button
+            type="button"
+            onClick={onClear}
+            className="text-xs text-white/40 transition-colors hover:text-white/70 print:hidden"
+          >
+            Clear compare
+          </button>
+        </div>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         {[a, b].map((o) => (
@@ -446,6 +523,22 @@ export function WorldCoffeeMap() {
       setSelectedId(fromHash.id)
       setCenter(fromHash.coords)
       setZoom(fromHash.id === 'US' || fromHash.id === 'JM' ? 4.5 : 3.2)
+    }
+    try {
+      const compareParam = new URLSearchParams(window.location.search).get('compare')
+      if (compareParam) {
+        const ids = compareParam
+          .split(',')
+          .map((s) => findOriginFromHash(`#${s.trim()}`)?.id)
+          .filter((id): id is string => Boolean(id))
+          .slice(0, 2)
+        if (ids.length === 2) {
+          setCompareMode(true)
+          setCompareIds(ids)
+        }
+      }
+    } catch {
+      /* ignore */
     }
   }, [])
 
@@ -704,8 +797,14 @@ export function WorldCoffeeMap() {
           </div>
 
           {geoError && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center text-sm text-white/60">
-              Map tiles could not load. Use the origin list — every country still has a full profile.
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 px-6 text-center">
+              <p className="text-sm text-white/70">
+                Map tiles could not load (offline or blocked CDN). The origin chips and side list
+                still work — every country has a full profile without the globe.
+              </p>
+              <p className="text-xs text-white/40">
+                Tip: search “Ethiopia” or filter Bright & fruity, then open a profile.
+              </p>
             </div>
           )}
 

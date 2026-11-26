@@ -25,6 +25,8 @@ export type Recipe = {
   body: ContentBlock[]
   faqs: FaqItem[]
   relatedSlugs: string[]
+  /** Internal links to calculators / brewing guides — shown on the recipe page. */
+  relatedTools?: { href: string; label: string }[]
 }
 
 export const RECIPES: Recipe[] = [
@@ -32,15 +34,15 @@ export const RECIPES: Recipe[] = [
     slug: 'iced-latte',
     name: 'Iced Latte',
     category: 'Iced',
-    title: 'Iced Latte Recipe — Ratio, Shots & How to Make One at Home',
+    title: 'Iced Latte Recipe — How to Make an Iced Latte (Ratio & Shots)',
     metaDescription:
-      'How to make an iced latte at home: espresso-to-milk ratio, ice, no machine options, calories, and how it differs from iced coffee or a shaken espresso.',
+      'How to make an iced latte at home: double espresso, cold milk, ice. Café ratio for 12–16 oz, no-machine options, vs iced coffee or shaken espresso.',
     excerpt:
-      'Two shots, cold milk, ice — the café iced latte ratio that does not taste like melted water.',
+      'How to make an iced latte: two shots, cold milk, plenty of ice — the café ratio that does not taste like melted water.',
     difficulty: 'Beginner',
     time: '4 min',
     yield: '1 tall glass (12–16 oz)',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/iced-latte.webp',
     youtube: {
       id: 'S3qoxUWpYcQ',
@@ -110,6 +112,25 @@ export const RECIPES: Recipe[] = [
         type: 'tip',
         text: 'Sweeten the espresso, not the whole glass. Syrup dissolves in hot coffee; it sinks in cold milk and you get a sugar layer at the bottom.',
       },
+      { type: 'heading', text: 'Oat milk iced latte' },
+      {
+        type: 'paragraph',
+        text: 'Barista oat is the default café milk for iced lattes because it foams a little when you swirl and tastes sweeter than dairy without added syrup. Regular drinking oat can taste watery and separate over ice — look for “barista” on the carton. If oat tastes chalky, your espresso is too light or under-extracted; fix the shot before adding more syrup.',
+      },
+      { type: 'heading', text: 'Order of build (milk first vs espresso first)' },
+      {
+        type: 'list',
+        items: [
+          'Milk first (this recipe): café default, pretty layered look when you pour shots last.',
+          'Espresso first: sweeter integration if you stirred syrup into the shots; looks less layered.',
+          'Never: hot espresso sitting on three cubes for five minutes before the milk — that is melt city.',
+        ],
+      },
+      { type: 'heading', text: 'Starbucks-style vs home glass' },
+      {
+        type: 'paragraph',
+        text: 'A grande iced latte is mostly milk. Copy the café vibe with two shots in 16 oz and barista oat; copy a stronger specialty shop latte with three shots or a smaller glass. “Copycat” searches usually want vanilla syrup — stir 10–15 ml into the hot espresso before the milk.',
+      },
     ],
     faqs: [
       {
@@ -132,22 +153,43 @@ export const RECIPES: Recipe[] = [
         answer:
           'Cold milk, lots of ice, espresso poured last, drink it soon. A third shot in a 16 oz cup also helps if you sip slowly.',
       },
+      {
+        question: 'How many calories in an iced latte?',
+        answer:
+          'Mostly from milk. About 180–240 ml of 2% milk is roughly 90–120 kcal before syrup; whole milk and sweetener push it higher. Use the coffee calories calculator for a custom build.',
+      },
+      {
+        question: 'Iced latte vs cold foam cold brew?',
+        answer:
+          'Different drinks. An iced latte is espresso + milk + ice. Cold foam cold brew is cold brew topped with frothed cold milk or cream — usually less milk mixed into the coffee.',
+      },
+      {
+        question: 'What milk is best for an iced latte?',
+        answer:
+          'Cold dairy or barista oat. Avoid warm milk and thin plant milks that separate over ice. Sweetness should come from syrup in the espresso, not from heating the milk.',
+      },
     ],
     relatedSlugs: ['brown-sugar-shaken-espresso', 'spanish-latte', 'mocha'],
+    relatedTools: [
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+    ],
   },
   {
     slug: 'cappuccino',
     name: 'Cappuccino',
     category: 'Espresso drink',
-    title: 'Cappuccino Recipe — Ratio, Foam & How to Make One at Home',
+    title: 'How to Make a Cappuccino — Recipe, Dry vs Wet & Foam Ratio',
     metaDescription:
-      'How to make a cappuccino at home: traditional 1:1:1 espresso, steamed milk, and foam. Cup size, vs latte and flat white, and no-machine options.',
+      'How to make a cappuccino at home: 1:1:1 espresso, steamed milk, and foam. Dry vs wet cappuccino explained, vs latte and flat white, no-machine options.',
     excerpt:
-      'A real cappuccino is a small drink with a foam cap — not a 16 oz latte with extra bubbles.',
+      'How to make a cappuccino: small cup, thick foam cap, dry vs wet options — not a 16 oz latte with extra bubbles.',
     difficulty: 'Intermediate',
     time: '5 min',
     yield: '1 cup (150–180 ml)',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/cappuccino.webp',
     youtube: {
       id: '3kZC6Lbl-4Y',
@@ -172,6 +214,33 @@ export const RECIPES: Recipe[] = [
       'You should see a distinct foam dome. Drink immediately; foam collapses as it sits.',
     ],
     body: [
+      { type: 'heading', text: 'Dry vs wet cappuccino' },
+      {
+        type: 'paragraph',
+        text: '“Dry vs wet cappuccino” is the search that shows people already know the drink name but not the foam dial. Same espresso, same small cup — the milk texture changes the drink.',
+      },
+      {
+        type: 'table',
+        caption: 'Ask for dry or wet at a café; at home, change how long you stretch the milk.',
+        headers: ['Style', 'Foam', 'Liquid milk', 'Taste / feel'],
+        rows: [
+          ['Wet cappuccino', 'Thinner cap', 'More steamed milk', 'Creamier, closer to a small latte'],
+          ['Classic / balanced', 'Thick spoonable cap', 'About equal to foam', 'Airy first sip, coffee still clear'],
+          ['Dry cappuccino', 'Mostly foam', 'Very little liquid milk', 'Light, strong coffee taste; cools fast'],
+        ],
+      },
+      {
+        type: 'list',
+        items: [
+          'Wet: stretch the milk briefly, then spin — more liquid, less dome. Easier to drink; good if dry foam feels chalky.',
+          'Dry: keep the wand tip near the surface longer so you inject more air. Spoon a tall foam cap; less milk under it.',
+          'Neither style belongs in a 12–20 oz cup. If the cup is huge, you made a latte with foam preferences — not a dry/wet cappuccino.',
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Ordering tip: “dry cappuccino” ≈ more foam, less milk. “Wet cappuccino” ≈ more milk, less foam. If the barista looks confused, say “extra foam” or “less foam” in a 6 oz cup.',
+      },
       { type: 'heading', text: 'Cappuccino ratio' },
       {
         type: 'paragraph',
@@ -217,8 +286,33 @@ export const RECIPES: Recipe[] = [
           'Tastes like a latte: cup was 10+ oz. Buy a 6 oz cappuccino cup; it is the cheapest upgrade.',
         ],
       },
+      { type: 'heading', text: 'Traditional Italian vs café chain cappuccino' },
+      {
+        type: 'paragraph',
+        text: 'Italian cappuccino is a morning drink in a small cup — espresso with milk foam, not a dessert. US chains often serve 12–20 oz “cappuccinos” that are really lattes with extra foam. If you are searching for a Starbucks-style copycat, use more milk; if you want the classic, stay in a 150–180 ml cup and stop pouring when the foam dome forms.',
+      },
+      { type: 'heading', text: 'When to drink it' },
+      {
+        type: 'paragraph',
+        text: 'Foam collapses as it cools, so a cappuccino is a sit-down five-minute drink. For a commute lid, make a flat white or latte instead. Pair practice sessions with the espresso ratio calculator so your shots are dialed before you blame the milk.',
+      },
     ],
     faqs: [
+      {
+        question: 'How do you make a cappuccino?',
+        answer:
+          'Pull espresso into a 150–180 ml cup, steam milk with a longer stretch than a flat white so you get a thick foam cap, then pour and spoon foam on top. Traditional teaching ratio is about equal espresso, steamed milk, and foam.',
+      },
+      {
+        question: 'What is a dry cappuccino?',
+        answer:
+          'A dry cappuccino has mostly foam and very little liquid steamed milk — strong coffee taste, airy texture, cools quickly. Stretch the milk longer near the surface, then spoon a tall foam dome over the espresso.',
+      },
+      {
+        question: 'What is a wet cappuccino?',
+        answer:
+          'A wet cappuccino has more steamed milk and less dry foam — creamier, closer to a small latte, still in a 5–6 oz cup. Stretch briefly, then spin so the milk stays silkier.',
+      },
       {
         question: 'What is the cappuccino ratio?',
         answer:
@@ -239,8 +333,29 @@ export const RECIPES: Recipe[] = [
         answer:
           'Use barista oat and keep the cup small. Foam will be less stable than dairy. Regular drinking oat milk usually will not cap properly.',
       },
+      {
+        question: 'Cappuccino vs flat white?',
+        answer:
+          'Both are small. A flat white has less dry foam and more velvety microfoam you can pour art with. A cappuccino has a thicker spoonable foam cap.',
+      },
+      {
+        question: 'How do you make a cappuccino without a machine?',
+        answer:
+          'Brew strong Moka or AeroPress espresso-style coffee, heat milk, then froth with a French press plunge or handheld frother. Keep the cup 6 oz or smaller.',
+      },
+      {
+        question: 'How many calories in a cappuccino?',
+        answer:
+          'A true small whole-milk cappuccino is often 80–120 kcal — less than a 12 oz latte because there is less milk. Foam is mostly air.',
+      },
     ],
     relatedSlugs: ['cortado', 'mocha', 'iced-latte'],
+    relatedTools: [
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+      { href: '/brewing-guides/moka-pot-coffee-guide', label: 'Moka pot coffee guide' },
+    ],
   },
   {
     slug: 'cortado',
@@ -254,7 +369,7 @@ export const RECIPES: Recipe[] = [
     difficulty: 'Beginner',
     time: '3 min',
     yield: '1 small glass (~120 ml)',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/cortado.webp',
     youtube: {
       id: 'ncDuadvtmBM',
@@ -322,6 +437,16 @@ export const RECIPES: Recipe[] = [
         type: 'tip',
         text: 'A cortado is a sit-down drink. If you need a travel lid and 16 oz, make an iced latte instead of stretching this recipe.',
       },
+      { type: 'heading', text: 'Cortado glass size matters' },
+      {
+        type: 'paragraph',
+        text: 'A 4–4.5 oz Gibraltar / rocks glass keeps you honest. Pour into an 8 oz cup and you will unconsciously add milk until it looks “full.” If you only own mugs, mark ~120 ml with a measuring cup once so you know where to stop.',
+      },
+      { type: 'heading', text: 'Iced cortado?' },
+      {
+        type: 'paragraph',
+        text: 'Traditional cortados are hot. An iced cortado is basically equal espresso and cold milk over a little ice — closer to a mini iced latte. Keep total volume small or you reinvented a watery iced latte. For a tall iced drink, use the iced latte recipe instead.',
+      },
     ],
     faqs: [
       {
@@ -344,8 +469,29 @@ export const RECIPES: Recipe[] = [
         answer:
           'Whole dairy is classic. Barista oat works in a small glass. Almond milk usually tastes thin and splits.',
       },
+      {
+        question: 'Cortado vs cappuccino?',
+        answer:
+          'A cappuccino has a thick foam cap and a bit more milk texture. A cortado is flatter, silkier, and usually tastes more like espresso.',
+      },
+      {
+        question: 'How do you pronounce cortado?',
+        answer:
+          'Core-TAH-doe. It means “cut” in Spanish — espresso cut with milk.',
+      },
+      {
+        question: 'Can I make a cortado with a Moka pot?',
+        answer:
+          'Yes. Use about 50 ml strong Moka concentrate and equal hot milk in a small glass. You will not get crema, but the 1:1 balance still teaches the drink.',
+      },
     ],
     relatedSlugs: ['cappuccino', 'spanish-latte', 'mocha'],
+    relatedTools: [
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+      { href: '/brewing-guides/moka-pot-coffee-guide', label: 'Moka pot coffee guide' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+    ],
   },
   {
     slug: 'spanish-latte',
@@ -359,7 +505,7 @@ export const RECIPES: Recipe[] = [
     difficulty: 'Beginner',
     time: '5 min',
     yield: '1 glass or cup',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/spanish-latte.webp',
     youtube: {
       id: '34ddPN4aC-8',
@@ -456,8 +602,29 @@ export const RECIPES: Recipe[] = [
         answer:
           'Evaporated milk is unsweetened. You would need extra sugar and it will not taste the same. Condensed milk is the defining ingredient.',
       },
+      {
+        question: 'Is a Spanish latte the same as a yeonyu latte?',
+        answer:
+          'Very close. Yeonyu latte (연유라떼) is the Korean café condensed-milk latte — same building blocks as a Spanish latte. Recipes differ mainly in milk volume and how sweet shops pour.',
+      },
+      {
+        question: 'Hot or iced Spanish latte — which is better?',
+        answer:
+          'Iced shows the condensed-milk sweetness more clearly. Hot is cozier and needs full dissolve of condensed milk in the espresso before steamed milk.',
+      },
+      {
+        question: 'How many calories in a Spanish latte?',
+        answer:
+          'Often 200–280 kcal for a 12 oz iced build with ~25 ml condensed milk plus fresh milk. Condensed milk is the dense part — check the calories calculator for your exact pour.',
+      },
     ],
     relatedSlugs: ['yeonyu-latte', 'vietnamese-iced-coffee', 'iced-latte'],
+    relatedTools: [
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/recipes/vietnamese-iced-coffee', label: 'Vietnamese iced coffee recipe' },
+    ],
   },
   {
     slug: 'vietnamese-iced-coffee',
@@ -471,7 +638,7 @@ export const RECIPES: Recipe[] = [
     difficulty: 'Beginner',
     time: '8–12 min (phin) / 5 min (Moka)',
     yield: '1 tall glass',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/vietnamese-iced-coffee.webp',
     youtube: {
       id: 'Eax_IAKZUho',
@@ -529,6 +696,21 @@ export const RECIPES: Recipe[] = [
         type: 'paragraph',
         text: 'Two tablespoons of condensed milk ~120 kcal. Robusta-heavy brews can out-caffeinate a double espresso. Treat it as a dessert coffee. If you want protein, that is a different drink.',
       },
+      { type: 'heading', text: 'Where to buy coffee and a phin' },
+      {
+        type: 'paragraph',
+        text: 'Look for Vietnamese ground coffee (often labeled for phin) at Asian grocery stores, or a dark robusta blend online. A stainless phin is cheap and lasts years. If you already own a Moka pot, buy the beans first — the brewer you have is good enough to learn the drink. Our coffee bean origins guide covers Vietnam’s robusta story if you want context.',
+      },
+      { type: 'heading', text: 'Sweetness and ice mistakes' },
+      {
+        type: 'list',
+        items: [
+          'Condensed milk undissolved: always stir into hot coffee before ice.',
+          'Too much ice melt: brew stronger, not sweeter.',
+          'Adding a big splash of fresh milk: that drifts toward Spanish latte — fine if intentional, different drink if not.',
+          'Using light drip coffee: condensed milk cannot rescue thin brew.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -551,8 +733,30 @@ export const RECIPES: Recipe[] = [
         answer:
           'No. Spanish latte adds a lot of fresh milk. Vietnamese iced coffee is coffee + condensed milk + ice, typically without steamed milk.',
       },
+      {
+        question: 'Can I make Vietnamese iced coffee with espresso?',
+        answer:
+          'Yes — 2–3 shots stirred into condensed milk over ice is a fast café-quality version. Use a darker espresso roast if you have a choice.',
+      },
+      {
+        question: 'Is Café Du Monde the same as Vietnamese coffee?',
+        answer:
+          'No. Café Du Monde is a New Orleans chicory-coffee tradition. It can make a tasty condensed-milk iced coffee, but it is not cà phê sữa đá.',
+      },
+      {
+        question: 'How much caffeine is in Vietnamese iced coffee?',
+        answer:
+          'Often as much as or more than a double espresso when robusta is used. Use the caffeine calculator if you are stacking cups.',
+      },
     ],
     relatedSlugs: ['spanish-latte', 'iced-latte', 'brown-sugar-shaken-espresso'],
+    relatedTools: [
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/tools/caffeine-calculator', label: 'Caffeine calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/coffee-beans/coffee-bean-origins-guide', label: 'Coffee bean origins guide' },
+      { href: '/brewing-guides/moka-pot-coffee-guide', label: 'Moka pot coffee guide' },
+    ],
   },
   {
     slug: 'brown-sugar-shaken-espresso',
@@ -650,6 +854,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['iced-latte', 'iced-pistachio-latte', 'vietnamese-iced-coffee'],
+    relatedTools: [
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+    ],
   },
   {
     slug: 'iced-pistachio-latte',
@@ -663,7 +873,7 @@ export const RECIPES: Recipe[] = [
     difficulty: 'Beginner',
     time: '15 min (first batch of syrup) / 4 min after',
     yield: '1 drink (syrup makes ~8)',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/pistachio-latte.webp',
     youtube: {
       id: 'pgzTC5OyRes',
@@ -712,6 +922,26 @@ export const RECIPES: Recipe[] = [
         type: 'tip',
         text: 'Salt in the syrup is not optional if you want that “brown buttery” café finish. A tiny pinch. More than that tastes like nuts mixed with seawater.',
       },
+      { type: 'heading', text: 'Chain copycat vs homemade build' },
+      {
+        type: 'paragraph',
+        text: 'Chain pistachio lattes lean sweet, green, and topped with a salted brown-sugar crunch. Homemade syrup will look browner and taste more like roasted nuts. To get closer to the chain profile: use barista oat, 30 ml syrup, a pinch of cinnamon on top, and keep the glass to 12 oz with two shots — not a 24 oz sugar bomb.',
+      },
+      {
+        type: 'table',
+        caption: 'Syrup use per drink.',
+        headers: ['Syrup', 'Drink size', 'Result'],
+        rows: [
+          ['15–20 ml', '8–10 oz hot', 'Nut-forward, less dessert'],
+          ['25–30 ml', '12 oz iced', 'Café-balanced'],
+          ['40 ml+', '16 oz+', 'Very sweet — easy to overshoot'],
+        ],
+      },
+      { type: 'heading', text: 'Syrup storage and batching' },
+      {
+        type: 'paragraph',
+        text: 'Cool completely before the fridge. Glass jars beat plastic for smell. Freeze leftover syrup in 1-tablespoon cubes so you are not committing to a full week of pistachio drinks. Label the jar — brown nut syrup looks a lot like plain caramel in bad light.',
+      },
     ],
     faqs: [
       {
@@ -734,22 +964,43 @@ export const RECIPES: Recipe[] = [
         answer:
           'About 7 days refrigerated. If it smells off or ferments, toss it. Freeze extra in ice cube trays.',
       },
+      {
+        question: 'How do you make an iced pistachio latte?',
+        answer:
+          'Stir syrup into hot espresso, pour over ice, add cold milk (barista oat works well). Taste before adding more syrup.',
+      },
+      {
+        question: 'Is homemade pistachio syrup cheaper than the bottle?',
+        answer:
+          'Pistachios are pricey, so homemade is about flavor control more than saving money. You avoid dyes and mystery “natural flavors,” and you can dial sweetness down.',
+      },
+      {
+        question: 'Pistachio latte vs pistachio crème?',
+        answer:
+          'A latte has espresso. A crème (or cream) version is steamed milk and pistachio sauce without coffee — different caffeine and a sweeter, softer drink.',
+      },
     ],
     relatedSlugs: ['iced-latte', 'mocha', 'brown-sugar-shaken-espresso'],
+    relatedTools: [
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/recipes/iced-latte', label: 'Iced latte recipe' },
+    ],
   },
   {
     slug: 'mocha',
     name: 'Caffè Mocha',
     category: 'Classic',
-    title: 'Mocha Recipe — Homemade Caffè Mocha, Hot or Iced',
+    title: 'How to Make a Mocha — Homemade Caffè Mocha Recipe (Hot or Iced)',
     metaDescription:
-      'How to make a mocha at home: cocoa or chocolate, espresso, and milk. Hot and iced ratios, how not to make it grainy, calories vs a chain mocha.',
+      'How to make a mocha at home: cocoa or chocolate + espresso + milk. Hot and iced ratios, no-grainy cocoa paste, calories vs a chain mocha.',
     excerpt:
-      'Espresso, chocolate, steamed or cold milk. A mocha that tastes like cocoa, not brown sugar water.',
+      'How to make a mocha: espresso, real cocoa or chocolate, and milk — hot or iced, without syrup-only sweetness.',
     difficulty: 'Beginner',
     time: '5 min',
     yield: '1 cup or tall glass',
-    updated: '2026-10-29',
+    updated: '2026-11-26',
     image: '/images/recipes/mocha.webp',
     youtube: {
       id: '906khxWTiIw',
@@ -817,6 +1068,11 @@ export const RECIPES: Recipe[] = [
     ],
     faqs: [
       {
+        question: 'How do you make a mocha?',
+        answer:
+          'Make a cocoa paste (or melt dark chocolate) with hot espresso, then add 150–200 ml steamed or cold milk. For iced: dissolve chocolate while the espresso is hot, then add ice and milk. Two shots in about 12 oz keeps coffee taste in front of the chocolate.',
+      },
+      {
         question: 'What is a mocha?',
         answer:
           'Espresso, chocolate (cocoa or melted chocolate), and milk. It is a chocolate latte, not a separate brewing method.',
@@ -838,6 +1094,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['iced-latte', 'cappuccino', 'spanish-latte'],
+    relatedTools: [
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+      { href: '/recipes/cappuccino', label: 'Cappuccino recipe' },
+    ],
   },
   {
     slug: 'dirty-chai',
@@ -938,6 +1200,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['iced-latte', 'cappuccino', 'mocha'],
+    relatedTools: [
+      { href: '/tools/caffeine-calculator', label: 'Caffeine calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+    ],
   },
   {
     slug: 'affogato',
@@ -1044,6 +1312,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['mocha', 'cappuccino', 'korean-cream-coffee'],
+    relatedTools: [
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/recipes/mocha', label: 'Mocha recipe' },
+    ],
   },
   {
     slug: 'korean-cream-coffee',
@@ -1153,6 +1427,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['deep-cream-latte', 'yeonyu-latte', 'iced-latte'],
+    relatedTools: [
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/recipes/deep-cream-latte', label: 'Deep cream latte recipe' },
+    ],
   },
   {
     slug: 'deep-cream-latte',
@@ -1252,6 +1532,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['korean-cream-coffee', 'yeonyu-latte', 'iced-latte'],
+    relatedTools: [
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/recipes/korean-cream-coffee', label: 'Korean cream coffee recipe' },
+      { href: '/brewing-guides/how-to-pull-espresso-shot', label: 'How to pull an espresso shot' },
+    ],
   },
   {
     slug: 'yeonyu-latte',
@@ -1351,6 +1637,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['spanish-latte', 'vietnamese-iced-coffee', 'deep-cream-latte'],
+    relatedTools: [
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/espresso-ratio-calculator', label: 'Espresso ratio calculator' },
+      { href: '/recipes/spanish-latte', label: 'Spanish latte recipe' },
+      { href: '/recipes/vietnamese-iced-coffee', label: 'Vietnamese iced coffee recipe' },
+    ],
   },
   {
     slug: 'dalgona-coffee',
@@ -1444,6 +1736,12 @@ export const RECIPES: Recipe[] = [
       },
     ],
     relatedSlugs: ['korean-cream-coffee', 'yeonyu-latte', 'iced-latte'],
+    relatedTools: [
+      { href: '/tools/caffeine-calculator', label: 'Caffeine calculator' },
+      { href: '/tools/coffee-calories-calculator', label: 'Coffee calories calculator' },
+      { href: '/tools/iced-coffee-calculator', label: 'Iced coffee calculator' },
+      { href: '/recipes/korean-cream-coffee', label: 'Korean cream coffee recipe' },
+    ],
   },
 ]
 

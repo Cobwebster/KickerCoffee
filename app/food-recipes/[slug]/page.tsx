@@ -249,7 +249,14 @@ export default async function FoodRecipePage({
               {recipe.coffeePairing.alsoTry}
             </p>
           )}
-          <p className="mt-5">
+          <p className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+            <Link
+              href="/food-recipes/guides/best-snacks-with-coffee"
+              className="inline-flex items-center gap-1 text-sm font-medium text-accent"
+            >
+              Best snacks with coffee guide
+              <ArrowRight className="size-4" />
+            </Link>
             <Link
               href="/recipes"
               className="inline-flex items-center gap-1 text-sm font-medium text-accent"

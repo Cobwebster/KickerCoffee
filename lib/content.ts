@@ -196,11 +196,11 @@ export const BREW_GUIDES: BrewGuide[] = [
   {
     slug: 'french-press-coffee-ratio-and-method',
     method: 'French Press',
-    title: 'French Press Coffee Ratio (1:15) — Chart, Grind & 4-Minute Method',
+    title: 'French Press Coffee Ratio Grams per Liter — 67 g/L (1:15) Chart',
     metaDescription:
-      'French press coffee ratio 1:15 (67 g/L): how much coffee for French press / cafetière per cup, coarse grind, 4-minute steep, and a free calculator.',
+      'French press coffee ratio grams per liter: 67 g coffee per litre water (1:15). Per-cup chart, coarse grind, 4-minute steep, and free calculator.',
     excerpt:
-      'The classic French press coffee ratio is 1:15. Grams per cup, coarse grind, and a clean 4-minute steep.',
+      'French press coffee ratio: 67 grams per liter (1:15). Per-cup chart, coarse grind, and a clean 4-minute steep.',
     difficulty: 'Beginner',
     brewTime: '4–5 min',
     ratio: '1:15 (67 g/L)',
@@ -209,10 +209,15 @@ export const BREW_GUIDES: BrewGuide[] = [
     updated: '2026-11-10',
     image: '/images/french-press-hero.webp',
     quickAnswer:
-      'Start at a 1:15 French press coffee ratio — about 17 g coffee per 250 ml water (67 g per litre). Coarse grind, steep 4 minutes, press gently, and decant immediately.',
+      'French press coffee ratio in grams per liter: 67 g coffee per litre of water (1:15). That is about 17 g per 250 ml mug. Coarse grind, steep 4 minutes, press gently, and decant immediately.',
     intro:
-      'The French press (or cafetière) is immersion brewing at its simplest. Because the metal mesh filter lets natural oils through, it produces a heavier, richer body than paper-filtered methods. There is no pour technique to master and no specialized equipment beyond a press and a scale — making it one of the most forgiving ways to brew genuinely great coffee at home.',
+      'The French press (or cafetière) is immersion brewing at its simplest. Because the metal mesh filter lets natural oils through, it produces a heavier, richer body than paper-filtered methods. There is no pour technique to master and no specialized equipment beyond a press and a scale — making it one of the most forgiving ways to brew genuinely great coffee at home. If you searched “French press coffee ratio grams per liter,” start at 67 g/L and adjust from taste.',
     body: [
+      { type: 'heading', text: 'French press coffee ratio grams per liter' },
+      {
+        type: 'paragraph',
+        text: 'The classic answer is 67 grams of coffee per liter of water — a 1:15 ratio by weight. Mild drinkers often prefer ~63 g/L (1:16); bold cups land near ~71 g/L (1:14). Use the free French press calculator to scale those grams-per-liter targets to any press size.',
+      },
       { type: 'heading', text: 'What you need' },
       {
         type: 'list',
@@ -967,6 +972,211 @@ export const BREW_GUIDES: BrewGuide[] = [
       },
     ],
   },
+  {
+    slug: 'best-coffee-brewing-methods-compared',
+    method: 'All Methods',
+    title: 'Best Coffee Brewing Methods Compared — Differences That Matter',
+    metaDescription:
+      'Best coffee brewing methods and their differences: pour over vs French press vs drip vs espresso vs cold brew vs AeroPress — taste, time, skill, and who each suits.',
+    excerpt:
+      'What actually differs between pour over, French press, drip, espresso, cold brew, and AeroPress — not just another ratio chart.',
+    difficulty: 'Beginner',
+    brewTime: '1–18 hrs',
+    ratio: 'See method',
+    grind: 'See method',
+    yield: '1 cup–batch',
+    updated: '2026-11-26',
+    image: '/images/home-hero.webp',
+    quickAnswer:
+      'The best coffee brewing method depends on what you want: pour over for clarity, French press for body, drip for set-and-forget, espresso for milk drinks, cold brew for low-acid iced batches, AeroPress for one fast mug. Differences are taste, time, grind, and cleanup — not “which is correct.”',
+    intro:
+      'Searches for “best coffee brewing methods and their differences” usually want a decision guide, not another 1:16 table. Methods extract the same beans with different contact time, filter type, and pressure. That changes body, clarity, bitterness, and how much skill you need before the cup tastes good. Use this page to pick a lane, then jump into the matching recipe or calculator.',
+    body: [
+      { type: 'heading', text: 'Coffee brewing methods compared (quick chart)' },
+      {
+        type: 'table',
+        caption: 'Start with the job you want the cup to do.',
+        headers: ['Method', 'Cup style', 'Time', 'Skill', 'Best if you…'],
+        rows: [
+          ['Pour over (V60)', 'Clean, bright, aromatic', '3–4 min', 'Medium', 'Want origin flavors clear'],
+          ['Drip machine', 'Balanced, consistent', '5–10 min', 'Low', 'Brew for a household'],
+          ['French press', 'Full body, rich oils', '4–5 min', 'Low', 'Want easy immersion'],
+          ['AeroPress', 'Flexible, clean-ish', '2–3 min', 'Low–med', 'Travel or one mug fast'],
+          ['Espresso', 'Concentrated, syrupy', '25–35 s', 'High', 'Make lattes / cappuccinos'],
+          ['Moka pot', 'Bold stovetop', '5–8 min', 'Medium', 'Want espresso-ish without a machine'],
+          ['Cold brew', 'Smooth, low-acid iced', '12–18 hrs', 'Low', 'Batch iced coffee for the week'],
+        ],
+      },
+      { type: 'heading', text: 'Pour over vs French press vs drip' },
+      {
+        type: 'list',
+        items: [
+          'Pour over: paper filter strips oils and fines → lighter body, more aroma. You control bloom and pours.',
+          'French press: metal mesh keeps oils → heavier mouthfeel, more sediment risk if grind is too fine.',
+          'Drip: same idea as pour over with less technique; machine spray and basket grind matter more than pour patterns.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'If your beans taste amazing as pour over but muddy in a press, check grind first (press needs coarse). If drip tastes flat, dose and grind usually beat buying a new machine.',
+      },
+      { type: 'heading', text: 'Espresso vs everything else' },
+      {
+        type: 'paragraph',
+        text: 'Espresso is not “strong drip.” It uses fine grind and ~9 bars of pressure to extract a small yield (often 1:2 dose:yield) in ~25–35 seconds. That concentrate is the base for cappuccino, latte, and iced latte. Moka pot is the home bridge: higher strength than drip, far less pressure than espresso.',
+      },
+      { type: 'heading', text: 'Cold brew vs iced coffee (flash brew)' },
+      {
+        type: 'list',
+        items: [
+          'Cold brew: long cold steep → smoother, lower perceived acidity, often higher caffeine per ounce if concentrated.',
+          'Japanese / flash iced coffee: hot brew onto ice → brighter aromatics, tastes closer to hot pour over.',
+          'Neither replaces the other — pick smooth batch vs bright glass.',
+        ],
+      },
+      { type: 'heading', text: 'Which brewing method should you learn first?' },
+      {
+        type: 'table',
+        headers: ['Your situation', 'Start here', 'Next step'],
+        rows: [
+          ['Absolute beginner, one mug', 'AeroPress or French press', 'Pour over when you want more clarity'],
+          ['Family / guests every morning', 'Drip machine', 'French press calculator for weekends'],
+          ['Milk drinks are the goal', 'Espresso (or Moka)', 'Cappuccino / iced latte recipes'],
+          ['Iced coffee all week', 'Cold brew concentrate', 'Iced coffee calculator for flash brew'],
+          ['Showcasing fancy light-roast beans', 'Pour over', 'Ratio + grind chart'],
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'There is no single “best” method. The best method is the one you will actually use with a scale, fresh beans, and a grind that matches the brew time.',
+      },
+      { type: 'heading', text: 'Tools that make method-hopping painless' },
+      {
+        type: 'list',
+        items: [
+          'Coffee ratio calculator — size any batch once you pick a ratio.',
+          'Grind size chart — match texture to method before you blame the beans.',
+          'French press / drip / cold brew / espresso calculators — method-specific doses and timers.',
+          'Full ratio + grind chart guide — one table for every home method.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What are the best coffee brewing methods and their differences?',
+        answer:
+          'Pour over is clearest, French press is fullest-bodied, drip is easiest for batches, espresso is concentrated for milk drinks, cold brew is smooth iced coffee, AeroPress is the flexible one-mug tool. Differences come from filter type, contact time, and pressure — not from a universal “best.”',
+      },
+      {
+        question: 'Is pour over better than French press?',
+        answer:
+          'Better for clarity and aroma, not for body. French press keeps oils the paper filter removes. Choose based on the cup you want, not prestige.',
+      },
+      {
+        question: 'What is the easiest coffee brewing method for beginners?',
+        answer:
+          'French press or AeroPress: few moving parts, forgiving timing, and clear “too fine / too coarse” fixes. Drip is easiest if you already own a decent machine and weigh the dose.',
+      },
+      {
+        question: 'Do I need espresso to make café drinks?',
+        answer:
+          'True cappuccinos and lattes want espresso (or a strong Moka/AeroPress stand-in). Filter coffee plus milk is a different drink — still good, just not the same ratio or texture.',
+      },
+      {
+        question: 'Which method has the most caffeine?',
+        answer:
+          'Per ounce, espresso and many cold brew concentrates are high. Per mug, a large drip or French press often delivers more total milligrams because you drink more liquid. Use the caffeine calculator for real stacks.',
+      },
+    ],
+  },
+  {
+    slug: 'coffee-brewing-tips',
+    method: 'All Methods',
+    title: 'Coffee Brewing Tips That Fix Weak, Sour & Bitter Cups',
+    metaDescription:
+      'Coffee brewing tips for home: weigh your dose, match grind to method, fix sour vs bitter, water temperature, and which free calculator to open next.',
+    excerpt:
+      'Practical coffee brewing tips — the five habits that fix most home cups — then the right tool for each fix.',
+    difficulty: 'Beginner',
+    brewTime: '2–5 min',
+    ratio: '1:15–1:17 filter',
+    grind: 'Match the method',
+    yield: 'Any',
+    updated: '2026-11-26',
+    image: '/images/home-hero.webp',
+    quickAnswer:
+      'Weigh coffee and water, grind for the method (coarse press, medium drip, fine espresso), brew hot enough (~93–96°C for filter), and change one variable at a time. Sour → finer/longer; bitter → coarser/shorter.',
+    intro:
+      'Most “coffee brewing tips” lists bury you in gadgets. These are the habits that move the needle on a normal Tuesday — then links into the calculators and method guides so you can apply them immediately.',
+    body: [
+      { type: 'heading', text: '1. Weigh the dose (scoops lie)' },
+      {
+        type: 'paragraph',
+        text: 'A “tablespoon” of light roast vs dark roast is not the same coffee mass. Start filter coffee around 1:16 (about 15–16 g per 250 ml mug) or French press at 1:15 (67 g per litre). Open the ratio calculator or measurement converter when you are scaling up.',
+      },
+      { type: 'heading', text: '2. Match grind to contact time' },
+      {
+        type: 'list',
+        items: [
+          'Coarse: French press, cold brew',
+          'Medium: drip basket',
+          'Medium-fine: pour over, AeroPress',
+          'Fine: espresso',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Wrong grind is the #1 reason a “correct ratio” still tastes wrong. Use the grind size chart, then adjust one click at a time.',
+      },
+      { type: 'heading', text: '3. Fix sour vs bitter before you change beans' },
+      {
+        type: 'table',
+        headers: ['Cup tastes…', 'Likely cause', 'Try first'],
+        rows: [
+          ['Sour / thin / fast', 'Under-extracted', 'Grind finer or brew a bit longer / hotter'],
+          ['Bitter / harsh / ashy', 'Over-extracted', 'Grind coarser or shorten contact time'],
+          ['Weak but not sour', 'Under-dosed', 'Add coffee (stronger ratio), not only finer grind'],
+          ['Muddy French press', 'Too fine + hard plunge', 'Coarser grind, gentle press, decant'],
+        ],
+      },
+      { type: 'heading', text: '4. Water temperature and freshness' },
+      {
+        type: 'paragraph',
+        text: 'Filter coffee likes roughly 92–96°C (198–205°F). Boiling-straight-onto-dark-roast can taste harsh; lukewarm water under-extracts. Buy beans with a roast date and finish the bag in a few weeks — stale coffee tastes flat no matter how perfect your pour is.',
+      },
+      { type: 'heading', text: '5. Pick the method for the job' },
+      {
+        type: 'paragraph',
+        text: 'Clarity → pour over. Body → French press. Batch → drip or cold brew. Milk drinks → espresso. Read the brewing methods comparison if you are still choosing gear, then open the matching guide.',
+      },
+      {
+        type: 'tip',
+        text: 'Change one variable per brew. If you change grind, dose, and time together, you will not know what fixed the cup.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What are the most important coffee brewing tips?',
+        answer:
+          'Weigh dose and water, grind for the method, keep filter water near 93–96°C, and diagnose sour vs bitter before buying new beans. Those four beat most gadget upgrades.',
+      },
+      {
+        question: 'How do I make coffee less bitter?',
+        answer:
+          'Grind coarser, shorten brew time, or drop water temperature slightly. If it is still harsh, the roast may be very dark or the beans stale.',
+      },
+      {
+        question: 'How do I make coffee less sour?',
+        answer:
+          'Grind finer, extend contact time, or use hotter water. Confirm you are not under-dosing a large mug with a tiny scoop.',
+      },
+      {
+        question: 'Should I bloom my coffee?',
+        answer:
+          'For pour over and often French press, yes — wet the grounds with ~2× their weight in water for 30–45 seconds so CO₂ escapes and the bed saturates evenly.',
+      },
+    ],
+  },
   ...TRENDING_BREW_GUIDES,
 ]
 
@@ -1635,7 +1845,7 @@ export const BEAN_PICKS: AffiliateProduct[] = [
     tier: 'Premium',
     roast: 'Dark',
     priceHint: 'Often ~$16–20 / 16 oz',
-    why: 'High-caffeine Arabica + Robusta dark roast for bold cups — pair with the caffeine day planner so you do not overshoot sleep.',
+    why: 'High-caffeine Arabica + Robusta dark roast for bold cups — pair with the caffeine tracker so you do not overshoot sleep.',
   },
   {
     name: 'Counter Culture Forty Six Blend',
@@ -1686,13 +1896,13 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'coffee-roast-levels-explained',
     topic: 'Roasting',
-    title: 'Types of Coffee Roasts — Light vs Medium vs Dark (Caffeine Myth)',
+    title: 'Types of Coffee Roast Explained — Light vs Medium vs Dark',
     metaDescription:
-      'Types of coffee roasts explained: light vs medium vs dark, what medium roast tastes like, does dark roast have more caffeine, and how to brew each roast level.',
+      'Types of coffee roast explained: light vs medium vs dark, what each tastes like, does dark roast have more caffeine, and how to brew each roast level.',
     excerpt:
-      'Light, medium, and dark roast — flavor, acidity, body, and the caffeine myth in plain English.',
+      'Types of coffee roast: light, medium, and dark — flavor, acidity, body, and the caffeine myth.',
     readTime: '14 min',
-    updated: '2026-11-10',
+    updated: '2026-11-26',
     image: '/images/roast-levels-hero.webp',
     quickAnswer:
       'There are three main types of coffee roast: light (bright, origin-forward), medium (balanced sweetness), and dark (bold, low-acid, roast-driven). “Roast level” is how far the beans were taken through that spectrum.',
@@ -1925,19 +2135,42 @@ export const BEAN_ARTICLES: BeanArticle[] = [
   {
     slug: 'coffee-bean-origins-guide',
     topic: 'Origins',
-    title: 'Coffee Bean Origins by Country — How Region Shapes Flavor',
+    title: 'Coffee Bean Origins by Country — Compare Ethiopia, Colombia, Brazil',
     metaDescription:
-      'Coffee bean origins by country: how growing region shapes flavor. Compare Ethiopia, Colombia, Brazil, and more — plus processing and buying tips.',
+      'How do coffee beans from different countries compare? Side-by-side origin chart for Ethiopia, Colombia, Brazil, Kenya, Sumatra + flavor, process, and buying tips.',
     excerpt:
-      'Why Ethiopian coffee tastes like blueberries and Sumatran tastes earthy — coffee bean origin by country, decoded.',
+      'How coffee beans from different countries compare — Ethiopia to Brazil — with a side-by-side flavor chart.',
     readTime: '12 min',
-    updated: '2026-09-21',
+    updated: '2026-11-26',
     image: '/images/origins-hero.webp',
     quickAnswer:
-      'Coffee bean origin (country and region) changes acidity, body, and aroma as much as roast. High-grown African lots often taste fruity or floral; many Latin American lots taste caramel/nutty; some Asian lots taste earthy and full.',
+      'Coffee beans from different countries compare mainly on acidity, body, and aroma: Ethiopia often fruity/floral, Colombia balanced caramel-sweet, Brazil chocolate/nutty and low-acid, Kenya bright and currant-like, Sumatra earthy and full. Origin matters as much as roast.',
     intro:
       'Where coffee grows — the soil, altitude, climate, varietal, and processing method — shapes its flavor as much as the roast. Coffee only thrives in the "Bean Belt" between the Tropics of Cancer and Capricorn, where warm days, cool nights, and seasonal rainfall let cherries ripen slowly and develop complex sugars. Learning regional flavor profiles helps you shop for beans you will love and understand why the same roast tastes completely different from one country to the next.',
     body: [
+      { type: 'heading', text: 'How do coffee beans from different countries compare?' },
+      {
+        type: 'paragraph',
+        text: 'Use this chart as a buying map, not a rigid rulebook. Processing (washed vs natural) and roast level can push any origin brighter or darker — but country still sets the baseline tendency.',
+      },
+      {
+        type: 'table',
+        caption: 'Typical cup tendencies at light–medium roast. Open the world coffee map to compare any two origins live.',
+        headers: ['Country', 'Acidity', 'Body', 'Common flavors', 'Best for'],
+        rows: [
+          ['Ethiopia', 'High', 'Light–medium', 'Berry, jasmine, citrus, peach', 'Pour over, filter'],
+          ['Kenya', 'Very high', 'Medium', 'Blackcurrant, grapefruit, winey', 'Pour over, modern espresso'],
+          ['Colombia', 'Medium', 'Medium', 'Caramel, red apple, chocolate', 'Everyday drip / espresso'],
+          ['Brazil', 'Low', 'Full', 'Chocolate, nuts, peanut', 'Espresso blends, milk drinks'],
+          ['Guatemala', 'Medium', 'Medium–full', 'Cocoa, spice, stone fruit', 'Filter + espresso'],
+          ['Sumatra', 'Low', 'Full / syrupy', 'Earth, cedar, dark chocolate', 'French press, espresso'],
+          ['Vietnam', 'Low', 'Heavy', 'Bold, woody (often Robusta)', 'Phin / iced milk coffee'],
+        ],
+      },
+      {
+        type: 'tip',
+        text: 'Want a live side-by-side? Open the world coffee map, tap Compare, and pick two countries — altitude, process, and cup bars update together.',
+      },
       { type: 'heading', text: 'The Coffee Belt and why geography matters' },
       {
         type: 'paragraph',
@@ -2060,6 +2293,11 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       },
     ],
     faqs: [
+      {
+        question: 'How do coffee beans from different countries compare?',
+        answer:
+          'Ethiopia tends fruity/floral and high-acid; Colombia is balanced caramel-sweet; Brazil is chocolatey and low-acid; Kenya is bright and currant-like; Sumatra is earthy and full-bodied. Use the comparison chart above or the world coffee map’s Compare mode for a live side-by-side.',
+      },
       {
         question: 'What does "single origin" mean?',
         answer:
@@ -2884,7 +3122,7 @@ export const BEAN_ARTICLES: BeanArticle[] = [
       { type: 'heading', text: 'Who should switch to decaf (or half-caf)' },
       {
         type: 'paragraph',
-        text: 'Afternoon anxiety, fragile sleep, pregnancy limits from a clinician, reflux that worsens with caffeine, or a simple desire to keep the ritual after your cutoff time. Half-caf (mix regular and decaf beans, or alternate cups) is often easier than quitting cold turkey. Pair evening decaf with the caffeine day planner so your morning regular cups still leave room under your bedtime target.',
+        text: 'Afternoon anxiety, fragile sleep, pregnancy limits from a clinician, reflux that worsens with caffeine, or a simple desire to keep the ritual after your cutoff time. Half-caf (mix regular and decaf beans, or alternate cups) is often easier than quitting cold turkey. Pair evening decaf with the caffeine tracker so your morning regular cups still leave room under your bedtime target.',
       },
       { type: 'heading', text: 'Brewing tips by method' },
       {
@@ -2964,29 +3202,34 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'coffee-ratio-calculator',
     name: 'Coffee Ratio Calculator',
-    title: 'Coffee-to-Water Ratio Calculator — How Much Coffee per Cup',
+    title: 'Coffee to Water Ratio Chart & Calculator — Golden Ratio',
     metaDescription:
-      'Free coffee-to-water ratio calculator for pour over, drip, and French press. How much coffee per cup in grams or tablespoons — start at 1:16.',
+      'Golden ratio coffee (~1:16) calculator with V60, French press, AeroPress, and batch-brew presets. Printable coffee to water ratio chart + grind chart link.',
     excerpt:
-      'Enter coffee, water, or cups — get grams and tablespoons for any brew ratio (1:15–1:18).',
+      'Method presets snap the ratio slider. Printable coffee-to-water chart, plus grind links for ratio + grind dial-in.',
     icon: 'Scale',
     category: 'Calculator',
     keywords: [
+      'golden ratio coffee',
+      'coffee to water ratio chart',
       'coffee to water ratio',
       'coffee ratio calculator',
-      'coffee to water ratio calculator',
       'how much coffee per cup',
       'how much coffee for 2 cups',
-      'golden ratio coffee',
-      'coffee ratios',
-      'water coffee ratio',
       '1:16 coffee ratio',
+      'v60 coffee ratio',
+      'french press coffee ratio',
     ],
     faqs: [
       {
         question: 'What is the golden ratio for coffee?',
         answer:
-          'The "golden ratio" is roughly 1:15 to 1:18 — one gram of coffee for every 15 to 18 grams of water. A 1:16 ratio (about 62 grams of coffee per liter) is the most popular all-purpose starting point.',
+          'The “golden ratio” is roughly 1:15 to 1:18 — one gram of coffee for every 15 to 18 grams of water. A 1:16 ratio (about 62 g per liter) is the most popular all-purpose starting point. Tap V60 / pour over above to snap the slider to 1:16.',
+      },
+      {
+        question: 'Where is the coffee to water ratio chart?',
+        answer:
+          'Use the printable method chart on this page — V60, Chemex, French press, AeroPress, batch drip, cold brew, and espresso starting ratios with coffee per 250 ml and grind cues. Hit Print chart to save a copy.',
       },
       {
         question: 'How much coffee do I use per cup?',
@@ -3001,7 +3244,7 @@ export const TOOLS: ToolMeta[] = [
       {
         question: 'What ratio should I use for French press vs pour over?',
         answer:
-          'Pour over and drip do well at 1:16–1:17. French press is often brewed a touch stronger at 1:15. Espresso is a different scale entirely, usually 1:2.',
+          'Pour over / V60: 1:16–1:17. French press: often 1:15. AeroPress: commonly 1:12–1:15. Batch drip: ~1:16–1:17. Use the method presets to snap the slider, then open the grind chart so ratio and grind move together.',
       },
       {
         question: 'Is coffee ratio by weight or volume?',
@@ -3011,89 +3254,108 @@ export const TOOLS: ToolMeta[] = [
       {
         question: 'Why does my coffee taste weak even at 1:16?',
         answer:
-          'Weak flavor is often under-extraction, not only ratio — grind too coarse, water too cool, or brew time too short. Try grinding a bit finer before dropping to 1:15. Also confirm you are measuring water by weight, not eyeballing the mug.',
+          'Weak flavor is often under-extraction, not only ratio — grind too coarse, water too cool, or brew time too short. Try grinding a bit finer (see the grind size chart) before dropping to 1:15.',
       },
     ],
   },
   {
     slug: 'drip-coffee-calculator',
     name: 'Drip Coffee Calculator',
-    title: 'Drip Coffee Calculator (How Much Coffee for 4, 8, 10, or 12 Cups)',
+    title: 'Drip Coffee Calculator — 12-Cup Maker, Scoops & Carafe Presets',
     metaDescription:
-      'Use our drip coffee calculator to find how much coffee you need for 4, 8, 10, or 12 cups. Convert coffee maker cups to grams, tablespoons, scoops, and water instantly.',
+      'How much coffee for a 12 cup coffee maker? Custom water ml/L, Mr. Coffee & Cuisinart carafe presets, coffee scoops per pot, and drip too-weak troubleshooting.',
     excerpt:
-      'How much coffee for your machine? Enter cups and get grams, tablespoons, scoops, and water for drip coffee instantly.',
+      'Cup count or custom carafe water, Mr. Coffee / Cuisinart full-carafe presets, scoops per pot, and weak/strong fixes.',
     icon: 'Scale',
     category: 'Calculator',
     keywords: [
+      'how much coffee for 12 cup coffee maker',
+      'coffee scoops per pot',
+      'drip coffee too weak',
       'drip coffee calculator',
       'how much coffee for 12 cups',
       'how much coffee for 8 cups',
-      'coffee maker ratio',
-      'how many tablespoons of coffee per cup',
-      'drip coffee ratio',
       'mr coffee ratio',
+      'cuisinart coffee maker ratio',
+      'drip coffee ratio',
     ],
     faqs: [
       {
-        question: 'How much coffee do I use for 12 cups of drip coffee?',
+        question: 'How much coffee for a 12 cup coffee maker?',
         answer:
-          'For a standard 12-cup coffee maker using 5 oz machine cups, start with about 106 to 113 grams of coffee and roughly 1.8 liters of water, depending on strength. That is around 10 to 11 standard coffee scoops or about 20 to 21 tablespoons.',
+          'For a standard 12-cup maker (5 oz machine cups, ~1.77 L water), start around 107 g of coffee at 1:16.5 — about 11 level scoops or 20 tablespoons. Tap 12 cups or the Mr. Coffee 12-cup carafe preset above.',
+      },
+      {
+        question: 'How many coffee scoops per pot?',
+        answer:
+          'At standard strength: ~3.5 scoops for 4 cups, ~7 for 8 cups, ~9 for 10 cups, ~11 for 12 cups (level ~10 g scoops). See the pot-size table on this page — “one scoop per cup” assumes tiny machine cups, not mugs.',
+      },
+      {
+        question: 'Why is my drip coffee too weak?',
+        answer:
+          'Usually under-dosing or grind too coarse. Switch to Strong (1:15.5), add ~10% more coffee, or grind a notch finer. Confirm you are not treating 12 machine cups as 12 full mugs. Descale if every pot tastes flat.',
       },
       {
         question: 'How much coffee for 8 cups in a coffee maker?',
         answer:
-          'For 8 machine cups of drip coffee, a solid starting point is about 71 to 75 grams of coffee with roughly 1.2 liters of water. If you prefer a stronger pot, go slightly higher. If you want a lighter brew, back off by a few grams.',
-      },
-      {
-        question: 'How much coffee for 10 cups?',
-        answer:
-          'For 10 coffee-maker cups (5 oz each), use about 88–94 g of coffee and roughly 1.5 liters of water at a standard drip ratio. That is roughly 9 scoops or 17–18 tablespoons if you do not have a scale.',
+          'For 8 machine cups, about 71–75 g coffee with ~1.2 L water. Prefer a stronger pot? Use the Strong preset or the custom water field.',
       },
       {
         question: 'What is the best drip coffee ratio?',
         answer:
-          'A 1:16 to 1:17 coffee-to-water ratio is the best place to start for most drip coffee makers. That gives you enough strength and sweetness without making the pot taste heavy or bitter. Stronger drinkers often prefer 1:15.5 to 1:16.',
+          '1:16 to 1:17 for most machines. This calculator’s Standard is 1:16.5; Light 1:17.5; Strong 1:15.5.',
       },
       {
         question: 'Why does a coffee maker cup not equal a normal mug?',
         answer:
-          'Most coffee makers define one cup as 5 ounces, not the 8-ounce cups people expect in recipes and kitchens. That is why 12-cup coffee makers do not actually produce 12 full mugs. This calculator accounts for that difference so the numbers make sense in the real world.',
+          'Most makers define one cup as 5 ounces, not 8. That is why a “12-cup” carafe is closer to 6–8 mugs. Use cup mode or carafe/ml mode accordingly.',
       },
       {
         question: 'How many tablespoons of coffee for 12 cups?',
         answer:
-          'About 20–21 tablespoons (roughly 106–113 g) for a 12-cup machine pot at standard strength. Tablespoons vary with grind and roast, so grams are more reliable when you can weigh.',
+          'About 20–21 tablespoons (~106–113 g) at standard strength. Grams are more reliable when you can weigh.',
       },
     ],
   },
   {
     slug: 'french-press-calculator',
     name: 'French Press Calculator',
-    title: 'French Press Coffee Ratio Calculator (1:15) — Free Cafetière Chart',
+    title: 'French Press Calculator — 67 g per Liter (1:15) + 4-Min Timer',
     metaDescription:
-      'French press coffee ratio calculator: classic 1:15. How much coffee for French press / cafetière — 1 cup, 2 cups, 1 litre — grams, tablespoons, scoops, steep time.',
+      'French press coffee ratio grams per liter: 67 g/L at 1:15. How much coffee for 1 liter / cafetière, 4-min steep timer, bloom option, muddy-cup fixes.',
     excerpt:
-      'French press coffee ratio by press size and strength. Instant grams, tablespoons, grind, and steep time — including cafetière sizes.',
+      '67 g coffee per liter (1:15) — size any French press / cafetière, then run the 4-minute steep timer.',
     icon: 'Coffee',
     category: 'Calculator',
     keywords: [
+      'french press coffee ratio grams per liter',
+      '67g per liter french press',
+      'french press 1 liter how much coffee',
+      'cafetiere ratio',
+      'french press muddy',
       'french press coffee ratio',
       'french press ratio',
       'french press calculator',
       'cafetiere coffee ratio',
-      'cafetiere ratio',
-      'coffee ratio for french press',
       'how much coffee for french press',
-      'french press coffee amount',
-      'french press ratio per cup',
       '1 litre french press',
+      'french press steep time',
     ],
     faqs: [
+      {
+        question: 'What is the French press coffee ratio in grams per liter?',
+        answer:
+          'Classic French press is about 67 grams of coffee per liter of water (1:15 by weight). That is ~17 g per 250 ml mug. Use 1:14 (~71 g/L) for stronger or 1:16 (~63 g/L) for milder.',
+      },
       {
         question: 'What is the best French press coffee ratio?',
         answer:
           'A 1:15 coffee-to-water ratio is the classic French press starting point — about 67 grams of coffee per liter of water. Use 1:14 for a stronger cup or 1:16 for something lighter and more tea-like.',
+      },
+      {
+        question: 'French press 1 liter — how much coffee?',
+        answer:
+          'For a 1 L / 8-cup French press at 1:15, use about 67 g of coarse coffee (~12–13 tablespoons or 6–7 scoops). Tap the 8-cup / 1 L preset above for grams by strength.',
       },
       {
         question: 'How much coffee for 1 cup French press?',
@@ -3106,89 +3368,109 @@ export const TOOLS: ToolMeta[] = [
           'For two mugs (500 g water) at 1:15, use about 33 g of coffee (~6 tablespoons or 3 scoops). At mild 1:16 use ~31 g; at strong 1:14 use ~36 g.',
       },
       {
-        question: 'How much coffee do I use for an 8-cup / 1 litre French press?',
+        question: 'What is the cafetière ratio?',
         answer:
-          'An 8-cup / 1 L French press holds about 1000 g of water. At the classic 1:15 ratio that is roughly 67 g of coarse-ground coffee, or about 12–13 tablespoons / 6–7 scoops.',
-      },
-      {
-        question: 'What is the cafetière coffee ratio?',
-        answer:
-          'Cafetière is another name for French press. Use the same 1:15 coffee-to-water ratio (67 g per litre), coarse grind, and about a 4-minute steep.',
+          'Cafetière is another name for French press. Use the same 1:15 coffee-to-water ratio (67 g per litre), coarse grind, and about a 4-minute steep — use the built-in timer for the plunge reminder.',
       },
       {
         question: 'What grind size and steep time for French press?',
         answer:
-          'Use a coarse grind (like sea salt) and steep for about 4 minutes. Too fine and the cup turns bitter and muddy; too long and bitterness creeps in. Press slowly and decant immediately so the coffee does not keep extracting.',
+          'Use a coarse grind (like sea salt) and steep for about 4 minutes. Optional: bloom 30 seconds with ~2× the dose in water, then fill and steep. Too fine → bitter and muddy. See the grind size chart (French press filter).',
+      },
+      {
+        question: 'Why is my French press muddy or full of sludge?',
+        answer:
+          'Muddy / sludge cups usually mean the grind is too fine, you plunged too hard (forcing fines through the mesh), or you left coffee sitting on the grounds. Grind coarser, press gently, and decant immediately. Open the grind size chart for the French press row, or strain once through a fine mesh if you hate sediment.',
       },
       {
         question: 'Is French press coffee stronger than drip?',
         answer:
           'It often tastes stronger because the metal filter lets oils through and many people brew French press at a slightly stronger ratio (1:15 vs 1:16–1:17 for drip). Caffeine per ounce is similar if the dose is similar — body and mouthfeel are what feel “stronger.”',
       },
-      {
-        question: 'Why is my French press muddy?',
-        answer:
-          'Muddy cups usually mean the grind is too fine or you plunged too hard and forced fines through the mesh. Grind coarser, press gently, and pour soon after plunging. A quick secondary strain through a fine mesh helps if you hate sediment.',
-      },
     ],
   },
   {
     slug: 'iced-coffee-calculator',
     name: 'Iced Coffee Calculator',
-    title: 'How to Make Iced Coffee — Japanese Iced & Flash Brew Calculator',
+    title: 'Japanese Iced Coffee Ratio — Flash Brew vs Cold Brew Calculator',
     metaDescription:
-      'How to make iced coffee at home: Japanese iced (flash brew) ratios, hot-then-chill, or concentrate over ice. Free calculator for 12, 16, and 20 oz glasses — not the same as cold brew.',
+      'Japanese iced coffee ratio & flash brew vs cold brew: custom glass ml/oz, iced latte from concentrate with milk volume, and fixes when ice melts too fast.',
     excerpt:
-      'Flash brew onto ice, chill a hot brew, or pour concentrate over ice — sized for your glass so melting ice does not ruin the cup.',
+      'Flash brew, chill, or concentrate — custom glass sizes, optional milk for iced latte mode, and recipe links for latte / shaken espresso.',
     icon: 'Snowflake',
     category: 'Calculator',
     keywords: [
+      'japanese iced coffee ratio',
+      'flash brew vs cold brew',
+      'iced coffee melting too fast',
       'how to make iced coffee',
       'japanese iced coffee',
       'iced drip coffee ratio',
-      'iced coffee ratio',
       'flash brew coffee',
-      'how to brew iced coffee',
+      'iced latte from concentrate',
     ],
     faqs: [
       {
-        question: 'How do you make iced coffee?',
+        question: 'What is the Japanese iced coffee ratio?',
         answer:
-          'The brightest method is Japanese iced coffee: brew a stronger hot pour-over or drip directly onto a weighed amount of ice so dilution is controlled. You can also brew hot normally and chill, or pour a concentrate over ice. Overnight cold brew is a different method entirely.',
+          'Think in final drink weight. A common flash-brew approach uses about a 1:10 coffee-to-final-drink ratio with ~40% of the glass as ice and the rest as hot brew water. Pick Japanese iced above and set your glass (including custom ml/oz) for exact grams.',
       },
       {
-        question: 'What is Japanese iced coffee?',
+        question: 'Flash brew vs cold brew — what’s the difference?',
         answer:
-          'Japanese iced coffee (flash brew) is hot coffee brewed onto ice. Hot extraction keeps aromatics; ice cools the drink instantly. Typical approach: brew as if targeting full glass strength, with ~40% of the final mass as ice and the rest as hot brew water.',
+          'Flash brew (Japanese iced) is hot extraction onto ice — bright and aromatic in minutes. Cold brew is a long cold steep (usually 12–18 hours) — smoother and lower-acid. They are not interchangeable recipes; use this calculator for flash/iced styles and the cold brew calculator for overnight concentrate.',
+      },
+      {
+        question: 'Why is my iced coffee melting too fast / tasting watery?',
+        answer:
+          'Ice melted before you drank it, or you used leftover hot coffee without accounting for dilution. Pre-chill the glass, use larger cubes, brew stronger (Japanese or concentrate mode), or switch to iced-latte-from-concentrate and set milk so coffee+ice still has enough strength. Don’t pour a 1:16 hot brew straight over a full glass of ice.',
+      },
+      {
+        question: 'How do you make iced coffee?',
+        answer:
+          'Brightest: Japanese iced (flash brew onto weighed ice). Convenient: brew hot at 1:16 and chill. Milk drinks: concentrate or iced-latte mode with a milk volume. Overnight cold brew is a separate method.',
+      },
+      {
+        question: 'Can I make an iced latte from concentrate?',
+        answer:
+          'Yes — choose “Iced latte from concentrate,” set glass size and milk volume, then brew the listed coffee/water onto the ice and top with cold milk. Pair with our iced latte or shaken espresso recipes for café-style builds.',
       },
       {
         question: 'Is iced coffee the same as cold brew?',
         answer:
-          'No. Iced coffee is usually hot-brewed then cooled (or flash-brewed onto ice). Cold brew steeps coarse grounds in cold water for 12–18 hours. Cold brew tastes smoother and lower-acid; flash brew tastes brighter and more aromatic.',
-      },
-      {
-        question: 'What is the iced drip coffee ratio?',
-        answer:
-          'For Japanese iced / iced drip, think in final drink weight. A common flash-brew approach uses about a 1:10–1:12 coffee-to-final-drink ratio with part of the water replaced by ice. Use the calculator above for exact grams by glass size.',
+          'No. Iced coffee is usually hot-brewed then cooled (or flash-brewed onto ice). Cold brew steeps coarse grounds in cold water for 12–18 hours.',
       },
     ],
   },
   {
     slug: 'brew-timer',
     name: 'Pour Over Brew Timer',
-    title: 'Pour Over Brew Timer (Guided Bloom & Pour Schedule)',
+    title: 'Pour Over Brew Timer — V60, Chemex, Kalita & Switch',
     metaDescription:
-      'A free guided pour over brew timer. Follow the bloom and pour schedule with on-screen prompts and target weights for a perfect V60 or Kalita cup every time.',
+      'Free V60 brew timer with Chemex, Kalita Wave, and Switch profiles. Guided bloom & 3-pour schedule, optional beep on phase change, and water temp notes.',
     excerpt:
-      'A guided timer that walks you through the bloom and pours with target weights and live prompts.',
+      'Guided pour-over timer with V60, Chemex, Kalita, and Switch profiles — bloom prompts, target weights, and optional phase beeps.',
     icon: 'Timer',
     category: 'Timer',
-    keywords: ['pour over timer', 'coffee brew timer', 'v60 timer', 'coffee bloom timer'],
+    keywords: [
+      'v60 brew timer',
+      'pour over bloom time',
+      '3 pour v60 recipe',
+      'pour over timer',
+      'chemex brew timer',
+      'kalita wave timer',
+      'coffee bloom timer',
+    ],
     faqs: [
       {
         question: 'How long should a pour over take?',
         answer:
-          'A single-cup V60 usually finishes between 2:30 and 3:30 total, including a 30–45 second bloom. If it drains much faster grind finer; much slower, grind coarser.',
+          'A single-cup V60 usually finishes between 2:30 and 3:30 total, including a 30–45 second bloom. Chemex often runs longer because of thicker filters. If it drains much faster grind finer; much slower, grind coarser.',
+      },
+      {
+        question: 'What is a 3 pour V60 recipe?',
+        answer:
+          'A classic 3-pour V60 is bloom + two main pours: wet the bed (~2× dose), wait 30–45 seconds, pour to about 60% of total water, then top up to full weight and let it draw down. Pick the V60 (3 pour) profile in the timer for live targets.',
       },
       {
         question: 'What is the bloom?',
@@ -3196,274 +3478,335 @@ export const TOOLS: ToolMeta[] = [
           'The bloom is the first small pour that wets all the grounds and lets trapped CO₂ escape for 30–45 seconds. It leads to a more even extraction and a sweeter cup.',
       },
       {
-        question: 'How long should I bloom coffee?',
+        question: 'How long should I bloom coffee? (pour over bloom time)',
         answer:
           'Bloom for 30–45 seconds with about 2–3× the coffee dose in water (for 20 g coffee, pour 40–60 g). Fresh light roasts often bloom vigorously and benefit from the full 45 seconds.',
       },
       {
         question: 'What water temperature for pour over?',
         answer:
-          'Use about 93–96°C (200–205°F) for most light and medium roasts. Darker roasts can taste cleaner a bit cooler, around 88–92°C. If you do not have a variable kettle, boil and wait ~30 seconds before pouring.',
+          'Use about 93–96°C (200–205°F) for most light and medium roasts. Darker roasts can taste cleaner a bit cooler, around 88–92°C. Each profile in the timer shows a water temp note — Chemex and Switch often sit in a similar range.',
       },
       {
         question: 'Why is my pour over bitter?',
         answer:
-          'Bitterness usually means over-extraction: grind too fine, pours too slow, or water too hot. Grind coarser by a click or two, keep total brew time under ~3:30, and avoid drowning the bed with aggressive pours.',
+          'Bitterness usually means over-extraction: grind too fine, pours too slow, or water too hot. Grind coarser by a click or two, keep total brew time under ~3:30 on V60, and avoid drowning the bed with aggressive pours.',
+      },
+      {
+        question: 'Why is my pour over sour?',
+        answer:
+          'Sourness usually means under-extraction: grind too coarse, water too cool, or the brew finishes too fast. Grind finer, keep water near 93–96°C, and aim for a full bloom plus enough contact time. A bitter-vs-sour taste checklist pairs well with the grind size chart.',
+      },
+      {
+        question: 'Chemex vs V60 vs Kalita vs Switch — which timer profile?',
+        answer:
+          'V60 is conical and fast (classic 3 pour). Chemex is slower and cleaner with thick paper. Kalita Wave is flatter and more forgiving. Hario Switch adds immersion — bloom/steep with the valve closed, then open to drain. Pick the matching profile so pour timing matches the dripper.',
       },
     ],
   },
   {
     slug: 'cold-brew-calculator',
     name: 'Cold Brew Calculator',
-    title: 'Cold Brew Coffee Ratio Calculator — 1:8 Concentrate & Overnight',
+    title: 'Cold Brew Concentrate Ratio — Dilute, 64 oz Jar & Steep Timer',
     metaDescription:
-      'Cold brew coffee ratio calculator: 1:8 concentrate or 1:15 ready-to-drink. Scale any batch including 64 oz, steep time, grams, and tablespoons.',
+      'Cold brew concentrate ratio 1:8, how to dilute cold brew to RTD, 64 oz mason jar batches, steep timer with ready-at clock, and fridge-life tips.',
     excerpt:
-      'Cold brew coffee ratio for concentrate or ready-to-drink. Scale any jar — including 64 oz — in grams and tablespoons.',
+      '1:8 concentrate or 1:15 RTD, dilution calculator, 64 oz jar preset, and a steep timer that shows when it’s ready.',
     icon: 'Snowflake',
     category: 'Calculator',
     keywords: [
+      'cold brew concentrate ratio',
+      'how to dilute cold brew',
+      'cold brew for 64 oz mason jar',
       'cold brew ratio',
       'cold brew coffee ratio',
       'cold brew calculator',
-      'cold brew concentrate ratio',
-      'cold brew recipe ratio',
-      'cold brew ratio grams',
       'cold brew 64 oz',
       'how long to steep cold brew',
       'cold brew water ratio',
     ],
     faqs: [
       {
-        question: 'What is the best cold brew ratio?',
-        answer:
-          'Use about 1:8 coffee to water for a concentrate you dilute later, or 1:15 for a ready-to-drink batch. This calculator handles both.',
-      },
-      {
         question: 'What is the cold brew concentrate ratio?',
         answer:
-          '1:8 by weight — one part coffee to eight parts water. Dilute about 1:1 with water or milk when you drink it. That concentrate keeps up to two weeks in the fridge.',
+          '1:8 by weight — one part coffee to eight parts water. That makes a concentrate you dilute later (classic start ~1:1 with water or milk). Ready-to-drink batches use about 1:15 instead.',
       },
       {
-        question: 'How much coffee for a 64 oz cold brew batch?',
+        question: 'How do you dilute cold brew concentrate?',
         answer:
-          '64 oz of water is about 1893 g. At a 1:8 concentrate ratio that is roughly 237 g of extra-coarse coffee. At ready-to-drink 1:15, use about 126 g. Tap the 64 oz preset in the calculator above.',
+          'Start 1:1 — equal parts concentrate and water or milk. Prefer stronger? Try 1:0.5. Lighter? 1:2. Use the dilution calculator above: set concentrate per glass and dilution ratio to see finished drink volume.',
+      },
+      {
+        question: 'Cold brew for a 64 oz mason jar — how much coffee?',
+        answer:
+          '64 oz ≈ 1893 ml of water. At concentrate 1:8 use ~237 g extra-coarse coffee; at ready-to-drink 1:15 use ~126 g. Tap the 64 oz jar preset above.',
+      },
+      {
+        question: 'What is the best cold brew ratio?',
+        answer:
+          'Use about 1:8 for concentrate you dilute later, or 1:15 for a ready-to-drink batch. This calculator handles both plus dilution math.',
       },
       {
         question: 'How long should cold brew steep?',
         answer:
-          'Steep coarse grounds in the fridge for 12–18 hours. Overnight (about 12–14 hours) works for most kitchens. Longer extracts more strength but can turn bitter past about 24 hours.',
+          'Steep coarse grounds in the fridge for 12–18 hours. Overnight (~12–14 h) works for most kitchens. Use the steep timer for a ready-at clock. Past ~24 hours it can turn bitter.',
+      },
+      {
+        question: 'How long does cold brew last in the fridge?',
+        answer:
+          'Strained concentrate usually keeps about 1–2 weeks refrigerated in a sealed jar. Ready-to-drink (already diluted) is best within ~5–7 days. Freeze concentrate cubes for longer storage. Discard if it smells off or tastes sour/fermented.',
       },
       {
         question: 'Is cold brew the same as iced drip coffee ratio?',
         answer:
-          'No. Cold brew is a long cold steep (usually 1:8 concentrate). Iced drip / Japanese iced coffee is hot brew over ice — often a stronger hot ratio so melting ice lands near 1:16. Use this calculator for true cold brew; use the drip or ratio calculator for iced drip.',
+          'No. Cold brew is a long cold steep (usually 1:8 concentrate). Iced drip / Japanese iced is hot brew over ice. Use this tool for true cold brew; use the iced coffee calculator for flash brew.',
       },
       {
         question: 'What grind size for cold brew coffee?',
         answer:
           'Extra coarse — like cracked peppercorns. A medium grind over a 12-hour steep turns bitter, cloudy, and hard to filter.',
       },
-      {
-        question: 'Do you use hot or cold water for cold brew?',
-        answer:
-          'Cold or room-temperature water. Hot water makes Japanese iced coffee (flash brew), which is a different method. True cold brew extracts slowly without heat for a smoother, lower-acidity cup.',
-      },
     ],
   },
   {
     slug: 'espresso-ratio-calculator',
     name: 'Espresso Ratio Calculator',
-    title: 'Espresso Ratio Calculator (Dose In, Yield Out)',
+    title: 'Espresso Ratio Calculator — 18g in 36g out + Shot Timer',
     metaDescription:
-      'Espresso brew ratio calculator. Enter your dose and target ratio to get your yield for ristretto, normale, and lungo shots — plus dial-in tips.',
+      '18g in 36g out espresso calculator with shot timer. Ristretto vs normale vs lungo, sour espresso fixes, and dial-in troubleshooting — then make a cappuccino or cortado.',
     excerpt:
-      'Enter your dose and target ratio to get the exact yield for ristretto, normale, or lungo shots.',
+      'Dose in, yield out, and a start/stop shot timer — plus ristretto/normale/lungo presets and sour/bitter dial-in tips.',
     icon: 'Coffee',
     category: 'Calculator',
     keywords: [
+      '18g in 36g out',
+      'ristretto vs normale',
+      'sour espresso fix',
       'espresso ratio',
       'espresso brew ratio calculator',
       'dose to yield espresso',
       'ristretto vs lungo',
-      '18g in 36g out',
+      'espresso shot timer',
     ],
     faqs: [
       {
+        question: 'What does 18g in 36g out mean?',
+        answer:
+          'Dose 18 grams of dry coffee into the portafilter and stop the shot when 36 grams of liquid espresso are in the cup — a classic 1:2 (normale) brew ratio. Weigh both with a scale; use the shot timer next to yield as a guide, not a law.',
+      },
+      {
+        question: 'What is ristretto vs normale?',
+        answer:
+          'Normale is about 1:2 (e.g. 18 in / 36 out). Ristretto is shorter — about 1:1.5 (e.g. 18 in / 27 out) — thicker and more intense. Lungo is longer (about 1:3+) with lighter body and more bitterness risk. Same dose, different yield.',
+      },
+      {
+        question: 'How do I fix sour espresso?',
+        answer:
+          'Sour and fast usually means under-extraction: grind finer, or let the shot run a little longer (higher ratio). Check channeling and dose distribution too. See the dial-in table on this page — change one variable at a time.',
+      },
+      {
         question: 'What is a normal espresso ratio?',
         answer:
-          'A "normale" shot is 1:2 — for example 18 g of coffee in, 36 g of espresso out, in about 25–30 seconds. Ristretto is 1:1–1:1.5 and lungo is 1:3 or more.',
-      },
-      {
-        question: 'What does 18 in 36 out mean?',
-        answer:
-          'It means you dose 18 grams of dry coffee into the portafilter and stop the shot when 36 grams of liquid espresso are in the cup — a classic 1:2 brew ratio. Weigh both with a scale; volume in the demitasse is less accurate.',
-      },
-      {
-        question: 'How do I fix a sour or bitter shot?',
-        answer:
-          'Sour and fast usually means grind finer; bitter and slow means grind coarser. Change one variable at a time and keep the ratio consistent.',
-      },
-      {
-        question: 'What is the difference between ristretto and lungo?',
-        answer:
-          'Ristretto is a short ratio (about 1:1–1:1.5) — thicker, sweeter, more intense. Lungo is a long ratio (about 1:3+) — lighter body, more bitterness risk, bigger drink. Same dose, different yield.',
+          'A normale shot is 1:2 — for example 18 g in, 36 g out, in about 25–30 seconds. Ristretto is 1:1–1:1.5 and lungo is 1:3 or more.',
       },
       {
         question: 'How long should an espresso shot take?',
         answer:
-          'Most 1:2 double shots land around 25–30 seconds, not counting pre-infusion. Use time as a guide, not a rule — taste and yield matter more than hitting exactly 28 seconds.',
+          'Most 1:2 double shots land around 25–30 seconds, not counting pre-infusion. Start the on-page shot timer with the pump. Taste and yield matter more than hitting exactly 28 seconds.',
+      },
+      {
+        question: 'How do I fix a bitter shot?',
+        answer:
+          'Bitter and slow usually means over-extraction: grind coarser, or cut the shot shorter (lower ratio). Keep dose constant while you dial.',
       },
     ],
   },
   {
     slug: 'caffeine-day-planner',
-    name: 'Caffeine Day Planner',
-    title: 'Caffeine Day Planner — Log Coffee, Sleep Cutoff & Half-Life Curve',
+    name: 'Caffeine Tracker',
+    title: 'Caffeine Tracker & Calendar — Log Intake, Cut Down & See Weekly Trends',
     metaDescription:
-      'Free caffeine day planner: log every coffee, see caffeine left at bedtime, and get a sleep cutoff time. Daily intake vs 400 mg with a half-life curve.',
+      'Free caffeine tracker with a calendar: log drinks or mg by day (saved in your browser), set a cut-down goal, graph weekly/monthly trends, and keep a bedtime cutoff.',
     excerpt:
-      'Log today’s drinks on a timeline. See remaining caffeine at bedtime and when to stop for sleep.',
+      'Calendar caffeine tracker: log drinks or custom mg per day in local storage, set a reduce-intake goal, and see weekly/monthly trend charts.',
     icon: 'Zap',
     category: 'Calculator',
     keywords: [
+      'caffeine tracker',
+      'caffeine calendar',
+      'how to reduce caffeine intake',
+      'caffeine intake tracker',
+      'daily caffeine tracker',
+      'cut down on caffeine',
+      'what time should I stop drinking coffee',
+      'caffeine at night',
+      '400mg caffeine day',
       'caffeine day planner',
       'when to stop drinking coffee',
       'caffeine sleep cutoff',
-      'how much caffeine left at bedtime',
-      'daily caffeine tracker',
-      'caffeine timeline',
-      'coffee affecting sleep calculator',
-      'caffeine half life day log',
+      'lower caffeine gradually',
     ],
     faqs: [
       {
-        question: 'When should I stop drinking coffee to sleep?',
+        question: 'How do I track caffeine intake for free?',
         answer:
-          'A common rule is 8+ hours before bed, but your real cutoff depends on dose and timing. Log your drinks and bedtime in the planner — it estimates when remaining caffeine drops toward your target (default ~50 mg).',
+          'Use this caffeine calendar tracker: add a drink preset or custom milligrams for any day. Totals save in your browser’s local storage — no account. Open the calendar to edit past days and the Trends chart for week/month averages.',
       },
       {
-        question: 'How much caffeine is left at bedtime?',
+        question: 'How can I reduce my caffeine intake?',
         answer:
-          'Caffeine clears with a half-life of about 5–6 hours for many adults. Two morning cups can still leave a meaningful amount at 10 pm if you also had an afternoon latte. The planner stacks every drink on a timeline.',
+          'Set a cut-down goal (200, 100, or 50 mg/day presets), log every cup, and watch the 7-day average fall. Drop ~25–50 mg every few days instead of quitting cold turkey — swap one regular for half-caf or tea and keep your bedtime cutoff.',
       },
       {
-        question: 'What is a caffeine day planner?',
+        question: 'What time should I stop drinking coffee?',
         answer:
-          'It is a daily caffeine log plus half-life math: add each coffee with a time, see total milligrams vs the ~400 mg guideline, watch a curve of caffeine still in your system, and get a suggested cutoff for sleep.',
+          'A common sleep-friendly buffer is about 8–10 hours before bed. Set bedtime and cutoff hours in the tracker — drinks after that time are flagged. Pair with our coffee and anxiety guide if evenings feel wired.',
       },
       {
-        question: 'Is 400 mg of caffeine safe per day?',
+        question: 'Is my caffeine log private?',
         answer:
-          'For most healthy adults, about 400 mg per day is a widely cited upper guideline — roughly four 8 oz brewed coffees. Sensitive people, pregnancy, and some medications call for less. This tool is orientation, not medical advice.',
+          'Yes on our side: entries stay in this browser only via local storage and are not uploaded. Export CSV if you want a backup. Clearing site data or switching devices will not carry the log over.',
       },
       {
-        question: 'Does afternoon coffee wreck sleep even if I feel fine?',
+        question: 'What is a good daily caffeine goal when cutting back?',
         answer:
-          'Often yes. You can feel “not wired” while enough caffeine remains to delay deep sleep. Tracking remaining milligrams at bedtime is more useful than waiting until you feel jittery.',
+          'Many people start near ~200 mg (about two drip cups), then step toward 100 or 50 mg. The Standard 400 mg option is a common upper guide for healthy adults — not a target. Pregnancy and medical limits need your clinician’s advice.',
       },
       {
-        question: 'Can I save my caffeine log?',
+        question: 'How do weekly and monthly caffeine trends work?',
         answer:
-          'Yes — the planner stores today’s drinks and sleep settings in your browser so you can reopen the page without re-entering everything.',
+          'Bars show milligrams per day vs your goal line. The summary cards show this week’s average on logged days, percent change vs last week, month average, and an under-goal streak so tapering is visible.',
+      },
+      {
+        question: 'Can I log custom milligrams instead of a drink?',
+        answer:
+          'Yes — choose Custom mg, enter the number from a label or our caffeine calculator, and log it to the selected calendar day with a time.',
       },
     ],
   },
   {
     slug: 'caffeine-calculator',
     name: 'Caffeine Calculator',
-    title: 'Caffeine Calculator — mg to Cups, Daily Limit & By Weight',
+    title: 'Caffeine Calculator — mg to Cups (80, 100, 150, 190, 200, 400)',
     metaDescription:
-      'Free caffeine calculator: convert 155 mg or 190 mg into cups, track daily intake vs the 400 mg limit, or estimate a rough limit by body weight.',
+      'Caffeine calculator: convert 80–400 mg to cups of coffee, stack latte vs drip vs cold brew, and see if 200 mg is a lot. Free daily intake tool.',
     excerpt:
-      'Estimate caffeine by drink and servings, enter a custom mg from any label, convert mg to cups, or ballpark a limit by body weight.',
+      'mg → cups presets (80, 100, 150, 190, 200, 400), multi-drink daily stack, and latte vs drip vs cold brew compares.',
     icon: 'Zap',
     category: 'Calculator',
     keywords: [
+      'caffeine mg to cups',
+      '80 mg caffeine how many cups',
+      '100 mg caffeine cups',
+      '150 mg caffeine',
+      '190 mg caffeine',
+      '200 mg caffeine how many cups',
+      '400 mg caffeine cups',
+      'caffeine in latte vs drip',
+      'is 200mg a lot',
+      'caffeine in cold brew',
       'caffeine calculator',
       'how much caffeine in coffee',
-      'how many cups of coffee is 155 mg of caffeine',
-      'how much is 190 mg of caffeine',
-      'caffeine calculator by weight',
       'daily caffeine intake calculator',
       'caffeine in espresso',
       'daily caffeine limit',
     ],
     faqs: [
       {
-        question: 'How many cups of coffee is 155 mg of caffeine?',
+        question: 'How many cups of coffee is 80 mg of caffeine?',
         answer:
-          'About one 8 oz cold brew (typically ~155 mg) or roughly 1.5–1.6 cups of regular brewed coffee (~95 mg each). A single espresso shot has about 63 mg, so 155 mg is a little under 2.5 shots. Use the mg → cups mode above.',
+          'About 0.8 cups of 8 oz brewed coffee (~95 mg each), or a bit more than one espresso shot (~63 mg). Use mg → cups mode and tap 80 mg.',
       },
       {
         question: 'How many cups of coffee is 100 mg of caffeine?',
         answer:
-          'About one 8 oz cup of brewed coffee (~95 mg) — essentially one normal mug. That is roughly 1.6 espresso shots or a bit under one typical 8 oz cold brew.',
+          'Roughly one 8 oz drip cup (~95 mg). A double espresso latte (~126 mg) is a bit more. Tap 100 mg in mg → cups.',
       },
       {
-        question: 'How many cups of coffee is 80 mg of caffeine?',
+        question: 'How many cups of coffee is 150 mg of caffeine?',
         answer:
-          'A little under one 8 oz brewed coffee (~95 mg), or roughly 1.3 espresso shots. Instant coffee cups often land near this range depending on brand and scoop size.',
+          'About 1.6 drip cups, or almost one 8 oz cold brew (~155 mg). Close to a strong single large café coffee.',
       },
       {
-        question: 'How much is 190 mg of caffeine?',
+        question: 'How many cups of coffee is 190 mg of caffeine?',
         answer:
-          'About one large 16 oz drip coffee, or roughly two 8 oz brewed cups (~95 mg each), or about three espresso shots. Use the mg → cups mode and tap 190 mg.',
+          'About two 8 oz drip cups, or one large 16 oz drip (~190 mg). That is a common “big coffee” day starter.',
       },
       {
-        question: 'How much caffeine is in a cup of coffee?',
+        question: 'How many cups of coffee is 200 mg of caffeine?',
         answer:
-          'A typical 8 oz brewed coffee has about 95 mg of caffeine. A single espresso shot has roughly 63 mg, and cold brew is often higher per ounce.',
+          'About two 8 oz brewed coffees. For many adults that is a moderate day — not “a lot” unless you are sensitive, pregnant, or sleep-fragile. Not medical advice.',
+      },
+      {
+        question: 'How many cups of coffee is 400 mg of caffeine?',
+        answer:
+          'About four 8 oz drip cups — the widely cited upper daily guideline for many healthy adults. Stack mixed drinks here so espresso + latte + soda do not hide under “four coffees.”',
+      },
+      {
+        question: 'How much caffeine is in a latte vs drip?',
+        answer:
+          'A typical 8 oz drip/brewed coffee is ~95 mg. A latte built on a double espresso is ~126 mg — often more than one drip cup, even though it tastes milky. Large 16 oz drip (~190 mg) beats most two-shot lattes. Stack both in Daily stack mode to see a real day.',
+      },
+      {
+        question: 'Is 200 mg of caffeine a lot?',
+        answer:
+          'For many healthy adults, 200 mg is a moderate day — about two 8 oz drip cups or a strong cold brew plus a bit more. The common upper guideline is ~400 mg/day. Sensitive people, pregnancy, and anxiety can make 200 mg feel like a lot. Not medical advice.',
+      },
+      {
+        question: 'How much caffeine is in cold brew?',
+        answer:
+          'An 8 oz ready-to-drink cold brew often lands around ~155 mg — higher than a typical drip mug. Concentrate poured strong can go higher; always check dilution. Add cold brew to the stack above.',
+      },
+      {
+        question: 'How many cups of coffee is 155 mg of caffeine?',
+        answer:
+          'About one 8 oz cold brew (~155 mg) or roughly 1.5–1.6 cups of brewed coffee (~95 mg each). Use mg → cups mode.',
       },
       {
         question: 'How much caffeine is in espresso vs coffee?',
         answer:
-          'Per ounce, espresso is stronger (~63 mg in a 1 oz shot). Per serving, an 8 oz drip coffee (~95 mg) often has more total caffeine than one shot. A double shot (~126 mg) is closer to a full mug.',
+          'Per ounce, espresso is stronger (~63 mg/shot). Per serving, an 8 oz drip (~95 mg) often beats one shot; a double (~126 mg) is closer to a full mug or latte.',
       },
       {
         question: 'What is the safe daily caffeine limit?',
         answer:
-          'Most healthy adults can have up to about 400 mg of caffeine per day — roughly four 8 oz cups of coffee. Pregnant people and those sensitive to caffeine should have less.',
+          'Most healthy adults can have up to about 400 mg per day. Stack mixed drinks here so espresso + latte + soda do not hide under “two coffees.”',
       },
       {
-        question: 'Can I enter caffeine milligrams from my own drink?',
+        question: 'When will the caffeine wear off?',
         answer:
-          'Yes. In Daily intake, choose Custom drink and type the milligrams from the can, café nutrition sheet, or supplement facts. Then set how many servings you have. Shortcuts are there for tea, common energy drinks, and pre-workout — but the label always wins.',
+          'Caffeine’s half-life is often ~5–6 hours. Use the caffeine half-life calculator for a timeline, or the caffeine tracker for a calendar log and bedtime cutoffs.',
       },
       {
         question: 'Can I calculate caffeine by body weight?',
         answer:
-          'Some people use a rough ~3 mg per kg of body weight as a personal ballpark, while still respecting the general 400 mg adult ceiling. The “By body weight” mode above does that math — it is not medical advice.',
-      },
-      {
-        question: 'Does dark roast have less caffeine?',
-        answer:
-          'Barely. Roast level has a tiny effect. By weight, dark and light are nearly the same; by scoop, light roast can have slightly more because the beans are denser. Brew method and dose matter far more.',
+          'Some people use ~3 mg per kg as a ballpark under the 400 mg ceiling. The By body weight mode does that math — not medical advice.',
       },
       {
         question: 'How much caffeine is in decaf coffee?',
         answer:
-          'Decaf is not caffeine-free. An 8 oz cup of decaf usually has about 2–15 mg of caffeine — enough that sensitive people can still notice it if they drink several cups.',
+          'Decaf is not zero — often 2–15 mg per 8 oz cup. Sensitive people can still notice stacked decafs.',
       },
     ],
   },
   {
     slug: 'coffee-calories-calculator',
     name: 'Coffee Calories Calculator',
-    title: 'Coffee Calories Calculator — Black Coffee, Lattes & Add-Ins',
+    title: 'Coffee Calories Calculator — Latte, Black Coffee & Milk Types',
     metaDescription:
-      'Free coffee calories calculator: calories in black coffee, espresso, lattes, and iced drinks. Add sugar and milk to see how your daily coffee calories add up.',
+      'Calories in a latte vs black coffee: skim, 2%, whole, oat, or almond milk; custom café base kcal; compare homemade vs chain-style drinks with sugar extras.',
     excerpt:
-      'See calories in black coffee vs milk drinks, then dial sugar and milk add-ins for a realistic daily total.',
+      'Estimate coffee calories by drink, milk type, and sugar — plus homemade vs chain-style comparison that respects your add-ins.',
     icon: 'Scale',
     category: 'Calculator',
     keywords: [
+      'calories in latte',
+      'black coffee calories',
+      'starbucks latte calories homemade',
       'calories in black coffee',
       'coffee calories calculator',
-      'how many calories in coffee',
-      'calories in a cup of coffee',
-      'latte calories',
-      'espresso calories',
+      'oat milk latte calories',
+      'mocha calories',
       'does black coffee have calories',
     ],
     faqs: [
@@ -3480,12 +3823,22 @@ export const TOOLS: ToolMeta[] = [
       {
         question: 'How many calories in a latte?',
         answer:
-          'A typical 12 oz café latte is often around 150 calories depending on milk type and brand. Oat and whole milk run higher; skim runs lower. Flavored syrups add more quickly.',
+          'A typical homemade 12 oz latte is mostly milk calories — often ~120–180 kcal depending on skim, 2%, whole, oat, or almond. Chain lattes with syrups often land higher. Use the milk type control and comparison table above.',
+      },
+      {
+        question: 'Starbucks latte calories vs homemade?',
+        answer:
+          'Chain drinks vary by size, milk, and syrup pumps — a sweetened grande-style latte can land near ~200+ kcal before extras. Homemade with measured milk and no syrup is usually lower. Pick Custom base if you have the café nutrition number, then add your sugar slider so the comparison table stays honest.',
       },
       {
         question: 'How many calories does sugar add to coffee?',
         answer:
-          'About 16 calories per teaspoon of sugar. Two teaspoons add roughly 32 calories per cup — easy to overlook across multiple drinks.',
+          'About 16 calories per teaspoon of sugar. Two teaspoons add roughly 32 calories per cup — easy to overlook across multiple drinks. The comparison table includes your sugar slider.',
+      },
+      {
+        question: 'Does oat milk add more calories than dairy?',
+        answer:
+          'Barista oat milks often rival or exceed 2% dairy per splash. Unsweetened almond milk is usually much lower. Switch the milk type in the calculator — kcal per tablespoon updates automatically.',
       },
       {
         question: 'Is black coffee good for weight loss?',
@@ -3497,218 +3850,254 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: 'caffeine-half-life-calculator',
     name: 'Caffeine Half-Life Calculator',
-    title: 'Caffeine Half-Life Calculator — How Long Until It Wears Off?',
+    title: 'Caffeine Half-Life Calculator — How Long Does Caffeine Last?',
     metaDescription:
-      'Caffeine half-life calculator: estimate how much caffeine is left hours after coffee, and when levels drop to 50%, 25%, or 10%. Free how-long-does-caffeine-last tool.',
+      'How long does caffeine last? Clock-time mode (drank at 2pm, bed at 11), multi-dose stack, and a remaining-caffeine timeline. Educational estimate — not medical advice.',
     excerpt:
-      'Estimate remaining caffeine after your last cup and see when it drops toward half, a quarter, or nearly gone.',
+      'Clock-time or hours-since mode, optional multi-dose stack, and a timeline of caffeine still in your system.',
     icon: 'Timer',
     category: 'Calculator',
     keywords: [
-      'caffeine half life',
       'how long does caffeine last',
+      'when does caffeine leave your system',
+      'half life of caffeine',
+      'caffeine half life',
       'how long does coffee stay in your system',
       'caffeine half life calculator',
       'when does caffeine wear off',
-      'how long until caffeine wears off',
     ],
     faqs: [
       {
         question: 'What is the half-life of caffeine?',
         answer:
-          'For many healthy adults, caffeine’s half-life is about 5–6 hours — meaning roughly half the dose is still in your system after that time. Genetics, pregnancy, liver health, and some medications can shorten or lengthen it.',
+          'For many healthy adults, caffeine’s half-life is about 5–6 hours — meaning roughly half the dose is still in your system after that time. Genetics, pregnancy, smoking status, liver health, and some medications can shorten or lengthen it. This calculator is an educational estimate, not a lab test or medical advice.',
       },
       {
         question: 'How long does caffeine last?',
         answer:
-          'You may feel peak effects within an hour, but meaningful amounts can remain for 8–12+ hours after a large dose. That is why afternoon coffee wrecks sleep for many people.',
+          'You may feel peak effects within an hour, but meaningful amounts can remain for 8–12+ hours after a large dose. Use clock-time mode (e.g. drank at 2 pm, bed at 11) to see estimated milligrams left at bedtime.',
       },
       {
-        question: 'How long does coffee stay in your system?',
+        question: 'When does caffeine leave your system?',
         answer:
-          'Coffee’s caffeine clears gradually. After one half-life (~5–6 hours) about half remains; after two half-lives about a quarter remains. Trace amounts linger longer.',
+          'It clears gradually, not all at once. After one half-life (~5–6 hours) about half remains; after two half-lives about a quarter remains. Trace amounts linger longer. The timeline table shows a rough remaining-mg curve.',
+      },
+      {
+        question: 'Can I stack multiple coffees in the half-life calculator?',
+        answer:
+          'Yes — add optional extra doses with their own times. The “now” and bedtime estimates sum remaining caffeine from the whole stack.',
+      },
+      {
+        question: 'Does pregnancy or smoking change caffeine half-life?',
+        answer:
+          'Often yes. Pregnancy commonly slows clearance (longer half-life). Smoking can speed caffeine metabolism (shorter half-life). Move the assumed half-life slider to explore — then treat sleep quality as the real feedback. Not medical advice; ask a clinician for personal guidance.',
       },
       {
         question: 'When should I stop drinking coffee to sleep?',
         answer:
-          'A common rule is 8+ hours before bed. If you are sensitive, stop by early afternoon. Use the calculator with your real dose and bedtime to see what is still circulating.',
-      },
-      {
-        question: 'Does food change caffeine half-life?',
-        answer:
-          'Food can slow absorption slightly so the “hit” feels smoother, but it does not dramatically change the overall half-life for most people.',
+          'A common rule is 8+ hours before bed. If you are sensitive, stop by early afternoon. Use clock mode with your real dose and bedtime, or open the caffeine tracker for a calendar log and cutoff.',
       },
     ],
   },
   {
     slug: 'coffee-measurement-converter',
     name: 'Coffee Measurement Converter',
-    title: 'Coffee Grams to Tablespoons Converter (Scoops & tsp Too)',
+    title: 'Coffee Scoop to Grams & Tablespoon Converter',
     metaDescription:
-      'Convert 20 grams of coffee to tablespoons, 1 tbsp to grams, and coffee scoop to tablespoons. Free coffee measurement converter for recipes without a scale.',
+      'How many grams in a tablespoon of coffee? Toggle whole-bean vs ground density, level vs heaping scoop, expanded conversion table, and why scales beat scoops.',
     excerpt:
-      'Convert between grams, tablespoons, and scoops so you can dose accurately even without a scale.',
+      'Grams ↔ tablespoons ↔ scoops with whole-bean vs ground density and level vs heaping scoop toggles.',
     icon: 'Ruler',
     category: 'Reference',
     keywords: [
+      'how many grams in a tablespoon of coffee',
+      'coffee scoop to grams',
       'coffee grams to tablespoons',
       '20 grams of coffee to tablespoons',
       '1 tbsp of coffee to grams',
       'how many tablespoons in a coffee scoop',
-      'coffee scoop to grams',
-      'how many grams in a tablespoon of coffee',
       'tbsp to grams coffee',
+      'whole bean vs ground tablespoon',
     ],
     faqs: [
       {
-        question: 'How many grams are in a tablespoon of coffee?',
+        question: 'How many grams in a tablespoon of coffee?',
         answer:
-          'One level tablespoon of ground coffee is roughly 5–5.5 grams (we use 5.3 g). Whole beans are a bit lighter by volume. A standard coffee scoop is about 2 tablespoons, or ~10 grams.',
+          'About 5.3 g for a level tablespoon of ground coffee. Whole beans are lighter by volume (~4.5 g level). Heaping spoons can add ~30%. Toggle ground vs bean and level vs heaping above.',
+      },
+      {
+        question: 'Coffee scoop to grams — how much?',
+        answer:
+          'A standard coffee scoop is about 2 tablespoons. Level ground ≈ 10 g; heaping is more. Whole-bean scoops weigh less for the same volume. Use the conversion table on this page.',
       },
       {
         question: 'How many tablespoons is 20 grams of coffee?',
         answer:
-          'About 3.8 tablespoons of ground coffee (20 ÷ 5.3). That is a common single-cup pour-over dose. Tap the 20 g preset in the converter above.',
+          'About 3.8 level tablespoons of ground coffee (20 ÷ 5.3). Common single-cup pour-over dose — tap the 20 g preset.',
       },
       {
         question: 'How many tablespoons in a coffee scoop?',
         answer:
-          'One standard coffee scoop is about 2 tablespoons (~10 g of ground coffee). That is also about 6 teaspoons.',
+          'One standard scoop ≈ 2 tablespoons (~6 teaspoons).',
       },
       {
         question: 'How many tablespoons of coffee per cup?',
         answer:
-          'For an 8 oz (240–250 ml) mug at a 1:16 ratio, use about 2 tablespoons of coffee (~15–16 g). For a coffee-maker “cup” (often only 5 oz), closer to 1–1.5 tablespoons is enough.',
+          'For an 8 oz mug at 1:16, about 2 tablespoons (~15–16 g). Machine “cups” (5 oz) need closer to 1–1.5 tablespoons.',
       },
       {
-        question: 'How many scoops of coffee per cup?',
+        question: 'Why do scales beat scoops?',
         answer:
-          'One standard coffee scoop is about 2 tablespoons (~10 g). For a full 8 oz mug you usually want closer to 1.5 scoops (~15 g). The old “one scoop per cup” advice assumes tiny 5–6 oz cups.',
-      },
-      {
-        question: 'Why measure by weight instead of scoops?',
-        answer:
-          'Bean size, roast level, and grind all change volume, so scoops are inconsistent. Weighing in grams is the most repeatable way to dose coffee.',
+          'Roast, grind, and packing change how much coffee fits in a spoon — easy 30–50% dose errors. Grams are repeatable. See the short “why scales beat scoops” section on this page.',
       },
       {
         question: 'How many grams of coffee for 8 cups?',
         answer:
-          'It depends whether you mean 8 machine cups or 8 mugs. Eight 5 oz machine cups need about 70–75 g at a standard drip ratio; eight 8 oz mugs need about 120–125 g. Use the drip coffee calculator for exact numbers.',
+          'Eight 5 oz machine cups need ~70–75 g; eight 8 oz mugs need ~120–125 g. Use the drip coffee calculator for exact pots.',
       },
     ],
   },
   {
     slug: 'grind-size-chart',
     name: 'Grind Size Chart',
-    title: 'Coffee Grind Size Chart — Espresso, Pour Over, French Press & More',
+    title: 'Coffee Grind Size Chart — Espresso vs Drip, French Press & More',
     metaDescription:
-      'Coffee grind size chart for every brew method: espresso (fine), pour over (medium-fine), drip (medium), French press & cold brew (coarse). Fix sour or bitter cups.',
+      'Interactive coffee grind size chart: pick espresso, drip, French press, or pour over to highlight grind, micron ranges, and too-fine / too-coarse symptoms.',
     excerpt:
-      'Visual grind chart from espresso-fine to cold-brew-coarse — plus what to change when the cup tastes off.',
+      'Pick a brew method to highlight the right grind, photo-style texture analogies, micron ballparks, and fix-it symptoms.',
     icon: 'Beaker',
     category: 'Reference',
     keywords: [
+      'espresso grind vs drip',
+      'french press grind size',
+      'what does medium grind look like',
       'coffee grind size chart',
       'coffee grind chart',
       'grind size for pour over',
       'espresso grind size',
-      'french press grind size',
       'cold brew grind size',
-      'what grind for drip coffee',
       'coffee grind too fine',
-      'coffee grind too coarse',
       'aeropress grind size',
     ],
     faqs: [
       {
         question: 'What grind size should I use?',
         answer:
-          'Match grind to brew time: espresso is fine, pour over and drip are medium to medium-fine, French press and cold brew are coarse. Finer grinds extract faster because more surface area touches the water.',
+          'Match grind to brew time: espresso is fine, pour over and drip are medium to medium-fine, French press and cold brew are coarse. Use the method picker above to highlight the row and see too-fine / too-coarse symptoms.',
+      },
+      {
+        question: 'What does medium grind look like?',
+        answer:
+          'Medium grind feels like coarse sand — coarser than table salt, finer than sea salt. It is the usual target for automatic drip and Kalita Wave. Rub a pinch between your fingers; if it looks like powdered sugar you are too fine for drip.',
       },
       {
         question: 'What grind size for pour over coffee?',
         answer:
-          'Use medium-fine — about the texture of table salt. If the brew finishes under ~2:30 and tastes sour, grind finer. If it stalls past ~4:00 and tastes bitter or astringent, grind coarser. One or two clicks on a burr grinder is usually enough.',
+          'Use medium-fine — about the texture of table salt / fine sand (~500–700 μm ballpark). If the brew finishes under ~2:30 and tastes sour, grind finer. If it stalls past ~4:00 and tastes bitter, grind coarser.',
       },
       {
         question: 'What grind size for French press?',
         answer:
-          'Use a coarse grind, like sea salt or raw sugar. French press steeps for about 4 minutes; a fine grind over-extracts, clogs the mesh, and leaves a muddy cup. If your press tastes silty, go coarser before changing the ratio.',
+          'Use a coarse grind, like sea salt (~1100–1400 μm). French press steeps about 4 minutes; a fine grind over-extracts, clogs the mesh, and leaves a muddy cup. If your press tastes silty, go coarser before changing the ratio.',
       },
       {
         question: 'What grind size for espresso?',
         answer:
-          'Espresso needs a fine grind — closer to powdered sugar or very fine salt — so a ~25–30 second shot at a 1:2 ratio can extract properly. If the shot gushes and tastes sour, grind finer. If it drips slowly and tastes bitter, grind coarser. Espresso is the most sensitive grind setting on any chart.',
+          'Espresso needs a fine grind — closer to powdered sugar or very fine salt (~300–400 μm) — so a ~25–30 second shot at a 1:2 ratio can extract properly. If the shot gushes and tastes sour, grind finer. If it drips slowly and tastes bitter, grind coarser.',
+      },
+      {
+        question: 'Espresso grind vs drip — how different?',
+        answer:
+          'Espresso is much finer. Drip is medium (sand); espresso is fine enough that water needs pressure to push through the puck in ~25–30 seconds. Espresso fineness in a drip basket clogs and tastes bitter; drip coarseness in espresso gushes and tastes sour. Tap Espresso or Drip in the chart to compare rows.',
       },
       {
         question: 'What grind size for AeroPress?',
         answer:
-          'Medium-fine (table salt) is the best all-purpose AeroPress grind. Go finer for a short concentrate; coarser for a longer immersion-style cup. The AeroPress is forgiving — dial by taste after one brew.',
+          'Medium-fine (table salt) is the best all-purpose AeroPress grind. Go finer for a short concentrate; coarser for a longer immersion-style cup.',
       },
       {
         question: 'What grind size for cold brew?',
         answer:
-          'Use extra-coarse grounds, similar to cracked peppercorns or very chunky sea salt. Cold brew steeps 12–18 hours; anything medium or finer tends to turn bitter, cloudy, and over-extracted. Coarse grind also strains cleaner.',
+          'Use extra-coarse grounds, similar to cracked peppercorns. Cold brew steeps 12–18 hours; anything medium or finer tends to turn bitter and cloudy.',
       },
       {
         question: 'What grind size for drip coffee makers?',
         answer:
-          'Most automatic drip machines want a medium grind — like regular sand. Basket machines with flat-bottom filters can go slightly coarser; cone filters often prefer slightly finer. If the pot tastes weak, try a notch finer before adding more coffee.',
+          'Most automatic drip machines want a medium grind — like regular sand (~700–900 μm). Flat-bottom baskets can go slightly coarser; cone filters often prefer slightly finer.',
       },
       {
         question: 'What happens if my grind is wrong?',
         answer:
-          'Too fine for the method over-extracts and tastes bitter, harsh, or drying. Too coarse under-extracts and tastes sour, thin, and hollow. When a cup tastes off, change grind first — before ratio, temperature, or brew time.',
+          'Too fine over-extracts (bitter, harsh, stalled). Too coarse under-extracts (sour, thin, fast). The chart’s “if too fine / too coarse” cards spell out symptoms for the method you picked.',
       },
       {
         question: 'Why does my coffee taste bitter or sour?',
         answer:
-          'Bitter and harsh often means the grind is too fine (over-extraction). Sour and watery often means the grind is too coarse (under-extraction). Confirm you are in the right ballpark for your brew method on the chart, then adjust one click at a time.',
+          'Bitter and harsh often means too fine. Sour and watery often means too coarse. Confirm the method row on the chart, then adjust one click at a time.',
       },
       {
         question: 'Do I need a burr grinder for accurate grind size?',
         answer:
-          'Yes if you care about consistency. Blade grinders chop beans into a mix of dust and chunks, so the same cup can taste bitter and sour at once. A burr grinder produces uniform particles, which is why grind-size charts assume burr grinding.',
-      },
-      {
-        question: 'How fine is espresso grind vs drip?',
-        answer:
-          'Espresso is much finer. Drip is medium; espresso is fine enough that water needs pressure to push through the puck in ~25–30 seconds. If you try to brew drip coffee at espresso fineness, the basket will clog and taste bitter. If you pull espresso at drip coarseness, the shot will gush and taste sour.',
+          'Yes if you care about consistency. Blade grinders make dust + chunks, so the cup can taste bitter and sour at once. Micron ranges on this chart assume burr grinding.',
       },
     ],
   },
   {
     slug: 'world-coffee-map',
     name: 'World Coffee Map Explorer',
-    title: 'World Coffee Map — Coffee Origins & Producing Countries',
+    title: 'World Coffee Map — Compare Coffee Beans by Country (29 Origins)',
     metaDescription:
-      'Interactive world coffee map of 29 origins. Filter by cup style, compare countries, and explore Ethiopia, Brazil, Colombia, Vietnam, Kona, and more.',
+      'How do coffee beans from different countries compare? Interactive map of 29 origins — filter, compare Ethiopia vs Brazil vs Colombia, cup styles, and more.',
     excerpt:
-      'Search, filter, or compare 29 coffee origins — altitude, flavors, process, species, and a cup profile for each producing country.',
+      'Compare coffee beans by country: search, filter, or side-by-side 29 origins with altitude, flavors, and cup profiles.',
     icon: 'Beaker',
     category: 'Reference',
     keywords: [
+      'how do coffee beans from different countries compare',
+      'compare coffee origins',
       'world coffee map',
       'coffee growing regions',
+      'where is coffee grown',
+      'ethiopia vs colombia coffee',
+      'best coffee origin for espresso',
       'coffee origins map',
       'map of coffee producing countries',
       'coffee bean origins',
       'ethiopia coffee flavor',
       'colombia coffee',
-      'coffee producing countries',
       'kona coffee',
       'arabica vs robusta countries',
     ],
     faqs: [
+      {
+        question: 'How do coffee beans from different countries compare?',
+        answer:
+          'Use Compare mode on this map: Ethiopia tends fruity/floral, Colombia caramel-balanced, Brazil chocolatey and low-acid, Kenya bright/currant-like, Sumatra earthy and full. Or read the country comparison chart in our coffee bean origins guide.',
+      },
       {
         question: 'Which country produces the most coffee?',
         answer:
           'Brazil is the world\'s largest coffee producer, accounting for roughly 40% of global output. It is followed by Vietnam, Colombia, and Indonesia. Brazil dominates in volume; Ethiopia and Colombia are more celebrated for specialty-grade quality.',
       },
       {
+        question: 'Where is coffee grown?',
+        answer:
+          'Almost all commercial coffee grows in the “coffee belt” between the Tropics of Cancer and Capricorn — Central and South America, Africa, the Middle East, and Southeast Asia, plus a few outliers like Hawaii (Kona). This map covers 29 producing origins with altitude, process, and cup notes.',
+      },
+      {
         question: 'What is the coffee belt?',
         answer:
           'The "coffee belt" is the band between the Tropics of Cancer and Capricorn (roughly 25°N to 30°S) where coffee plants thrive. It encompasses Central and South America, Africa, the Middle East, and Southeast Asia.',
+      },
+      {
+        question: 'Ethiopia vs Colombia coffee — what’s the difference?',
+        answer:
+          'Ethiopia (Arabica’s homeland) often tastes floral and fruity — blueberry, jasmine, bergamot — especially as light-roast pour over. Colombia is usually washed, caramel-apple balanced, and a reliable daily drip or espresso component. Use Compare on this map for side-by-side acidity, body, and sweetness.',
+      },
+      {
+        question: 'What is the best coffee origin for espresso?',
+        answer:
+          'Brazil and many Central American lots (Guatemala, Nicaragua) shine as chocolatey, low-acid espresso bases. Bright Ethiopias can work as single-origin espresso but are punchier and more acidic. Pair origin with roast: medium-dark for classic milk drinks, lighter for filter-style espresso.',
       },
       {
         question: 'Why does coffee taste different from different countries?',
@@ -3738,12 +4127,12 @@ export const TOOLS: ToolMeta[] = [
       {
         question: 'How do I compare two coffee origins?',
         answer:
-          'Turn on Compare, then tap two countries (or chips). You get side-by-side acidity, body, sweetness, caffeine, altitude, and process — useful when deciding between Kenya vs Ethiopia or Brazil vs Sumatra.',
+          'Turn on Compare, then tap two countries (or chips). You get side-by-side acidity, body, sweetness, caffeine, altitude, and process — plus copy-link and print for Ethiopia vs Colombia style matchups.',
       },
       {
         question: 'How do I use the world coffee map on a phone?',
         answer:
-          'Do not try to tap tiny countries. Use search, cup-style filters, or the origin chips (Ethiopia, Vietnam, Jamaica…). The map zooms to that country. Jamaica, Panama, and Hawaii are easier from the list than from the globe.',
+          'Do not try to tap tiny countries. Use search, cup-style filters, or the origin chips (Ethiopia, Vietnam, Jamaica…). If the globe CDN fails, chips and profiles still work offline-friendly.',
       },
     ],
   },
@@ -3759,12 +4148,30 @@ export const TOOLS: ToolMeta[] = [
     category: 'Calculator',
     keywords: [
       'coffee brew simulator',
+      'why is my coffee bitter',
+      'under extracted coffee',
+      'how to fix sour espresso',
       'coffee taste profile',
       'how does grind affect coffee taste',
       'coffee extraction explained',
       'coffee science',
     ],
     faqs: [
+      {
+        question: 'Why is my coffee bitter?',
+        answer:
+          'Usually over-extraction: grind too fine, water too hot, brew too long, or a very dark roast. In the lab, bitterness spikes when extraction runs high — hit Brew, then use Apply fix links to coarsen grind or ease the ratio.',
+      },
+      {
+        question: 'What is under-extracted coffee?',
+        answer:
+          'Under-extracted coffee tastes sour, salty, and thin, without sweetness. Common causes: grind too coarse, brew time too short, dose too low, or water too cool. The simulator flags under-extraction and links to a finer grind and stronger ratio.',
+      },
+      {
+        question: 'How do you fix sour espresso?',
+        answer:
+          'Sour espresso is often under-extracted: grind finer, raise temperature slightly, or extend shot time toward a normale ~1:2 ratio. Use Apply fix → espresso ratio calculator after a sour lab result, and keep dose steady while you change one variable.',
+      },
       {
         question: 'How does grind size affect coffee flavor?',
         answer:
@@ -3786,14 +4193,9 @@ export const TOOLS: ToolMeta[] = [
           'Over-extracted coffee tastes bitter, hollow, and drying — like sucking on a tea bag too long. Common causes: grind too fine, brew time too long, or water too hot for the roast.',
       },
       {
-        question: 'What is under-extracted coffee?',
-        answer:
-          'Under-extracted coffee tastes sour, salty, and thin, without sweetness. Common causes: grind too coarse, brew time too short, dose too low, or water too cool.',
-      },
-      {
         question: 'Which variable should I change first when coffee tastes bad?',
         answer:
-          'Change grind size first. It is the fastest fix for bitter vs sour cups. Keep ratio and temperature steady until the grind is in the right ballpark, then fine-tune the rest.',
+          'Change grind size first. It is the fastest fix for bitter vs sour cups. Keep ratio and temperature steady until the grind is in the right ballpark, then fine-tune the rest. The Apply fix buttons deep-link to grind, ratio, and brew timer with sensible presets.',
       },
     ],
   },
@@ -3821,39 +4223,40 @@ export const TOOL_CONTENT: Record<
 > = {
   'coffee-ratio-calculator': {
     intro:
-      'The coffee-to-water ratio is the single biggest lever you can pull to change the strength of your cup. Too little coffee and the drink tastes thin; too much and it turns heavy or harsh. The SCA-style “golden cup” ballpark is about 55 g per litre (~1:18). Most home brewers land happier at 1:15–1:17. Use this calculator to size any batch, then open the brewing ratios & grind size chart if you need method-by-method starting points (French press 1:15, pour over 1:16, espresso 1:2, cold brew concentrate 1:8).',
+      'The coffee-to-water ratio is the biggest lever for cup strength. Golden ratio coffee for most filter methods sits around 1:15–1:18; 1:16 is the all-purpose default (~62 g per litre). This calculator snaps method presets (V60 1:16, French press 1:15, AeroPress, batch brew), embeds a printable coffee-to-water ratio chart, and links the grind chart for “ratio + grind” searches.',
     howToUse: [
       {
-        step: 'Pick your target strength',
+        step: 'Snap a method preset',
         detail:
-          'Choose a ratio preset or drag the slider. 1:15 is strong and bold, 1:16 is the balanced all-rounder most coffee shops use, 1:17–1:18 is lighter and more delicate — good for bright, floral single origins.',
+          'Tap V60 / pour over (1:16), French press (1:15), AeroPress (~1:14), batch/drip (~1:16.5), or Chemex (1:16). That moves the slider instantly.',
       },
       {
-        step: 'Enter what you know',
+        step: 'Enter coffee, water, or cups',
         detail:
-          "Type into whichever field you're starting from — your coffee bag weight, your carafe's water capacity, or the number of cups you're brewing. All three fields update in real time.",
+          'Any field updates the others. Grams and millilitres of water are interchangeable (1 ml ≈ 1 g).',
       },
       {
-        step: 'Check the tablespoon estimate',
+        step: 'Print the method chart',
         detail:
-          "If you don't own a scale yet, the tablespoon readout gives you a usable approximation. Bear in mind a tablespoon of light-roast whole beans weighs about 4–5 g while dark roast grounds pack closer to 6 g, so buy a $10 scale when you can.",
+          'The on-page coffee to water ratio chart lists method, ratio, dose per 250 ml, and grind cue — hit Print chart for a fridge copy.',
       },
       {
-        step: 'Brew and adjust',
+        step: 'Open the grind chart',
         detail:
-          "Taste the cup before you tweak the recipe. If it's too weak, drop the ratio by 1 (go from 1:16 to 1:15). If it's too strong or bitter, increase it. Make one change at a time.",
+          'Ratio alone will not fix a sour or bitter cup. Use the linked grind size chart for the same method so both dials move together.',
       },
     ],
     proTips: [
-      'Always weigh water, not just coffee. Many brewers weigh coffee but eyeball the water — that wipes out half the benefit of measuring.',
-      'Use the same ratio as a baseline, then adjust roast level. A light roast at 1:16 will taste completely different from a dark roast at 1:16.',
-      'Cold brew uses a much lower ratio (1:8 for concentrate) — use the dedicated cold brew calculator for that.',
-      'Espresso lives on a totally different scale (1:2 dose-to-yield). The espresso calculator handles that separately.',
+      'Weigh water, not just coffee — eyeballing the kettle undoes the math.',
+      'Weak at 1:16? Fix grind finer before you drop to 1:15.',
+      'Cold brew concentrate is 1:8 — use the cold brew calculator.',
+      'Espresso is dose:yield (~1:2) — different scale entirely.',
     ],
     whyItMatters:
-      'Repeatability is what separates a good home brewer from a great one. Writing down your ratio means you can reproduce a great cup tomorrow, next week, or after switching beans. It also makes troubleshooting simple: if one variable is locked, you only ever have to diagnose one thing at a time.',
+      '“Golden ratio coffee” and “coffee to water ratio chart” are evergreen SERPs. Method presets + a printable chart + grind links keep that intent on one page instead of bouncing to a static PDF blog post.',
     relatedSlugs: [
       'brew-timer',
+      'grind-size-chart',
       'coffee-measurement-converter',
       'drip-coffee-calculator',
       'iced-coffee-calculator',
@@ -3871,43 +4274,52 @@ export const TOOL_CONTENT: Record<
         ],
       },
     ],
+    hubSections: [
+      {
+        heading: 'Ratio + grind together',
+        paragraphs: [
+          'Search results for coffee ratio often mix with grind questions because both control extraction. Set the method preset here, then open the grind size chart with the matching method filter. Change one variable at a time when the cup tastes off.',
+        ],
+      },
+    ],
   },
 
   'drip-coffee-calculator': {
     intro:
-      'Automatic drip coffee is still the way most people brew at home, but it comes with a persistent problem: coffee makers label everything in tiny 5 oz "cups" while most people drink from 8 to 12 oz mugs. That is why searches like "how much coffee for 12 cups" and "how many tablespoons of coffee for 8 cups" never go away. This drip coffee calculator solves that confusion by converting coffee maker cups into real water volume, then showing exactly how much coffee you need in grams, tablespoons, and scoops for the strength you want.',
+      'Automatic drip makers label “cups” as ~5 oz while people drink 8–12 oz mugs — hence “how much coffee for 12 cup coffee maker” and “coffee scoops per pot.” This calculator supports cup count or custom water (ml/L), Mr. Coffee / Cuisinart carafe-full presets, a grind reminder chip, a pot-size scoops table, and weak/strong troubleshooting.',
     howToUse: [
       {
-        step: 'Choose your serving style',
+        step: 'Choose cups or water/carafe mode',
         detail:
-          'Select whether you are thinking in coffee maker cups or full mugs. Coffee maker cups are 5 oz each; mugs are larger and closer to what people actually drink at breakfast.',
+          'Cup count for machine cups or mugs, or Water/carafe for custom ml and full-carafe presets (Mr. Coffee 12-cup, Cuisinart 10/14-cup, etc.).',
       },
       {
-        step: 'Set the batch size',
+        step: 'Set strength',
         detail:
-          'Use the preset buttons for common brews like 4, 8, 10, or 12 cups, or type your own amount. The calculator immediately updates the required water and coffee.',
+          'Light 1:17.5, Standard 1:16.5, Strong 1:15.5. Too-weak pots usually need Strong or a finer grind — not a second pass on spent grounds.',
       },
       {
-        step: 'Pick a strength',
+        step: 'Read grams, tablespoons, and scoops',
         detail:
-          'Choose light, standard, or strong. Standard is the safest starting point for most home drip machines. Strong works well for darker roasts or bigger mugs that will be diluted with milk.',
+          'Grams first. Scoops assume a level ~10 g scoop. Check the pot-size FAQ table for 4–12 cup scoops-per-pot.',
       },
       {
-        step: 'Use the grams first, spoons second',
+        step: 'Mind the grind chip',
         detail:
-          'The gram value is the accurate target. The tablespoon and scoop estimates are there for convenience if you do not own a scale yet, but a scale will make your drip coffee much more repeatable.',
+          'Medium grind for most baskets. Link through to the drip row on the grind chart when texture is wrong.',
       },
     ],
     proTips: [
-      'If your coffee maker has a showerhead that saturates grounds unevenly, use a slightly coarser grind and avoid overfilling the basket.',
-      'Most grocery-store pre-ground coffee is a decent grind size for drip machines, but freshly ground beans still taste noticeably sweeter and more aromatic.',
-      'If your pot tastes flat no matter what ratio you use, your machine may need cleaning. Mineral buildup hurts brew temperature and extraction fast.',
-      'For iced coffee made in a drip machine, brew slightly stronger than usual so the ice does not wash the flavor out.',
+      '“One scoop per cup” assumes machine cups — a 12-cup pot is not 12 mugs.',
+      'Weak pot? More coffee or finer grind before blaming the beans.',
+      'Descale if every batch tastes flat regardless of dose.',
+      'Carafe presets are typical usable volumes — check your manual if the basket floods.',
     ],
     whyItMatters:
-      'Drip coffee looks simple, but bad measurements are why so many home pots taste weak, bitter, or generic. A dedicated drip calculator meets people where they actually are: brewing for multiple cups, often without a scale, on mainstream machines with confusing markings. That makes it one of the best search-intent fits on the whole site.',
+      'Top-traffic drip queries need carafe reality, scoops-per-pot math, and a weak-coffee fix — not only a cup slider. Custom water + brand presets keep Mr. Coffee and Cuisinart owners on-page.',
     relatedSlugs: [
       'coffee-ratio-calculator',
+      'grind-size-chart',
       'coffee-measurement-converter',
       'iced-coffee-calculator',
       'caffeine-calculator',
@@ -3930,37 +4342,37 @@ export const TOOL_CONTENT: Record<
 
   'french-press-calculator': {
     intro:
-      'French press coffee ratio searches are some of the most common brewing questions online — and for good reason. Immersion brewing is forgiving on technique, but the dose still has to be right. Too little coffee and the cup tastes thin and sour; too much and it turns heavy and bitter. This calculator gives you the classic 1:15 French press coffee ratio (plus milder and stronger options), sized for the press you actually own: 3-cup, 4-cup, 8-cup, or 12-cup.',
+      '“French press coffee ratio grams per liter” is a high-intent search with a simple answer: 67 g/L at 1:15. This calculator puts that number above the fold, scales it to any press size (mild/classic/strong), and includes a 4-minute steep timer with optional bloom and plunge reminder — plus muddy-cup grind fixes.',
     howToUse: [
+      {
+        step: 'Read grams per liter first',
+        detail:
+          'The banner shows g/L for your strength preset — classic is 67 g per liter (1:15). Mild ~63 g/L; strong ~71 g/L.',
+      },
       {
         step: 'Choose your press size',
         detail:
-          'Tap 3-cup, 4-cup, 8-cup, or 12-cup. These match common Bodum-style usable volumes (about 350 ml, 500 ml, 1 L, and 1.5 L), not the confusing “cup” markings on some lids.',
+          'Tap 1 cup through 12-cup / 1 L. These match common usable volumes, not confusing lid “cup” markings.',
       },
       {
-        step: 'Adjust water if needed',
+        step: 'Start the 4-minute timer',
         detail:
-          'Override the water field if your press is a non-standard size or you only want to fill it partway. Leave roughly 2 cm of space under the lid so the grounds can bloom.',
+          'Optional bloom (30s with ~2× dose), then steep. When time hits zero, plunge slowly and decant immediately.',
       },
       {
-        step: 'Pick a strength',
+        step: 'Fix muddy cups with grind',
         detail:
-          'Classic (1:15) is the best French press coffee ratio for most people. Mild (1:16) is brighter and lighter; Strong (1:14) is bold and rich — great for milk drinks or dark roasts.',
-      },
-      {
-        step: 'Grind coarse and steep 4 minutes',
-        detail:
-          'Use a coarse grind, add hot water (~93–96°C / 200–205°F), steep about 4 minutes, break the crust, skim foam, press slowly, and pour everything out so it does not keep steeping.',
+          'Coarse like sea salt. If the cup is muddy/sludgy, open the grind size chart (French press) and go coarser before changing ratio.',
       },
     ],
     proTips: [
-      'French press “cups” on packaging are usually ~4 oz, not full mugs. Trust water weight (grams/ml) over the printed cup count when you can.',
-      'If the cup tastes muddy or bitter, go coarser before you change the ratio. Grind size causes most French press failures.',
-      'Decant immediately after pressing. Leaving coffee on the grounds is the fastest way to turn a good brew bitter.',
-      'Pair this calculator with our full French press method guide for bloom, plunge technique, and sediment tips.',
+      'French press “cups” on packaging are usually ~4 oz — trust water weight.',
+      'Muddy or bitter? Grind coarser before you change the ratio.',
+      'Decant immediately after pressing — leaving coffee on the grounds turns it bitter fast.',
+      'Use the bloom checkbox if you like a gentler start; skip it for the classic dump-and-steep.',
     ],
     whyItMatters:
-      'A dedicated French press calculator matches how people actually search: “french press coffee ratio,” “how much coffee for french press,” and “french press method.” Getting the ratio right once — then repeating it — is the shortest path from “okay immersion coffee” to a cup you look forward to every morning.',
+      'People search “french press coffee ratio grams per liter,” “1 liter how much coffee,” and “french press muddy” in the same session. Leading with 67 g/L + timer + grind link answers all three without bouncing between tabs.',
     relatedSlugs: [
       'coffee-ratio-calculator',
       'grind-size-chart',
@@ -3983,36 +4395,50 @@ export const TOOL_CONTENT: Record<
         ],
       },
     ],
+    hubSections: [
+      {
+        heading: 'Muddy French press / sludge FAQ',
+        paragraphs: [
+          'Sediment is normal with a mesh filter, but a muddy cup usually means fines: grind too fine, aggressive plunge, or stirring like a whirlpool. Go coarser (sea salt / breadcrumbs), plunge gently, and pour soon. A second pass through a fine kitchen mesh or paper filter cleans the cup if you hate silt.',
+          'Link the grind size chart with method=french-press when you share a fix — texture beats dial numbers.',
+        ],
+      },
+    ],
   },
 
   'iced-coffee-calculator': {
     intro:
-      '“How to make iced coffee” usually means one of three things: Japanese iced coffee (hot flash-brew onto ice), hot coffee chilled in the fridge, or a strong concentrate poured over ice. It is not the same as overnight cold brew. Flash brew keeps bright aromatics; overnight cold brew is smoother and lower in acidity. This calculator sizes coffee, hot water, and ice for a 12, 16, or 20 oz glass so melting ice does not leave you with dishwater.',
+      '“Japanese iced coffee ratio,” “flash brew vs cold brew,” and “iced coffee melting too fast” are the real search intents behind “how to make iced coffee.” Flash brew keeps bright aromatics; cold brew is a different overnight steep. This calculator sizes coffee, hot water, and ice for preset or custom glasses (ml/oz), and adds an iced-latte-from-concentrate mode with milk volume.',
     howToUse: [
       {
         step: 'Pick your iced style',
         detail:
-          'Japanese iced for bright, aromatic cups; chill a normal hot brew for convenience; concentrate-over-ice for milk drinks and tumblers.',
+          'Japanese iced for bright cups; chill a normal hot brew for convenience; concentrate-over-ice for tumblers; iced latte from concentrate when you want a milk volume.',
       },
       {
-        step: 'Choose glass size',
+        step: 'Set glass size (including custom ml/oz)',
         detail:
-          '12 oz, 16 oz, or 20 oz. The calculator splits hot brew water and ice so the final drink lands near normal strength.',
+          '12 / 16 / 20 oz presets or Custom. The calculator splits hot brew water and ice so the final drink lands near normal strength.',
+      },
+      {
+        step: 'Add milk if making an iced latte',
+        detail:
+          'In latte-from-concentrate mode, set milk ml. Coffee+ice fills the rest so dilution stays intentional.',
       },
       {
         step: 'Brew and serve',
         detail:
-          'For Japanese iced: grind medium-fine, brew the hot water dose into a vessel packed with the listed ice. Stir, strain if needed, drink.',
+          'For Japanese iced: grind medium-fine, brew into a vessel packed with the listed ice. Pre-chill the glass if ice melts too fast.',
       },
     ],
     proTips: [
-      'Want the smoothest iced drink with least acidity? Use the cold brew calculator and steep overnight instead.',
-      'For iced lattes, Japanese or concentrate styles cut through milk better than leftover fridge coffee.',
-      'Pre-chill your glass so less ice melts before you start drinking.',
-      'If flash brew tastes weak, increase dose slightly or reduce ice by 10%.',
+      'Flash brew ≠ cold brew — use the cold brew calculator for overnight concentrate.',
+      'Ice melting too fast? Bigger cubes, colder glass, stronger brew ratio.',
+      'Follow with iced latte or brown sugar shaken espresso recipes for café builds.',
+      'If flash brew tastes weak, bump dose or trim ice ~10%.',
     ],
     whyItMatters:
-      'Search interest for “how to make iced coffee” stays high year-round. Most people accidentally brew hot coffee, dump it on ice, and wonder why it tastes thin. Accounting for dilution is the whole game — and it is different from how to brew cold brew coffee.',
+      'Most watery iced coffee is hot brew dumped on ice without dilution math. Custom glass + milk mode + style comparison keeps summer traffic on-page instead of bouncing to a generic recipe.',
     relatedSlugs: [
       'cold-brew-calculator',
       'coffee-ratio-calculator',
@@ -4021,12 +4447,21 @@ export const TOOL_CONTENT: Record<
     ],
     answerTables: [
       {
-        title: 'Iced coffee vs cold brew (quick compare)',
+        title: 'Flash brew vs cold brew vs chill',
         headers: ['Style', 'Time', 'Ratio idea', 'Taste'],
         rows: [
-          ['Japanese iced', '3–4 min', 'Strong hot onto ice', 'Bright, aromatic'],
+          ['Japanese iced (flash)', '3–4 min', 'Strong hot onto ice (~1:10)', 'Bright, aromatic'],
           ['Hot then chill', 'Brew + cool', '1:16 hot', 'Clean, mellow'],
+          ['Concentrate over ice', '3–4 min', '~1:12 + melt', 'Bold base for milk'],
           ['Cold brew', '12–18 hrs', '1:8 concentrate', 'Smooth, low acid'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Style comparison and recipe links',
+        paragraphs: [
+          'Use Japanese iced when you want pour-over clarity on ice. Use concentrate or iced-latte mode when milk is the point. Use cold brew when you want overnight smoothness. Next steps: iced latte recipe, brown sugar shaken espresso, or the cold brew calculator.',
         ],
       },
     ],
@@ -4034,74 +4469,74 @@ export const TOOL_CONTENT: Record<
 
   'brew-timer': {
     intro:
-      'Pour over coffee is one of the most forgiving brew methods once you understand the pour schedule — and one of the most inconsistent when you wing it. The bloom, the timing of each pour, and the total drawdown time all affect extraction. This guided timer removes the guesswork by giving you on-screen prompts for exactly when to pour and how much to target on your scale, based on your dose and chosen ratio.',
+      'Pour over is forgiving once you have a pour schedule — and inconsistent when you wing it. This guided timer covers V60 (classic 3 pour), Chemex, Kalita Wave, and Hario Switch profiles with bloom prompts, target scale weights, optional beeps on phase change, and a water temperature note for each dripper.',
     howToUse: [
       {
-        step: 'Set your dose and ratio',
+        step: 'Pick a dripper profile',
         detail:
-          "Enter your coffee dose in grams (18–22 g is typical for a single cup) and your target ratio. The timer calculates all pour targets from these two numbers. You can't change them once you start.",
+          'Choose V60, Chemex, Kalita, or Switch. Each profile has different phase timing and a water temp note (usually ~93–96°C for light/medium roasts).',
       },
       {
-        step: 'Hit Start at the first pour',
+        step: 'Set dose, ratio, and beep preference',
         detail:
-          'Tap Start exactly as you begin your bloom pour. The timer syncs the pour schedule to real clock time from this moment forward.',
+          'Enter coffee dose and brew ratio. Toggle the phase-change beep if you want an audio cue when Bloom → First pour → Second pour → Drawdown flips.',
       },
       {
-        step: 'Follow the phase cards',
+        step: 'Hit Start at the bloom pour',
         detail:
-          'Each phase lights up as it becomes active — Bloom, First Pour, Second Pour, Drawdown. The large number shows your target scale weight at that moment.',
+          'Tap Start as you begin wetting the grounds. Target weights update from your dose and ratio so you can follow along on a scale.',
       },
       {
-        step: 'Watch the drawdown',
+        step: 'Watch drawdown and taste',
         detail:
-          "Once you've finished all pours, just wait. A healthy V60 drawdown takes 60–90 seconds. Total brew time including bloom should land between 2:30 and 3:30 for most recipes.",
+          'V60 singles often finish ~2:30–3:30 total. Chemex runs slower. Bitter and stalled → grind coarser; sour and fast → grind finer — then reopen the grind size chart.',
       },
     ],
     proTips: [
-      'The bloom is the most important pour. Use 2–3× the coffee dose in water (for 20 g coffee, pour 40–60 g) and give it the full 30–45 seconds. Gases escaping here would otherwise create uneven extraction.',
-      "Pour in slow, steady spirals from the center outward, then back. Avoid pouring directly on the filter — it channels water past the coffee bed.",
-      "If your drawdown is slow (over 4 minutes) and the coffee tastes bitter, grind coarser. If it races through in under 2 minutes and tastes sour, grind finer.",
-      'A flat coffee bed after drawdown is a sign of even extraction. A domed or channeled bed means you poured too fast or too aggressively.',
-      'Rinse your paper filter with hot water before brewing. It removes paper taste and pre-heats your dripper and vessel.',
+      'Bloom with ~2–3× the coffee dose in water and give it 30–45 seconds. Fresh light roasts bloom hard — do not rush this step.',
+      'Pour in slow spirals; avoid soaking the paper filter walls (channels water past the bed).',
+      'Switch profile: keep the valve closed for immersion, then open to drain — do not force a V60 pour schedule on a closed Switch.',
+      'Rinse paper filters with hot water to cut paper taste and preheat the dripper.',
+      'Sour vs bitter is usually grind first, then pour aggression — the timer only helps if grind matches the method.',
     ],
     whyItMatters:
-      "Consistency is the goal of any brew timer. The difference between a 2:45 and a 4:00 total brew time at the same grind is significant — and without a timer you'll never know which you're hitting. Once you nail a recipe you love, log the time and use the timer to reproduce it exactly.",
+      'People search “V60 brew timer,” “pour over bloom time,” and “3 pour V60 recipe” because timing is the missing piece after ratio. Profile-aware prompts beat a generic stopwatch — especially when you bounce between Chemex, Kalita, and Switch.',
     relatedSlugs: ['coffee-ratio-calculator', 'grind-size-chart', 'coffee-measurement-converter'],
   },
 
   'cold-brew-calculator': {
     intro:
-      'Cold brew is less a brew "method" and more a long steep — coarse grounds and cold or room-temperature water sit together for 12–24 hours, slowly extracting flavor without heat. Because there is no heat to force extraction, you need a lot more coffee than a hot brew. The standard concentrate ratio is 1:8 (one part coffee to eight parts water by weight) — roughly twice as strong as you would ever drink it, intended to be diluted with water, milk, or ice. A ready-to-drink batch runs about 1:15, similar to a strong drip brew.',
+      'Cold brew concentrate ratio is usually 1:8 by weight — strong on purpose so you can dilute to taste. Ready-to-drink sits near 1:15. This calculator sizes any jar (including a 64 oz mason jar), converts concentrate → glass with a dilution tool, and includes an optional steep timer with a ready-at clock.',
     howToUse: [
       {
         step: 'Choose concentrate or ready-to-drink',
         detail:
-          'Concentrate is ideal if you want flexibility — dilute 1:1 with water or milk to taste, or use it in coffee cocktails and ice drinks. Ready-to-drink skips the dilution step but uses more coffee per serving.',
+          'Concentrate (1:8) for flexibility — dilute later. RTD (1:15) to pour straight over ice.',
       },
       {
-        step: 'Enter your water volume',
+        step: 'Set batch water (64 oz jar preset included)',
         detail:
-          "Type the amount of water you're working with, or tap a preset. Most mason jars hold 500 ml to 1 liter; a large pitcher is usually 1.5–2 liters.",
+          'Tap 500 ml, 1 L, 64 oz jar (~1893 ml), or type your own. Coffee grams update instantly.',
       },
       {
-        step: 'Grind coarse and steep',
+        step: 'Dilute concentrate to a finished drink',
         detail:
-          'Cold brew needs an extra-coarse grind — similar to raw sugar or coarsely cracked peppercorns. Fine or medium grinds over-extract over a 12-hour steep and turn bitter. Add coffee and water to a jar, stir, cover, and refrigerate.',
+          'On concentrate mode, set dilution (classic 1:1) and concentrate per glass to see water/milk and finished volume.',
       },
       {
-        step: 'Strain and store',
+        step: 'Start the steep timer',
         detail:
-          'After 12–18 hours, strain through a fine-mesh sieve lined with a paper coffee filter. Store concentrate in the fridge for up to two weeks; ready-to-drink for about a week.',
+          '12–18 hours in the fridge. The ready-at clock shows when to strain. Mesh + paper filter, then refrigerate.',
       },
     ],
     proTips: [
-      'Room-temperature steeping (often called "room temp cold brew") cuts the time to 8–12 hours and produces a slightly brighter flavor. Refrigerator steeping is gentler and more forgiving if you overshoot the steep time.',
-      'Use a medium-dark or dark roast for cold brew. The lack of heat means light roasts can come out grassy and underdeveloped.',
-      "Double-filtering (mesh sieve then paper filter) produces a crystal-clear concentrate with no sediment — worth the extra step if you're serving guests.",
-      'Cold brew concentrate freezes well in ice cube trays. Drop a cube into a glass and pour milk over it for a quick iced latte.',
+      'Extra-coarse grind only — fines make bitter, muddy concentrate.',
+      'Room-temp steep (~8–12 h) is brighter; fridge steep is more forgiving.',
+      'Freeze concentrate in ice cubes for longer storage and iced lattes.',
+      'Already diluted RTD fades faster than sealed concentrate — see fridge-life below.',
     ],
     whyItMatters:
-      "Cold brew has a notably lower acidity than hot-brewed coffee — typically 60–70% less, according to research from Toddy. That makes it a good option for people who find regular coffee hard on their stomach. The slow, cold extraction also produces a naturally sweet, mellow flavor that doesn't need much sugar.",
+      '“Cold brew concentrate ratio,” “how to dilute cold brew,” and “cold brew for 64 oz mason jar” are the practical queries behind overnight brew. Dilution math + jar presets + a ready-at timer beat a static recipe card.',
     relatedSlugs: [
       'iced-coffee-calculator',
       'coffee-ratio-calculator',
@@ -4120,73 +4555,112 @@ export const TOOL_CONTENT: Record<
           ['64 oz (1.89 L)', '237 g coffee', '126 g coffee', '10–15'],
         ],
       },
+      {
+        title: 'How to dilute cold brew concentrate',
+        caption: 'Start 1:1, then adjust strength to taste.',
+        headers: ['Concentrate', 'Water / milk', 'Finished drink', 'Style'],
+        rows: [
+          ['120 ml', '60 ml', '~180 ml', '1:0.5 strong'],
+          ['120 ml', '120 ml', '~240 ml', '1:1 classic'],
+          ['120 ml', '240 ml', '~360 ml', '1:2 lighter'],
+          ['180 ml', '180 ml', '~360 ml', 'Tall 1:1'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Batch fridge-life',
+        paragraphs: [
+          'After straining, store cold brew in a clean sealed jar in the fridge. Concentrate typically keeps about 1–2 weeks; ready-to-drink (already diluted) is best within about 5–7 days because it has more water and less “density” protecting flavor. Freeze leftover concentrate in ice cube trays for iced drinks later.',
+          'Signs it is past its best: sour/fermented smell, visible mold, or a flat cardboard taste. When in doubt, brew a fresh jar — coffee is cheap next to a bad stomach.',
+        ],
+      },
     ],
   },
 
   'espresso-ratio-calculator': {
     intro:
-      'Espresso is brewed at a 1:2 ratio by default — 18 grams of coffee in, 36 grams of espresso out — but the right ratio for your palate and your beans could be anywhere from 1:1.5 (a tight, syrupy ristretto) to 1:3 or beyond (a long, tea-like lungo). Understanding brew ratio is the foundation of dialing in a shot: it determines body, sweetness, and bitterness more directly than almost any other variable except grind size.',
+      'Espresso defaults to 1:2 — 18 g in, 36 g out — but your palate might want ristretto (~1:1.5) or lungo (~1:3). This calculator shows yield for any dose/ratio, includes a start/stop shot timer next to the yield, and a dial-in troubleshooting table for sour/bitter shots. Then take the shot into a cappuccino or cortado.',
     howToUse: [
       {
-        step: 'Choose a shot style',
+        step: 'Choose ristretto, normale, or lungo',
         detail:
-          'Tap Ristretto (1:1.5), Normale (1:2), or Lungo (1:3) for a starting point. Each one lights up the ratio slider at the canonical value for that style.',
+          'Presets set 1:1.5 / 1:2 / 1:3. Drag the slider for anything in between.',
       },
       {
-        step: 'Enter your dose',
+        step: 'Enter dose and read yield',
         detail:
-          'Your dose is the weight of dry coffee you put in the portafilter. Most standard single baskets take 7–9 g; doubles take 14–20 g. If you are not sure, weigh what your grinder outputs for one dose.',
+          'Dose is dry coffee in the portafilter. Yield is liquid in the cup — stop on the scale when you hit the number (classic 18 in / 36 out).',
       },
       {
-        step: 'Read the yield',
+        step: 'Start the shot timer with the pump',
         detail:
-          "The yield is the weight of liquid espresso in your cup after the shot pulls. Place a digital scale under your portafilter, tare it to zero, and stop extraction when it hits the calculated number.",
+          'Start/stop next to yield. Most 1:2 doubles land ~25–30 s. Time is a guide; taste wins.',
       },
       {
-        step: 'Taste and adjust the ratio, not the dose',
+        step: 'Fix sour or bitter with the table',
         detail:
-          'If the shot tastes sour or hollow, let it run a little longer (higher ratio). If it tastes bitter or harsh, cut it shorter (lower ratio). Keep the dose constant while you dial in the ratio.',
+          'Sour & fast → finer grind or longer ratio. Bitter & slow → coarser or shorter. Change one variable at a time, then practice on milk drinks.',
       },
     ],
     proTips: [
-      'Brew ratio and grind size work together. A finer grind slows the shot and produces more yield; a coarser grind speeds it up. If your ratio is right but the taste is off, adjust grind next.',
-      "Shot time is a rough guide, not a rule. A 25-second shot at 1:2 on one machine might be 32 seconds on another. Trust taste and scale over the clock.",
-      "Single-origin light roasts often pull better at 1:2.5–1:3. The extra yield dilutes the acidity and sweetens the cup. Don't force a 1:2 ratio if the shot isn't tasting right.",
-      'Espresso at 1:10 or higher is sometimes called a "filter espresso" or "long black espresso" — common in specialty coffee shops. Not a mistake, just a style.',
+      'Ratio and grind move together — finer slows the shot; coarser speeds it up.',
+      '18g in 36g out is a starting normale, not a religion.',
+      'Light roasts often like longer ratios (1:2.5–1:3).',
+      'After dial-in, use the cappuccino or cortado recipe CTAs on this page.',
     ],
     whyItMatters:
-      "Most espresso problems — bitterness, sourness, thin body — trace back to brew ratio before anything else. Fixing ratio costs nothing and changes everything. Lock in a ratio that tastes good, then you can start experimenting with dose, grind, temperature, and pre-infusion from a solid baseline.",
+      '“18g in 36g out,” “ristretto vs normale,” and “sour espresso fix” are high-intent dial-in queries. Yield math + a shot timer + a troubleshooting table keeps that intent on one URL — and the recipe CTAs only show when the slug is espresso-ratio-calculator (not the old espresso-calculator typo).',
     relatedSlugs: ['coffee-ratio-calculator', 'caffeine-calculator', 'grind-size-chart'],
+    answerTables: [
+      {
+        title: 'Dial-in troubleshooting',
+        caption: 'Change one variable at a time. Keep dose steady while you learn.',
+        headers: ['Symptom', 'Likely cause', 'Try first'],
+        rows: [
+          ['Sour, fast (<20s)', 'Under-extracted / too coarse', 'Grind finer'],
+          ['Bitter, slow (>35s)', 'Over-extracted / too fine', 'Grind coarser'],
+          ['Thin / hollow', 'Ratio too long for beans', 'Lower ratio (ristretto-ward)'],
+          ['Harsh / drying', 'Over-extracted or channeled', 'Coarser or longer ratio carefully'],
+          ['Good time, bad taste', 'Distribution / channeling', 'WDT, level tamp, fresh beans'],
+        ],
+      },
+    ],
   },
 
   'caffeine-day-planner': {
     intro:
-      'Most caffeine tools answer one drink at a time. Real life is a stack: morning drip, mid-morning espresso, afternoon iced latte — then you wonder why sleep is thin. This planner logs every drink with a time, estimates caffeine still in your system across the day (using a typical ~5.5 hour half-life), shows what may remain at bedtime, and suggests a cutoff so you can protect sleep without guessing.',
+      'Most “caffeine calculators” answer one drink. Cutting back needs a calendar: what you drank Monday vs Thursday, whether your week average is falling, and whether late cups still wreck sleep. This caffeine tracker logs drinks or custom milligrams by day in your browser’s local storage, shows a month calendar, graphs weekly/monthly trends against a cut-down goal, flags after-cutoff drinks, and exports CSV. Educational only — not medical advice.',
     howToUse: [
       {
-        step: 'Add each coffee with a time',
+        step: 'Set a daily goal (especially if you are cutting)',
         detail:
-          'Use presets (brewed, double espresso, cold brew, iced latte, shaken espresso…) or custom milligrams from a label. Times matter as much as dose — a 3 pm latte hits bedtime harder than the same drink at 8 am.',
+          'Pick Standard (~400 mg), Cutting — moderate (200), low (100), taper (50), or a custom cap. The calendar and charts use that line so over-goal days are obvious.',
       },
       {
-        step: 'Set bedtime and glance at the curve',
+        step: 'Log drinks or raw mg on any day',
         detail:
-          'The chart shows estimated caffeine still circulating. The dashed line is your bedtime target (default 50 mg). Total ingested is compared with the common ~400 mg daily guideline.',
+          'Tap a calendar day, choose a preset (brewed, espresso, cold brew, tea, energy, decaf…) or Custom mg, set a time, and hit Log. Data saves automatically on this device.',
       },
       {
-        step: 'Use the cutoff suggestion',
+        step: 'Read the week and month trends',
         detail:
-          'The planner finds the latest time in today’s log that still leaves you under your bedtime target. If even early cups overshoot, lower afternoon doses or move bedtime caffeine earlier — switching to late-night decaf alone rarely fixes a heavy afternoon.',
+          'Summary cards show today, 7-day average, month average, vs-last-week %, and under-goal streak. Switch Trends between this week and this month bars.',
+      },
+      {
+        step: 'Protect sleep while you taper',
+        detail:
+          'Set bedtime and cutoff buffer hours. Suggested last-caffeine time updates; late logs are flagged. Export CSV anytime for a backup.',
       },
     ],
     proTips: [
-      'Feeling “fine” at 9 pm does not mean caffeine is gone. Sleep quality often suffers before you feel jittery.',
-      'Half-life varies: many adults are near 5–6 hours; pregnancy and some medications can slow clearance. Adjust the slider if you know you are sensitive.',
-      'Cold brew and large café cups hide milligrams. Prefer label or café nutrition numbers when you have them.',
-      'The log saves in your browser so tomorrow’s first coffee is one tap away — treat it like a habit tracker for sleep, not a medical device.',
+      'Reduce ~25–50 mg every few days — cold turkey often causes headaches and rebound coffee binges.',
+      'Watch the 7-day average, not one perfect day. A green streak under goal is the real taper signal.',
+      'Cold brew and large café cups hide milligrams — use labels or the caffeine calculator, then log custom mg.',
+      'Feeling fine at 9 pm does not mean caffeine is gone — sleep quality often suffers first.',
     ],
     whyItMatters:
-      'Sleep and anxiety searches around coffee are huge, but most advice is a vague “no coffee after 2 pm.” Your cutoff depends on what you drank and when. A day planner turns that into a personal number — and it is the natural home for people who already use our caffeine and half-life calculators.',
+      'Searches like “caffeine tracker,” “how to reduce caffeine intake,” “daily caffeine tracker,” and “what time should I stop drinking coffee” need a private log plus trends — not a one-off math toy. Keeping the same /tools/caffeine-day-planner URL preserves existing rankings while the tool matches cut-down intent.',
     relatedSlugs: [
       'caffeine-calculator',
       'caffeine-half-life-calculator',
@@ -4195,7 +4669,7 @@ export const TOOL_CONTENT: Record<
     ],
     answerTables: [
       {
-        title: 'Rough caffeine by drink (planner presets)',
+        title: 'Rough caffeine by drink (tracker presets)',
         caption: 'Averages for orientation — brands and recipes vary.',
         headers: ['Drink', 'Approx caffeine'],
         rows: [
@@ -4204,17 +4678,44 @@ export const TOOL_CONTENT: Record<
           ['Espresso shot', '63 mg'],
           ['Double espresso / iced latte (2 shots)', '126 mg'],
           ['Cold brew 8 oz', '155 mg'],
-          ['Shaken espresso (2–3 shots)', '~170 mg'],
+          ['Energy drink (typical)', '160 mg'],
+          ['Decaf 8 oz', '~3 mg'],
         ],
       },
       {
-        title: 'Why timing beats “cups per day”',
+        title: 'Simple cut-down ladder',
+        headers: ['Phase', 'Daily goal idea', 'Swap idea'],
+        rows: [
+          ['Baseline week', 'Log only — no cut yet', 'Learn your real average'],
+          ['First cut', '~200 mg', 'Drop the largest afternoon cup'],
+          ['Steady', '~100 mg', 'One drip or two teas; half-caf second cup'],
+          ['Taper', '~50 mg', 'Tea / half-caf / decaf ritual after noon'],
+        ],
+      },
+      {
+        title: 'Why timing still matters while tracking',
         headers: ['Pattern', 'What usually happens'],
         rows: [
-          ['2 × 95 mg at 8 am only', 'Often fine for a 10:30 pm bedtime'],
+          ['2 × 95 mg at 8 am only', 'Often fine for a late bedtime'],
           ['95 mg at 8 am + 126 mg at 3 pm', 'Meaningful caffeine may remain at night'],
-          ['400 mg before noon', 'Daily total OK for many; sleep still depends on last dose'],
-          ['Late energy drink + coffee', 'Easy to overshoot both total mg and bedtime leftover'],
+          ['Under goal but late energy drink', 'Total looks fine; sleep still suffers'],
+          ['Week average falling, one spike day', 'Normal — keep logging; don’t abandon the taper'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'How to reduce caffeine without quitting coffee',
+        paragraphs: [
+          'Track first for a few days so the goal is based on your real stack, not a guess. Then lower the daily cap in steps and replace volume with half-caf, smaller sizes, or tea — keep the mug ritual. The under-goal streak and week-over-week % on this tracker show whether the plan is working.',
+          'If anxiety or sleep is the reason you are cutting, pair this log with our coffee and anxiety guide and the caffeine half-life calculator for leftover-mg timelines.',
+        ],
+      },
+      {
+        heading: 'Bedtime cutoff explainer',
+        paragraphs: [
+          'A cutoff is a buffer between your last caffeinated drink and lights-out — often ~8 hours, closer to 10 if you are sensitive. It is not a hard medical rule. Use the suggested time, then adjust from how you actually sleep for a week.',
+          'For remaining milligrams hour-by-hour, switch to the caffeine half-life calculator. For daily limits in prose form, see “how much coffee is too much?”',
         ],
       },
     ],
@@ -4222,41 +4723,45 @@ export const TOOL_CONTENT: Record<
 
   'caffeine-calculator': {
     intro:
-      'Caffeine is the world\'s most widely consumed psychoactive substance, and coffee is its biggest delivery vehicle. A single 8 oz brewed cup contains roughly 80–100 mg depending on roast level, bean variety, and brew method. Cold brew and drip are at the high end; espresso per ounce is high but per serving is moderate because the serving is small. The FDA considers 400 mg per day safe for most healthy adults — that is four standard mugs of brewed coffee. This calculator helps you see exactly where your current intake lands.',
+      'People search “80 mg caffeine how many cups,” “200 mg,” and “400 mg” as often as “caffeine calculator.” This tool leads with mg → cups presets (80, 100, 150, 190, 200, 400), stacks mixed drinks against the ~400 mg guideline, compares latte vs drip vs cold brew, and links the caffeine tracker / half-life tools for timing.',
     howToUse: [
       {
-        step: 'Select your drink',
+        step: 'Tap an mg → cups preset',
         detail:
-          'Choose the drink type closest to what you actually drink, or pick Custom drink and type the milligrams from the label (energy drink, pre-workout, café nutrition PDF). Preset values are averages from USDA-style data — your beans and brewer will vary.',
+          '80, 100, 150, 190, 200, or 400 mg converts into drip / latte / cold brew servings instantly (~95 mg per 8 oz drip).',
       },
       {
-        step: 'Set your daily servings',
+        step: 'Or build a multi-drink stack',
         detail:
-          "Drag the slider to match how many of that drink you typically have in a day. If you mix drinks (two espressos and a drip coffee), run the calculator twice and add the totals in your head — or use round numbers.",
+          'Add drip, latte, espresso, cold brew, soda, energy drinks, or custom mg. Quantities stack so mixed days are honest.',
       },
       {
-        step: 'Check the bar',
+        step: 'Watch the 400 mg bar',
         detail:
-          'The progress bar fills toward the 400 mg daily guideline. Green means you have room; it turns red once you exceed the threshold. This is not a medical tool — it is a useful reference.',
+          'Total updates live. Orientation only — not medical advice. 200 mg is often moderate; sensitivity varies.',
+      },
+      {
+        step: 'Follow timing links',
+        detail:
+          'Caffeine tracker for calendar logs and cut-down goals; half-life calculator for “when will it wear off.”',
       },
     ],
     proTips: [
-      "Caffeine's half-life in the body is about 5–6 hours. A 3 pm espresso still has about half its caffeine in your system at 8–9 pm, which is why it can affect sleep even when you don't feel wired.",
-      'Robusta beans have roughly twice the caffeine of Arabica. Most specialty coffee uses Arabica, but some espresso blends include Robusta for body and crema — check the bag.',
-      'Light roasts are very slightly higher in caffeine than dark roasts by weight, because caffeine degrades marginally with heat. The difference is small and usually swamped by dose variation.',
-      'Coffee tolerance builds over time. Regular drinkers often need more caffeine to feel the same effect — one reason morning coffee feels essential but a second cup barely registers.',
-      'Decaf is not caffeine-free: an 8 oz decaf typically contains 2–5 mg per cup, sometimes up to 15 mg. Probably not enough to matter, but worth knowing.',
+      'A milky latte can still beat a drip mug on caffeine if it is a double shot.',
+      'Cold brew 8 oz (~155 mg) is often higher than drip 8 oz (~95 mg).',
+      'Half-life ~5–6 hours — afternoon stacks wreck sleep before you feel wired.',
+      'Decaf is not zero; stack it if you are sensitive.',
     ],
     whyItMatters:
-      'Tracking caffeine intake helps identify whether coffee is affecting your sleep, anxiety, or focus — three things most coffee drinkers genuinely care about. It is also useful context if you are pregnant, on medication that interacts with caffeine, or simply trying to understand your energy patterns throughout the day.',
+      'mg-to-cups queries (80–400) plus “latte vs drip” and “is 200 mg a lot” are the growth cluster. Presets + stack math + timing links keep that intent on one page.',
     relatedSlugs: [
       'caffeine-day-planner',
+      'caffeine-half-life-calculator',
       'cold-brew-calculator',
       'iced-coffee-calculator',
       'espresso-ratio-calculator',
       'drip-coffee-calculator',
       'coffee-calories-calculator',
-      'caffeine-half-life-calculator',
     ],
     answerTables: [
       {
@@ -4265,11 +4770,11 @@ export const TOOL_CONTENT: Record<
         headers: ['Drink', 'Serving', 'Approx caffeine'],
         rows: [
           ['Brewed drip', '8 oz', '95 mg'],
+          ['Latte (2 shots)', '1 drink', '126 mg'],
           ['Large drip', '16 oz', '190 mg'],
           ['Espresso', '1 shot (~1 oz)', '63 mg'],
-          ['Double espresso', '2 shots', '126 mg'],
           ['Cold brew', '8 oz', '155 mg'],
-          ['Instant', '8 oz', '62 mg'],
+          ['Cola / soda', '12 oz', '~34 mg'],
           ['Decaf coffee', '8 oz', '2–15 mg'],
         ],
       },
@@ -4279,29 +4784,28 @@ export const TOOL_CONTENT: Record<
         rows: [
           ['130 mg', '1.4 cups', '2.1 shots', '0.8 cups'],
           ['155 mg', '1.6 cups', '2.5 shots', '1.0 cup'],
-          ['190 mg', '2.0 cups', '3.0 shots', '1.2 cups'],
+          ['200 mg', '2.1 cups', '3.2 shots', '1.3 cups'],
           ['400 mg (daily guide)', '4.2 cups', '6.3 shots', '2.6 cups'],
         ],
       },
     ],
     hubSections: [
       {
-        heading: 'Is coffee bad for you?',
+        heading: 'Latte vs drip vs cold brew caffeine',
         paragraphs: [
-          'For most healthy adults, moderate coffee (around the 400 mg caffeine guideline, roughly three to four 8 oz cups) is associated with neutral-to-positive outcomes in large observational studies — including alertness and some metabolic markers. “Bad” usually shows up when intake is very high, sleep is wrecked, anxiety spikes, or you have a specific medical reason to limit caffeine. This calculator is for orientation, not a diagnosis.',
-          'If coffee bothers your stomach, try darker roasts, cold brew (often lower perceived acidity), or food with your cup. If sleep suffers, move the last caffeinated drink earlier — caffeine’s half-life is about 5–6 hours.',
+          'Drip 8 oz ≈ 95 mg. Latte with two shots ≈ 126 mg. Cold brew 8 oz often ≈ 155 mg. Large drip 16 oz ≈ 190 mg. Milk does not cancel caffeine — stack the drinks you actually had.',
         ],
       },
       {
-        heading: 'Decaf coffee still has caffeine',
+        heading: 'Is 200 mg a lot?',
         paragraphs: [
-          'Decaf is not caffeine-free. An 8 oz cup often lands between 2 and 15 mg. That is far below regular coffee, but stacking several decafs — or mixing with chocolate and tea — still adds up for sensitive people. Use the decaf preset in the calculator if you want a conservative daily picture.',
+          'For many healthy adults, 200 mg is a moderate day (~two drip cups). The common upper guide is ~400 mg. If you feel anxious or sleep poorly at 200 mg, that is “a lot” for you — use the caffeine tracker and half-life tools, and talk to a clinician if needed.',
         ],
       },
       {
-        heading: 'Cold brew vs drip vs espresso caffeine',
+        heading: 'When will caffeine wear off?',
         paragraphs: [
-          'Per ounce, espresso is strong; per serving, an 8 oz drip often beats a single shot. Cold brew varies wildly by concentrate strength and dilution — an 8 oz ready-to-drink cold brew can rival or exceed drip. Always check whether you are drinking concentrate straight (easy to overshoot).',
+          'Average half-life is about 5–6 hours. Open the half-life calculator for a timeline or the caffeine tracker for a bedtime cutoff and weekly trends. Feeling fine at 9 pm does not mean sleep quality is fine.',
         ],
       },
     ],
@@ -4309,37 +4813,37 @@ export const TOOL_CONTENT: Record<
 
   'coffee-calories-calculator': {
     intro:
-      'Searches for “calories in black coffee” and “how many calories in a latte” never die — because café menus hide the gap between a nearly zero-calorie black cup and a dessert drink in a coffee cup. This calculator starts with realistic averages for common drinks, then lets you add teaspoons of sugar and tablespoons of milk so your daily total matches how you actually doctor the mug.',
+      'Searches for “calories in latte,” “black coffee calories,” and “Starbucks latte calories homemade” never die — café menus hide the gap between a nearly zero-calorie black cup and a dessert drink. This calculator supports skim / 2% / whole / oat / almond milk, a custom café base kcal field, sugar extras, and a comparison table that respects those add-ins.',
     howToUse: [
       {
-        step: 'Pick the drink closest to yours',
+        step: 'Pick a drink or custom base',
         detail:
-          'Black coffee sizes stay near zero calories. Milk drinks (latte, cappuccino, mocha) jump quickly. If your café drink is not listed, start from the nearest style and add sugar/milk sliders.',
+          'Black sizes stay near zero. Latte / cappuccino / mocha start a milk-forward build. Use Custom base when you have a café nutrition number (handy for chain vs home).',
       },
       {
-        step: 'Set servings per day',
+        step: 'Choose milk type and amount',
         detail:
-          'Two small black coffees are still trivial calories. Two large mochas are not. The daily total updates instantly.',
+          'Skim, 2%, whole, oat, or almond — kcal per tablespoon updates automatically. Latte-style presets load a sensible milk volume you can tweak.',
       },
       {
-        step: 'Add sugar and milk if you use them',
+        step: 'Add sugar and servings',
         detail:
-          'Each teaspoon of sugar is about 16 kcal; each tablespoon of whole milk about 9 kcal. Syrups and creamers vary — treat the sugar slider as a stand-in for sweet add-ins.',
+          'Each teaspoon of sugar is about 16 kcal. Set servings per day for a realistic daily total.',
       },
       {
-        step: 'Compare the table',
+        step: 'Read the comparison table',
         detail:
-          'The comparison table shows how the same serving count looks as black coffee versus richer café drinks — useful when you are deciding what to order.',
+          'Black vs homemade latte-ish vs mocha-ish vs chain-style sweet latte — all using your current sugar slider and milk type so extras are not ignored.',
       },
     ],
     proTips: [
-      'Black coffee is the easiest “free” beverage in a calorie budget; the trap is syrup, whipped cream, and large milk drinks.',
-      'Oat milk and sweet creamers often add more calories than a splash of dairy — check the carton if you track closely.',
-      'Iced “coffee” drinks at chains are frequently pre-sweetened; the sweet iced preset is a starting point, not your exact franchise recipe.',
-      'If weight loss is the goal, swapping one sugary coffee for black (or half-sweet) often beats a complicated supplement stack.',
+      'Black coffee is the easiest “free” beverage in a calorie budget; syrup and large milk drinks are the trap.',
+      'Barista oat milk often rivals 2% dairy; unsweetened almond is usually much lighter.',
+      'For a homemade mocha, try our mocha drink recipe after you ballpark calories here.',
+      'Chain nutrition PDFs beat guesses — paste that number into Custom base.',
     ],
     whyItMatters:
-      'People underestimate liquid calories. A transparent coffee calories calculator answers the exact queries Google sends — black coffee calories, latte calories, sugar in coffee — and pairs naturally with health articles on whether black coffee is “bad” or helpful.',
+      'Liquid calories hide in milk type and syrup. Matching “Starbucks vs homemade” intent with honest extras keeps the tool useful beyond a static calorie table.',
     relatedSlugs: [
       'caffeine-calculator',
       'caffeine-half-life-calculator',
@@ -4355,23 +4859,24 @@ export const TOOL_CONTENT: Record<
           ['Black coffee', '8 oz', '~2 kcal'],
           ['Black coffee', '16 oz', '~5 kcal'],
           ['Espresso', '1 shot', '~3 kcal'],
-          ['Latte', '12 oz', '~150 kcal'],
-          ['Cappuccino', '8 oz', '~80 kcal'],
+          ['Latte (whole milk ballpark)', '12 oz', '~150 kcal'],
+          ['Latte (skim ballpark)', '12 oz', '~100 kcal'],
           ['Mocha', '12 oz', '~290 kcal'],
         ],
       },
     ],
     hubSections: [
       {
-        heading: 'Why black coffee is almost zero calories',
+        heading: 'Chain vs homemade coffee calories',
         paragraphs: [
-          'Brewed coffee is mostly water plus a tiny amount of dissolved solids. Without milk or sugar, an 8 oz cup lands around 2 calories. That is why black coffee shows up in cutting diets and intermittent fasting discussions — the energy load is negligible compared with flavored café drinks.',
+          'Chain lattes vary by size, milk, and syrup pumps — a sweetened grande-style drink can land near ~200+ kcal before whipped cream. Homemade with weighed milk and no syrup is usually lower. Use Custom base for the café number, then keep your sugar slider on so the comparison table stays honest.',
+          'Want the drink, not just the math? Our iced latte and mocha recipe pages walk through home versions you can portion yourself.',
         ],
       },
       {
-        heading: 'Where coffee calories actually come from',
+        heading: 'Why black coffee is almost zero calories',
         paragraphs: [
-          'Milk, cream, sugar, syrups, sauces, and whipped cream. A “coffee” can become a 300–500 kcal dessert without changing the bean. If you love milk drinks, smaller sizes and fewer pumps of syrup usually matter more than switching bean origin.',
+          'Brewed coffee is mostly water plus a tiny amount of dissolved solids. Without milk or sugar, an 8 oz cup lands around 2 calories — negligible next to flavored café drinks.',
         ],
       },
     ],
@@ -4379,37 +4884,37 @@ export const TOOL_CONTENT: Record<
 
   'caffeine-half-life-calculator': {
     intro:
-      '“How long does caffeine last?” is really a pharmacokinetics question dressed as a lifestyle worry. Caffeine’s average half-life in healthy adults is about 5–6 hours, so a 2 pm cold brew can still be meaningful at 10 pm. This calculator estimates remaining milligrams over time for a single dose. For a full day of stacked coffees and a sleep cutoff, use the caffeine day planner.',
+      '“How long does caffeine last?” and “when does caffeine leave your system?” are pharmacokinetics dressed as lifestyle worries. Average half-life in healthy adults is about 5–6 hours — so a 2 pm cold brew can still matter at 11 pm. This tool supports clock-time mode (drank at / bedtime), optional multi-dose stacking, and a remaining-mg timeline. Educational estimate only — not medical advice.',
     howToUse: [
       {
-        step: 'Choose a dose',
+        step: 'Choose clock time or hours-since',
         detail:
-          'Pick a common coffee drink or enter a custom milligram amount if you know your brand’s caffeine number.',
+          'Clock mode: set when you drank and when you go to bed (e.g. 2 pm → 11 pm). Hours-since mode: slide how long ago the primary dose was.',
       },
       {
-        step: 'Set how long ago you drank it',
+        step: 'Pick a dose (and stack more if needed)',
         detail:
-          'The readout shows estimated caffeine still circulating right now, plus a timeline of the next several hours.',
+          'Use a drink preset or custom mg. Add optional extra doses with their own times so the “now” and bedtime totals reflect a real stack.',
       },
       {
-        step: 'Adjust half-life if you know you are sensitive',
+        step: 'Adjust assumed half-life',
         detail:
-          'Slow metabolizers and pregnancy often mean a longer half-life; some people clear caffeine faster. Move the slider to explore, then use sleep quality as the real feedback loop.',
+          'Default ~5.5 h. Pregnancy often lengthens clearance; smoking can shorten it. Move the slider to explore — then trust sleep quality more than the number.',
       },
       {
-        step: 'Plan your cutoff',
+        step: 'Read the timeline',
         detail:
-          'Look at when the dose falls toward 25% or 10% relative to bedtime. If you still feel wired, pull the last cup earlier tomorrow — calculators approximate; your nights are the truth.',
+          'See remaining mg from now across the next several hours, plus rough time until ~50% / 25% / 10% of the primary dose remains.',
       },
     ],
     proTips: [
-      'Half-life is not the same as “I feel normal.” Subjective alertness fades before caffeine fully clears.',
-      'Stacking drinks resets the clock — two coffees four hours apart leave more in your system than one morning cup.',
-      'Energy drinks plus coffee is a common way people accidentally double dose for evening events.',
-      'Pair this tool with the daily caffeine calculator to stay under ~400 mg while also protecting sleep timing.',
+      'Half-life ≠ “I feel normal.” Alertness fades before caffeine fully clears.',
+      'Two coffees four hours apart leave more at bedtime than one morning cup — use the stack.',
+      'Smoking / pregnancy / medications change clearance; the disclaimer is there for a reason.',
+      'For a calendar log, cut-down goals, and bedtime cutoff, open the caffeine tracker.',
     ],
     whyItMatters:
-      'Sleep disruption is one of the biggest real-world downsides of coffee. A half-life tool targets high-intent queries (“how long does coffee stay in your system,” “when does caffeine wear off”) and supports the health content cluster around anxiety, empty-stomach coffee, and daily limits.',
+      'High-intent sleep queries need clock math and caveats, not only a single half-life factoid. Timeline + multi-dose + pregnancy/smoking notes keep the tool honest while feeding the anxiety/sleep content cluster.',
     relatedSlugs: [
       'caffeine-day-planner',
       'caffeine-calculator',
@@ -4420,7 +4925,7 @@ export const TOOL_CONTENT: Record<
     answerTables: [
       {
         title: 'Rough remaining caffeine (5.5 h half-life)',
-        caption: 'Starting from a 190 mg large drip at hour 0.',
+        caption: 'Starting from a 190 mg large drip at hour 0 — single dose.',
         headers: ['Hours later', 'Approx left', '% of dose'],
         rows: [
           ['0 h', '190 mg', '100%'],
@@ -4433,15 +4938,21 @@ export const TOOL_CONTENT: Record<
     ],
     hubSections: [
       {
-        heading: 'Why afternoon coffee ruins sleep for some people',
+        heading: 'Timeline FAQ: when caffeine leaves your system',
         paragraphs: [
-          'If your half-life is on the long side, a 3 pm cup still leaves a large fraction of caffeine at 11 pm. You may not feel “wired,” but deep sleep can still suffer. Earlier cutoffs beat sleep aids stacked on late espresso.',
+          'Caffeine does not “leave” at a single moment. After one half-life roughly half remains; after two, about a quarter. Trace amounts linger longer. Use the on-page timeline for a stack-aware curve, and remember subjective “I’m fine” is a poor sleep proxy.',
+        ],
+      },
+      {
+        heading: 'Smoking, pregnancy, and half-life caveats (disclaimer)',
+        paragraphs: [
+          'Pregnancy commonly slows caffeine clearance (longer half-life). Smoking can speed metabolism (shorter half-life). Genetics and medications also matter. This calculator is for education and planning conversations — not diagnosis, dosing advice, or a substitute for clinical guidance.',
         ],
       },
       {
         heading: 'Coffee and anxiety timing',
         paragraphs: [
-          'Caffeine’s stimulant window overlaps with anxious body signals (faster heart rate, restlessness). Spacing doses and avoiding huge late boluses helps many people keep coffee without the panic-adjacent feeling — see our coffee and anxiety guide for more context.',
+          'Caffeine’s stimulant window overlaps with anxious body signals. Spacing doses and avoiding huge late boluses helps many people keep coffee without the panic-adjacent feeling — see our coffee and anxiety guide, and use the caffeine tracker for cutoffs and trends.',
         ],
       },
     ],
@@ -4449,32 +4960,37 @@ export const TOOL_CONTENT: Record<
 
   'coffee-measurement-converter': {
     intro:
-      'Coffee recipes are written in grams, but most kitchens measure in tablespoons and scoops — and the two systems do not convert cleanly. The density of coffee changes dramatically depending on whether it is whole bean or ground, how coarsely it is ground, and how dark it is roasted. A tablespoon of fine espresso grind weighs about 6–7 g. A tablespoon of coarsely ground light roast can be as low as 4 g. This converter uses a sensible middle-ground average of 5.3 g per level tablespoon of ground coffee, which is close enough to get you brewing without a scale.',
+      'Recipes say grams; kitchens use tablespoons and scoops — and density changes with whole bean vs ground, grind size, and level vs heaping. This converter toggles those variables, expands the conversion table, and explains why scales beat scoops for “how many grams in a tablespoon of coffee” and “coffee scoop to grams.”',
     howToUse: [
       {
-        step: 'Enter your amount',
+        step: 'Toggle ground vs whole bean',
         detail:
-          'Type in the number you are starting from — say, 2 tablespoons from a recipe card, or 20 g from a guide online.',
+          'Ground defaults ~5.3 g per level tbsp; whole bean ~4.5 g — beans pack lighter by volume.',
       },
       {
-        step: 'Select the unit',
+        step: 'Choose level or heaping',
         detail:
-          'Choose the unit that matches your input: Grams, Tablespoons, Scoops (one standard coffee scoop = 2 tablespoons = ~10 g), or Teaspoons.',
+          'Heaping adds a rough ~30% in this estimate. Level is the fair comparison to recipe cards.',
       },
       {
-        step: 'Read all four conversions at once',
+        step: 'Enter amount and unit',
         detail:
-          'All four output tiles update instantly, so you can see the full picture. The highlighted tile is your source unit.',
+          'Grams, tablespoons, scoops (2 tbsp), or teaspoons — all four outputs update together.',
+      },
+      {
+        step: 'Use the expanded table',
+        detail:
+          'Common gram targets (10–100 g) plus 1 tbsp and 1 scoop rows update with your density settings.',
       },
     ],
     proTips: [
-      "A standard coffee scoop is 2 tablespoons (roughly 10 g). The 'one scoop per cup' guideline most automatic drip machines print is for 6 oz cups — a standard mug is 8–12 oz, so you may need 1.5–2 scoops.",
-      'If you measure by volume and your coffee tastes inconsistent week to week, it is likely bean density changing between bags. A digital scale fixes this permanently.',
-      'Whole beans are dramatically lighter per tablespoon than ground coffee — you cannot substitute the same volume. Always grind first if a recipe calls for grams of ground coffee.',
-      "The best $10 you can spend on coffee is a digital kitchen scale accurate to 0.1 g. It pays off immediately in consistency, and you'll never need this converter again.",
+      'Standard scoop ≈ 2 tbsp ≈ 10 g level ground — heaping and whole-bean change that fast.',
+      '“One scoop per cup” on drip machines assumes tiny cups; check the drip calculator.',
+      'Inconsistent cups week to week? Density shifted — weigh instead.',
+      'A $10 scale makes every other tool on this site actually repeatable.',
     ],
     whyItMatters:
-      "Volume measurement is inherently variable for coffee — the same tablespoon can mean 4 g or 7 g depending on grind and roast. That's a 75% difference in dose, which produces dramatically different cups. This converter helps you bridge the gap between recipes written for scale users and the reality of a spoon-and-scoop kitchen.",
+      'High-intent spoon queries need honest density toggles, not a single magic number. The scales-vs-scoops section converts curiosity into better dosing habits.',
     relatedSlugs: [
       'drip-coffee-calculator',
       'french-press-calculator',
@@ -4483,16 +4999,26 @@ export const TOOL_CONTENT: Record<
     ],
     answerTables: [
       {
-        title: 'Coffee grams to tablespoons (ground coffee)',
-        caption: 'Using ≈5.3 g per level tablespoon and ≈10 g per standard scoop (2 tbsp).',
+        title: 'Coffee grams to tablespoons (level ground ≈5.3 g/tbsp)',
+        caption: 'Standard scoop ≈ 2 tbsp ≈ 10 g. Switch to whole-bean / heaping in the tool for other densities.',
         headers: ['Grams', 'Tablespoons', 'Scoops', 'Teaspoons'],
         rows: [
           ['10 g', '1.9 tbsp', '1.0 scoop', '5.7 tsp'],
           ['15 g', '2.8 tbsp', '1.5 scoops', '8.5 tsp'],
+          ['16 g', '3.0 tbsp', '1.6 scoops', '9.1 tsp'],
           ['20 g', '3.8 tbsp', '2.0 scoops', '11.3 tsp'],
           ['30 g', '5.7 tbsp', '3.0 scoops', '17.0 tsp'],
           ['55 g', '10.4 tbsp', '5.5 scoops', '31.1 tsp'],
           ['70 g', '13.2 tbsp', '7.0 scoops', '39.6 tsp'],
+          ['100 g', '18.9 tbsp', '10.0 scoops', '56.6 tsp'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Why scales beat scoops',
+        paragraphs: [
+          'The same spoon can swing 30–50% by roast, grind, and packing. Level vs heaping is another silent error. Grams remove the guesswork so ratio calculators and drip pot recipes actually match what you brew.',
         ],
       },
     ],
@@ -4500,33 +5026,33 @@ export const TOOL_CONTENT: Record<
 
   'grind-size-chart': {
     intro:
-      "Grind size controls extraction rate. Finer grinds have more surface area, so they extract quickly — which is why espresso needs ~25–30 seconds and French press needs ~4 minutes. When grind is mismatched to the method, the cup fails in predictable ways: too fine → bitter and clogged; too coarse → sour and thin. Pair this chart with the coffee brewing ratios guide (1:16 filter, 1:2 espresso, 1:8 cold brew concentrate) so you are not fighting two unknowns at once.",
+      'Grind size controls extraction rate. Finer grinds have more surface area — espresso needs ~25–30 seconds; French press ~4 minutes. This interactive chart lets you pick a method to highlight the matching grind, micron ballpark, photo-style “feels like” analogy, and too-fine / too-coarse symptoms. Pair with the brewing ratios guide so you are not fighting two unknowns.',
     howToUse: [
       {
-        step: 'Find your brew method in the chart',
+        step: 'Pick your brew method',
         detail:
-          "Scan the 'Best for' column for your brew method. Each row shows the grind name, a tactile reference ('feels like...') so you can check your grinder output by touch, and the coarseness dots so you can see where it sits on the spectrum.",
+          'Tap Espresso, Drip, French press, Pour over, and more. The recommended grind row highlights with micron range and symptom cards.',
       },
       {
-        step: 'Use the tactile reference to calibrate',
+        step: 'Match the texture analogy',
         detail:
-          "Rub a pinch of ground coffee between your fingers. Espresso should feel powdery; pour over like table salt; French press like sea salt or breadcrumbs. Ignore the number printed on a cheap grinder until the texture matches.",
+          'Rub a pinch between your fingers. Espresso ≈ powdered sugar; medium drip ≈ coarse sand; French press ≈ sea salt. Trust texture over a printed dial number.',
       },
       {
-        step: 'Taste, then move 1–2 clicks',
+        step: 'Use too-fine / too-coarse symptoms',
         detail:
-          'Sour / fast drain → finer. Bitter / stalled → coarser. Change grind before ratio. Espresso reacts to half-clicks; drip may need several steps before you notice.',
+          'Sour & fast → finer. Bitter & stalled → coarser. Change grind before ratio. Espresso reacts to half-clicks; drip may need several steps.',
       },
     ],
     proTips: [
-      'Blade grinders make dust + boulders in the same scoop. A burr grinder is the single biggest taste upgrade for any brew method on this chart.',
-      'Purge a few grams after changing settings — old grind size sits in the burr chamber.',
-      'New bags and humid weather shift grind needs. Re-dial when the cup suddenly goes sour or bitter with the “same” recipe.',
-      'French press muddy? Go coarser and decant fully after plunging — do not keep steeping on the grounds.',
-      'Want the full ratio + grind table in one place? Open the brewing ratios & grind size chart guide, then come back here for the visual scale.',
+      'Blade grinders make dust + boulders — charts assume burr grinders.',
+      'Purge a few grams after changing settings; old grind sits in the chamber.',
+      'Micron ranges are approximate — brands differ. Texture wins.',
+      'Deep-link with ?method=french-press or ?method=espresso for shareable SEO landing states.',
+      'Full ratio + grind table: open the brewing ratios & grind size chart guide.',
     ],
     whyItMatters:
-      "Most 'bad coffee' at home is a grind problem first. Fix texture before you blame the beans, the kettle, or the ratio.",
+      'Queries like “espresso grind vs drip,” “French press grind size,” and “what does medium grind look like” need method filtering plus tactile analogies — not a static poster. Most bad home coffee is grind first.',
     relatedSlugs: [
       'coffee-ratio-calculator',
       'brew-timer',
@@ -4544,6 +5070,20 @@ export const TOOL_CONTENT: Record<
           ['Muddy French press', 'Too fine for mesh', 'Much coarser'],
           ['Espresso gushes <20s', 'Too coarse for basket', 'Finer'],
           ['Espresso chokes >40s', 'Too fine', 'Coarser'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Method filter: espresso vs drip vs French press',
+        paragraphs: [
+          'Espresso is fine (~300–400 μm) so pressurized water can extract in ~25–30 seconds. Drip is medium (~700–900 μm) for a longer gravity brew. French press is coarse (~1100–1400 μm) for a 4-minute steep through a mesh filter. Use the picker above to jump between those worlds without scrolling a wall of text.',
+        ],
+      },
+      {
+        heading: 'Photo analogies for grind texture',
+        paragraphs: [
+          'No camera needed: powdered sugar (extra fine / Turkish), table salt (fine espresso), fine sand (pour over), coarse sand (drip / “medium”), sea salt (French press), peppercorns (cold brew). If your grounds look like the wrong pantry item for the method, fix grind before chasing new beans.',
         ],
       },
     ],
@@ -4618,12 +5158,39 @@ export const TOOL_CONTENT: Record<
           ['Heavy, earthy body', 'Earthy & heavy', 'Indonesia (Sumatra), India, Vietnam'],
         ],
       },
+      {
+        title: 'Origin vs roast pairing',
+        caption: 'Origin sets the ceiling; roast decides how much of it you taste.',
+        headers: ['Origin vibe', 'Roast tip', 'Brew next'],
+        rows: [
+          ['Ethiopia floral / berry', 'Keep light–medium', 'Pour over · ratio 1:16'],
+          ['Colombia caramel / apple', 'Medium for daily cups', 'Drip or espresso blend'],
+          ['Brazil chocolate / nut', 'Medium–dark for milk drinks', 'Espresso ratio tool'],
+          ['Vietnam robusta / phin', 'Dark, chocolatey', 'Iced / Vietnamese recipe'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Ethiopia vs Colombia (and how to choose)',
+        paragraphs: [
+          'If you want jasmine, blueberry, and tea-like brightness, start with Ethiopia (or Kenya). If you want caramel, red apple, and a forgiving everyday bag, start with Colombia. Use Compare, then copy the compare link or print the card.',
+          'Neither is “better” — they answer different cravings. Light roast preserves Ethiopia’s fireworks; medium roast makes Colombia a workhorse for drip and milk drinks.',
+        ],
+      },
+      {
+        heading: 'Best origins for espresso vs filter',
+        paragraphs: [
+          'Espresso and milk drinks often favor Brazil and chocolatey Central America. Bright East African lots can be stunning as single-origin espresso but will taste sharper in milk. Filter (pour over, drip) is where Ethiopia and Kenya usually win.',
+          'Open any origin profile for Brew this origin links into ratio, grind, iced, or espresso tools — then dial taste in Coffee Lab if you want a simulated cup before you waste beans.',
+        ],
+      },
     ],
   },
 
   'coffee-lab': {
     intro:
-      'Every variable in coffee brewing — grind size, water temperature, brew ratio, roast level, and bean origin — affects extraction, and extraction determines flavor. The problem is that most people change one thing and taste a completely different cup, making it hard to know which variable was responsible. The Coffee Lab Simulator models these relationships interactively: adjust any variable and the taste profile bars update immediately after you brew, so you can build an intuition for how the pieces fit together before you waste a bag of expensive beans experimenting.',
+      'Every variable in coffee brewing — grind size, water temperature, brew ratio, roast level, and bean origin — affects extraction, and extraction determines flavor. The problem is that most people change one thing and taste a completely different cup, making it hard to know which variable was responsible. The Coffee Lab Simulator models these relationships interactively: adjust any variable, hit Brew, then use Apply fix links (grind chart, ratio calculator, brew timer, espresso dial-in) when the cup would taste bitter, sour, or under-extracted.',
     howToUse: [
       {
         step: 'Choose your bean origin and brew method',
@@ -4641,9 +5208,9 @@ export const TOOL_CONTENT: Record<
           'Grind is the extraction rate dial: fine grinds extract fast (more bitterness risk), coarse grinds extract slow (sourness risk). Temperature amplifies extraction — especially significant for light roasts. Ratio controls strength and body.',
       },
       {
-        step: 'Hit Brew and read the result',
+        step: 'Hit Brew, read the verdict, apply a fix',
         detail:
-          'The extraction percentage tells you if your recipe is under, over, or in the ideal zone. The verdict at the bottom tells you specifically what to adjust if the profile is off.',
+          'Extraction percentage shows under / ideal / over. Apply fix deep-links to the grind chart, ratio calculator, or espresso tools with presets. Copy the shareable result link to reopen the same dial-in later.',
       },
     ],
     proTips: [
@@ -4654,8 +5221,37 @@ export const TOOL_CONTENT: Record<
       'Medium roast is the most forgiving roast level — it sits in the sweetness peak and balances acidity and bitterness for most origins and methods.',
     ],
     whyItMatters:
-      'Most coffee guides give you a recipe. This simulator gives you the underlying logic — so when your cup is sour, you understand why finer grind or higher temp will fix it; when it is bitter, you know to go coarser or pull back the temperature. This is how baristas and roasters think, and once it clicks, dialing in any brew on any equipment becomes intuitive rather than accidental.',
-    relatedSlugs: ['coffee-ratio-calculator', 'grind-size-chart', 'brew-timer'],
+      'Most coffee guides give you a recipe. This simulator gives you the underlying logic — so when your cup is sour, you understand why finer grind or higher temp will fix it; when it is bitter, you know to go coarser or pull back the temperature. Apply fix turns that logic into the next click on a real calculator.',
+    relatedSlugs: ['coffee-ratio-calculator', 'grind-size-chart', 'brew-timer', 'espresso-ratio-calculator'],
+    answerTables: [
+      {
+        title: 'Cup problem → first fix',
+        caption: 'Change one variable at a time. Grind first for bitter vs sour.',
+        headers: ['What you taste', 'Likely cause', 'Try first'],
+        rows: [
+          ['Sour, thin, hollow', 'Under-extracted', 'Finer grind or hotter water'],
+          ['Bitter, drying, harsh', 'Over-extracted', 'Coarser grind or cooler water'],
+          ['Sour espresso shot', 'Under-extracted / too short', 'Finer grind or ~1:2 normale'],
+          ['Flat / weak', 'Too much water', 'Stronger ratio (e.g. 1:15)'],
+        ],
+      },
+    ],
+    hubSections: [
+      {
+        heading: 'Why is my coffee bitter?',
+        paragraphs: [
+          'Bitterness usually means you extracted too far — fine grind, long contact time, or scalding water on a dark roast. In the lab, push grind fine and temp high on a dark roast to see bitterness climb, then use Apply fix → grind coarser.',
+          'Not all bitterness is a mistake: dark roast and espresso naturally carry more. If the cup is bitter and hollow, that is over-extraction; if it is bitter but sweet and heavy, you may just prefer a lighter roast.',
+        ],
+      },
+      {
+        heading: 'Under-extracted and sour coffee',
+        paragraphs: [
+          'Under-extracted coffee tastes sharp and unfinished — lemony without sweetness. Coarse grind and cool water are the usual culprits. The simulator’s under-extraction verdict links to a finer grind and a slightly stronger ratio.',
+          'Sour espresso gets the same logic with a shot-ratio tool: stay near 1:2 normale before you blame the beans.',
+        ],
+      },
+    ],
   },
   ...TRENDING_TOOL_CONTENT,
 }

@@ -1,12 +1,35 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+
+const STORAGE_KEY = 'kc-hydration-log'
 
 const ACTIVITY = [
   { id: 'desk', label: 'Mostly desk / easy day', mult: 1 },
   { id: 'light', label: 'Walking / light training', mult: 1.2 },
   { id: 'sweat', label: 'Hot day or hard workout', mult: 1.45 },
 ] as const
+
+type Persisted = {
+  day: string
+  units: 'metric' | 'imperial'
+  sex: 'female' | 'male'
+  heightCm: number
+  heightFt: number
+  heightIn: number
+  weightKg: number
+  weightLb: number
+  waterGlasses: number
+  coffeeCups: number
+  teaCups: number
+  activity: (typeof ACTIVITY)[number]['id']
+  workoutBump: boolean
+}
+
+function todayKey() {
+  const d = new Date()
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+}
 
 function round(n: number, d = 0) {
   const f = 10 ** d
@@ -21,7 +44,7 @@ function bsaM2(heightCm: number, weightKg: number) {
   return Math.sqrt((heightCm * weightKg) / 3600)
 }
 
-/** Hume–Weyers estimate of total body water (litres). Height is why taller people differ at the same weight. */
+/** Hume–Weyers estimate of total body water (litres). */
 function tbwLitres(sex: 'female' | 'male', heightCm: number, weightKg: number) {
   const tbw =
     sex === 'male'
@@ -30,7 +53,20 @@ function tbwLitres(sex: 'female' | 'male', heightCm: number, weightKg: number) {
   return clamp(tbw, 18, 65)
 }
 
+function loadPersisted(): Partial<Persisted> | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return null
+    const data = JSON.parse(raw) as Persisted
+    if (data.day !== todayKey()) return null
+    return data
+  } catch {
+    return null
+  }
+}
+
 export function HydrationCalculator() {
+  const [ready, setReady] = useState(false)
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric')
   const [sex, setSex] = useState<'female' | 'male'>('female')
   const [heightCm, setHeightCm] = useState(168)
@@ -40,22 +76,83 @@ export function HydrationCalculator() {
   const [weightLb, setWeightLb] = useState(150)
   const [waterGlasses, setWaterGlasses] = useState(4)
   const [coffeeCups, setCoffeeCups] = useState(2)
+  const [teaCups, setTeaCups] = useState(0)
   const [activity, setActivity] = useState<(typeof ACTIVITY)[number]['id']>('desk')
+  const [workoutBump, setWorkoutBump] = useState(false)
+  const [savedFlash, setSavedFlash] = useState(false)
+
+  useEffect(() => {
+    const saved = loadPersisted()
+    if (saved) {
+      if (saved.units) setUnits(saved.units)
+      if (saved.sex) setSex(saved.sex)
+      if (saved.heightCm != null) setHeightCm(saved.heightCm)
+      if (saved.heightFt != null) setHeightFt(saved.heightFt)
+      if (saved.heightIn != null) setHeightIn(saved.heightIn)
+      if (saved.weightKg != null) setWeightKg(saved.weightKg)
+      if (saved.weightLb != null) setWeightLb(saved.weightLb)
+      if (saved.waterGlasses != null) setWaterGlasses(saved.waterGlasses)
+      if (saved.coffeeCups != null) setCoffeeCups(saved.coffeeCups)
+      if (saved.teaCups != null) setTeaCups(saved.teaCups)
+      if (saved.activity) setActivity(saved.activity)
+      if (saved.workoutBump != null) setWorkoutBump(saved.workoutBump)
+    }
+    setReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!ready) return
+    try {
+      const payload: Persisted = {
+        day: todayKey(),
+        units,
+        sex,
+        heightCm,
+        heightFt,
+        heightIn,
+        weightKg,
+        weightLb,
+        waterGlasses,
+        coffeeCups,
+        teaCups,
+        activity,
+        workoutBump,
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload))
+    } catch {
+      /* ignore */
+    }
+  }, [
+    ready,
+    units,
+    sex,
+    heightCm,
+    heightFt,
+    heightIn,
+    weightKg,
+    weightLb,
+    waterGlasses,
+    coffeeCups,
+    teaCups,
+    activity,
+    workoutBump,
+  ])
 
   const cm = units === 'metric' ? heightCm : heightFt * 30.48 + heightIn * 2.54
   const kg = units === 'metric' ? weightKg : weightLb * 0.453592
   const glassMl = units === 'metric' ? 250 : 240
-  const coffeeMlEach = units === 'metric' ? 240 : 240
+  const cupMl = units === 'metric' ? 240 : 240
 
   const result = useMemo(() => {
     const bsa = bsaM2(cm, kg)
     const tbw = tbwLitres(sex, cm, kg)
     const act = ACTIVITY.find((a) => a.id === activity)!.mult
-    // 35 ml/kg, scaled by body surface area so height changes the target at the same weight.
-    const target = clamp(35 * kg * (bsa / 1.73) * act, 1400, 5000)
+    const sweatExtra = workoutBump ? 1.15 : 1
+    const target = clamp(35 * kg * (bsa / 1.73) * act * sweatExtra, 1400, 5500)
     const waterMl = waterGlasses * glassMl
-    const coffeeMl = coffeeCups * coffeeMlEach
-    const intake = waterMl + coffeeMl
+    const coffeeMl = coffeeCups * cupMl
+    const teaMl = teaCups * cupMl
+    const intake = waterMl + coffeeMl + teaMl
     const pct = target > 0 ? (intake / target) * 100 : 0
     const remaining = Math.max(0, target - intake)
     return {
@@ -64,12 +161,13 @@ export function HydrationCalculator() {
       target,
       waterMl,
       coffeeMl,
+      teaMl,
       intake,
       pct,
       remaining,
       glassesLeft: remaining / glassMl,
     }
-  }, [activity, cm, coffeeCups, coffeeMlEach, glassMl, kg, sex, waterGlasses])
+  }, [activity, cm, coffeeCups, cupMl, glassMl, kg, sex, teaCups, waterGlasses, workoutBump])
 
   let status = 'On track for a typical day'
   let bar = 'bg-accent'
@@ -89,29 +187,72 @@ export function HydrationCalculator() {
 
   const barWidth = Math.min(100, result.pct)
 
+  function flashSaved() {
+    setSavedFlash(true)
+    window.setTimeout(() => setSavedFlash(false), 1600)
+  }
+
+  function clearToday() {
+    setWaterGlasses(0)
+    setCoffeeCups(0)
+    setTeaCups(0)
+    try {
+      localStorage.removeItem(STORAGE_KEY)
+    } catch {
+      /* ignore */
+    }
+    flashSaved()
+  }
+
   return (
     <div className="rounded-2xl border border-border bg-card p-5 md:p-7">
-      <div className="mb-5 flex flex-wrap gap-2">
-        {(
-          [
-            { id: 'metric', label: 'Metric' },
-            { id: 'imperial', label: 'US' },
-          ] as const
-        ).map((item) => (
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap gap-2">
+          {(
+            [
+              { id: 'metric', label: 'Metric' },
+              { id: 'imperial', label: 'US' },
+            ] as const
+          ).map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setUnits(item.id)}
+              className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
+                units === item.id
+                  ? 'border-accent bg-accent text-accent-foreground'
+                  : 'border-border bg-background text-muted-foreground hover:border-accent/50'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          {savedFlash && (
+            <span className="text-xs font-medium text-accent">Saved for today</span>
+          )}
           <button
-            key={item.id}
             type="button"
-            onClick={() => setUnits(item.id)}
-            className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
-              units === item.id
-                ? 'border-accent bg-accent text-accent-foreground'
-                : 'border-border bg-background text-muted-foreground hover:border-accent/50'
-            }`}
+            onClick={() => {
+              flashSaved()
+            }}
+            className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
           >
-            {item.label}
+            Save today
           </button>
-        ))}
+          <button
+            type="button"
+            onClick={clearToday}
+            className="rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
+          >
+            Reset log
+          </button>
+        </div>
       </div>
+      <p className="mb-5 text-xs text-muted-foreground">
+        Today’s glasses auto-save in this browser (clears next calendar day).
+      </p>
 
       <div className="mb-5">
         <p className="mb-2 text-sm font-medium text-foreground">Body (used for height × weight estimate)</p>
@@ -235,6 +376,24 @@ export function HydrationCalculator() {
         ))}
       </select>
 
+      <label className="mt-4 flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background px-4 py-3">
+        <input
+          type="checkbox"
+          checked={workoutBump}
+          onChange={(e) => setWorkoutBump(e.target.checked)}
+          className="mt-1 accent-[var(--accent)]"
+        />
+        <span>
+          <span className="block text-sm font-medium text-foreground">
+            Extra sweat / workout bump (+15%)
+          </span>
+          <span className="mt-0.5 block text-xs text-muted-foreground">
+            Stacks on day type for a long run, hot commute, or sauna — still a rough estimate, not
+            sweat-loss science.
+          </span>
+        </span>
+      </label>
+
       <div className="mt-5">
         <div className="mb-2 flex items-baseline justify-between">
           <label htmlFor="hy-water" className="text-sm font-medium text-foreground">
@@ -256,7 +415,7 @@ export function HydrationCalculator() {
       <div className="mt-5">
         <div className="mb-2 flex items-baseline justify-between">
           <label htmlFor="hy-coffee" className="text-sm font-medium text-foreground">
-            Coffee / tea cups (count toward fluids)
+            Coffee cups (count toward fluids)
           </label>
           <span className="text-sm font-semibold text-foreground">{coffeeCups}</span>
         </div>
@@ -269,9 +428,27 @@ export function HydrationCalculator() {
           onChange={(e) => setCoffeeCups(Number(e.target.value))}
           className="w-full accent-[var(--accent)]"
         />
+      </div>
+
+      <div className="mt-5">
+        <div className="mb-2 flex items-baseline justify-between">
+          <label htmlFor="hy-tea" className="text-sm font-medium text-foreground">
+            Tea cups (count toward fluids)
+          </label>
+          <span className="text-sm font-semibold text-foreground">{teaCups}</span>
+        </div>
+        <input
+          id="hy-tea"
+          type="range"
+          min={0}
+          max={8}
+          value={teaCups}
+          onChange={(e) => setTeaCups(Number(e.target.value))}
+          className="w-full accent-[var(--accent)]"
+        />
         <p className="mt-1 text-xs text-muted-foreground">
-          Moderate coffee still counts as fluid for most regular drinkers. Alcohol and heavy sweating
-          are not modeled.
+          Moderate coffee and tea still count as fluid for most regular drinkers. Alcohol is not
+          modeled.
         </p>
       </div>
 
@@ -293,7 +470,8 @@ export function HydrationCalculator() {
             {round(result.intake / 1000, 2)} L
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
-            {round(result.waterMl)} ml water + {round(result.coffeeMl)} ml coffee/tea
+            {round(result.waterMl)} ml water · {round(result.coffeeMl)} ml coffee ·{' '}
+            {round(result.teaMl)} ml tea
           </p>
         </div>
         <div className="rounded-xl border border-border bg-background p-4">

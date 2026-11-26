@@ -42,21 +42,21 @@ const faqs = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Coffee Recipes — Korean Cream Coffee, Lattes, Espresso Drinks',
+  title: 'Coffee Recipes — Iced Latte, Cappuccino, Cortado & Café Drinks',
   description:
-    'Homemade coffee recipes with ingredients, ratios, and step-by-step method: Korean cream coffee, yeonyu latte, deep cream latte, dalgona, iced latte, cappuccino, Vietnamese iced coffee, and more.',
+    'Homemade coffee drink recipes with ratios and step-by-step methods: iced latte, cappuccino, cortado, Spanish latte, Vietnamese iced coffee, pistachio latte, and more.',
   alternates: { canonical: '/recipes' },
   keywords: [
     'coffee recipes',
-    'korean cream coffee',
-    'yeonyu latte',
-    'dalgona coffee',
-    'deep cream latte',
     'iced latte recipe',
     'cappuccino recipe',
+    'cortado recipe',
     'vietnamese iced coffee',
     'spanish latte',
+    'pistachio latte recipe',
     'brown sugar shaken espresso',
+    'korean cream coffee',
+    'dalgona coffee',
   ],
   openGraph: {
     title: 'Coffee Recipes — Café Drinks at Home',
@@ -64,6 +64,7 @@ export const metadata: Metadata = {
       'Step-by-step coffee drink recipes with ratios, ingredients, and no-machine options.',
     type: 'website',
     url: `${SITE.url}/recipes`,
+    images: [{ url: '/images/recipes/iced-latte.webp', alt: 'Iced latte recipe' }],
   },
 }
 
@@ -80,12 +81,14 @@ export default function RecipesPage() {
   }
 
   const featured = [
-    'korean-cream-coffee',
-    'yeonyu-latte',
     'iced-latte',
+    'cappuccino',
+    'cortado',
     'vietnamese-iced-coffee',
+    'spanish-latte',
+    'iced-pistachio-latte',
     'brown-sugar-shaken-espresso',
-    'dalgona-coffee',
+    'korean-cream-coffee',
   ]
     .map((slug) => RECIPES.find((r) => r.slug === slug))
     .filter(Boolean) as typeof RECIPES
@@ -119,8 +122,9 @@ export default function RecipesPage() {
           Start here
         </h2>
         <p className="mt-2 text-pretty text-muted-foreground">
-          High-intent drinks people search by name — each page has a full ingredient list, timed
-          method, and troubleshooting.
+          Classics that already show up in search — iced latte, cappuccino, cortado — plus condensed
+          milk and seasonal café drinks. Each page has ingredients, method, FAQs, and linked
+          calculators.
         </p>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           {featured.map((r) => (
@@ -158,7 +162,7 @@ export default function RecipesPage() {
             iced coffee calculator
           </Link>
           ,{' '}
-          <Link href="/tools/espresso-calculator" className="font-medium text-accent underline-offset-2 hover:underline">
+          <Link href="/tools/espresso-ratio-calculator" className="font-medium text-accent underline-offset-2 hover:underline">
             espresso calculator
           </Link>
           , or{' '}

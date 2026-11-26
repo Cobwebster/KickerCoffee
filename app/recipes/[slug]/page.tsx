@@ -184,6 +184,34 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
           <ContentBlocks blocks={recipe.body} />
         </div>
 
+        {recipe.relatedTools && recipe.relatedTools.length > 0 && (
+          <section className="mt-12" aria-labelledby="related-tools-heading">
+            <h2
+              id="related-tools-heading"
+              className="font-serif text-2xl font-semibold tracking-tight text-foreground"
+            >
+              Tools &amp; guides for this drink
+            </h2>
+            <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+              Pair the recipe with a calculator or brewing guide when you want numbers or a better
+              espresso base.
+            </p>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {recipe.relatedTools.map((t) => (
+                <li key={t.href}>
+                  <Link
+                    href={t.href}
+                    className="flex items-center justify-between gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent"
+                  >
+                    {t.label}
+                    <ArrowRight className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <FaqSection faqs={recipe.faqs} />
       </article>
 

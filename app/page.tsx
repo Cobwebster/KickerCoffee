@@ -109,7 +109,7 @@ export default function HomePage() {
                 href="/tools/caffeine-day-planner"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Caffeine day planner
+                Caffeine tracker
                 <ArrowRight className="size-4" />
               </Link>
               <Link
@@ -196,29 +196,33 @@ export default function HomePage() {
             size, jar, or mug without doing the math by hand.
           </p>
           <p>
-            Beyond recipes, you can learn{' '}
+            Beyond recipes, learn{' '}
             <Link href="/coffee-beans/coffee-roast-levels-explained" className="font-medium text-foreground underline-offset-4 hover:underline">
-              coffee roast levels
-            </Link>
-            , explore{' '}
-            <Link href="/coffee-beans/coffee-bean-origins-guide" className="font-medium text-foreground underline-offset-4 hover:underline">
-              coffee bean origins
+              types of coffee roast
             </Link>
             , compare{' '}
-            <Link href="/gear/best-burr-coffee-grinders" className="font-medium text-foreground underline-offset-4 hover:underline">
-              burr grinders
+            <Link href="/coffee-beans/coffee-bean-origins-guide" className="font-medium text-foreground underline-offset-4 hover:underline">
+              coffee beans by country
             </Link>
-            , and use free tools for{' '}
+            , pick a method with our{' '}
+            <Link href="/brewing-guides/best-coffee-brewing-methods-compared" className="font-medium text-foreground underline-offset-4 hover:underline">
+              brewing methods comparison
+            </Link>
+            , make an{' '}
+            <Link href="/recipes/iced-latte" className="font-medium text-foreground underline-offset-4 hover:underline">
+              iced latte
+            </Link>
+            , or use free tools for{' '}
             <Link href="/tools/french-press-calculator" className="font-medium text-foreground underline-offset-4 hover:underline">
-              French press ratio
+              French press grams per liter
             </Link>
             ,{' '}
-            <Link href="/tools/cold-brew-calculator" className="font-medium text-foreground underline-offset-4 hover:underline">
-              cold brew ratio
+            <Link href="/tools/caffeine-calculator" className="font-medium text-foreground underline-offset-4 hover:underline">
+              caffeine mg to cups
             </Link>
             , and a{' '}
             <Link href="/tools/caffeine-day-planner" className="font-medium text-foreground underline-offset-4 hover:underline">
-              caffeine day planner
+              caffeine tracker
             </Link>
             .
           </p>
@@ -329,8 +333,8 @@ export default function HomePage() {
               Café drink recipes
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Korean cream coffee, yeonyu latte, and a deep cream latte — café drinks people are
-              actually searching, with ratios and no-machine options.
+              Iced latte, cappuccino, Vietnamese iced coffee — café drinks people search by name,
+              with ratios, FAQs, and no-machine options.
             </p>
           </div>
           <Link
@@ -343,7 +347,7 @@ export default function HomePage() {
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {RECIPES.filter((r) =>
-            ['korean-cream-coffee', 'yeonyu-latte', 'deep-cream-latte'].includes(r.slug),
+            ['iced-latte', 'cappuccino', 'vietnamese-iced-coffee'].includes(r.slug),
           ).map((recipe) => (
             <Link
               key={recipe.slug}

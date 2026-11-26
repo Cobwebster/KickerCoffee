@@ -9,6 +9,7 @@ import {
 } from '@/lib/content'
 import { RECIPES } from '@/lib/recipes'
 import { FOOD_RECIPES } from '@/lib/food-recipes'
+import { FOOD_GUIDES } from '@/lib/food-guides'
 
 const BASE = SITE.url
 
@@ -119,6 +120,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
+  const foodGuideRoutes: MetadataRoute.Sitemap = FOOD_GUIDES.map((g) => ({
+    url: `${BASE}/food-recipes/guides/${g.slug}`,
+    lastModified: g.updated ?? BUILD_STAMP,
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }))
+
   return [
     ...staticRoutes,
     ...brewGuideRoutes,
@@ -128,5 +136,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...toolRoutes,
     ...recipeRoutes,
     ...foodRoutes,
+    ...foodGuideRoutes,
   ]
 }

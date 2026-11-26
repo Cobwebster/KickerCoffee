@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { Link } from '@/components/link'
 
 type Bean =
   | 'Ethiopia' | 'Colombia' | 'Brazil' | 'Guatemala' | 'Kenya'
@@ -16,6 +17,8 @@ type Profile = {
   aroma: number
 }
 
+type FixLink = { href: string; label: string }
+
 type BrewResult = {
   profile: Profile
   extraction: number
@@ -23,6 +26,8 @@ type BrewResult = {
   verdict: string
   verdictType: 'good' | 'warn'
   roastColor: string
+  issue: 'under' | 'over' | 'bitter' | 'acid' | 'good'
+  fixes: FixLink[]
 }
 
 const BEAN_BASE: Record<Bean, { acidity: number; sweetness: number; aroma: number }> = {
@@ -115,6 +120,16 @@ function calcResult(
   const tooBitter      = bitterness > 72 && !underExtracted
   const tooAcid        = acidity > 85 && !overExtracted
 
+  const issue: BrewResult['issue'] = underExtracted
+    ? 'under'
+    : overExtracted
+      ? 'over'
+      : tooBitter
+        ? 'bitter'
+        : tooAcid
+          ? 'acid'
+          : 'good'
+
   const verdict = underExtracted
     ? 'Under-extracted — sour, hollow, thin. Try finer grind or bump the temperature.'
     : overExtracted
@@ -125,7 +140,52 @@ function calcResult(
     ? 'Very high acidity. Try a medium roast or lower water temperature to soften the brightness.'
     : 'Well-balanced extraction. Dialed in — this should taste excellent.'
 
-  const verdictType: 'good' | 'warn' = (!underExtracted && !overExtracted && !tooBitter && !tooAcid) ? 'good' : 'warn'
+  const verdictType: 'good' | 'warn' = issue === 'good' ? 'good' : 'warn'
+
+  const methodParam =
+    method === 'Pour Over'
+      ? 'pour-over'
+      : method === 'French Press'
+        ? 'french-press'
+        : method === 'Espresso'
+          ? 'espresso'
+          : method === 'Cold Brew'
+            ? 'cold-brew'
+            : 'aeropress'
+
+  const strongerRatio = Math.max(13, ratio - 1)
+  const lighterRatio = Math.min(18, ratio + 1)
+
+  const fixes: FixLink[] =
+    issue === 'under'
+      ? [
+          { href: `/tools/grind-size-chart?method=${methodParam}&hint=finer`, label: 'Grind finer — size chart' },
+          { href: `/tools/coffee-ratio-calculator?ratio=${strongerRatio}`, label: `Stronger ratio 1:${strongerRatio}` },
+          { href: '/tools/brew-timer', label: 'Pour-over brew timer' },
+        ]
+      : issue === 'over'
+        ? [
+            { href: `/tools/grind-size-chart?method=${methodParam}&hint=coarser`, label: 'Grind coarser — size chart' },
+            { href: `/tools/coffee-ratio-calculator?ratio=${lighterRatio}`, label: `Lighter ratio 1:${lighterRatio}` },
+            { href: '/tools/brew-timer', label: 'Slow the pour — brew timer' },
+          ]
+        : issue === 'bitter'
+          ? [
+              { href: `/tools/grind-size-chart?method=${methodParam}&hint=coarser`, label: 'Why bitter? Grind chart' },
+              { href: `/tools/coffee-ratio-calculator?ratio=${lighterRatio}`, label: 'Ease strength (ratio)' },
+              { href: '/tools/espresso-ratio-calculator', label: 'Espresso dial-in' },
+            ]
+          : issue === 'acid'
+            ? [
+                { href: `/tools/grind-size-chart?method=${methodParam}&hint=finer`, label: 'Fix sour — grind finer' },
+                { href: `/tools/coffee-ratio-calculator?ratio=${strongerRatio}`, label: 'Tighten ratio' },
+                { href: '/tools/espresso-ratio-calculator', label: 'Sour espresso? Shot ratio' },
+              ]
+            : [
+                { href: `/tools/coffee-ratio-calculator?ratio=${ratio}`, label: `Lock in 1:${ratio} ratio` },
+                { href: `/tools/grind-size-chart?method=${methodParam}`, label: 'Confirm grind for method' },
+                { href: '/tools/brew-timer', label: 'Time the brew' },
+              ]
 
   const roastColor =
     roast < 28 ? '#d4a96a'
@@ -133,7 +193,16 @@ function calcResult(
     : roast < 72 ? '#6b3520'
     : '#2c1508'
 
-  return { profile: { acidity, sweetness, bitterness, body, aroma }, extraction, notes, verdict, verdictType, roastColor }
+  return {
+    profile: { acidity, sweetness, bitterness, body, aroma },
+    extraction,
+    notes,
+    verdict,
+    verdictType,
+    roastColor,
+    issue,
+    fixes,
+  }
 }
 
 // ── Animated bar ──────────────────────────────────────────────────────────────
@@ -315,6 +384,18 @@ function ExtractionMeter({ value }: { value: number }) {
 const METHODS: BrewMethod[] = ['Pour Over', 'French Press', 'Espresso', 'AeroPress', 'Cold Brew']
 const BEANS: Bean[] = ['Ethiopia', 'Colombia', 'Brazil', 'Guatemala', 'Kenya', 'Panama', 'Indonesia', 'Yemen', 'Rwanda', 'Honduras']
 
+function parseMethod(raw: string | null): BrewMethod | null {
+  if (!raw) return null
+  const map: Record<string, BrewMethod> = {
+    'pour-over': 'Pour Over',
+    'french-press': 'French Press',
+    espresso: 'Espresso',
+    aeropress: 'AeroPress',
+    'cold-brew': 'Cold Brew',
+  }
+  return map[raw.toLowerCase()] ?? (METHODS.includes(raw as BrewMethod) ? (raw as BrewMethod) : null)
+}
+
 export function CoffeeLabSimulator() {
   const [bean, setBean]       = useState<Bean>('Ethiopia')
   const [roast, setRoast]     = useState(30)
@@ -325,7 +406,63 @@ export function CoffeeLabSimulator() {
   const [brewing, setBrewing] = useState(false)
   const [progress, setProgress] = useState(0)
   const [result, setResult]   = useState<BrewResult | null>(null)
+  const [copied, setCopied]   = useState(false)
   const intervalRef           = useRef<ReturnType<typeof setInterval> | null>(null)
+  const hydratedRef           = useRef(false)
+
+  useEffect(() => {
+    if (hydratedRef.current) return
+    hydratedRef.current = true
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const b = params.get('bean')
+      if (b && BEANS.includes(b as Bean)) setBean(b as Bean)
+      const m = parseMethod(params.get('method'))
+      if (m) setMethod(m)
+      const r = Number(params.get('roast'))
+      if (Number.isFinite(r) && r >= 0 && r <= 100) setRoast(r)
+      const g = Number(params.get('grind'))
+      if (Number.isFinite(g) && g >= 0 && g <= 100) setGrind(g)
+      const t = Number(params.get('temp'))
+      if (Number.isFinite(t) && t >= 80 && t <= 100) setTemp(t)
+      const ratioN = Number(params.get('ratio'))
+      if (Number.isFinite(ratioN) && ratioN >= 13 && ratioN <= 18) setRatio(ratioN)
+    } catch {
+      /* ignore */
+    }
+  }, [])
+
+  function syncShareUrl(next: {
+    bean: Bean
+    roast: number
+    grind: number
+    temp: number
+    ratio: number
+    method: BrewMethod
+  }) {
+    try {
+      const params = new URLSearchParams({
+        bean: next.bean,
+        roast: String(next.roast),
+        grind: String(next.grind),
+        temp: String(next.temp),
+        ratio: String(next.ratio),
+        method:
+          next.method === 'Pour Over'
+            ? 'pour-over'
+            : next.method === 'French Press'
+              ? 'french-press'
+              : next.method === 'Cold Brew'
+                ? 'cold-brew'
+                : next.method.toLowerCase(),
+      })
+      const url = `${window.location.pathname}?${params.toString()}`
+      history.replaceState(null, '', url)
+      return `${window.location.origin}${url}`
+    } catch {
+      return window.location.href
+    }
+  }
 
   function brew() {
     if (brewing) return
@@ -339,9 +476,21 @@ export function CoffeeLabSimulator() {
       if (p >= 100) {
         clearInterval(intervalRef.current!)
         setResult(calcResult(bean, roast, grind, temp, ratio, method))
+        syncShareUrl({ bean, roast, grind, temp, ratio, method })
         setBrewing(false)
       }
     }, 70)
+  }
+
+  async function copyResultLink() {
+    const href = syncShareUrl({ bean, roast, grind, temp, ratio, method })
+    try {
+      await navigator.clipboard.writeText(href)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      /* ignore */
+    }
   }
 
   const roastLabel = roast < 33 ? 'Light' : roast < 66 ? 'Medium' : 'Dark'
@@ -558,6 +707,29 @@ export function CoffeeLabSimulator() {
                   }`}
                 >
                   {result.verdict}
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+                    Apply fix
+                  </p>
+                  {result.fixes.map((fix) => (
+                    <Link
+                      key={fix.href}
+                      href={fix.href}
+                      className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-amber-300 transition-colors hover:border-amber-700/50 hover:bg-amber-950/40"
+                    >
+                      {fix.label}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={copyResultLink}
+                    className="mt-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white/60 transition-colors hover:border-white/20 hover:text-white/90"
+                  >
+                    {copied ? 'Link copied' : 'Copy shareable result link'}
+                  </button>
                 </div>
 
               </div>

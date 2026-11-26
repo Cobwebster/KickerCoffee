@@ -51,10 +51,34 @@ export function SiteFooter() {
           <ul className="mt-4 flex flex-col gap-2">
             <li>
               <Link
+                href="/brewing-guides/best-coffee-brewing-methods-compared"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Brewing Methods Compared
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/brewing-guides/coffee-brewing-tips"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Coffee Brewing Tips
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/brewing-guides/coffee-brewing-ratios-and-grind-size-chart"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 Ratio & Grind Chart
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/coffee-beans/coffee-roast-levels-explained"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Types of Coffee Roast
               </Link>
             </li>
             <li>
@@ -83,10 +107,34 @@ export function SiteFooter() {
             </li>
             <li>
               <Link
+                href="/recipes/cappuccino"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Cappuccino Recipe
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/recipes/vietnamese-iced-coffee"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Vietnamese Iced Coffee
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/food-recipes"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 Food Recipes
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/food-recipes/guides/best-snacks-with-coffee"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Best Snacks with Coffee
               </Link>
             </li>
             <li>

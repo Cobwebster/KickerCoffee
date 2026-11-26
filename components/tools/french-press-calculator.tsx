@@ -1,9 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from '@/components/link'
+import { Pause, Play, RotateCcw } from 'lucide-react'
 
 const GRAMS_PER_TBSP = 5.3
 const GRAMS_PER_SCOOP = 10
+const STEEP_SECONDS = 4 * 60
+const BLOOM_SECONDS = 30
 
 /** Common French press / cafetière sizes (usable brew volume). */
 const PRESS_SIZES = [
@@ -34,10 +38,21 @@ function round(n: number, d = 0) {
   return Math.round(n * f) / f
 }
 
+function formatTime(sec: number) {
+  const s = Math.max(0, Math.floor(sec))
+  const m = Math.floor(s / 60)
+  const r = s % 60
+  return `${m}:${r.toString().padStart(2, '0')}`
+}
+
 export function FrenchPressCalculator() {
   const [sizeId, setSizeId] = useState<(typeof PRESS_SIZES)[number]['id']>('8-cup')
   const [strengthId, setStrengthId] = useState<(typeof STRENGTHS)[number]['id']>('classic')
   const [customWater, setCustomWater] = useState<number | null>(null)
+  const [bloomOn, setBloomOn] = useState(false)
+  const [elapsed, setElapsed] = useState(0)
+  const [running, setRunning] = useState(false)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const size = PRESS_SIZES.find((s) => s.id === sizeId) ?? PRESS_SIZES[5]
   const strength = STRENGTHS.find((s) => s.id === strengthId) ?? STRENGTHS[1]
@@ -46,9 +61,59 @@ export function FrenchPressCalculator() {
   const tbsp = coffee / GRAMS_PER_TBSP
   const scoops = coffee / GRAMS_PER_SCOOP
   const mugs = water / 250
+  const bloomWater = round(coffee * 2)
+
+  const totalSeconds = bloomOn ? BLOOM_SECONDS + STEEP_SECONDS : STEEP_SECONDS
+  const inBloom = bloomOn && elapsed < BLOOM_SECONDS
+  const steepElapsed = bloomOn ? Math.max(0, elapsed - BLOOM_SECONDS) : elapsed
+  const done = elapsed >= totalSeconds
+  const phaseLabel = done
+    ? 'Plunge now'
+    : inBloom
+      ? 'Bloom'
+      : 'Steep'
+
+  useEffect(() => {
+    if (!running) return
+    intervalRef.current = setInterval(() => {
+      setElapsed((e) => {
+        if (e + 1 >= totalSeconds) {
+          setRunning(false)
+          return totalSeconds
+        }
+        return e + 1
+      })
+    }, 1000)
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [running, totalSeconds])
+
+  function resetTimer() {
+    setRunning(false)
+    setElapsed(0)
+  }
+
+  const gramsPerLiter = round(1000 / strength.ratio, 0)
 
   return (
     <div className="rounded-2xl border border-border bg-card p-5 md:p-7">
+      <div className="mb-5 rounded-xl border border-accent/35 bg-accent/10 px-4 py-3.5">
+        <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+          French press coffee ratio — grams per liter
+        </p>
+        <p className="mt-1 font-serif text-2xl font-semibold text-foreground md:text-3xl">
+          {gramsPerLiter} g per liter{' '}
+          <span className="text-lg font-sans font-medium text-muted-foreground">
+            (1:{strength.ratio}
+            {strengthId === 'classic' ? ' classic' : ''})
+          </span>
+        </p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Classic starting point is <strong className="text-foreground">67 g/L at 1:15</strong> —
+          about 17 g per 250 ml mug. Pick your press size below; the dose updates live.
+        </p>
+      </div>
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6">
           <div>
@@ -133,6 +198,85 @@ export function FrenchPressCalculator() {
               ))}
             </div>
           </div>
+
+          <div className="rounded-xl border border-border bg-background p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-medium text-foreground">4-minute steep timer</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  Optional 30s bloom, then steep — plunge reminder at the end
+                </p>
+              </div>
+              <label className="inline-flex items-center gap-2 text-sm text-foreground">
+                <input
+                  type="checkbox"
+                  checked={bloomOn}
+                  onChange={(e) => {
+                    setBloomOn(e.target.checked)
+                    resetTimer()
+                  }}
+                  className="size-4 accent-[var(--accent)]"
+                />
+                Bloom first
+              </label>
+            </div>
+
+            <div className="mt-4 flex items-end justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                  {phaseLabel}
+                </p>
+                <p className="mt-1 font-serif text-4xl font-semibold tabular-nums text-foreground">
+                  {done
+                    ? '0:00'
+                    : inBloom
+                      ? formatTime(BLOOM_SECONDS - elapsed)
+                      : formatTime(STEEP_SECONDS - steepElapsed)}
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {bloomOn
+                    ? `Total ${formatTime(totalSeconds)} · elapsed ${formatTime(elapsed)}`
+                    : `4:00 steep · elapsed ${formatTime(elapsed)}`}
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setRunning((r) => !r)}
+                  disabled={done}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-accent bg-accent px-3 py-2 text-sm font-medium text-accent-foreground disabled:opacity-50"
+                >
+                  {running ? <Pause className="size-4" /> : <Play className="size-4" />}
+                  {running ? 'Pause' : done ? 'Done' : 'Start'}
+                </button>
+                <button
+                  type="button"
+                  onClick={resetTimer}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-border px-3 py-2 text-sm font-medium text-muted-foreground hover:border-accent hover:text-foreground"
+                >
+                  <RotateCcw className="size-4" />
+                  Reset
+                </button>
+              </div>
+            </div>
+
+            {inBloom && (
+              <p className="mt-3 rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground">
+                Pour ~{bloomWater} g (~2× dose), stir gently, wait — then fill to {round(water)} g.
+              </p>
+            )}
+            {!inBloom && !done && bloomOn && elapsed >= BLOOM_SECONDS && (
+              <p className="mt-3 rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground">
+                Fill to {round(water)} g and steep. Break the crust near the end.
+              </p>
+            )}
+            {done && (
+              <p className="mt-3 rounded-lg border border-accent/40 bg-accent/10 px-3 py-2 text-sm font-medium text-foreground">
+                Time&apos;s up — plunge slowly, then decant immediately so it doesn&apos;t keep
+                extracting.
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5">
@@ -150,10 +294,17 @@ export function FrenchPressCalculator() {
 
           <div className="mt-5 space-y-2 border-t border-border/60 pt-4 text-sm text-muted-foreground">
             <p>
-              <span className="font-medium text-foreground">Grind:</span> coarse (like sea salt)
+              <span className="font-medium text-foreground">Grind:</span> coarse (like sea salt) —{' '}
+              <Link
+                href="/tools/grind-size-chart?method=french-press"
+                className="text-accent hover:underline"
+              >
+                open grind chart
+              </Link>
             </p>
             <p>
               <span className="font-medium text-foreground">Steep / brew time:</span> 4 minutes
+              {bloomOn ? ' (+ optional 30s bloom)' : ''}
             </p>
             <p>
               <span className="font-medium text-foreground">Water temp:</span> ~93–96°C (200–205°F)
@@ -161,6 +312,10 @@ export function FrenchPressCalculator() {
             <p>
               <span className="font-medium text-foreground">Finish:</span> press slowly, then
               decant immediately
+            </p>
+            <p>
+              <span className="font-medium text-foreground">Muddy / sludge?</span> Grind coarser,
+              plunge gently, pour soon — see the FAQ below.
             </p>
           </div>
         </div>
